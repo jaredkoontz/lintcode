@@ -3,9 +3,9 @@ package problems.easy.climbStairs;
 
 public class ClimbStairs {
 	public int climbStairs(int n) {
-		int[] matrix = new int[n];
 		if (n == 0) return 1;
 		if (n < 3) return n;
+		int[] matrix = new int[n];
 
 		matrix[0] = 1;
 		matrix[1] = 2;
