@@ -13,7 +13,7 @@ public class Fibonacci {
 		if (n < 3)
 			return n == 2 ? 1 : 0;
 
-		int[] matrix = new int[n+1];
+		int[] matrix = new int[n + 1];
 
 		matrix[0] = 0;
 		matrix[1] = 0;
