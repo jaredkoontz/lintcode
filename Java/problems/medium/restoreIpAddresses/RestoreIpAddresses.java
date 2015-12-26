@@ -55,7 +55,7 @@ public class RestoreIpAddresses {
 		}
 	}
 
-	boolean isValid(String s) {
+	private boolean isValid(String s) {
 		if (s.isEmpty() || (s.charAt(0) == '0' && !Objects.equals(s, "0"))) {
 			return false;
 		}
