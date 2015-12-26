@@ -1,7 +1,7 @@
-package problems.medium.medium.problems.easy.insertionSortList;
+package problems.easy.insertionSortList;
 
 
-import problems.medium.medium.shared.ListNode;
+import shared.ListNode;
 
 public class InsertionSortList {
 	/**

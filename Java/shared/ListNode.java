@@ -1,4 +1,4 @@
-package problems.medium.medium.shared;
+package shared;
 
 /**
  * Definition for singly-linked list.

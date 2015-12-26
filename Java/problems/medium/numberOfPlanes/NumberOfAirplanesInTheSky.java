@@ -1,6 +1,7 @@
-package problems.medium.medium.problems.medium.numberOfPlanes;
+package problems.medium.numberOfPlanes;
 
-import problems.medium.medium.shared.Interval;
+
+import shared.Interval;
 
 import java.util.*;
 

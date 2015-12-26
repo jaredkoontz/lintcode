@@ -1,4 +1,6 @@
-package problems.medium.medium.problems.medium.lengthOfLongestSubstringKDistinct;
+package problems.medium.lengthOfLongestSubstringKDistinct;
+
+//todo
 
 public class LengthOfLongestSubstringKDistinct {
 	/**

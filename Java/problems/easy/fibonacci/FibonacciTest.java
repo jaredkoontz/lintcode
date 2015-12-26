@@ -1,4 +1,4 @@
-package problems.medium.medium.problems.easy.fibonacci;
+package problems.easy.fibonacci;
 
 
 import org.junit.Test;

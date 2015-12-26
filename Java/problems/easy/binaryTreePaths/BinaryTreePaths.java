@@ -1,6 +1,6 @@
-package problems.medium.medium.problems.easy.binaryTreePaths;
+package problems.easy.binaryTreePaths;
 
-import problems.medium.medium.shared.TreeNode;
+import shared.TreeNode;
 
 import java.util.LinkedList;
 import java.util.List;

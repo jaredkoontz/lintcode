@@ -1,4 +1,5 @@
-package problems.medium.medium.shared;
+package shared;
+
 
 public class Interval {
 	public int start, end;

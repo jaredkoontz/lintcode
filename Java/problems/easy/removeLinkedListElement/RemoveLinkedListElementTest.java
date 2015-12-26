@@ -1,7 +1,7 @@
-package problems.medium.medium.problems.easy.removeLinkedListElement;
+package problems.easy.removeLinkedListElement;
 
 import org.junit.Test;
-import problems.medium.medium.shared.ListNode;
+import shared.ListNode;
 
 public class RemoveLinkedListElementTest {
 

@@ -1,4 +1,4 @@
-package problems.medium.medium.problems.easy.climbStairs;
+package problems.easy.climbStairs;
 
 
 public class ClimbStairs {

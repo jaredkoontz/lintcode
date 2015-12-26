@@ -1,4 +1,4 @@
-package problems.medium.medium.shared;
+package shared;
 
 //  Definition of TreeNode:
 public class TreeNode {
