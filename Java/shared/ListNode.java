@@ -4,8 +4,8 @@ package shared;
  * Definition for singly-linked list.
  */
 public class ListNode {
-	public int val;
-	public ListNode next;
+	private int val;
+	private ListNode next;
 
 	public ListNode(int x) {
 		val = x;
@@ -17,5 +17,17 @@ public class ListNode {
 		} else {
 			return ((Integer) val).toString();
 		}
+	}
+
+	public ListNode getNext() {
+		return next;
+	}
+
+	public void setNext(ListNode node) {
+		this.next = node;
+	}
+
+	public int getVal() {
+		return val;
 	}
 }

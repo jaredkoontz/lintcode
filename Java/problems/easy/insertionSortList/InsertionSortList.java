@@ -19,18 +19,18 @@ public class InsertionSortList {
 		ListNode next = null; //the next node will be inserted
 		//not the end of input list
 		while (cur != null) {
-			next = cur.next;
+			next = cur.getNext();
 			//find the right place to insert
-			while (pre.next != null && pre.next.val < cur.val) {
-				pre = pre.next;
+			while (pre.getNext() != null && pre.getNext().getVal() < cur.getVal()) {
+				pre = pre.getNext();
 			}
 			//insert between pre and pre.next
-			cur.next = pre.next;
-			pre.next = cur;
+			cur.setNext(pre.getNext());
+			pre.setNext(cur);
 			pre = helper;
 			cur = next;
 		}
 
-		return helper.next;
+		return helper.getNext();
 	}
 }

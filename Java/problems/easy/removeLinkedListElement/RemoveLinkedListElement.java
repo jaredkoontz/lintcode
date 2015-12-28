@@ -10,8 +10,8 @@ public class RemoveLinkedListElement {
 	public ListNode removeElements(ListNode head, int val) {
 		if (head == null)
 			return null;
-		head.next = removeElements(head.next, val);
-		return head.val == val ? head.next : head;
+		head.setNext(removeElements(head.getNext(), val));
+		return head.getVal() == val ? head.getNext() : head;
 	}
 
 	/**
@@ -22,17 +22,17 @@ public class RemoveLinkedListElement {
 			return null;
 		}
 		ListNode dummy = new ListNode(-1);
-		dummy.next = head;
+		dummy.setNext(head);
 		ListNode p = dummy;
-		while (p.next != null) {
-			if (p.next.val == val) {
-				p.next = p.next.next;
+		while (p.getNext() != null) {
+			if (p.getNext().getVal() == val) {
+				p.setNext(p.getNext().getNext());
 			} else {
-				p = p.next;
+				p = p.getNext();
 			}
 		}
 
-		return dummy.next;
+		return dummy.getNext();
 	}
 
 }

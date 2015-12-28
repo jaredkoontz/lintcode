@@ -6,7 +6,23 @@ import shared.ListNode;
 public class RemoveLinkedListElementTest {
 
 	@Test
-	public void happyPath() {
+	public void happyPathRec() {
+		ListNode head = init();
+
+		RemoveLinkedListElement removeLinkedListElement = new RemoveLinkedListElement();
+		removeLinkedListElement.removeElements(head, 3);
+		System.out.println(head.printForward());
+	}
+
+	@Test
+	public void happyPathIterative() {
+		ListNode head = init();
+		RemoveLinkedListElement removeLinkedListElement = new RemoveLinkedListElement();
+		removeLinkedListElement.removeElementsIter(head, 3);
+		System.out.println(head.printForward());
+	}
+
+	private ListNode init() {
 		ListNode head = new ListNode(1);
 		ListNode listNode2 = new ListNode(2);
 		ListNode listNode3 = new ListNode(3);
@@ -15,16 +31,13 @@ public class RemoveLinkedListElementTest {
 		ListNode listNode6 = new ListNode(5);
 		ListNode listNode7 = new ListNode(3);
 
-		head.next = listNode2;
-		listNode2.next = listNode3;
-		listNode3.next = listNode4;
-		listNode4.next = listNode5;
-		listNode5.next = listNode6;
-		listNode6.next = listNode7;
-
-		RemoveLinkedListElement removeLinkedListElement = new RemoveLinkedListElement();
-		removeLinkedListElement.removeElements(head, 3);
-		System.out.println(head.printForward());
+		head.setNext(listNode2);
+		listNode2.setNext(listNode3);
+		listNode3.setNext(listNode4);
+		listNode4.setNext(listNode5);
+		listNode5.setNext(listNode6);
+		listNode6.setNext(listNode7);
+		return head;
 	}
 
 }

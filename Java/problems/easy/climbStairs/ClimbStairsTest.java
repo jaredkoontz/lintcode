@@ -8,9 +8,16 @@ import org.junit.Test;
 public class ClimbStairsTest {
 
 	@Test
+	public void happyPath() {
+		ClimbStairs c = new ClimbStairs();
+		System.out.println(c.climbStairs(3));
 
-	public void happyPath(){
-		
+	}
+
+	@Test
+	public void naiveTest(){
+		ClimbStairs c = new ClimbStairs();
+		System.out.println(c.climbStairsNaive(3));
 	}
 
 }
