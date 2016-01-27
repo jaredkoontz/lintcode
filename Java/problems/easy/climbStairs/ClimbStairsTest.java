@@ -15,7 +15,7 @@ public class ClimbStairsTest {
 	}
 
 	@Test
-	public void naiveTest(){
+	public void naiveTest() {
 		ClimbStairs c = new ClimbStairs();
 		System.out.println(c.climbStairsNaive(3));
 	}
