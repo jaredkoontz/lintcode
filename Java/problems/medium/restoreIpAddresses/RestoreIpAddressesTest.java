@@ -8,7 +8,7 @@ public class RestoreIpAddressesTest {
 	public void happyPath() {
 		String s = "25525511135";
 		RestoreIpAddresses r = new RestoreIpAddresses();
-		r.restoreIpAddresses(s);
+		System.out.println(r.restoreIpAddresses(s));
 	}
 
 }

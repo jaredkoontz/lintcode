@@ -2,7 +2,6 @@ package problems.medium.restoreIpAddresses;
 
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 /*
 
@@ -26,41 +25,58 @@ public class RestoreIpAddresses {
 	 * @return All possible valid IP addresses
 	 */
 	public ArrayList<String> restoreIpAddresses(String s) {
-		ArrayList<String> result = null;
-		String cur = null;
-		restoreIpAddressesHelper(s, 0, 0, cur, result);
-		return result;
-	}
+		ArrayList<ArrayList<String>> result = new ArrayList<>();
+		ArrayList<String> t = new ArrayList<>();
+		dfs(result, s, 0, t);
 
-	private void restoreIpAddressesHelper(String s, int start, int dots, String cur, ArrayList<String> result) {
+		ArrayList<String> finalResult = new ArrayList<>();
 
-//todo
-//		// Pruning to improve performance.
-//		if (((4 - dots) * 3 < s.length() - start) ||
-//				((4 - dots) > s.length() - start)) {
-//			return;
-//		}
-//
-//		if (start == s.length() && dots == 4) {
-//			result.add(cur -> begin(), prev(cur -> end()));
-//		} else {
-//			for (int i = start; i < start + 3; ++i) {
-//				String tmp = s.substr(start, i - start + 1);
-//				if (i < s.length() && isValid(tmp)) {
-//					tmp += '.';
-//					cur += (tmp);
-//					restoreIpAddressesHelper(s, i + 1, dots + 1, cur, result);
-//					cur -> resize(cur -> length() - (i - start + 2));
-//				}
-//			}
-//		}
-	}
-
-	private boolean isValid(String s) {
-		if (s.isEmpty() || (s.charAt(0) == '0' && !Objects.equals(s, "0"))) {
-			return false;
+		for (ArrayList<String> l : result) {
+			StringBuilder sb = new StringBuilder();
+			for (String str : l) {
+				sb.append(str).append(".");
+			}
+			sb.setLength(sb.length() - 1);
+			finalResult.add(sb.toString());
 		}
-		return Integer.parseInt(s) < 256;
+
+		return finalResult;
 	}
 
+	public void dfs(ArrayList<ArrayList<String>> result, String s, int start, ArrayList<String> t) {
+		//if already get 4 numbers, but s is not consumed, return
+		if (t.size() >= 4 && start != s.length())
+			return;
+
+		//make sure t's size + remaining string's length >=4
+		if ((t.size() + s.length() - start + 1) < 4)
+			return;
+
+		//t's size is 4 and no remaining part that is not consumed.
+		if (t.size() == 4 && start == s.length()) {
+			ArrayList<String> temp = new ArrayList<String>(t);
+			result.add(temp);
+			return;
+		}
+
+		for (int i = 1; i <= 3; i++) {
+			//make sure the index is within the boundary
+			if (start + i > s.length())
+				break;
+
+			String sub = s.substring(start, start + i);
+			//handle case like 001. i.e., if length > 1 and first char is 0, ignore the case.
+			if (i > 1 && s.charAt(start) == '0') {
+				break;
+			}
+
+			//make sure each number <= 255
+			if (Integer.valueOf(sub) > 255)
+				break;
+
+			t.add(sub);
+			dfs(result, s, start + i, t);
+			t.remove(t.size() - 1);
+		}
+	}
 }
