@@ -11,13 +11,13 @@ public class MarshalAndUnmarshalBinTree {
 	public static final String SPLITTER = ",";
 	public static final String NULL_NODE = "#";
 
-	public static String marshal(TreeNode root){
+	public static String marshal(TreeNode root) {
 		StringBuilder sb = new StringBuilder();
 		marshal(root, sb);
 		return sb.toString();
 	}
 
-	private static void marshal(TreeNode x, StringBuilder sb){
+	private static void marshal(TreeNode x, StringBuilder sb) {
 		if (x == null) {
 			sb.append(NULL_NODE);
 		} else {
@@ -27,13 +27,13 @@ public class MarshalAndUnmarshalBinTree {
 		}
 	}
 
-	public static TreeNode unmarshal(String s){
+	public static TreeNode unmarshal(String s) {
 		if (s == null || s.length() == 0) return null;
 		StringTokenizer st = new StringTokenizer(s, SPLITTER);
 		return unmarshal(st);
 	}
 
-	private static TreeNode unmarshal(StringTokenizer st){
+	private static TreeNode unmarshal(StringTokenizer st) {
 		if (!st.hasMoreTokens())
 			return null;
 		String val = st.nextToken();

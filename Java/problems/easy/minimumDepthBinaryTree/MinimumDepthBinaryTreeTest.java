@@ -10,7 +10,7 @@ import shared.TreeNode;
 public class MinimumDepthBinaryTreeTest {
 
 	@Test
-	public void happyPath(){
+	public void happyPath() {
 		String treeString = "1,#,2,3";
 		TreeNode root = MarshalAndUnmarshalBinTree.unmarshal(treeString);
 		MinimumDepthBinaryTree minimumDepthBinaryTree = new MinimumDepthBinaryTree();
