@@ -26,13 +26,13 @@ public class EvaluateReversePolishNotation {
 				int y = Integer.valueOf(s.pop());
 				int x = Integer.valueOf(s.pop());
 				if (tok.charAt(0) == '+') {
-					x += y;
+					x = x + y;
 				} else if (tok.charAt(0) == '-') {
-					x -= y;
+					x = x - y;
 				} else if (tok.charAt(0) == '*') {
-					x *= y;
+					x = x * y;
 				} else {
-					x /= y;
+					x = x / y;
 				}
 				s.push(String.valueOf((x)));
 			}
