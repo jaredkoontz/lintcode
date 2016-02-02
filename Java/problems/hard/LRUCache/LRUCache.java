@@ -78,7 +78,7 @@ public class LRUCache {
 	/* Put key, value pair in cache. Removes old value for key if
 	 * necessary. Inserts pair into linked list and hash table.*/
 	public void set(int key, int value) {
-        /* Remove if already there. */
+	    /* Remove if already there. */
 		removeKey(key);
 
 		/* If full, remove least recently used item from cache, so we can make room*/
