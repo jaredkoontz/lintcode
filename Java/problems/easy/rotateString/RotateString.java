@@ -8,7 +8,7 @@ public class RotateString {
 	// Space: O(n)
 
 	/**
-	 * @param A: A String
+	 * @param A:      A String
 	 * @param offset: Rotate String with offset.
 	 * @return: Rotated String.
 	 */
@@ -50,5 +50,5 @@ public class RotateString {
 			end--;
 		}
 	}
-	
+
 }
