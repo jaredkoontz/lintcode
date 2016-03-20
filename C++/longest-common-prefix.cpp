@@ -1,4 +1,4 @@
-// Time:  O(n * k), k is length of the common prefix
+// Time:  O(n * k), k is the length of the common prefix
 // Space: O(1)
 
 // BFS
@@ -9,21 +9,18 @@ public:
      * @return: The longest common prefix
      */
     string longestCommonPrefix(vector<string> &strs) {
-        if (strs.size() == 0) {
+        if (strs.empty()) {
             return "";
         }
 
-        auto prefix_len = strs[0].length();
-        for (int i = 0; i < prefix_len; ++i) {
+        for (int i = 0; i < strs[0].length(); ++i) {
             for (const auto& str : strs) {
-                if (str[i] != strs[0][i]) {
-                    prefix_len = i;
-                    break;
+                if (i >= str.length() || str[i] != strs[0][i]) {
+                    return strs[0].substr(0, i);
                 }
             }
         }
-
-        return strs[0].substr(0, prefix_len);
+        return strs[0];
     }
 };
 
@@ -38,7 +35,7 @@ public:
      * @return: The longest common prefix
      */
     string longestCommonPrefix(vector<string> &strs) {
-        if (strs.size() == 0) {
+        if (strs.empty()) {
             return "";
         }
 
@@ -50,7 +47,6 @@ public:
                 prefix_len = i;
             }
         }
-
         return strs[0].substr(0, prefix_len);
     }
 };

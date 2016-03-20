@@ -1,6 +1,8 @@
-// Time:  O(n)
+// Time:  O(n + k)
 // Space: O(k)
-// KMP Algorithm
+
+// Wiki of KMP algorithm:
+// http://en.wikipedia.org/wiki/Knuth-Morris-Pratt_algorithm
 class Solution {
 public:
     /**
@@ -20,7 +22,6 @@ public:
         }
         return -1;
     }
-
 
     int KMP(const string& text, const string& pattern) {
         const vector<int> prefix = getPrefix(pattern);
@@ -56,7 +57,7 @@ public:
 };
 
 
-// Time:  O(k * n)
+// Time:  O(n * k)
 // Space: O(k)
 class Solution2 {
 public:

@@ -1,35 +1,33 @@
-# [LintCode](http://www.lintcode.com/en/problem/) ![Language](https://img.shields.io/badge/language-C++%2011-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md) ![Progress](https://img.shields.io/badge/progress-257%20%2F%20257-ff69b4.svg)
+# [LintCode](http://www.lintcode.com/en/problem/) ![Language](https://img.shields.io/badge/language-C++%2011-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md) ![Progress](https://img.shields.io/badge/progress-267%20%2F%20267-ff69b4.svg)
 
-My own "fork" (without pressing fork on github) of [kamyu104's](https://github.com/kamyu104) lintcode solutions,
-but this repo has java solutions as well.
-
-Up to date (2015-12-21), there are `257` problems on [LintCode Online Judge](http://lintcode.com/).
+Up to date (2016-03-18), there are `267` problems on [LintCode Online Judge](http://lintcode.com/).
 The number of problems is increasing recently.
-Here is the classification of all `257` problems.
-For more problems and solutions, you can see my [LeetCode](https://github.com/jaredkoontz/LeetCode) repository.
+Here is the classification of all `267` problems.
+For more problems and solutions, you can see my [LeetCode](https://github.com/kamyu104/LeetCode) repository.
 I'll keep updating for full summary and better solutions. Stay tuned for updates.
 
 ## Algorithms
-* [Bit Manipulation](https://github.com/jaredkoontz/LintCode#bit-manipulation)
-* [Array](https://github.com/jaredkoontz/LintCode#array)
-* [String](https://github.com/jaredkoontz/LintCode#string)
-* [Linked List](https://github.com/jaredkoontz/LintCode#linked-list)
-* [Math](https://github.com/jaredkoontz/LintCode#math)
-* [Tree](https://github.com/jaredkoontz/LintCode#tree)
-* [Stack](https://github.com/jaredkoontz/LintCode#stack)
-* [Queue](https://github.com/jaredkoontz/LintCode#queue)
-* [Heap](https://github.com/jaredkoontz/LintCode#heap)
-* [Hash Tables](https://github.com/jaredkoontz/LintCode#hash-tables)
-* [Data Structure](https://github.com/jaredkoontz/LintCode#data-structure)
-* [Sort](https://github.com/jaredkoontz/LintCode#sort)
-* [Divide and Conquer](https://github.com/jaredkoontz/LintCode#divide-and-conquer)
-* [Binary Search](https://github.com/jaredkoontz/LintCode#binary-search)
-* [Depth-First Search](https://github.com/jaredkoontz/LintCode#depth-first-search)
-* [Breadth-First Search](https://github.com/jaredkoontz/LintCode#breadth-first-search)
-* [Binary Search Trees](https://github.com/jaredkoontz/LintCode#binary-search-trees)
-* [Dynamic Programming](https://github.com/jaredkoontz/LintCode#dynamic-programming)
-* [Greedy](https://github.com/jaredkoontz/LintCode#greedy)
-* [OO Design](https://github.com/jaredkoontz/LintCode#oo-design)
+* [Bit Manipulation](https://github.com/kamyu104/LintCode#bit-manipulation)
+* [Array](https://github.com/kamyu104/LintCode#array)
+* [String](https://github.com/kamyu104/LintCode#string)
+* [Linked List](https://github.com/kamyu104/LintCode#linked-list)
+* [Math](https://github.com/kamyu104/LintCode#math)
+* [Tree](https://github.com/kamyu104/LintCode#tree)
+* [Stack](https://github.com/kamyu104/LintCode#stack)
+* [Queue](https://github.com/kamyu104/LintCode#queue)
+* [Heap](https://github.com/kamyu104/LintCode#heap)
+* [Hash Tables](https://github.com/kamyu104/LintCode#hash-tables)
+* [Data Structure](https://github.com/kamyu104/LintCode#data-structure)
+* [Sort](https://github.com/kamyu104/LintCode#sort)
+* [Divide and Conquer](https://github.com/kamyu104/LintCode#divide-and-conquer)
+* [Binary Search](https://github.com/kamyu104/LintCode#binary-search)
+* [Breadth-First Search](https://github.com/kamyu104/LintCode#breadth-first-search)
+* [Depth-First Search](https://github.com/kamyu104/LintCode#depth-first-search)
+* [Backtracking](https://github.com/kamyu104/LintCode#backtracking)
+* [Binary Search Trees](https://github.com/kamyu104/LintCode#binary-search-trees)
+* [Dynamic Programming](https://github.com/kamyu104/LintCode#dynamic-programming)
+* [Greedy](https://github.com/kamyu104/LintCode#greedy)
+* [OO Design](https://github.com/kamyu104/LintCode#oo-design)
 
 ## Bit Manipulation
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
@@ -91,7 +89,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 ## String
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
 |---| ----- | -------- | ---- | ----- | ---------- | --- | ---- |
-|13|[strStr](http://lintcode.com/en/problem/strstr/)|[C++](./C++/strstr.cpp)| _O(n)_ | _O(k)_ | Easy | LeetCode | `KMP Algorithm` |
+|13|[strStr](http://lintcode.com/en/problem/strstr/)|[C++](./C++/strstr.cpp)| _O(n + k)_ | _O(k)_ | Easy | LeetCode | `KMP Algorithm` |
 |53|[Reverse Words in a String](http://lintcode.com/en/problem/reverse-words-in-a-string/)|[C++](./C++/reverse-words-in-a-string.cpp)| _O(n)_ | _O(1)_ | Easy | LeetCode, EPI | |
 |54|[String to Integer(atoi)](http://lintcode.com/en/problem/string-to-integeratoi/)|[C++](./C++/string-to-integeratoi.cpp)| _O(n)_ | _O(1)_ | Hard | LeetCode | |
 |55|[Compare Strings](http://lintcode.com/en/problem/compare-strings/)|[C++](./C++/compare-strings.cpp)| _O(n)_ | _O(c)_ | Easy | | |
@@ -133,6 +131,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |450|[Reverse Nodes in k-Group](http://lintcode.com/en/problem/reverse-nodes-in-k-group/)|[C++](./C++/reverse-nodes-in-k-group.cpp)| _O(n)_ | _O(1)_ | Hard | LeetCode | |
 |451|[Swap Nodes in Pairs](http://lintcode.com/en/problem/swap-nodes-in-pairs/)|[C++](./C++/swap-nodes-in-pairs.cpp)| _O(n)_ | _O(1)_ | Easy | LeetCode | |
 |452|[Remove Linked List Elements](http://lintcode.com/en/problem/remove-linked-list-elements/)|[C++](./C++/remove-linked-list-elements.cpp)| _O(n)_ | _O(1)_ | Naive | LeetCode | |
+|511|[Swap Two Nodes in Linked List](http://lintcode.com/en/problem/swap-two-nodes-in-linked-list/)|[C++](./C++/swap-two-nodes-in-linked-list.cpp)| _O(n)_ | _O(1)_ | Medium | | |
 
 ## Tree
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
@@ -186,6 +185,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |129|[Rehashing](http://lintcode.com/en/problem/rehashing/)| [C++](./C++/rehashing.cpp)| _O(n)_ | _O(n)_ | Medium | | |
 |138|[Subarray Sum](http://lintcode.com/en/problem/subarray-sum/)| [C++](./C++/subarray-sum.cpp)| _O(n)_ | _O(n)_ | Easy | | |
 |186|[Max Points on a Line](http://lintcode.com/en/problem/max-points-on-a-line/)| [C++](./C++/max-points-on-a-line.cpp)| _O(n^2)_ | _O(n)_ | Medium | LeetCode | |
+|211|[String Permutation](http://lintcode.com/en/problem/string-permutation/)| [C++](./C++/string-permutation.cpp)| _O(n)_ | _O(1)_ | Easy | | |
 |384|[Longest Substring Without Repeating Characters](http://lintcode.com/en/problem/longest-substring-without-repeating-characters/)| [C++](./C++/longest-substring-without-repeating-characters.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode, EPI | |
 |386|[Longest Substring with At Most K Distinct Characters](http://lintcode.com/en/problem/longest-substring-with-at-most-k-distinct-characters/)| [C++](./C++/longest-substring-with-at-most-k-distinct-characters.cpp)| _O(n)_ | _O(n)_ | Medium | | |
 |432|[Find the Weak Connected Component in the Directed Graph](http://lintcode.com/en/problem/find-the-weak-connected-component-in-the-directed-graph/)| [C++](./C++/find-the-weak-connected-component-in-the-directed-graph.cpp)| _O(nlogn)_ | _O(n)_ | Medium | | Union Find |
@@ -211,6 +211,8 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |411|[Gray Code](http://lintcode.com/en/problem/gray-code/)| [C++](./C++/gray-code.cpp)| _O(2^n)_ | _O(1)_ | Medium | LeetCode | |
 |413|[Reverse Integer](http://lintcode.com/en/problem/reverse-integer/)| [C++](./C++/reverse-integer.cpp)| _O(logn)_ | _O(1)_ | Medium | LeetCode | |
 |414|[Divide Two Integer](http://lintcode.com/en/problem/divide-two-integers/)| [C++](./C++/divide-two-integers.cpp)| _O(logn)_ | _O(1)_ | Medium | LeetCode | |
+|418|[Integer to Roman](http://lintcode.com/en/problem/integer-to-roman/)| [C++](./C++/integer-to-roman.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
+|419|[Roman to Integer](http://lintcode.com/en/problem/roman-to-integer/)| [C++](./C++/roman-to-integer.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
 |445|[Cosine Similarity](http://lintcode.com/en/problem/cosine-similarity/)| [C++](./C++/cosine-similarity.cpp) [Python](./Python/cosine-similarity.py) | _O(n)_ | _O(1)_ | Easy | | |
 
 ## Sort
@@ -227,8 +229,8 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |387|[The Smallest Difference](http://lintcode.com/en/problem/the-smallest-difference/)| [C++](./C++/the-smallest-difference.cpp)| _O(nlogn)_ | _O(1)_ | Medium | | Two Pointers |
 |399|[Nuts & Bolts Problem](http://lintcode.com/en/problem/nuts-bolts-problem/)| [C++](./C++/nuts-bolts-problem.cpp)| _O(nlogn)_ | _O(1)_ | Medium | | Quick Sort |
 |400|[Maximum Gap](http://lintcode.com/en/problem/maximum-gap/)| [C++](./C++/maximum-gap.cpp) [Python](./Python/maximum-gap.py)| _O(n)_ | _O(n)_ | Hard | LeetCode | Bucket Sort |
-|418|[Integer to Roman](http://lintcode.com/en/problem/integer-to-roman/)| [C++](./C++/integer-to-roman.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
-|419|[Roman to Integer](http://lintcode.com/en/problem/roman-to-integer/)| [C++](./C++/roman-to-integer.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
+|507|[Wiggle Sort II](http://lintcode.com/en/problem/wiggle-sort-ii/)| [C++](./C++/wiggle-sort-ii.cpp)|  _O(n)_ on average | _O(1)_ | Medium | LeetCode | Tri Partition |
+|508|[Wiggle Sort](http://lintcode.com/en/problem/wiggle-sort/)| [C++](./C++/wiggle-sort.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
 
 ## Divide and Conquer
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
@@ -254,6 +256,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |247|[Segment Tree Query II](http://lintcode.com/en/problem/segment-tree-query-ii/)| [C++](./C++/segment-tree-query-ii.cpp)| _O(h)_ | _O(h)_ | Hard | | Segment Tree, BST |
 |248|[Count of Smaller Number](http://lintcode.com/en/problem/count-of-smaller-number/)| [C++](./C++/count-of-smaller-number.cpp)| build tree: _O(n)_, query: _O(logn)_ | _O(h)_ | Medium | | Segment Tree, BST |
 |371|[Print Numbers by Recursion](http://lintcode.com/en/problem/print-numbers-by-recursion/)| [C++](./C++/print-numbers-by-recursion.cpp)| _O(n)_ | _O(n)_ | Medium | | |
+|378|[Convert Binary Search Tree to Doubly Linked List](http://lintcode.com/en/problem/convert-binary-search-tree-to-doubly-linked-list/)| [C++](./C++/convert-binary-search-tree-to-doubly-linked-list.cpp)| _O(n)_ | _O(h)_ | Medium | | |
 |428| [Pow(x, n)](http://lintcode.com/en/problem/problems/powx-n/)     | [C++](./C++/powx-n.cpp)     | _O(logn)_       | _O(logn)_       | Medium         | LeetCode ||
 |439|[Segment Tree Build II](http://lintcode.com/en/problem/segmemt-tree-build-ii/)| [C++](./C++/segment-tree-build-ii.cpp)| _O(n)_ | _O(h)_ | Medium | | Segment Tree, BST |
 |453|[Flatten Binary Tree to Linked List](http://lintcode.com/en/problem/flatten-binary-tree-to-linked-list/)|[C++](./C++/flatten-binary-tree-to-linked-list.cpp)| _O(n)_ | _O(h)_ | Easy | LeetCode | |
@@ -299,6 +302,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
 |---| ----- | -------- | ---- | ----- | ---------- | --- | ---- |
 |90|[K Sum II](http://lintcode.com/en/problem/k-sum-ii/)| [C++](./C++/k-sum-ii.cpp)| _O(k * C(n, k))_ | _O(k)_ | Medium | | |
+|376|[Binary Tree Path Sum](http://lintcode.com/en/problem/binary-tree-path-sum/)| [C++](./C++/binary-tree-path-sum.cpp)| _O(n)_ | _O(h)_ | Easy | LeetCode | |
 |433|[Number of Islands](http://lintcode.com/en/problem/number-of-islands/)| [C++](./C++/number-of-islands.cpp)| _O(m * n)_ | _O(m * n)_ | Easy | LeetCode | DFS |
 |480| [Binary Tree Paths](http://lintcode.com/en/problem/binary-tree-paths/) | [C++](./C++/binary-tree-paths.cpp) | _O(n * h)_ | _O(h)_ | Easy         | LeetCode ||
 
@@ -354,6 +358,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |150|[Best Time to Buy and Sell Stock II](http://lintcode.com/en/problem/best-time-to-buy-and-sell-stock-ii/)| [C++](./C++/best-time-to-buy-and-sell-stock-ii.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode, EPI | |
 |151|[Best Time to Buy and Sell Stock III](http://lintcode.com/en/problem/best-time-to-buy-and-sell-stock-iii/)| [C++](./C++/best-time-to-buy-and-sell-stock-iii.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode, EPI | |
 |154|[Regular Expression Matching](http://lintcode.com/en/problem/regular-expression-matching/)| [C++](./C++/regular-expression-matching.cpp)| _O(m * n)_ | _O(m)_ | Hard | LeetCode | DP, Recursion |
+|168|[Burst Balloons](http://lintcode.com/en/problem/burst-balloons/)| [C++](./C++/burst-balloons.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
 |191|[Maximum Product Subarray](http://lintcode.com/en/problem/maximum-product-subarray/)| [C++](./C++/maximum-product-subarray.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
 |392|[House Robber](http://lintcode.com/en/problem/house-robber/)| [C++](./C++/house-robber.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
 |393|[Best Time to Buy and Sell Stock IV](http://lintcode.com/en/problem/best-time-to-buy-and-sell-stock-iv/)| [C++](./C++/best-time-to-buy-and-sell-stock-iv.cpp)| _O(k * n)_ | _O(k)_ | Hard | LeetCode, EPI | |
@@ -365,6 +370,12 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |430|[Scramble String](http://lintcode.com/en/problem/scramble-string/)| [C++](./C++/scramble-string.cpp)| _O(n^4)_ | _O(n^3)_ | Hard | LeetCode | |
 |435|[Post Office Problem](http://lintcode.com/en/problem/post-office-problem/)| [C++](./C++/post-office-problem.cpp)| _O(k * n^2)_ | _O(n)_ | Hard | PKU 1160 | |
 |436|[Maximal Square](http://lintcode.com/en/problem/maximal-square/)| [C++](./C++/maximal-square.cpp)| _O(m * n)_ | _O(n)_ | Medium | LeetCode | |
+|510|[Maximal Rectangle](http://lintcode.com/en/problem/maximal-rectangle/)| [C++](./C++/maximal-rectangle.cpp)| _O(m * n)_ | _O(n)_ | Hard | LeetCode | |
+|512|[Decode Ways](http://lintcode.com/en/problem/decode-ways/)| [C++](./C++/decode-ways.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
+|513|[Perfect Squares](http://lintcode.com/en/problem/perfect-squares/)| [C++](./C++/perfect-squares.cpp)| _O(n * sqrt(n))_ | _O(n)_ | Medium | LeetCode | |
+|514|[Paint Fence](http://lintcode.com/en/problem/paint-fence/)| [C++](./C++/paint-fence.cpp)| _O(n)_ | _O(1)_ | Easy | LeetCode | |
+|515|[Paint House](http://lintcode.com/en/problem/paint-house/)| [C++](./C++/paint-house.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
+|516|[Paint House II](http://lintcode.com/en/problem/paint-house-ii/)| [C++](./C++/paint-house-ii.cpp)| _O(n * k)_ | _O(k)_ | Hard | LeetCode | |
 
 ## Greedy
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
