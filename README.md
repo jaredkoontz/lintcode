@@ -1,8 +1,8 @@
-# [LintCode](http://www.lintcode.com/en/problem/) ![Language](https://img.shields.io/badge/language-C++%2011-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md) ![Progress](https://img.shields.io/badge/progress-275%20%2F%20275-ff69b4.svg)
+# [LintCode](http://www.lintcode.com/en/problem/) ![Language](https://img.shields.io/badge/language-C++%2011-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md) ![Progress](https://img.shields.io/badge/progress-278%20%2F%20278-ff69b4.svg)
 
-Up to date (2016-04-17), there are `275` problems on [LintCode Online Judge](http://lintcode.com/).
+Up to date (2016-04-27), there are `278` problems on [LintCode Online Judge](http://lintcode.com/).
 The number of problems is increasing recently.
-Here is the classification of all `275` problems.
+Here is the classification of all `278` problems.
 For more problems and solutions, you can see my [LeetCode](https://github.com/kamyu104/LeetCode) repository.
 I'll keep updating for full summary and better solutions. Stay tuned for updates.
 
@@ -63,6 +63,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |51|[Previous Permutation](http://lintcode.com/en/problem/previous-permutation/)| [C++](./C++/previous-permutation.cpp)| _O(n)_ | _O(1)_ | Medium | | |
 |52|[Next Permutation](http://lintcode.com/en/problem/next-permutation/)| [C++](./C++/next-permutation.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
 |57|[3 Sum](http://lintcode.com/en/problem/3-sum/)| [C++](./C++/3-sum.cpp)| _O(n^2)_ | _O(1)_ | Medium | LeetCode | Two Pointers, Sort |
+|58|[4 Sum](http://lintcode.com/en/problem/4-sum/)| [C++](./C++/4-sum.cpp)| _O(n^3)_ | _O(1)_ | Medium | LeetCode | Hash |
 |59|[3 Sum Closest](http://lintcode.com/en/problem/3-sum-closest/)| [C++](./C++/3-sum-closest.cpp)| _O(n^2)_ | _O(1)_ | Medium | LeetCode | Two Pointers, Sort |
 |64|[Merge Sorted Array II](http://lintcode.com/en/problem/merge-sorted-array-ii/)| [C++](./C++/merge-sorted-array-ii.cpp)| _O(m + n)_ | _O(1)_ | Easy | LeetCode | Two Pointers |
 |100|[Remove Duplicates from Sorted Array](http://lintcode.com/en/problem/remove-duplicates-from-sorted-array/)| [C++](./C++/remove-duplicates-from-sorted-array.cpp)| _O(n)_ | _O(1)_ | Easy | LeetCode | Two Pointers |
@@ -184,7 +185,6 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
 |---| ----- | -------- | ---- | ----- | ---------- | --- | ---- |
 |56|[2 Sum](http://lintcode.com/en/problem/2-sum/)| [C++](./C++/2-sum.cpp)| _O(n)_ | _O(n)_ | Medium | LeetCode | |
-|58|[4 Sum](http://lintcode.com/en/problem/4-sum/)| [C++](./C++/4-sum.cpp)| _O(n^2 * p)_ | _O(n^2 * p)_ | Medium | LeetCode | Hash |
 |124|[Longest Consecutive Sequence](http://lintcode.com/en/problem/longest-consecutive-sequence/)| [C++](./C++/longest-consecutive-sequence.cpp)| _O(n)_ | _O(n)_ | Medium | LeetCode, EPI | |
 |128|[Hash Function](http://lintcode.com/en/problem/hash-function/)| [C++](./C++/hash-function.cpp)| _O(n)_ | _O(1)_ | Easy | | |
 |129|[Rehashing](http://lintcode.com/en/problem/rehashing/)| [C++](./C++/rehashing.cpp)| _O(n)_ | _O(n)_ | Medium | | |
@@ -267,6 +267,8 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |439|[Segment Tree Build II](http://lintcode.com/en/problem/segmemt-tree-build-ii/)| [C++](./C++/segment-tree-build-ii.cpp)| _O(n)_ | _O(h)_ | Medium | | Segment Tree, BST |
 |453|[Flatten Binary Tree to Linked List](http://lintcode.com/en/problem/flatten-binary-tree-to-linked-list/)|[C++](./C++/flatten-binary-tree-to-linked-list.cpp)| _O(n)_ | _O(h)_ | Easy | LeetCode | |
 |469| [Identical Binary Tree](http://lintcode.com/en/problem/problems/identical-binary-tree/)     | [C++](./C++/identical-binary-tree.cpp)     | _O(n)_       | _O(h)_       | Easy         |||
+|532|[Reverse Pairs](http://lintcode.com/en/problem/reverse-pairs/)| [C++](./C++/reverse-pairs.cpp)| _O(nlogn)_ | _O(n)_ | Medium | variant of [Count of Smaller Number before itself](http://lintcode.com/en/problem/count-of-smaller-number-before-itself/) | BIT, Merge Sort |
+|535|[House Robber III](http://lintcode.com/en/problem/house-robber-iii/)| [C++](./C++/house-robber-iii.cpp)| _O(n)_ | _O(h)_ | Medium | LeetCode | |
 
 ## Binary Search
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
@@ -285,7 +287,6 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |159|[Find Minimum in Rotated Sorted Array](http://lintcode.com/en/problem/find-minimum-in-rotated-sorted-array/)| [C++](./C++/find-minimum-in-rotated-sorted-array.cpp)| _O(logn)_ | _O(1)_ | Medium | LeetCode | |
 |160|[Find Minimum in Rotated Sorted Array II](http://lintcode.com/en/problem/find-minimum-in-rotated-sorted-array-ii/)| [C++](./C++/find-minimum-in-rotated-sorted-array-ii.cpp)| _O(logn)_ | _O(1)_ | Medium | LeetCode | |
 |183|[Wood Cut](http://lintcode.com/en/problem/wood-cut/)| [C++](./C++/wood-cut.cpp)| _O(nlogL)_ | _O(1)_ | Medium | | |
-|249|[Count of Smaller Number before itself](http://lintcode.com/en/problem/count-of-smaller-number-before-itself/)| [C++](./C++/count-of-smaller-number-before-itself.cpp)| _O(nlogn)_ | _O(n)_ | Hard | | BST, BIT, Divide and Conquer |
 |390|[Find Peak Element II](http://lintcode.com/en/problem/find-peak-element-ii/)| [C++](./C++/find-peak-element-ii.cpp) [Java](./Java/find-peak-element-ii.java) [Python](./Python/find-peak-element-ii.py)| _O(m + n)_ | _O(1)_ | Hard | | |
 |437|[Copy Books](http://lintcode.com/en/problem/copy-books/)| [C++](./C++/copy-books.cpp) | _O(nlogp)_ | _O(1)_ | Hard | UVa 714 | |
 
@@ -337,6 +338,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |11|[Search Range in Binary Search Tree](http://lintcode.com/en/problem/search-range-in-binary-search-tree/)| [C++](./C++/search-range-in-binary-search-tree.cpp)| _O(n)_ | _O(h)_ | Medium | EPI | |
 |86|[Binary Search Tree Iterator](http://lintcode.com/en/problem/binary-search-tree-iterator/)| [C++](./C++/binary-search-tree-iterator.cpp)| _O(1)_ | _O(h)_ | Hard | LeetCode | |
 |87|[Remove Node in Binary Search Tree](http://lintcode.com/en/problem/remove-node-in-binary-search-tree/)| [C++](./C++/remove-node-in-binary-search-tree.cpp)| _O(h)_ | _O(h)_ | Hard | | |
+|249|[Count of Smaller Number before itself](http://lintcode.com/en/problem/count-of-smaller-number-before-itself/)| [C++](./C++/count-of-smaller-number-before-itself.cpp)| _O(nlogn)_ | _O(n)_ | Hard | | BST, BIT, Divide and Conquer, Merge Sort |
 |360|[Sliding Window Median](http://lintcode.com/en/problem/sliding-window-median/)| [C++](./C++/sliding-window-median.cpp)| _O(nlogw)_ | _O(w)_ | Hard | | BST, Tricky |
 |391|[Number of Airplanes in the Sky](http://lintcode.com/en/problem/number-of-airplanes-in-the-sky/)| [C++](./C++/number-of-airplanes-in-the-sky.cpp)| _O(nlogn)_ | _O(n)_ | Easy | | BST, Heap |
 |401|[Kth Smallest Number in Sorted Matrix](http://lintcode.com/en/problem/kth-smallest-number-in-sorted-matrix/)| [C++](./C++/kth-smallest-number-in-sorted-matrix.cpp)| _O(klog(min(m, n, k)))_ | _O(min(m, n, k))_ | Medium | | BST, Heap |
@@ -364,7 +366,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |150|[Best Time to Buy and Sell Stock II](http://lintcode.com/en/problem/best-time-to-buy-and-sell-stock-ii/)| [C++](./C++/best-time-to-buy-and-sell-stock-ii.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode, EPI | |
 |151|[Best Time to Buy and Sell Stock III](http://lintcode.com/en/problem/best-time-to-buy-and-sell-stock-iii/)| [C++](./C++/best-time-to-buy-and-sell-stock-iii.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode, EPI | |
 |154|[Regular Expression Matching](http://lintcode.com/en/problem/regular-expression-matching/)| [C++](./C++/regular-expression-matching.cpp)| _O(m * n)_ | _O(m)_ | Hard | LeetCode | DP, Recursion |
-|168|[Burst Balloons](http://lintcode.com/en/problem/burst-balloons/)| [C++](./C++/burst-balloons.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
+|168|[Burst Balloons](http://lintcode.com/en/problem/burst-balloons/)| [C++](./C++/burst-balloons.cpp)| _O(n^3)_ | _O(n^2)_ | Medium | LeetCode | |
 |191|[Maximum Product Subarray](http://lintcode.com/en/problem/maximum-product-subarray/)| [C++](./C++/maximum-product-subarray.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
 |392|[House Robber](http://lintcode.com/en/problem/house-robber/)| [C++](./C++/house-robber.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
 |393|[Best Time to Buy and Sell Stock IV](http://lintcode.com/en/problem/best-time-to-buy-and-sell-stock-iv/)| [C++](./C++/best-time-to-buy-and-sell-stock-iv.cpp)| _O(k * n)_ | _O(k)_ | Hard | LeetCode, EPI | |
@@ -382,6 +384,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |514|[Paint Fence](http://lintcode.com/en/problem/paint-fence/)| [C++](./C++/paint-fence.cpp)| _O(n)_ | _O(1)_ | Easy | LeetCode | |
 |515|[Paint House](http://lintcode.com/en/problem/paint-house/)| [C++](./C++/paint-house.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
 |516|[Paint House II](http://lintcode.com/en/problem/paint-house-ii/)| [C++](./C++/paint-house-ii.cpp)| _O(n * k)_ | _O(k)_ | Hard | LeetCode | |
+|534|[House Robber II](http://lintcode.com/en/problem/house-robber-ii/)| [C++](./C++/house-robber-ii.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
 
 ## Greedy
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
