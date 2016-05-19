@@ -21,7 +21,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 * [Hash Tables](https://github.com/kamyu104/LintCode#hash-tables)
 * [Data Structure](https://github.com/kamyu104/LintCode#data-structure)
 * [Sort](https://github.com/kamyu104/LintCode#sort)
-* [Divide and Conquer](https://github.com/kamyu104/LintCode#divide-and-conquer)
+* [Recursion](https://github.com/kamyu104/LintCode#recursion)
 * [Binary Search](https://github.com/kamyu104/LintCode#binary-search)
 * [Breadth-First Search](https://github.com/kamyu104/LintCode#breadth-first-search)
 * [Depth-First Search](https://github.com/kamyu104/LintCode#depth-first-search)
@@ -30,6 +30,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 * [Dynamic Programming](https://github.com/kamyu104/LintCode#dynamic-programming)
 * [Greedy](https://github.com/kamyu104/LintCode#greedy)
 * [OO Design](https://github.com/kamyu104/LintCode#oo-design)
+* [System Design](https://github.com/kamyu104/LintCode#system-design)
 
 ## Bit Manipulation
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
@@ -143,7 +144,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |7|[Binary Tree Serialization](http://lintcode.com/en/problem/binary-tree-serialization/)| [C++](./C++/binary-tree-serialization.cpp)| _O(n)_ | _O(h)_ | Medium | | |
 |85|[Insert Node in a Binary Search Tree](http://lintcode.com/en/problem/insert-node-in-a-binary-search-tree/)| [C++](./C++/insert-node-in-a-binary-search-tree.cpp)| _O(h)_ | _O(1)_ | Easy | | |
 |88|[Lowest Common Ancestor](http://lintcode.com/en/problem/lowest-common-ancestor/)| [C++](./C++/lowest-common-ancestor.cpp)| _O(n)_ | _O(h)_ | Medium | EPI | |
-|127|[Max Tree](http://lintcode.com/en/problem/max-tree/)| [C++](./C++/max-tree.cpp)| _O(n)_ | _O(n)_ | Hard | | |
+|126|[Max Tree](http://lintcode.com/en/problem/max-tree/)| [C++](./C++/max-tree.cpp)| _O(n)_ | _O(n)_ | Hard | | |
 |175|[Invert Binary Tree](http://lintcode.com/en/problem/invert-binary-tree/)| [C++](./C++/invert-binary-tree.cpp)| _O(n)_ | _O(h)_ | Easy | LeetCode | |
 |442|[Implement Trie](http://lintcode.com/en/problem/implement-trie/)| [C++](./C++/implement-trie.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | Trie |
 
@@ -239,7 +240,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |507|[Wiggle Sort II](http://lintcode.com/en/problem/wiggle-sort-ii/)| [C++](./C++/wiggle-sort-ii.cpp)|  _O(n)_ on average | _O(1)_ | Medium | LeetCode | Tri Partition |
 |508|[Wiggle Sort](http://lintcode.com/en/problem/wiggle-sort/)| [C++](./C++/wiggle-sort.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
 
-## Divide and Conquer
+## Recursion
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
 |---| ----- | -------- | ---- | ----- | ---------- | --- | ---- |
 |72|[Construct Binary Tree from Inorder and Postorder Traversal](http://lintcode.com/en/problem/construct-binary-tree-from-inorder-and-postorder-traversal/)| [C++](./C++/construct-binary-tree-from-inorder-and-postorder-traversal.cpp)| _O(n)_ | _O(h)_ | Medium | LeetCode, EPI | |
@@ -273,11 +274,11 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 ## Binary Search
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
 |---| ----- | -------- | ---- | ----- | ---------- | --- | ---- |
-|14|[Binary Search](http://lintcode.com/en/problem/binary-search/)| [C++](./C++/binary-search.cpp)| _O(logn)_ | _O(1)_ | Easy | | |
+|14|[First Position of Target](http://lintcode.com/en/problem/first-position-of-target/)| [C++](./C++/first-position-of-target.cpp)| _O(logn)_ | _O(1)_ | Easy | | |
 |28|[Search a 2D Matrix](http://lintcode.com/en/problem/search-a-2d-matrix/)| [C++](./C++/search-a-2d-matrix.cpp)| _O(logm + logn)_ | _O(1)_ | Easy | LeetCode | |
 |60|[Search Insert Position](http://lintcode.com/en/problem/search-insert-position/)| [C++](./C++/search-insert-position.cpp)| _O(logn)_ | _O(1)_ | Easy | LeetCode | |
 |61|[Search for a Range](http://lintcode.com/en/problem/search-for-a-range/)| [C++](./C++/search-for-a-range.cpp)| _O(logn)_ | _O(1)_ | Medium | LeetCode | |
-|62|[Search in Rotated Sorted Array](http://lintcode.com/en/problem/search-in-rotated-sorted-array/)| [C++](./C++/search-in-rotated-sorted-array.cpp)| _O(logn)_ | _O(1)_ | Hard | LeetCode | |
+|62|[Search in Rotated Sorted Array](http://lintcode.com/en/problem/search-in-rotated-sorted-array/)| [C++](./C++/search-in-rotated-sorted-array.cpp)| _O(logn)_ | _O(1)_ | Medium | LeetCode | |
 |63|[Search in Rotated Sorted Array II](http://lintcode.com/en/problem/search-in-rotated-sorted-array-ii/)| [C++](./C++/search-in-rotated-sorted-array-ii.cpp)| _O(logn)_ | _O(1)_ | Medium | LeetCode | |
 |65|[Median of two Sorted Arrays](http://lintcode.com/en/problem/median-of-two-sorted-arrays/)| [C++](./C++/median-of-two-sorted-arrays.cpp)| _O(log(min(m, n)))_ | _O(1)_ | Hard | LeetCode, EPI | Tricky |
 |74|[First Bad Version](http://lintcode.com/en/problem/first-bad-version/)| [C++](./C++/first-bad-version.cpp)| _O(logn)_ | _O(1)_ | Medium | | |
@@ -302,7 +303,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |137|[Clone Graph](http://lintcode.com/en/problem/clone-graph/)| [C++](./C++/clone-graph.cpp)| _O(\|V\|+\|E\|)_ | _O(\|V\|)_ | Medium | | BFS |
 |176|[Route Between Two Nodes in Graph](http://lintcode.com/en/problem/route-between-two-nodes-in-graph/)| [C++](./C++/route-between-two-nodes-in-graph.cpp)| _O(n)_ | _O(n)_ | Medium | | DFS, BFS |
 |178| [Graph Valid Tree](http://lintcode.com/en/problem/graph-valid-tree/)| [C++](./C++/graph-valid-tree.cpp) | _O(\|V\| + \|E\|)_          | _O(\|V\| + \|E\|)_          | Medium         | LeetCode ||
-|431|[Find the Connected Component in the Undirected Graph](http://lintcode.com/en/problem/find-the-connected-component-in-the-undirected-graph/)| [C++](./C++/find-the-connected-component-in-the-undirected-graph.cpp)| _O(n)_ | _O(n)_ | Easy | | BFS |
+|431|[Find the Connected Component in the Undirected Graph](http://lintcode.com/en/problem/find-the-connected-component-in-the-undirected-graph/)| [C++](./C++/find-the-connected-component-in-the-undirected-graph.cpp)| _O(n)_ | _O(n)_ | Medium | | BFS |
 |477|[Surrounded Regions](http://lintcode.com/en/problem/surrounded-regions/)|[C++](./C++/surrounded-regions.cpp)| _O(m * n)_ | _O(m + n)_ | Medium         | LeetCode ||
 
 ## Depth-First Search
@@ -371,7 +372,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |392|[House Robber](http://lintcode.com/en/problem/house-robber/)| [C++](./C++/house-robber.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
 |393|[Best Time to Buy and Sell Stock IV](http://lintcode.com/en/problem/best-time-to-buy-and-sell-stock-iv/)| [C++](./C++/best-time-to-buy-and-sell-stock-iv.cpp)| _O(k * n)_ | _O(k)_ | Hard | LeetCode, EPI | |
 |395|[Coins in a Line II](http://lintcode.com/en/problem/coins-in-a-line-ii/)| [C++](./C++/coins-in-a-line-ii.cpp)| _O(n)_ | _O(1)_ | Medium | | |
-|396|[Coins in a Line III](http://lintcode.com/en/problem/coins-in-a-line-iii/)| [C++](./C++/coins-in-a-line-iii.cpp)| _O(n^2)_ | _O(n)_ | Medium | | |
+|396|[Coins in a Line III](http://lintcode.com/en/problem/coins-in-a-line-iii/)| [C++](./C++/coins-in-a-line-iii.cpp)| _O(n^2)_ | _O(n)_ | Hard | | |
 |397|[Longest Increasing Continuous subsequence](http://lintcode.com/en/problem/longest-increasing-continuous-subsequence/)| [C++](./C++/longest-increasing-continuous-subsequence.cpp)| _O(n)_ | _O(1)_ | Easy | | |
 |398|[Longest Increasing Continuous subsequence II](http://lintcode.com/en/problem/longest-increasing-continuous-subsequence-ii/)| [C++](./C++/longest-increasing-continuous-subsequence-ii.cpp)| _O(m * n)_ | _O(m * n)_ | Hard | | |
 |403|[Continuous Subarray Sum II](http://lintcode.com/en/problem/continuous-subarray-sum-ii/)| [C++](./C++/continuous-subarray-sum-ii.cpp)| _O(n)_ | _O(n)_ | Medium | EPI | |
@@ -409,3 +410,8 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |496|[Toy Factory](http://www.lintcode.com/en/problem/toy-factory/)| [C++](./C++/toy-factory.cpp)| _O(1)_ | _O(1)_ | Easy | | |
 |497|[Shape Factory](http://www.lintcode.com/en/problem/shape-factory/)| [C++](./C++/shape-factory.cpp)| _O(1)_ | _O(1)_ | Easy | | |
 |498|[Parking Lot](http://www.lintcode.com/en/problem/parking-lot/)| [C++](./C++/parking-lot.cpp)| _O(n * m * k)_ | _O(n * m * k)_ | Hard | CTCI | OO Design, Pimpl Idiom, Smart Pointer |
+
+## System Design
+| # | Title | Solution | Time | Space | Difficulty | Tag | Note |
+|---| ----- | -------- | ---- | ----- | ---------- | --- | ---- |
+|501|[Mini Twitter](http://www.lintcode.com/en/problem/mini-twitter/)| [C++](./C++/mini-twitter.cpp)| _O(nlogf)_ | _O(u + t + r)_ | Medium | | |
