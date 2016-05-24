@@ -2,7 +2,7 @@
 // Space: O(1)
 
 class Solution {
-public:
+public:    
     /**
      * @param source: A string
      * @param target: A string
@@ -16,29 +16,29 @@ public:
 
         const int ASCII_MAX = 256;
 
-        vector<int> expCnt(ASCII_MAX, 0);
-        vector<int> curCnt(ASCII_MAX, 0);
+        vector<int> exp_cnt(ASCII_MAX, 0);
+        vector<int> cur_cnt(ASCII_MAX, 0);
 
         int cnt = 0;
         int start = 0;
-        int min_width = INT_MAX;
         int min_start = 0;
+        int min_width = numeric_limits<int>::max();
 
-        for (const auto& c : T) {
-            ++expCnt[c];
+        for (const auto& c : target) {
+            ++exp_cnt[c];
         }
 
         for (int i = 0; i < source.length(); ++i) {
-            if (expCnt[S[i]] > 0) {
-                ++curCnt[S[i]];
-                if (curCnt[S[i]] <= expCnt[S[i]]) {  // Counting expected elements.
+            if (exp_cnt[source[i]] > 0) {
+                ++cur_cnt[source[i]];
+                if (cur_cnt[source[i]] <= exp_cnt[source[i]]) {  // Counting expected elements.
                     ++cnt;
                 }
             }
             if (cnt == target.size()) {  // If window meets the requirement.
-                while (expCnt[S[start]] == 0 ||  // Adjust left bound of window.
-                       curCnt[S[start]] > expCnt[S[start]]) {
-                    --curCnt[S[start]];
+                while (exp_cnt[source[start]] == 0 ||  // Adjust left bound of window.
+                       cur_cnt[source[start]] > exp_cnt[source[start]]) {
+                    --cur_cnt[source[start]];
                     ++start;
                 }
 
@@ -49,11 +49,10 @@ public:
             }
         }
 
-        if (min_width == INT_MAX) {
+        if (min_width == numeric_limits<int>::max()) {
             return "";
         }
 
         return source.substr(min_start, min_width);
     }
 };
-
