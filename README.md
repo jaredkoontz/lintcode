@@ -1,8 +1,8 @@
-# [LintCode](http://www.lintcode.com/en/problem/) ![Language](https://img.shields.io/badge/language-C++%2011-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md) ![Progress](https://img.shields.io/badge/progress-279%20%2F%20279-ff69b4.svg)
+# [LintCode](http://www.lintcode.com/en/problem/) ![Language](https://img.shields.io/badge/language-C++%2011-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md) ![Progress](https://img.shields.io/badge/progress-281%20%2F%20281-ff69b4.svg)
 
-Up to date (2016-05-28), there are `279` problems on [LintCode Online Judge](http://lintcode.com/).
+Up to date (2016-06-03), there are `281` problems on [LintCode Online Judge](http://lintcode.com/).
 The number of problems is increasing recently.
-Here is the classification of all `279` problems.
+Here is the classification of all `281` problems.
 For more problems and solutions, you can see my [LeetCode](https://github.com/kamyu104/LeetCode) repository.
 I'll keep updating for full summary and better solutions. Stay tuned for updates.
 
@@ -108,6 +108,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |415|[Valid Palindrome](http://lintcode.com/en/problem/valid-palindrome/)|[C++](./C++/valid-palindrome.cpp)| _O(n)_ | _O(1)_ | Easy | LeetCode | |
 |417|[Valid Number](http://lintcode.com/en/problem/valid-number/)|[C++](./C++/valid-number.cpp)| _O(n)_ | _O(1)_ | Hard | LeetCode | Automata |
 |420|[Count and Say](http://lintcode.com/en/problem/count-and-say/)|[C++](./C++/count-and-say.cpp)| _O(n * 2^n)_ | _O(2^n)_ | Easy | LeetCode | |
+|422|[Length of Last Word](http://lintcode.com/en/problem/length-of-last-word/)|[C++](./C++/length-of-last-word.cpp)| _O(n)_ | _O(1)_ | Easy | LeetCode | |
 |524|[Left Pad](http://lintcode.com/en/problem/left-pad/)|[C++](./C++/left-pad.cpp)| _O(p + n)_ | _O(1)_ | Easy | LeetCode | |
 
 ## Linked List
@@ -121,6 +122,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |99|[Reorder List](http://lintcode.com/en/problem/reorder-list/)|[C++](./C++/reorder-list.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
 |102|[Linked List Cycle](http://lintcode.com/en/problem/linked-list-cycle/)|[C++](./C++/linked-list-cycle.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
 |103|[Linked List Cycle II](http://lintcode.com/en/problem/linked-list-cycle-ii/)|[C++](./C++/linked-list-cycle-ii.cpp)| _O(n)_ | _O(1)_ | Hard | LeetCode | |
+|104|[Merge k Sorted Lists](http://lintcode.com/en/problem/merge-k-sorted-lists/)| [C++](./C++/merge-k-sorted-lists.cpp)| _O(n * logk)_ | _O(1)_ | Medium | LeetCode | Heap, Divide and Conquer |
 |105|[Copy List with Random Pointer](http://lintcode.com/en/problem/copy-list-with-random-pointer/)|[C++](./C++/copy-list-with-random-pointer.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
 |106|[Convert Sorted List to Binary Search Tree](http://lintcode.com/en/problem/convert-sorted-list-to-binary-search-tree/)|[C++](./C++/convert-sorted-list-to-binary-search-tree.cpp)| _O(n)_ | _O(logn)_ | Medium | LeetCode, EPI | |
 |112|[Remove Duplicates from Sorted List](http://lintcode.com/en/problem/remove-duplicates-from-sorted-list/)|[C++](./C++/remove-duplicates-from-sorted-list.cpp)| _O(n)_ | _O(1)_ | Easy | LeetCode, EPI | |
@@ -133,7 +135,6 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |223|[Palindrome Linked List](http://lintcode.com/en/problem/palindrome-linked-list/)|[C++](./C++/palindrome-linked-list.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
 |372|[Delete Node in the Middle of Singly Linked List](http://lintcode.com/en/problem/delete-node-in-the-middle-of-singly-linked-list/)|[C++](./C++/delete-node-in-the-middle-of-singly-linked-list.cpp)| _O(1)_ | _O(1)_ | Easy | CTCI | |
 |380|[Intersection of Two Linked Lists](http://lintcode.com/en/problem/intersection-of-two-linked-lists/)|[C++](./C++/intersection-of-two-linked-lists.cpp)| _O(m + n)_ | _O(1)_ | Easy | LeetCode | |
-|422|[Length of Last Word](http://lintcode.com/en/problem/length-of-last-word/)|[C++](./C++/length-of-last-word.cpp)| _O(n)_ | _O(1)_ | Easy | LeetCode | |
 |450|[Reverse Nodes in k-Group](http://lintcode.com/en/problem/reverse-nodes-in-k-group/)|[C++](./C++/reverse-nodes-in-k-group.cpp)| _O(n)_ | _O(1)_ | Hard | LeetCode | |
 |451|[Swap Nodes in Pairs](http://lintcode.com/en/problem/swap-nodes-in-pairs/)|[C++](./C++/swap-nodes-in-pairs.cpp)| _O(n)_ | _O(1)_ | Easy | LeetCode | |
 |452|[Remove Linked List Elements](http://lintcode.com/en/problem/remove-linked-list-elements/)|[C++](./C++/remove-linked-list-elements.cpp)| _O(n)_ | _O(1)_ | Naive | LeetCode | |
@@ -178,7 +179,6 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |---| ----- | -------- | ---- | ----- | ---------- | --- | ---- |
 |4|[Ugly Number II](http://lintcode.com/en/problem/ugly-number-ii/)| [C++](./C++/ugly-number-ii.cpp)| _O(n)_ | _O(1)_ | Medium | CTCI | BST, Heap |
 |81|[Data Stream Median](http://lintcode.com/en/problem/data-stream-median/)| [C++](./C++/data-stream-median.cpp)| _O(nlogn)_ | _O(n)_ | Hard | EPI | BST, Heap |
-|104|[Merge k Sorted Lists](http://lintcode.com/en/problem/merge-k-sorted-lists/)| [C++](./C++/merge-k-sorted-lists.cpp)| _O(n * logk)_ | _O(k)_ | Medium | LeetCode | |
 |130|[Heapify](http://lintcode.com/en/problem/heapify/)| [C++](./C++/heapify.cpp)| _O(n)_ | _O(1)_ | Medium | | |
 |364|[Trapping Rain Water II](http://lintcode.com/en/problem/trapping-rain-water-ii/)| [C++](./C++/trapping-rain-water-ii.cpp)| _O(m * n * (logm + logn))_ | _O(m * n)_ | Hard | | BFS, Heap, Tricky |
 |518|[Super Ugly Number](http://lintcode.com/en/problem/super-ugly-number/)| [C++](./C++/super-ugly-number.cpp)| _O(n * k)_ | _O(n + k)_ | Medium | LeetCode | BST, Heap |
@@ -198,6 +198,8 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |432|[Find the Weak Connected Component in the Directed Graph](http://lintcode.com/en/problem/find-the-weak-connected-component-in-the-directed-graph/)| [C++](./C++/find-the-weak-connected-component-in-the-directed-graph.cpp)| _O(nlogn)_ | _O(n)_ | Medium | | Union Find |
 |434|[Number of Islands II](http://lintcode.com/en/problem/number-of-islands-ii/)| [C++](./C++/number-of-islands-ii.cpp)| _O(k)_ | _O(k)_ | Hard | | Union Find |
 |488| [Happy Number](http://lintcode.com/en/problem/happy-number/)      | [C++](./C++/happy-number.cpp)   | _O(k)_  | _O(k)_          | Easy          | LeetCode |
+547| [Intersection of Two Arrays](http://lintcode.com/en/problem/intersection-of-two-arrays/) | [C++](./C++/intersection-of-two-arrays.cpp) | _O(m + n)_ | _O(min(m, n))_ | Easy         | EPI, LeetCode | Two Pointers, Binary Search
+548| [Intersection of Two Arrays II](http://lintcode.com/en/problem/intersection-of-two-arrays-ii/) | [C++](./C++/intersection-of-two-arrays-ii.cpp) | _O(m + n)_ | _O(min(m, n))_ | Easy         | EPI, LeetCode | Two Pointers, Binary Search
 
 ## Data Structure
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
