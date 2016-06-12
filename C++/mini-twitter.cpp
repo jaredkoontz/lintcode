@@ -1,8 +1,7 @@
-// Time:  O(nlogf),     n is most recently number of tweets,
-//                      f is the number of followings.
-// Space: O(u + t + r), u is the number of users,
-//                      t is the total number of tweets,
-//                      r is the number of followings.
+// Time:  O(klogu), k is most recently number of tweets,
+//                  u is the number of the user's following.
+// Space: O(t + f), t is the total number of tweets,
+//                  f is the total number of followings.
 
 /**
  * Definition of Tweet:
@@ -19,8 +18,6 @@
  */
 class MiniTwitter {
 public:
-    const size_t number_of_most_recent_tweets = 10;
-
     MiniTwitter() : time_(0) {
     }
 
@@ -53,7 +50,7 @@ public:
             }
         }
         vector<Tweet> res;
-        while (!heap.empty() && res.size() < number_of_most_recent_tweets) {
+        while (!heap.empty() && res.size() < number_of_most_recent_tweets_) {
             const auto& top = heap.top();
             size_t t;
             RIT begin, end;
@@ -77,7 +74,7 @@ public:
         vector<Tweet> res;
         for (auto it = messages_[user_id].rbegin();
              it != messages_[user_id].rend() &&
-             res.size() < number_of_most_recent_tweets; ++it) {
+             res.size() < number_of_most_recent_tweets_; ++it) {
             res.emplace_back(it->second);
         }
         return res;
@@ -87,7 +84,8 @@ public:
     // @param to_user_id an integer
     // from user_id follows to_user_id
     void follow(int from_user_id, int to_user_id) {
-        if (!followings_[from_user_id].count(to_user_id)) {
+        if (from_user_id != to_user_id &&
+            !followings_[from_user_id].count(to_user_id)) {
             followings_[from_user_id].emplace(to_user_id);
         }
     }
@@ -102,6 +100,7 @@ public:
     }
 
 private:
+    const size_t number_of_most_recent_tweets_ = 10;
     unordered_map<int, unordered_set<int>> followings_;
     unordered_map<int, deque<pair<size_t, Tweet>>> messages_;
     size_t time_;

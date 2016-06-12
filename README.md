@@ -146,7 +146,6 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |7|[Binary Tree Serialization](http://lintcode.com/en/problem/binary-tree-serialization/)| [C++](./C++/binary-tree-serialization.cpp)| _O(n)_ | _O(h)_ | Medium | | |
 |85|[Insert Node in a Binary Search Tree](http://lintcode.com/en/problem/insert-node-in-a-binary-search-tree/)| [C++](./C++/insert-node-in-a-binary-search-tree.cpp)| _O(h)_ | _O(1)_ | Easy | | |
 |88|[Lowest Common Ancestor](http://lintcode.com/en/problem/lowest-common-ancestor/)| [C++](./C++/lowest-common-ancestor.cpp)| _O(n)_ | _O(h)_ | Medium | EPI | |
-|126|[Max Tree](http://lintcode.com/en/problem/max-tree/)| [C++](./C++/max-tree.cpp)| _O(n)_ | _O(n)_ | Hard | | |
 |175|[Invert Binary Tree](http://lintcode.com/en/problem/invert-binary-tree/)| [C++](./C++/invert-binary-tree.cpp)| _O(n)_ | _O(h)_ | Easy | LeetCode | |
 |442|[Implement Trie](http://lintcode.com/en/problem/implement-trie/)| [C++](./C++/implement-trie.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | Trie |
 
@@ -158,7 +157,8 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |66|[Binary Tree Preorder Traversal](http://lintcode.com/en/problem/binary-tree-preorder-traversal/)| [C++](./C++/binary-tree-preorder-traversal.cpp)| _O(n)_ | _O(1)_ | Easy | LeetCode, EPI | `Morris Traversal` |
 |67|[Binary Tree Inorder Traversal](http://lintcode.com/en/problem/binary-tree-inorder-traversal/)| [C++](./C++/binary-tree-inorder-traversal.cpp)| _O(n)_ | _O(1)_ | Easy | LeetCode, EPI | `Morris Traversal` |
 |68|[Binary Tree Postorder Traversal](http://lintcode.com/en/problem/binary-tree-postorder-traversal/)| [C++](./C++/binary-tree-postorder-traversal.cpp)| _O(n)_ | _O(1)_ | Easy | LeetCode, EPI | `Morris Traversal` |
-|122|[Largest Rectangle in Histogram](http://lintcode.com/en/problem/largest-rectangle-in-histogram/)| [C++](./C++/largest-rectangle-in-histogram.cpp)| _O(n)_ | _O(n)_ | Hard | LeetCode, EPI | |
+|122|[Largest Rectangle in Histogram](http://lintcode.com/en/problem/largest-rectangle-in-histogram/)| [C++](./C++/largest-rectangle-in-histogram.cpp)| _O(n)_ | _O(n)_ | Hard | LeetCode, EPI | Ascending Stack |
+|126|[Max Tree](http://lintcode.com/en/problem/max-tree/)| [C++](./C++/max-tree.cpp)| _O(n)_ | _O(n)_ | Hard | | Descending Stack |
 |367|[Expression Tree Build](http://lintcode.com/en/problem/expression-tree-build/)| [C++](./C++/expression-tree-build.cpp)| _O(n)_ | _O(n)_ | Hard | | |
 |368|[Expression Evaluation](http://lintcode.com/en/problem/expression-evaluation/)| [C++](./C++/expression-evaluation.cpp)| _O(n)_ | _O(n)_ | Hard | | |
 |369|[Convert Expression to Polish Notation](http://lintcode.com/en/problem/convert-expression-to-reverse-notation/)| [C++](./C++/convert-expression-to-polish-notation.cpp)| _O(n)_ | _O(n)_ | Hard | | |
@@ -167,6 +167,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |423|[Valid Parentheses](http://lintcode.com/en/problem/valid-parentheses.cpp/)| [C++](./C++/valid-parentheses.cpp.cpp)| _O(n)_ | _O(n)_ | Easy | LeetCode | |
 |424|[Evaluate Reverse Polish Notation](http://lintcode.com/en/problem/evaluate-reverse-polish-notation/)| [C++](./C++/evaluate-reverse-polish-notation.cpp)| _O(n)_ | _O(n)_ | Medium | LeetCode | |
 |473|[Add and Search Word](http://lintcode.com/en/problem/add-and-search-word/)| [C++](./C++/add-and-search-word.cpp)| _O(min(n, h))_ | _O(min(n, h)_ | Medium | LeetCode | Trie |
+|510|[Maximal Rectangle](http://lintcode.com/en/problem/maximal-rectangle/)| [C++](./C++/maximal-rectangle.cpp)| _O(m * n)_ | _O(n)_ | Hard | LeetCode | Ascending Stack |
 |528|[Flatten Nested List Iterator](http://lintcode.com/en/problem/flatten-nested-list-iterator/)| [C++](./C++/flatten-nested-list-iterator.cpp)| _O(n)_ | _O(h)_ | Medium | LeetCode | |
 
 ## Queue
@@ -237,8 +238,8 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |156|[Merge Intervals](http://lintcode.com/en/problem/merge-intervals/)| [C++](./C++/merge-intervals.cpp)| _O(nlogn)_ | _O(1)_ | Easy | LeetCode, EPI | |
 |184|[Largest Number](http://lintcode.com/en/problem/largest-number/)| [C++](./C++/largest-number.cpp)| _O(nlogn)_ | _O(1)_ | Medium | LeetCode | |
 |366|[Fibonacci](http://lintcode.com/en/problem/fibonacci/)| [C++](./C++/fibonacci.cpp)| _O(n)_ | _O(1)_ | Easy | | |
-|387|[The Smallest Difference](http://lintcode.com/en/problem/the-smallest-difference/)| [C++](./C++/the-smallest-difference.cpp)| _O(nlogn)_ | _O(1)_ | Medium | | Two Pointers |
-|399|[Nuts & Bolts Problem](http://lintcode.com/en/problem/nuts-bolts-problem/)| [C++](./C++/nuts-bolts-problem.cpp)| _O(nlogn)_ | _O(1)_ | Medium | | Quick Sort |
+|387|[The Smallest Difference](http://lintcode.com/en/problem/the-smallest-difference/)| [C++](./C++/the-smallest-difference.cpp)| _O(max(m, n) * log(min(m, n)))_ | _O(1)_ | Medium | | Two Pointers, Binary Search |
+|399|[Nuts & Bolts Problem](http://lintcode.com/en/problem/nuts-bolts-problem/)| [C++](./C++/nuts-bolts-problem.cpp)| _O(nlogn)_ | _O(logn)_ | Medium | | Quick Sort |
 |400|[Maximum Gap](http://lintcode.com/en/problem/maximum-gap/)| [C++](./C++/maximum-gap.cpp) [Python](./Python/maximum-gap.py)| _O(n)_ | _O(n)_ | Hard | LeetCode | Bucket Sort |
 |507|[Wiggle Sort II](http://lintcode.com/en/problem/wiggle-sort-ii/)| [C++](./C++/wiggle-sort-ii.cpp)|  _O(n)_ on average | _O(1)_ | Medium | LeetCode | Tri Partition |
 |508|[Wiggle Sort](http://lintcode.com/en/problem/wiggle-sort/)| [C++](./C++/wiggle-sort.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
@@ -382,7 +383,6 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |430|[Scramble String](http://lintcode.com/en/problem/scramble-string/)| [C++](./C++/scramble-string.cpp)| _O(n^4)_ | _O(n^3)_ | Hard | LeetCode | |
 |435|[Post Office Problem](http://lintcode.com/en/problem/post-office-problem/)| [C++](./C++/post-office-problem.cpp)| _O(k * n^2)_ | _O(n)_ | Hard | PKU 1160 | |
 |436|[Maximal Square](http://lintcode.com/en/problem/maximal-square/)| [C++](./C++/maximal-square.cpp)| _O(m * n)_ | _O(n)_ | Medium | LeetCode | |
-|510|[Maximal Rectangle](http://lintcode.com/en/problem/maximal-rectangle/)| [C++](./C++/maximal-rectangle.cpp)| _O(m * n)_ | _O(n)_ | Hard | LeetCode | |
 |512|[Decode Ways](http://lintcode.com/en/problem/decode-ways/)| [C++](./C++/decode-ways.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
 |513|[Perfect Squares](http://lintcode.com/en/problem/perfect-squares/)| [C++](./C++/perfect-squares.cpp)| _O(n * sqrt(n))_ | _O(n)_ | Medium | LeetCode | |
 |514|[Paint Fence](http://lintcode.com/en/problem/paint-fence/)| [C++](./C++/paint-fence.cpp)| _O(n)_ | _O(1)_ | Easy | LeetCode | |
@@ -417,4 +417,4 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 ## System Design
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
 |---| ----- | -------- | ---- | ----- | ---------- | --- | ---- |
-|501|[Mini Twitter](http://www.lintcode.com/en/problem/mini-twitter/)| [C++](./C++/mini-twitter.cpp)| _O(nlogf)_ | _O(u + t + r)_ | Medium | | |
+|501|[Mini Twitter](http://www.lintcode.com/en/problem/mini-twitter/)| [C++](./C++/mini-twitter.cpp)| _O(klogu)_ | _O(t + f)_ | Medium | | |
