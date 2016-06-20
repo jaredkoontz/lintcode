@@ -1,8 +1,8 @@
-# [LintCode](http://www.lintcode.com/en/problem/) ![Language](https://img.shields.io/badge/language-C++%2011-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md) ![Progress](https://img.shields.io/badge/progress-282%20%2F%20282-ff69b4.svg)
+# [LintCode](http://www.lintcode.com/en/problem/) ![Language](https://img.shields.io/badge/language-C++%2011-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md) ![Progress](https://img.shields.io/badge/progress-284%20%2F%20284-ff69b4.svg)
 
-Up to date (2016-06-14), there are `282` problems on [LintCode Online Judge](http://lintcode.com/).
+Up to date (2016-06-19), there are `284` problems on [LintCode Online Judge](http://lintcode.com/).
 The number of problems is increasing recently.
-Here is the classification of all `282` problems.
+Here is the classification of all `284` problems.
 For more problems and solutions, you can see my [LeetCode](https://github.com/kamyu104/LeetCode) repository.
 I'll keep updating for full summary and better solutions. Stay tuned for updates.
 
@@ -241,6 +241,8 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |387|[The Smallest Difference](http://lintcode.com/en/problem/the-smallest-difference/)| [C++](./C++/the-smallest-difference.cpp)| _O(max(m, n) * log(min(m, n)))_ | _O(1)_ | Medium | | Two Pointers, Binary Search |
 |399|[Nuts & Bolts Problem](http://lintcode.com/en/problem/nuts-bolts-problem/)| [C++](./C++/nuts-bolts-problem.cpp)| _O(nlogn)_ | _O(logn)_ | Medium | | Quick Sort |
 |400|[Maximum Gap](http://lintcode.com/en/problem/maximum-gap/)| [C++](./C++/maximum-gap.cpp) [Python](./Python/maximum-gap.py)| _O(n)_ | _O(n)_ | Hard | LeetCode | Bucket Sort |
+|463|[Sort Integers](http://lintcode.com/en/problem/sort-integers/)| [C++](./C++/sort-integers.cpp)| _O(n^2)_ | _O(1)_ | Easy | | Insertion Sort, Selection Sort, Bubble Sort |
+|464|[Sort Integers II](http://lintcode.com/en/problem/sort-integers-ii/)| [C++](./C++/sort-integers-ii.cpp)| _O(nlogn)_ | _O(n)_ | Easy | | Merge Sort, Heap Sort, Quick Sort |
 |507|[Wiggle Sort II](http://lintcode.com/en/problem/wiggle-sort-ii/)| [C++](./C++/wiggle-sort-ii.cpp)|  _O(n)_ on average | _O(1)_ | Medium | LeetCode | Tri Partition |
 |508|[Wiggle Sort](http://lintcode.com/en/problem/wiggle-sort/)| [C++](./C++/wiggle-sort.cpp)| _O(n)_ | _O(1)_ | Medium | LeetCode | |
 
@@ -351,8 +353,8 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 ## Dynamic Programming
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
 |---| ----- | -------- | ---- | ----- | ---------- | --- | ---- |
-|29|[Interleaving String](http://lintcode.com/en/problem/interleaving-string/)| [C++](./C++/interleaving-string.cpp)| _O(m * b)_ | _O(min(m, n))_ | Medium | EPI | |
-|43|[Maximum Subarray III](http://lintcode.com/en/problem/maximum-subarray-iii/)| [C++](./C++/maximum-subarray-iii.cpp)| _O(k * n^2)_ | _O(k * n)_ | Hard | | |
+|29|[Interleaving String](http://lintcode.com/en/problem/interleaving-string/)| [C++](./C++/interleaving-string.cpp)| _O(m * n)_ | _O(min(m, n))_ | Medium | EPI | |
+|43|[Maximum Subarray III](http://lintcode.com/en/problem/maximum-subarray-iii/)| [C++](./C++/maximum-subarray-iii.cpp)| _O(k * n)_ | _O(k * n)_ | Hard | | |
 |77|[Longest Common Subsequence](http://lintcode.com/en/problem/longest-common-subsequence/)| [C++](./C++/longest-common-subsequence.cpp)| _O(m * n)_ | _O(min(m, n))_ | Medium | | |
 |79|[Longest Common Substring](http://lintcode.com/en/problem/longest-common-substring/)| [C++](./C++/longest-common-substring.cpp)| _O(m * n)_ | _O(min(m, n))_ | Medium | | |
 |89|[K Sum](http://lintcode.com/en/problem/k-sum/)| [C++](./C++/k-sum.cpp)| _O(k * n * t)_ | _O(n * t)_ | Hard | | |
@@ -379,7 +381,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |396|[Coins in a Line III](http://lintcode.com/en/problem/coins-in-a-line-iii/)| [C++](./C++/coins-in-a-line-iii.cpp)| _O(n^2)_ | _O(n)_ | Hard | | |
 |397|[Longest Increasing Continuous subsequence](http://lintcode.com/en/problem/longest-increasing-continuous-subsequence/)| [C++](./C++/longest-increasing-continuous-subsequence.cpp)| _O(n)_ | _O(1)_ | Easy | | |
 |398|[Longest Increasing Continuous subsequence II](http://lintcode.com/en/problem/longest-increasing-continuous-subsequence-ii/)| [C++](./C++/longest-increasing-continuous-subsequence-ii.cpp)| _O(m * n)_ | _O(m * n)_ | Hard | | |
-|403|[Continuous Subarray Sum II](http://lintcode.com/en/problem/continuous-subarray-sum-ii/)| [C++](./C++/continuous-subarray-sum-ii.cpp)| _O(n)_ | _O(n)_ | Medium | EPI | |
+|403|[Continuous Subarray Sum II](http://lintcode.com/en/problem/continuous-subarray-sum-ii/)| [C++](./C++/continuous-subarray-sum-ii.cpp)| _O(n)_ | _O(1)_ | Medium | EPI | |
 |430|[Scramble String](http://lintcode.com/en/problem/scramble-string/)| [C++](./C++/scramble-string.cpp)| _O(n^4)_ | _O(n^3)_ | Hard | LeetCode | |
 |435|[Post Office Problem](http://lintcode.com/en/problem/post-office-problem/)| [C++](./C++/post-office-problem.cpp)| _O(k * n^2)_ | _O(n)_ | Hard | PKU 1160 | |
 |436|[Maximal Square](http://lintcode.com/en/problem/maximal-square/)| [C++](./C++/maximal-square.cpp)| _O(m * n)_ | _O(n)_ | Medium | LeetCode | |
