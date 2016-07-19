@@ -1,6 +1,7 @@
 // Time:  O(logn)
-// Space: O(logn)
+// Space: O(1)
 
+// Iterative solution.
 class Solution {
 public:
     /*
@@ -8,17 +9,40 @@ public:
      * @return: An integer
      */
     int fastPower(int a, int b, int n) {
-        return longFastPower(a % b, b, n);
+        long long result = 1;
+        long long x = a % b;
+        while (n > 0) {
+            if (n & 1) {
+                result = result * x % b;
+            }
+            n >>= 1;
+            x = x * x % b;
+        }
+        return result % b;
     }
+};
 
-    long long longFastPower(long long a, int b, int n) {
+// Time:  O(logn)
+// Space: O(logn)
+// Recursive solution.
+class Solution2 {
+public:
+    /*
+     * @param a, b, n: 32bit integers
+     * @return: An integer
+     */
+    int fastPower(int a, int b, int n) {
         if (n == 0) {
             return 1 % b;
         }
-        if (n % 2 == 1) {
-            return (a * longFastPower((a * a) % b, b, n / 2)) % b;
+        if (n == 1) {
+            return a % b;
+        }
+        long long tmp = fastPower(a, b, n / 2);
+        if (n % 2 == 0) {
+            return (tmp * tmp) % b;
         } else {
-            return longFastPower((a * a) % b, b, n / 2);
+            return ((tmp * tmp) % b * a) % b;
         }
     }
 };
