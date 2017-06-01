@@ -1,3 +1,22 @@
+this is no longer maintined. use this one instead:
+
+
+https://github.com/shawnfan/LintCode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # [LintCode](http://www.lintcode.com/en/problem/) ![Language](https://img.shields.io/badge/language-C++%2011-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md) ![Progress](https://img.shields.io/badge/progress-289%20%2F%20289-ff69b4.svg)
 
 Up to date (2016-08-22), there are `289` problems on [LintCode Online Judge](http://lintcode.com/).
