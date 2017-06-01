@@ -1,6 +1,7 @@
 package problems.hard.lruCache;
 
 import org.junit.Test;
+import problems.hard.LRUCache.LRUCache;
 
 /**
  * @author koontz

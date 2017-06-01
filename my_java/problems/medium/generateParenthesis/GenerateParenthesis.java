@@ -1,4 +1,4 @@
-package problems.medium.medium.problems.medium.generateParenthesis;
+package problems.medium.generateParenthesis;
 
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package problems.medium.medium.problems.easy.fizzbuzz;
+package problems.easy.fizzbuzz;
 
 import java.util.ArrayList;
 

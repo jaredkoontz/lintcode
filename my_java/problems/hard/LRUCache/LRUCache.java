@@ -1,4 +1,4 @@
-package problems.hard.lruCache;
+package problems.hard.LRUCache;
 
 /**
  * @author koontz
