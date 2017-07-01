@@ -1,13 +1,13 @@
 M
 
-方法1: PriorityQueue排序。用ArrayList check 新的ugly Number是否出现过。
+        方法1:PriorityQueue排序。用ArrayList check 新的ugly Number是否出现过。
 
-方法1-1：(解释不通，不可取)用PriorityQueue排序。神奇的3，5，7走位：按照题目答案的出发，定了3，5，7以什么规律出现。但是题目并没有特殊表明。
+        方法1-1：(解释不通，不可取)用PriorityQueue排序。神奇的3，5，7走位：按照题目答案的出发，定了3，5，7以什么规律出现。但是题目并没有特殊表明。
 
-方法2: DP . Not Done yet.
+        方法2:DP.Not Done yet.
 
 
-```
+        ```
 /*
 Ugly number is a number that only have factors 3, 5 and 7.
 
@@ -46,28 +46,28 @@ class Solution {
      * @return: The kth prime number as description.
      */
     public long kthPrimeNumber(int k) {
-    	if (k == 0) {
-    		return 0;
-    	}
-    	PriorityQueue<Long> queue = new PriorityQueue<Long>();
-    	queue.offer((long)3);
-    	queue.offer((long)5);
-    	queue.offer((long)7);
-    	long num = 0;
-		for (int i = 0; i < k; i++) {
-			num = queue.poll();
-			if (num % 3 == 0) {
-				queue.offer(num  * 3);
-			} else if (num % 5 == 0) {
-			    queue.offer(num  * 3);
-				queue.offer(num  * 5);
-			} else if (num % 7 == 0) {
-				queue.offer(num  * 3);
-				queue.offer(num  * 5);
-				queue.offer(num  * 7);
-			}
-		}
-		return num;
+        if (k == 0) {
+            return 0;
+        }
+        PriorityQueue<Long> queue = new PriorityQueue<Long>();
+        queue.offer((long) 3);
+        queue.offer((long) 5);
+        queue.offer((long) 7);
+        long num = 0;
+        for (int i = 0; i < k; i++) {
+            num = queue.poll();
+            if (num % 3 == 0) {
+                queue.offer(num * 3);
+            } else if (num % 5 == 0) {
+                queue.offer(num * 3);
+                queue.offer(num * 5);
+            } else if (num % 7 == 0) {
+                queue.offer(num * 3);
+                queue.offer(num * 5);
+                queue.offer(num * 7);
+            }
+        }
+        return num;
     }
 };
 
@@ -78,35 +78,35 @@ class Solution {
      * @return: The kth prime number as description.
      */
     public long kthPrimeNumber(int k) {
-    	if (k == 0) {
-    		return 0;
-    	}
+        if (k == 0) {
+            return 0;
+        }
         ArrayList<Long> set = new ArrayList<Long>();
-    	PriorityQueue<Long> queue = new PriorityQueue<Long>();
-    	queue.offer((long)3);
-    	queue.offer((long)5);
-    	queue.offer((long)7);
-    	set.add((long)3);
-    	set.add((long)5);
-    	set.add((long)7);
-    	long num = 0;
-		for (int i = 0; i < k; i++) {
-			num = queue.poll();
-			
-			if (!set.contains(num * 3)) {
-			    queue.offer(num * 3);
-			    set.add(num * 3);
-			}
-			if (!set.contains(num * 5)) {
-			    queue.offer(num * 5);
-			    set.add(num * 5);
-			}
-			if (!set.contains(num * 7)) {
-			    queue.offer(num * 7);
-			    set.add(num * 7);
-			}
-		}
-		return num;
+        PriorityQueue<Long> queue = new PriorityQueue<Long>();
+        queue.offer((long) 3);
+        queue.offer((long) 5);
+        queue.offer((long) 7);
+        set.add((long) 3);
+        set.add((long) 5);
+        set.add((long) 7);
+        long num = 0;
+        for (int i = 0; i < k; i++) {
+            num = queue.poll();
+
+            if (!set.contains(num * 3)) {
+                queue.offer(num * 3);
+                set.add(num * 3);
+            }
+            if (!set.contains(num * 5)) {
+                queue.offer(num * 5);
+                set.add(num * 5);
+            }
+            if (!set.contains(num * 7)) {
+                queue.offer(num * 7);
+                set.add(num * 7);
+            }
+        }
+        return num;
     }
 };
 

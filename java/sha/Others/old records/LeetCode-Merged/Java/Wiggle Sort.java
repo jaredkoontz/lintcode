@@ -1,9 +1,9 @@
-第一遍想太多. 其实做一个fall-through就能把问题解决，原因是因为：
-这样的fall-through每次在乎两个element，可以一口气搞定，无关乎再之前的elements。
-特别的一点：flag来巧妙的掌控山峰和低谷的变化。又是神奇的一幕啊！
+第一遍想太多.其实做一个fall-through就能把问题解决，原因是因为：
+        这样的fall-through每次在乎两个element，可以一口气搞定，无关乎再之前的elements。
+        特别的一点：flag来巧妙的掌控山峰和低谷的变化。又是神奇的一幕啊！
 
-这样子的奇观，见过就要知道了，没见过的时候有点摸不着头脑。
-```
+        这样子的奇观，见过就要知道了，没见过的时候有点摸不着头脑。
+        ```
 /*
 Given an unsorted array nums, reorder it in-place such that nums[0] <= nums[1] >= nums[2] <= nums[3]....
 
@@ -26,22 +26,22 @@ Concept: whenver something does not work, fix it. (especailly now we are only ta
 */
 public class Solution {
     public void wiggleSort(int[] nums) {
-    	if (nums == null || nums.length <= 1) {
-    		return;
-    	}
-    	int flag = 1;
-    	for (int i = 1; i < nums.length; i++) {
-    		if (flag * nums[i] < flag * nums[i - 1]) {
-    			swap(nums, i, i - 1);
-    		}
-    		flag = -1 * flag;
-    	}
+        if (nums == null || nums.length <= 1) {
+            return;
+        }
+        int flag = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (flag * nums[i] < flag * nums[i - 1]) {
+                swap(nums, i, i - 1);
+            }
+            flag = -1 * flag;
+        }
     }
 
-	public void swap(int[] nums, int x, int y) {
-    	int temp = nums[x];
-    	nums[x] = nums[y];
-    	nums[y] = temp;
+    public void swap(int[] nums, int x, int y) {
+        int temp = nums[x];
+        nums[x] = nums[y];
+        nums[y] = temp;
     }
 }
 

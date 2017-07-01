@@ -26,20 +26,20 @@ class Solution {
      * @return: An integer
      */
     public int fastPower(int a, int b, int n) {
-    	if (n == 0) {
-    		return 1 % b;
-    	}
-    	if (n == 1) {
-    		return a % b;
-    	}
+        if (n == 0) {
+            return 1 % b;
+        }
+        if (n == 1) {
+            return a % b;
+        }
 
-    	long recurPow = fastPower(a, b, n / 2);
-    	recurPow = (recurPow * recurPow) % b;
+        long recurPow = fastPower(a, b, n / 2);
+        recurPow = (recurPow * recurPow) % b;
 
-    	if (n % 2 == 1) {
-    		recurPow = recurPow * a % b;
-    	}
+        if (n % 2 == 1) {
+            recurPow = recurPow * a % b;
+        }
 
-    	return (int)recurPow;
+        return (int) recurPow;
     }
 };

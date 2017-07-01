@@ -1,6 +1,6 @@
 根据给定的性质，找个点（left-bottom）：每次有任何情况，只能往一个方向运行。
-每次删掉一行，或者一列
-```
+        每次删掉一行，或者一列
+        ```
 /*
 Write an efficient algorithm that searches for a value in an m x n matrix, return the occurrence of it.
 

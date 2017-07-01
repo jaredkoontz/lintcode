@@ -1,21 +1,21 @@
 M
 
-Heap用的不多. 得用一下, 才好理解。   
-通常default 的PriorityQueue就是给了一个现成的min-heap：所有后面的对应element都比curr element 小。
+        Heap用的不多.得用一下,才好理解。
+        通常default 的PriorityQueue就是给了一个现成的min-heap：所有后面的对应element都比curr element 小。
 
-Heapify里面的siftdown的部分：
-	只能从for(i = n/2-1 ~ 0)， 而不能从for(i = 0 ~ n/2 -1): 必须中间开花，向上跑的时候才能确保脚下是符合heap规则的
+        Heapify里面的siftdown的部分：
+        只能从for(i=n/2-1~0)， 而不能从for(i=0~n/2-1):必须中间开花，向上跑的时候才能确保脚下是符合heap规则的
 
-Heapify/SiftDown做了什么？    
-确保在heap datastructure里面curr node下面的两个孩子，以及下面所有的node都遵循一个规律。   
-比如在这里，若是min-heap,就是后面的两孩子都要比自己大。若不是，就要swap。    
+        Heapify/SiftDown做了什么？
+        确保在heap datastructure里面curr node下面的两个孩子，以及下面所有的node都遵循一个规律。
+        比如在这里，若是min-heap,就是后面的两孩子都要比自己大。若不是，就要swap。
 
-还是要记一下min-heap的判断规律:for each element A[i], we will get A[i * 2 + 1] >= A[i] and A[i * 2 + 2] >= A[i].
+        还是要记一下min-heap的判断规律:for each element A[i],we will get A[i*2+1]>=A[i]and A[i*2+2]>=A[i].
 
-siftdown时：在curr node和两个son里面小的比较。如果的确curr < son, 搞定，break while.   
-但若curr 并不比son小，那么就要换位子，而且继续从son的位子往下面盘查。    
+        siftdown时：在curr node和两个son里面小的比较。如果的确curr<son, 搞定，break while.
+        但若curr 并不比son小，那么就要换位子，而且继续从son的位子往下面盘查。
 
-```
+        ```
 /*
 Given an integer array, heapify it into a min-heap array.
 
@@ -76,35 +76,35 @@ The for loop start from i = n/2 -1, which makes the right-most index = 2*(n/2-1)
 
 public class Solution {
     public void heapify(int[] A) {
-    	if (A == null || A.length == 0) {
-    		return;
-    	}
-    	int son = 0;
-    	int currId = 0;
-    	int leftId = 0;
-    	int rightId = 0;
-    	int n = A.length;
-    	for (int i = n/2 - 1; i >= 0; i--) {
-    		currId = i;
-    		while (currId * 2 + 1 < n) {
-    			leftId = currId * 2 + 1;
-    			rightId = currId * 2 + 2;
-    			if (rightId >= n || A[leftId] <= A[rightId]) {
-    				son = leftId;
-    			} else {
-    				son = rightId;
-    			}
-    			if (A[currId] <= A[son]) {
-    				break;
-    			} else {
-    				int temp = A[currId];
-    				A[currId] = A[son];
-    				A[son] = temp;
-    			}
-    			currId = son;
-    		}//end while
+        if (A == null || A.length == 0) {
+            return;
+        }
+        int son = 0;
+        int currId = 0;
+        int leftId = 0;
+        int rightId = 0;
+        int n = A.length;
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            currId = i;
+            while (currId * 2 + 1 < n) {
+                leftId = currId * 2 + 1;
+                rightId = currId * 2 + 2;
+                if (rightId >= n || A[leftId] <= A[rightId]) {
+                    son = leftId;
+                } else {
+                    son = rightId;
+                }
+                if (A[currId] <= A[son]) {
+                    break;
+                } else {
+                    int temp = A[currId];
+                    A[currId] = A[son];
+                    A[son] = temp;
+                }
+                currId = son;
+            }//end while
 
-    	}//end for
+        }//end for
     }
 }
 

@@ -1,18 +1,18 @@
 M
 
-比stock II 多了一个限制：只有2次卖出机会。也就是：找峰头；然后往下再找一个峰头。
+        比stock II 多了一个限制：只有2次卖出机会。也就是：找峰头；然后往下再找一个峰头。
 
-怎么样在才能Optimize两次巅峰呢？
+        怎么样在才能Optimize两次巅峰呢？
 
-从两边同时开始找Max！（棒棒的想法）
+        从两边同时开始找Max！（棒棒的想法）
 
-   leftProfit是从左往右，每个i点上的最大Profit。
-   rightProfit是从i点开始到结尾，每个点上的最大profit.
-   那么在i点上，就是leftProfit，和右边rightProfit的分割点。在i点，leftProfit+rightProfit相加，找最大值。
+        leftProfit是从左往右，每个i点上的最大Profit。
+        rightProfit是从i点开始到结尾，每个点上的最大profit.
+        那么在i点上，就是leftProfit，和右边rightProfit的分割点。在i点，leftProfit+rightProfit相加，找最大值。
 
-三个O(n),还是O(n)
+        三个O(n),还是O(n)
 
-```
+        ```
 /*
 Say you have an array for which the ith element is the price of a given stock on day i.
 

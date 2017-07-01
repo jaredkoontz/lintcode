@@ -21,8 +21,8 @@ As result, hashmap.get(a)+1 will be the satrting index, and b will be ending ind
 public class Solution {
     /**
      * @param nums: A list of integers
-     * @return: A list of integers includes the index of the first number 
-     *          and the index of the last number
+     * @return: A list of integers includes the index of the first number
+     * and the index of the last number
      */
     public ArrayList<Integer> subarraySum(int[] nums) {
         ArrayList<Integer> rst = new ArrayList<Integer>();

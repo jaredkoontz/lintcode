@@ -26,12 +26,12 @@ public class Solution {
      * @param A: A list of integers
      * @return: The boolean answer
      **/
-  //DP
-  public boolean canJump(int[] A) {
+    //DP
+    public boolean canJump(int[] A) {
         if (A == null || A.length == 0) {
             return false;
         }
-	//By default, boolean[] can is all false
+        //By default, boolean[] can is all false
         boolean[] can = new boolean[A.length];
         can[0] = true;
         for (int i = 1; i < A.length; i++) {
@@ -61,7 +61,7 @@ public class Solution {
      * @param A: A list of integers
      * @return: The boolean answer
      **/
-     
+
     public boolean canJump(int[] A) {
         if (A == null || A.length == 0) {
             return false;

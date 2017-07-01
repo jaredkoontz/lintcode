@@ -1,9 +1,9 @@
 M
 
-利用 BST的性质，可以直接搜到target node，而做成两个长度不一定相等的list。然后很简单找到LCA 
+        利用 BST的性质，可以直接搜到target node，而做成两个长度不一定相等的list。然后很简单找到LCA
 
 
-```
+        ```
 /*
 Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
 
@@ -38,10 +38,10 @@ When one of the target is root, make sure parent = root, and return root at the 
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ * int val;
+ * TreeNode left;
+ * TreeNode right;
+ * TreeNode(int x) { val = x; }
  * }
  */
 public class Solution {

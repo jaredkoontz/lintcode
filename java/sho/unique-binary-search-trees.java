@@ -5,15 +5,15 @@ public class Solution {
      */
     public int numTrees(int n) {
         // write your code here
-       int[] dp = new int[n + 1];
-       return helper(n, dp);
+        int[] dp = new int[n + 1];
+        return helper(n, dp);
     }
-    
+
     public int helper(int n, int[] dp) {
         if (n <= 1) {
             return 1;
         }
-        if (dp[n] != 0 ) {
+        if (dp[n] != 0) {
             return dp[n];
         }
         int total = 0;
@@ -22,9 +22,9 @@ public class Solution {
             int right = helper(n - i, dp);
             total += (left * right);
         }
-        
+
         dp[n] = total;
-        
+
         return total;
     }
 }

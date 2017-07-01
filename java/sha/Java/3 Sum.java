@@ -1,25 +1,25 @@
 M
 
-用个for loop 加上 2sum 的土办法。
+        用个for loop 加上 2sum 的土办法。
 
-注意:   
-   1. 找 value triplets, 多个结果。注意，并非找index。    
-   2. 要升序, 第一层for loop 从最后一个元素挑起, 保证了顺序。    
-   3. 去掉duplicate: check用过的同样的数字，都跳掉。不需要用同样的数字再计算一边已有结果。
+        注意:
+        1.找 value triplets,多个结果。注意，并非找index。
+        2.要升序,第一层for loop 从最后一个元素挑起,保证了顺序。
+        3.去掉duplicate:check用过的同样的数字，都跳掉。不需要用同样的数字再计算一边已有结果。
 
-步骤:   
-   1. For loop 挑个数字A.    
-   2. 2Sum 出一堆2个数字的结果    
-   3. Cross match 步骤1里面的A.   
+        步骤:
+        1.For loop 挑个数字A.
+        2. 2Sum 出一堆2个数字的结果
+        3.Cross match 步骤1里面的A.
 
-时间 O(n^2), 两个nested loop
+        时间 O(n^2),两个nested loop
 
 
-另外, 还是可以用HashMap来做2Sum。稍微短点。还是要注意handle duplicates.
+        另外,还是可以用HashMap来做2Sum。稍微短点。还是要注意handle duplicates.
 
-再另外（leetcode做时写的）：先sort，然后two pointer。
+        再另外（leetcode做时写的）：先sort，然后two pointer。
 
-```
+        ```
 /*
 Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? 
 Find all unique triplets in the array which gives the sum of zero.
@@ -65,6 +65,7 @@ public class Solution {
         }
         return rst;
     }
+
     //Two Sum. Multiple answer
     public ArrayList<ArrayList<Integer>> calTwoSum(int[] num, int end, int target) {
         ArrayList<ArrayList<Integer>> rst = new ArrayList<ArrayList<Integer>>();
@@ -121,6 +122,7 @@ public class Solution {
         }
         return rst;
     }
+
     //Two Sum. Multiple answer, with HashMap
     public ArrayList<ArrayList<Integer>> calTwoSum(int[] num, int end, int target) {
         ArrayList<ArrayList<Integer>> rst = new ArrayList<ArrayList<Integer>>();
@@ -141,7 +143,7 @@ public class Solution {
             if (i < end && num[i] == num[i + 1]) {
                 continue;
             }
-        } 
+        }
         return rst;
     }
 }
@@ -177,7 +179,7 @@ public class Solution {
         if (nums == null || nums.length == 0) {
             return rst;
         }
-        
+
         Arrays.sort(nums);
         HashSet<String> set = new HashSet<String>();
         //use old target to check duplicates. instead of set.
@@ -185,11 +187,11 @@ public class Solution {
             int target = 0 - nums[i];
             int start = i + 1;
             int end = nums.length - 1;
-            
+
             ArrayList<Integer> list = new ArrayList<Integer>();
             while (start < end) {
-                if (nums[start] + nums[end] == target &&  
-                    !set.contains(nums[i] + "," + nums[start] + "," + nums[end])) {
+                if (nums[start] + nums[end] == target &&
+                        !set.contains(nums[i] + "," + nums[start] + "," + nums[end])) {
                     list.add(nums[i]);
                     list.add(nums[start]);
                     list.add(nums[end]);
@@ -205,7 +207,7 @@ public class Solution {
                 }
             }//end while        
         }
-        
+
         return rst;
     }
 }

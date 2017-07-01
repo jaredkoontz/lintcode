@@ -1,11 +1,11 @@
 E
 
-小的放前。每次比head大小。   
-while过后，把没完的list一口气接上。   
+        小的放前。每次比head大小。
+        while过后，把没完的list一口气接上。
 
-一开始建一个node用来跑路, 每次都存node.next = xxx。存一个dummy。用来return dummy.next.
+        一开始建一个node用来跑路,每次都存node.next=xxx。存一个dummy。用来return dummy.next.
 
-```
+        ```
 /*
 Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
 
@@ -22,17 +22,18 @@ Thinking process:
 4. return dummy.next.
 
 */
+
 /**
  * Definition for ListNode.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int val) {
- *         this.val = val;
- *         this.next = null;
- *     }
+ * int val;
+ * ListNode next;
+ * ListNode(int val) {
+ * this.val = val;
+ * this.next = null;
  * }
- */ 
+ * }
+ */
 public class Solution {
     /**
      * @param ListNode l1 is the head of the linked list
@@ -60,7 +61,7 @@ public class Solution {
         }
         if (l2 != null) {
             node.next = l2;
-        } 
+        }
         return dummy.next;
     }
 }

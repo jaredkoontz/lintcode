@@ -32,23 +32,23 @@ class Solution {
         }
         return helper(nums, 0, nums.size() - 1, nums.size() - k);
     }
-    
-    public void swap( ArrayList<Integer>nums, int x, int y){
+
+    public void swap(ArrayList<Integer> nums, int x, int y) {
         int temp = nums.get(x);
         nums.set(x, nums.get(y));
         nums.set(y, temp);
     }
-    
-    public int helper( ArrayList<Integer> nums, int start, int end, int mid) {
+
+    public int helper(ArrayList<Integer> nums, int start, int end, int mid) {
         int pivot = end;
         int num = nums.get(pivot);
         int low = start;
         int high = end;
         while (low < high) {
-            while(low < high && nums.get(low) < num) {
+            while (low < high && nums.get(low) < num) {
                 low++;
             }
-            while(low < high && nums.get(high) >= num) {
+            while (low < high && nums.get(high) >= num) {
                 high--;
             }
             swap(nums, low, high);

@@ -1,7 +1,7 @@
 一行一行是从小到大，连续的：
-2D转1D。
-Binary Search
-```
+        2D转1D。
+        Binary Search
+        ```
 /*
 Write an efficient algorithm that searches for a value in an m x n matrix.
 
@@ -57,8 +57,8 @@ public class Solution {
         int mid;
 
         while (start + 1 < end) {
-            mid = start + (end - start)/2;
-            int num = matrix[mid/col][mid%col];
+            mid = start + (end - start) / 2;
+            int num = matrix[mid / col][mid % col];
             if (target == num) {
                 return true;
             } else if (num < target) {
@@ -68,7 +68,7 @@ public class Solution {
             }
         }
 
-        return (matrix[start/col][start%col] == target || matrix[end/col][end%col] == target);
+        return (matrix[start / col][start % col] == target || matrix[end / col][end % col] == target);
     }
 }
 
@@ -95,9 +95,9 @@ public class Solution {
      * @param target, an integer
      * @return a boolean, indicate whether matrix contains target
      */
-     //Turn 2D array into 1D array and perform regular binary search
+    //Turn 2D array into 1D array and perform regular binary search
     public boolean searchMatrix(ArrayList<ArrayList<Integer>> matrix, int target) {
-        if(matrix.size() == 0) {
+        if (matrix.size() == 0) {
             return false;
         }
         // write your code
@@ -106,11 +106,11 @@ public class Solution {
         int start = 0;
         int end = rows * cols - 1;
         int mid;
-        
+
         while (start + 1 < end) {//This will leave exact 1 start and 1 end element for next code section
             mid = start + (end - start) / 2;
             int midVal = matrix.get(mid / cols).get(mid % cols); //trick to get element
-            
+
             if (midVal == target) {
                 return true;
             } else if (midVal < target) {
@@ -119,10 +119,10 @@ public class Solution {
                 end = mid;
             }
         }//end while
-        
+
         //Deal with the 1 start and 1 end element
-        int startVal = matrix.get(start / cols).get(start % cols); 
-        int endVal = matrix.get(end / cols).get(end % cols); 
+        int startVal = matrix.get(start / cols).get(start % cols);
+        int endVal = matrix.get(end / cols).get(end % cols);
         if (startVal == target || endVal == target) {
             return true;
         } else {

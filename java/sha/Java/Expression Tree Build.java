@@ -1,15 +1,15 @@
 H
 
-和Max-tree一样，感谢http://blog.welkinlan.com/2015/06/29/max-tree-lintcode-java/
+        和Max-tree一样，感谢http://blog.welkinlan.com/2015/06/29/max-tree-lintcode-java/
 
-这个题目是Min-tree， 头上最小，Logic 和max-tree如出一辙   
+        这个题目是Min-tree， 头上最小，Logic 和max-tree如出一辙
 
-注意treeNode,为了帮助ExpressionTreeNode 排序。它加了一个weight based on expression，协助build Min-Tree 排序。
+        注意treeNode,为了帮助ExpressionTreeNode 排序。它加了一个weight based on expression，协助build Min-Tree 排序。
 
-Space: O(n) 
-Time on average: O(n).
+        Space:O(n)
+        Time on average:O(n).
 
-```
+        ```
 /*
 
 The structure of Expression Tree is a binary tree to evaluate certain expressions.
@@ -44,25 +44,17 @@ LintCode Copyright Stack Binary Tree
 /**
  * Definition of ExpressionTreeNode:
  * public class ExpressionTreeNode {
- *     public String symbol;
- *     public ExpressionTreeNode left, right;
- *     public ExpressionTreeNode(String symbol) {
- *         this.symbol = symbol;
- *         this.left = this.right = null;
- *     }
+ * public String symbol;
+ * public ExpressionTreeNode left, right;
+ * public ExpressionTreeNode(String symbol) {
+ * this.symbol = symbol;
+ * this.left = this.right = null;
+ * }
  * }
  */
 
 
 public class Solution {
-    class TreeNode {
-        int val;
-        ExpressionTreeNode eNode;
-        public TreeNode(int val, String s) {
-            this.val = val;
-            eNode = new ExpressionTreeNode(s);
-        }
-    }
     /**
      * @param expression: A string array
      * @return: The root of expression tree
@@ -103,6 +95,7 @@ public class Solution {
         }
         return rst.eNode;
     }
+
     //Calculate weight for characters
     public int getWeight(int base, String s) {
         if (s.equals("+") || s.equals("-")) {
@@ -112,6 +105,16 @@ public class Solution {
             return base + 2;
         }
         return Integer.MAX_VALUE;
+    }
+
+    class TreeNode {
+        int val;
+        ExpressionTreeNode eNode;
+
+        public TreeNode(int val, String s) {
+            this.val = val;
+            eNode = new ExpressionTreeNode(s);
+        }
     }
 }
 

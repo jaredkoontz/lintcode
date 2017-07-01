@@ -1,6 +1,6 @@
-还是binary search. 
-一个特别的check condition, 和特别的move left, move right的case罢了。
-```
+还是binary search.
+        一个特别的check condition,和特别的move left,move right的case罢了。
+        ```
 /*There is an integer array which has the following features:
 
     * The numbers in adjacent positions are different.
@@ -38,26 +38,26 @@ class Solution {
         int start = 1;
         int end = A.length - 2;
         int mid;
-        
+
         while (start + 1 < end) {
             mid = start + (end - start) / 2;
             if (A[mid] > A[mid - 1] && A[mid] > A[mid + 1]) {
                 return mid;
-            //Tricky: only when start< mid < mid + 1, we can set start = mid;
-            //This is because we are cilmbing, so going up will finally find a peak
+                //Tricky: only when start< mid < mid + 1, we can set start = mid;
+                //This is because we are cilmbing, so going up will finally find a peak
             } else if (A[mid] > A[start] && A[mid] < A[mid + 1]) {
                 start = mid;
             } else {// this case A[start] > A[mid], so we climb backwards, all make sense
                 end = mid;
             }
         }//while
-        
+
         if (A[start] > A[start - 1] && A[start] > A[start + 1]) {
             return start;
         } else {
             return end;
-        } 
-        
+        }
+
     }
 }
 

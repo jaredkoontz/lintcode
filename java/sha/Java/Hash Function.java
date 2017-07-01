@@ -1,20 +1,20 @@
 E
 
-解释Hash怎么道理。Hash function例子：    
-hashcode("abcd") = (ascii(a) * 33^3 + ascii(b) * 33^2 + ascii(c) *33^1 + ascii(d)*33^0) % HASH_SIZE 
+        解释Hash怎么道理。Hash function例子：
+        hashcode("abcd")=(ascii(a)*33^3+ascii(b)*33^2+ascii(c)*33^1+ascii(d)*33^0)%HASH_SIZE
 
-用到的参数比如: magic number 33, HASH_SIZE.
+        用到的参数比如:magic number 33,HASH_SIZE.
 
-Hash的用法是：给一个string key, 转换成数字，从而把size变得更小。    
-真实的implementation还要处理collision, 可能需要design hash function 等等。
+        Hash的用法是：给一个string key,转换成数字，从而把size变得更小。
+        真实的implementation还要处理collision,可能需要design hash function 等等。
 
 
-每一步都：     
-hashRst = hashRst * 33 + (int)(key[i]);       
-hashRst = hashRst % HASH_SIZE;       
-原因是，hashRst会变得太大，所以不能算完再%...
+        每一步都：
+        hashRst=hashRst*33+(int)(key[i]);
+        hashRst=hashRst%HASH_SIZE;
+        原因是，hashRst会变得太大，所以不能算完再%...
 
-```
+        ```
 /*
 In data structure Hash, hash function is used to convert a string(or any other type) 
 into an integer smaller than hash size and bigger or equal to zero. The objective of 
@@ -57,7 +57,7 @@ A simple way: save it as a long during calculation. Then return a (int).
 */
 class Solution {
     /**
-     * @param key: A String you should hash
+     * @param key:       A String you should hash
      * @param HASH_SIZE: An integer
      * @return an integer
      */
@@ -66,11 +66,11 @@ class Solution {
             return 0;
         }
         long hashRst = 0;
-        for (int i = 0; i < key.length ; i++) {
-            hashRst = hashRst * 33 + (int)(key[i]);
+        for (int i = 0; i < key.length; i++) {
+            hashRst = hashRst * 33 + (int) (key[i]);
             hashRst = hashRst % HASH_SIZE;
         }
-        return (int)hashRst;
+        return (int) hashRst;
     }
 };
 

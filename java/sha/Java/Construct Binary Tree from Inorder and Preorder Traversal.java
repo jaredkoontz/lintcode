@@ -1,10 +1,10 @@
 M
 
-和Construct from Inorder && Postorder 想法一样。
+        和Construct from Inorder&&Postorder 想法一样。
 
-写出Preorder和Inorder的字母例子，发现Preorder的开头总是这Level的root。依此写helper,注意处理index。
+        写出Preorder和Inorder的字母例子，发现Preorder的开头总是这Level的root。依此写helper,注意处理index。
 
-```
+        ```
 /*
 Given preorder and inorder traversal of a tree, construct the binary tree.
 
@@ -35,40 +35,40 @@ For inorder: find the root in the middle of the array, then the left-side is lef
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
- 
- 
+
+
 public class Solution {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         if (preorder.length != inorder.length) {
             return null;
         }
-        return buildTreeHelper(inorder, 0, inorder.length - 1, 
-            preorder, 0, preorder.length - 1);
+        return buildTreeHelper(inorder, 0, inorder.length - 1,
+                preorder, 0, preorder.length - 1);
     }
-    
+
     public TreeNode buildTreeHelper(int[] inorder, int inStart, int inEnd,
-        int[] preorder, int preStart, int preEnd) {
+                                    int[] preorder, int preStart, int preEnd) {
         if (inStart > inEnd) {
             return null;
         }
         TreeNode root = new TreeNode(preorder[preStart]);
         int mid = findMid(inorder, inStart, inEnd, preorder[preStart]);
-        
+
         root.left = buildTreeHelper(inorder, inStart, mid - 1,
-            preorder, preStart + 1, preStart + (mid - inStart));
+                preorder, preStart + 1, preStart + (mid - inStart));
         root.right = buildTreeHelper(inorder, mid + 1, inEnd,
-            preorder, preStart + (mid - inStart) + 1, preEnd);
+                preorder, preStart + (mid - inStart) + 1, preEnd);
         return root;
     }
-    
+
     public int findMid(int[] arr, int start, int end, int key) {
         for (int i = start; i <= end; i++) {
             if (arr[i] == key) {

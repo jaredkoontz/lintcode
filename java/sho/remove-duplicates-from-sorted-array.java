@@ -9,18 +9,18 @@ public class Solution {
         if (len == 0) {
             return 0;
         }
-        
+
         int slow = 0;
         int fast = 1;
-        
+
         while (fast < len) {
             if (nums[fast] != nums[slow]) {
                 nums[++slow] = nums[fast++];
-            }else {
+            } else {
                 fast++;
             }
         }
-        
+
         return slow + 1;
     }
 }

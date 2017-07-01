@@ -1,6 +1,6 @@
-i位和之前的0~i-1 都远关系。复杂一点。
-每次都考虑o~i的所有情况。所以double for loop
-```
+i位和之前的0~i-1都远关系。复杂一点。
+        每次都考虑o~i的所有情况。所以double for loop
+        ```
 /*
 Given a sequence of integers, find the longest increasing subsequence (LIS).
 
@@ -26,7 +26,7 @@ Binary Search LintCode Copyright Dynamic Programming
 */
 
 /*
-	Thoughts:
+    Thoughts:
 	dp[i] depends on not only dp[i-1], but also [i-1] ...[0].
 	So it has to be double-for loop.
 	Each sub-for loop on i, traverse 0 ~ j(j<=i) to find largest number to put on dp[i]
@@ -49,24 +49,24 @@ public class Solution {
      * @return: The length of LIS (longest increasing subsequence)
      */
     public int longestIncreasingSubsequence(int[] nums) {
-    	if (nums == null || nums.length == 0) {
-    		return 0;
-    	}
-    	int n = nums.length;
-    	int[] dp  = new int[n];
-    	int max = 0;
-    	for (int i = 0; i < n; i++) {
-    		dp[i] = 1;
-    		for (int j = 0; j < i; j++) {
-    			if (nums[j] <= nums[i]){
-    				dp[i] = dp[i] > dp[j] + 1 ? dp[i] : dp[j] + 1;
-    			}
-    		}
-    		if (dp[i] > max) {
-    		    max = dp[i];
-    		}
-    	}
-    	return max;
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int n = nums.length;
+        int[] dp = new int[n];
+        int max = 0;
+        for (int i = 0; i < n; i++) {
+            dp[i] = 1;
+            for (int j = 0; j < i; j++) {
+                if (nums[j] <= nums[i]) {
+                    dp[i] = dp[i] > dp[j] + 1 ? dp[i] : dp[j] + 1;
+                }
+            }
+            if (dp[i] > max) {
+                max = dp[i];
+            }
+        }
+        return max;
     }
 }
 

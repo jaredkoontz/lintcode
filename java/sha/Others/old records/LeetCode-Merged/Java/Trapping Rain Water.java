@@ -35,7 +35,7 @@ public class Solution {
     public int trap(int[] heights) {
         if (heights == null || heights.length == 0) {
             return 0;
-        }   
+        }
         int[] leftSideHighWall = new int[heights.length + 1];
         leftSideHighWall[0] = 0;
         for (int i = 0; i < heights.length; i++) {
@@ -66,52 +66,50 @@ Total 2*O(n) = O(n)
 */
 
 
-
-
 public class Solution {
     /**
      * @param heights: an array of integers
      * @return: a integer
      */
     public int trap(int[] heights) {
-    		if (heights == null || heights.length == 0) {
-    		return 0;
-    	}
-    	int max = 0;
-    	int maxIndex = -1;
-    	int sum = 0;
-    	int prev;
-    	for (int i = 0; i < heights.length; i++) {
-    		if (heights[i] > max) {
-    			max = heights[i];
-    			maxIndex = i;
-    		}
-    	}
+        if (heights == null || heights.length == 0) {
+            return 0;
+        }
+        int max = 0;
+        int maxIndex = -1;
+        int sum = 0;
+        int prev;
+        for (int i = 0; i < heights.length; i++) {
+            if (heights[i] > max) {
+                max = heights[i];
+                maxIndex = i;
+            }
+        }
 
-    	//Process left
-    	prev = 0;
-    	for (int i = 0; i < maxIndex; i++) {
-    		if (heights[i] > prev) {
-    			sum += (heights[i] - prev) * (maxIndex - i);
-    			prev = heights[i];
-    		}
-    		sum -= heights[i];
-    	}
+        //Process left
+        prev = 0;
+        for (int i = 0; i < maxIndex; i++) {
+            if (heights[i] > prev) {
+                sum += (heights[i] - prev) * (maxIndex - i);
+                prev = heights[i];
+            }
+            sum -= heights[i];
+        }
 
-    	//Process right:
-    	prev = 0;
-    	for (int i = heights.length - 1; i > maxIndex; i--) {
-    		if (heights[i] > prev) {
-    			sum += (heights[i] - prev) * (i - maxIndex);
-    			prev = heights[i];
-    		}
-    		sum -= heights[i];
-    	}
+        //Process right:
+        prev = 0;
+        for (int i = heights.length - 1; i > maxIndex; i--) {
+            if (heights[i] > prev) {
+                sum += (heights[i] - prev) * (i - maxIndex);
+                prev = heights[i];
+            }
+            sum -= heights[i];
+        }
 
-    	return sum;
+        return sum;
     }
 
-    }
+}
 
 }
 

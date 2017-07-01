@@ -1,14 +1,14 @@
 HashMap很简单就做了。
 
 
-O(1)要首先break while loop when there is a slow==fast
-然后，然后就有个我不懂得地方：
+        O(1)要首先break while loop when there is a slow==fast
+        然后，然后就有个我不懂得地方：
 
-当head == slow.next时候， head就是cycle starting point.
-也就是说，当slow 移动到了那个回溯点，slow.next那个点就刚好是head的那个点...
+        当head==slow.next时候， head就是cycle starting point.
+        也就是说，当slow 移动到了那个回溯点，slow.next那个点就刚好是head的那个点...
 
-这个可能要写一写，装一装，证明证明才行...不是特别清楚。
-```
+        这个可能要写一写，装一装，证明证明才行...不是特别清楚。
+        ```
 /*
 Given a linked list, return the node where the cycle begins.
 
@@ -30,12 +30,12 @@ Two Pointers Linked List
 /**
  * Definition for ListNode.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int val) {
- *         this.val = val;
- *         this.next = null;
- *     }
+ * int val;
+ * ListNode next;
+ * ListNode(int val) {
+ * this.val = val;
+ * this.next = null;
+ * }
  * }
  */ 
 /*
@@ -57,7 +57,7 @@ Two Pointers Linked List
 
 //HashMap
 public class Solution {
-    public ListNode detectCycle(ListNode head) {  
+    public ListNode detectCycle(ListNode head) {
         if (head == null) {
             return null;
         }
@@ -71,7 +71,7 @@ public class Solution {
             }
             head = head.next;
         }
-        
+
         return null;
     }
 }
@@ -80,7 +80,7 @@ public class Solution {
 //Slow/Fast Pointer
 //http://www.jiuzhang.com/solutions/linked-list-cycle-ii/
 /*
-	1. just like in Linked List Cycle. Keep looking. If found a slow==fast, break the 1st while loop.
+    1. just like in Linked List Cycle. Keep looking. If found a slow==fast, break the 1st while loop.
 
 	2. At that moment, the slow is not the cycle starting point. We need to look for it
 	There must be some proof within the 2nd step, which i dont know. SO, need sort of remember it:
@@ -89,23 +89,23 @@ public class Solution {
 	
 */
 public class Solution {
-    public ListNode detectCycle(ListNode head) {  
+    public ListNode detectCycle(ListNode head) {
         if (head == null) {
             return null;
         }
         ListNode slow = head;
         ListNode fast = head.next;
         while (slow != fast) {
-        	if (fast == null || fast.next == null) {
-        		return null;
-        	}
-        	slow = slow.next;
-        	fast = fast.next.next;
+            if (fast == null || fast.next == null) {
+                return null;
+            }
+            slow = slow.next;
+            fast = fast.next.next;
         }
 
         while (head != slow.next) {
-        	slow = slow.next;
-        	head = head.next;
+            slow = slow.next;
+            head = head.next;
         }
 
         return head;

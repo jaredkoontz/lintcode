@@ -1,13 +1,14 @@
 E
 
-方法1: DP array.
+        方法1:DP array.
 
-方法1.1: 滚动数组, 简化DP。
+        方法1 .1:滚动数组,简化DP。
 
-方法2: recursively calculate fib(n - 1) + fib(n - 2). 公式没问题, 但是时间太长, timeout.
+        方法2:recursively calculate fib(n-1)+fib(n-2).公式没问题,但是时间太长,timeout.
 
 
-```
+        ```
+
 /*
 Find the Nth number in Fibonacci sequence.
 
@@ -86,7 +87,7 @@ class Solution {
     public int fibonacci(int n) {
         if (n <= 1) {
             return 0;
-        } 
+        }
         if (n == 2) {
             return 1;
         }

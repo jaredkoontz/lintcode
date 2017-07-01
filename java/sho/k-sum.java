@@ -1,10 +1,10 @@
 public class Solution {
     /**
-     * @param A: an integer array.
-     * @param k: a positive integer (k <= length(A))
+     * @param A:      an integer array.
+     * @param k:      a positive integer (k <= length(A))
      * @param target: a integer
-     * @return a list of lists of integer 
-     */ 
+     * @return a list of lists of integer
+     */
     public int kSum(int A[], int k, int target) {
         // write your code here
         int[][] dp = new int[k + 1][target + 1];

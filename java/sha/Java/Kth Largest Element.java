@@ -1,18 +1,18 @@
 M
 
-用Quick Sort 里面partion的一部分。     
-partion的结果是那个low, 去找 low==nums.size() - k， 也就是倒数第K个。    
-没找到继续partion recursively.
+        用Quick Sort 里面partion的一部分。
+        partion的结果是那个low,去找 low==nums.size()-k， 也就是倒数第K个。
+        没找到继续partion recursively.
 
-sort的过程是排一个从小到大的list. (同样的代码还可以好xth smallest，mid变成x就好)
+        sort的过程是排一个从小到大的list.(同样的代码还可以好xth smallest，mid变成x就好)
 
-Quick Sort:   
-每个iteration, 找一个pivot,然后从low,和high都和pivot作比较。    
-找到一个low>pivot, high<pivot, 也就可以swap了。    
-得到的low就是当下的partion point了
+        Quick Sort:
+        每个iteration,找一个pivot,然后从low,和high都和pivot作比较。
+        找到一个low>pivot,high<pivot, 也就可以swap了。
+        得到的low就是当下的partion point了
 
 
-```
+        ```
 
 /*
 Find K-th largest element in an array.
@@ -52,23 +52,23 @@ class Solution {
         }
         return helper(nums, 0, nums.size() - 1, nums.size() - k);
     }
-    
-    public void swap( ArrayList<Integer>nums, int x, int y){
+
+    public void swap(ArrayList<Integer> nums, int x, int y) {
         int temp = nums.get(x);
         nums.set(x, nums.get(y));
         nums.set(y, temp);
     }
-    
-    public int helper( ArrayList<Integer> nums, int start, int end, int mid) {
+
+    public int helper(ArrayList<Integer> nums, int start, int end, int mid) {
         int pivot = end;
         int num = nums.get(pivot);
         int low = start;
         int high = end;
         while (low < high) {
-            while(low < high && nums.get(low) < num) {
+            while (low < high && nums.get(low) < num) {
                 low++;
             }
-            while(low < high && nums.get(high) >= num) {
+            while (low < high && nums.get(high) >= num) {
                 high--;
             }
             swap(nums, low, high);

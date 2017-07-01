@@ -1,9 +1,9 @@
 /**
  * Definition for singly-linked list with a random pointer.
  * class RandomListNode {
- *     int label;
- *     RandomListNode next, random;
- *     RandomListNode(int x) { this.label = x; }
+ * int label;
+ * RandomListNode next, random;
+ * RandomListNode(int x) { this.label = x; }
  * };
  */
 public class Solution {
@@ -17,15 +17,15 @@ public class Solution {
         // scan second time to update pointer.
         Map<RandomListNode, RandomListNode> map = new HashMap<RandomListNode, RandomListNode>();
         RandomListNode runner = head;
-        
+
         while (runner != null) {
             RandomListNode copy = new RandomListNode(runner.label);
             map.put(runner, copy);
             runner = runner.next;
         }
-        
+
         runner = head;
-        
+
         while (runner != null) {
             if (runner.next != null) {
                 map.get(runner).next = map.get(runner.next);
@@ -33,23 +33,21 @@ public class Solution {
             if (runner.random != null) {
                 map.get(runner).random = map.get(runner.random);
             }
-            
+
             runner = runner.next;
         }
-        
+
         return map.get(head);
     }
 }
 
 
-
-
 /**
  * Definition for singly-linked list with a random pointer.
  * class RandomListNode {
- *     int label;
- *     RandomListNode next, random;
- *     RandomListNode(int x) { this.label = x; }
+ * int label;
+ * RandomListNode next, random;
+ * RandomListNode(int x) { this.label = x; }
  * };
  */
 public class Solution {
@@ -65,7 +63,7 @@ public class Solution {
         // if (head == null) {
         //     return null;
         // }
-        
+
         while (runner != null) {
             RandomListNode next = runner.next;
             RandomListNode copy = new RandomListNode(runner.label);
@@ -73,9 +71,9 @@ public class Solution {
             copy.next = next;
             runner = next;
         }
-        
+
         runner = head;
-        
+
         while (runner != null) {
             RandomListNode copy = runner.next;
             RandomListNode next = copy.next;
@@ -84,12 +82,12 @@ public class Solution {
             }
             runner = next;
         }
-        
+
         RandomListNode copyHead = head.next;
         RandomListNode copyRunner = copyHead;
         runner = head;
         // seperate two interleaved lists.
-        while ( runner != null) {
+        while (runner != null) {
             runner.next = copyRunner.next;
             runner = runner.next;
             if (runner != null) {
@@ -97,7 +95,7 @@ public class Solution {
                 copyRunner = copyRunner.next;
             }
         }
-        
+
         return copyHead;
     }
 }

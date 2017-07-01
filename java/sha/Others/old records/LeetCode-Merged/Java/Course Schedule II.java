@@ -1,5 +1,5 @@
 详细的中文分析，看Course Schedule I
-```
+        ```
 /*
 There are a total of n courses you have to take, labeled from 0 to n - 1.
 
@@ -35,7 +35,7 @@ Hide Similar Problems (M) Course Schedule (H) Alien Dictionary (M) Minimum Heigh
 */
 
 /*
-	http://blog.csdn.net/ljiabin/article/details/45847019
+    http://blog.csdn.net/ljiabin/article/details/45847019
 
 	Based on Course Schedule I, now we need to return all nodes with by the seq number.
 	
@@ -43,52 +43,53 @@ Hide Similar Problems (M) Course Schedule (H) Alien Dictionary (M) Minimum Heigh
 	The map is built based on <most deepest prerequisites, list of course based on that root prerequsites>
 */
 public class Solution {
-	HashMap<Integer, List<Integer>> map;
-	int[] visited;
+    HashMap<Integer, List<Integer>> map;
+    int[] visited;
     int seq;
     int[] order;
+
     public int[] findOrder(int numCourses, int[][] prerequisites) {
-    	order = new int[numCourses];
-    	seq = numCourses - 1;
+        order = new int[numCourses];
+        seq = numCourses - 1;
         visited = new int[numCourses];
         map = new HashMap<Integer, List<Integer>>();
         //Put all start node into map.
         for (int i = 0; i < prerequisites.length; i++) {
-        	if (!map.containsKey(prerequisites[i][1])) {
-        		map.put(prerequisites[i][1], new ArrayList<Integer>());
-        	}
-        	map.get(prerequisites[i][1]).add(prerequisites[i][0]);
+            if (!map.containsKey(prerequisites[i][1])) {
+                map.put(prerequisites[i][1], new ArrayList<Integer>());
+            }
+            map.get(prerequisites[i][1]).add(prerequisites[i][0]);
         }
         //dfs on each start node in the pair
         for (int i = 0; i < numCourses; i++) {
-        	if (!dfs(i)) {
-        		return new int[]{};
-        	}
+            if (!dfs(i)) {
+                return new int[]{};
+            }
         }
         return order;
     }
 
-    public boolean dfs (int node) {
-    	if (visited[node] == 1) {//has been through this path, true.
-    		return true;
-    	}
-    	if (visited[node] == -1) {//visiting a visited node from a deper level node, cycle
-    		return false;
-    	}
-    	//mark it -1 then after dfs mark it 1. Marking and backtracking skills
-    	visited[node] = -1;
+    public boolean dfs(int node) {
+        if (visited[node] == 1) {//has been through this path, true.
+            return true;
+        }
+        if (visited[node] == -1) {//visiting a visited node from a deper level node, cycle
+            return false;
+        }
+        //mark it -1 then after dfs mark it 1. Marking and backtracking skills
+        visited[node] = -1;
 
-    	//Visit each child and make sure there is no cycle.
-    	if (map.containsKey(node)) {
-    		for (int nextNode : map.get(node)) {
-    			if (!dfs(nextNode)) {
-    				return false;
-    			}
-    		}
-    	}
-    	visited[node] = 1;
+        //Visit each child and make sure there is no cycle.
+        if (map.containsKey(node)) {
+            for (int nextNode : map.get(node)) {
+                if (!dfs(nextNode)) {
+                    return false;
+                }
+            }
+        }
+        visited[node] = 1;
         order[seq--] = node;
-    	return true;
+        return true;
     }
 
 }

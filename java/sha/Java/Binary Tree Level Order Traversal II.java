@@ -1,11 +1,11 @@
 M
 
-普通BFS，用一个queue，加上一个queue.size()来交替换行.
+        普通BFS，用一个queue，加上一个queue.size()来交替换行.
 
-rst里面add(0,...)每次都add在list开头
+        rst里面add(0,...)每次都add在list开头
 
 
-```
+        ```
 
 /*
 Given a binary tree, return the bottom-up level order traversal of its nodes' values. 
@@ -35,12 +35,12 @@ Queue Binary Tree Binary Tree Traversal Breadth First Search
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
  
@@ -86,10 +86,11 @@ public class Solution {
             }
             result.add(0, list);
         }*/
-        
+
         dfs(root, 0, result);
         return result;
     }
+
     public void dfs(TreeNode root, int level, ArrayList<ArrayList<Integer>> rst) {
         if (root == null) {
             return;

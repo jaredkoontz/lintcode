@@ -1,13 +1,13 @@
 E
 
-方法1: DP。爬坡到i点总共有的方法，取决于i-1点和i-2的情况。也就是DP(i-1) + DP(i-2).
+        方法1:DP。爬坡到i点总共有的方法，取决于i-1点和i-2的情况。也就是DP(i-1)+DP(i-2).
 
-还可以用滚动数组优化一点：因为用到的变量就只有i,i-1,i-2，可以被替代。
-   注意要写好‘滚动’的代码。
+        还可以用滚动数组优化一点：因为用到的变量就只有i,i-1,i-2，可以被替代。
+        注意要写好‘滚动’的代码。
 
-方法2: DFS但是timeout
+        方法2:DFS但是timeout
 
-```
+        ```
 /*
 
 You are climbing a stair case. It takes n steps to reach to the top.
@@ -79,6 +79,7 @@ public class Solution {
 
 public class Solution {
     public int count = 0;
+
     public int climbStairs(int n) {
         if (n <= 0) {
             return 0;

@@ -9,10 +9,10 @@ public class Solution {
         // is greater than previous one, add the diff to profit.
         // which means we buy on first day, sell on second day.
         // If you draw an histogram: we only sum all the incresing slope.
-        for(int i = 1; i < prices.length; i++){
-        	if(prices[i] > prices[i - 1]){
-        		profit += prices[i] - prices[i - 1];
-        	}
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i - 1]) {
+                profit += prices[i] - prices[i - 1];
+            }
         }
 
         return profit;

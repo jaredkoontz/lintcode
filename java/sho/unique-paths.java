@@ -26,26 +26,25 @@ public class Solution {
 
     //     return dp[m - 1][n - 1];
     // }
-
     public int uniquePaths(int m, int n) {
         // write your code here 
         if (m == 0 || n == 0) {
-        	return 0;
+            return 0;
         }
 
         int[] dp = new int[n];
 
         for (int i = 0; i < n; i++) {
-        	dp[i] = 1;
+            dp[i] = 1;
         }
 
         for (int i = 1; i < m; i++) {
-        	for (int j = 1; j < n; j++) {
-        		dp[j] = dp[j - 1] + dp[j];
-        	}
+            for (int j = 1; j < n; j++) {
+                dp[j] = dp[j - 1] + dp[j];
+            }
         }
 
-        return dp[n -1 ];
+        return dp[n - 1];
     }
 }
 

@@ -1,6 +1,7 @@
 class Solution {
     /**
      * Calculate the total number of distinct N-Queen solutions.
+     *
      * @param n: The number of queens.
      * @return: The total number of distinct solutions.
      */
@@ -16,14 +17,14 @@ class Solution {
         }
         return res[0];
     }
-    
+
     public void helper(int[] res, int[] pos, int row) {
         if (row == pos.length) {
             // valid match.
             res[0] += 1;
             return;
         }
-        
+
         // try current row
         for (int i = 0; i < pos.length; i++) {
             // 
@@ -35,14 +36,14 @@ class Solution {
             }
         }
     }
-    
+
     public boolean isValid(int[] pos, int row, int col) {
         for (int i = 0; i < row; i++) {
             int qRow = i;
             int qCol = pos[i];
             int tryRow = row;
             int tryCol = col;
-            
+
             // check col
             if (qCol == tryCol) {
                 return false;

@@ -62,7 +62,7 @@ public class Solution {
                 runNode = runNode.right;
             }
         }//while
-        
+
         if (parentNode != null) {
             if (parentNode.val > node.val) {
                 parentNode.left = node;

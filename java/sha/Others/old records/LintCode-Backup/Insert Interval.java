@@ -19,20 +19,20 @@ Thoughts:
 */
 
 
-
 /**
  * Definition of Interval:
  * public classs Interval {
- *     int start, end;
- *     Interval(int start, int end) {
- *         this.start = start;
- *         this.end = end;
- *     }
+ * int start, end;
+ * Interval(int start, int end) {
+ * this.start = start;
+ * this.end = end;
+ * }
  */
 class Solution {
     /**
      * Insert newInterval into intervals.
-     * @param intervals: Sorted interval list.
+     *
+     * @param intervals:   Sorted interval list.
      * @param newInterval: A new interval.
      * @return: A new sorted interval list.
      */
@@ -55,7 +55,7 @@ class Solution {
             intervals.add(0, newInterval);
         }
         intervals.add(front + 1, newInterval);
-     
+
         //Merge
         Interval pre = intervals.get(0);
         Interval curr = null;
@@ -69,7 +69,7 @@ class Solution {
                 pre = curr;
             }
         }
-    
+
         return intervals;
     }
 }

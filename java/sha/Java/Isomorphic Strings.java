@@ -1,16 +1,16 @@
 E
 
-HashMap 来确认match。有几种情况考虑:
+        HashMap 来确认match。有几种情况考虑:
 
-1. Match. 就是map.containsKey, map.containsValue, and char1 == char2. Perfect.
+        1.Match.就是map.containsKey,map.containsValue,and char1==char2.Perfect.
 
-2. Either Key not exist, or Value not exit. False;
+        2.Either Key not exist,or Value not exit.False;
 
-3. Both key and Value exist, but map.get(char1) != char2.  Miss-match. False.
+        3.Both key and Value exist,but map.get(char1)!=char2.Miss-match.False.
 
-4. None of Key or Value exist in HashMap. Then add the match.
+        4.None of Key or Value exist in HashMap.Then add the match.
 
-```
+        ```
 /*
 Given two strings s and t, determine if they are isomorphic.
 
@@ -47,14 +47,14 @@ public class Solution {
         for (int i = 0; i < s.length(); i++) {
             char charS = s.charAt(i);
             char charT = t.charAt(i);
-            
+
             if (!map.containsKey(charS) && !map.containsValue(charT)) {
                 map.put(charS, charT);
             } else if (!map.containsKey(charS) || !map.containsValue(charT)) {
                 return false;
             } else if (map.containsKey(charS) && map.containsValue(charT) && map.get(charS) != charT) {
                 return false;
-            } 
+            }
         }
         return true;
     }

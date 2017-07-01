@@ -31,37 +31,37 @@ Because we can only take the top of stack, and we are constantly adding to the t
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
- 
- 
+
+
 public class Solution {
     /**
      * @param root: The root of binary tree.
-     * @return: A list of lists of integer include 
-     *          the zigzag level order traversal of its nodes' values 
+     * @return: A list of lists of integer include
+     * the zigzag level order traversal of its nodes' values
      */
     public ArrayList<ArrayList<Integer>> zigzagLevelOrder(TreeNode root) {
         ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
         if (root == null) {
             return result;
         }
-        
+
         Stack<TreeNode> currentLevel = new Stack<TreeNode>();
         Stack<TreeNode> nextLevel = new Stack<TreeNode>();
-        
+
         currentLevel.push(root);
         boolean regularOrder = false;
-        
+
         while (!currentLevel.empty()) {
             ArrayList<Integer> list = new ArrayList<Integer>();
-            
+
             while (!currentLevel.empty()) {
                 TreeNode temp = currentLevel.pop();
                 list.add(temp.val);
@@ -81,7 +81,7 @@ public class Solution {
         }
         return result;
     }
-    
+
     public void addLevel(Stack<TreeNode> level, TreeNode node) {
         if (node != null) {
             level.push(node);

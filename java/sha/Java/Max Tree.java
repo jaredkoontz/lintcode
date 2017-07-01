@@ -1,24 +1,24 @@
 H
 
-Should memorize MaxTree. 依次类推，会做Min-Tree, Expression Tree
+        Should memorize MaxTree.依次类推，会做Min-Tree,Expression Tree
 
-Stack里，最大的值在下面。利用此性质，有这样几个step:
+        Stack里，最大的值在下面。利用此性质，有这样几个step:
 
-1   
-把所有小于curr node的，全Pop出来, while loop, keep it going.    
-最后pop出的这个小于Curr的node：它同时也是stack里面pop出来小于curr的最大的一个，最接近curr大小。（因为这个stack最大值靠下面）    
-把这个最大的小于curr的node放在curr.left.    
+        1
+        把所有小于curr node的，全Pop出来,while loop,keep it going.
+        最后pop出的这个小于Curr的node：它同时也是stack里面pop出来小于curr的最大的一个，最接近curr大小。（因为这个stack最大值靠下面）
+        把这个最大的小于curr的node放在curr.left.
 
-2   
-那么，接下去stack里面的一定是大于curr：   
-那就变成curr的left parent. set stack.peek().right = curr.
+        2
+        那么，接下去stack里面的一定是大于curr：
+        那就变成curr的left parent.set stack.peek().right=curr.
 
-3   
-结尾：stack底部一定是最大的那个，也就是max tree的头。
+        3
+        结尾：stack底部一定是最大的那个，也就是max tree的头。
 
 
 
-```
+        ```
 /*
 Given an integer array with no duplicates. A max tree building on this array is defined as follow:
 
@@ -64,26 +64,26 @@ These behavior keeps larger value on upper level of the tree
 
 public class Solution {
     public TreeNode maxTree(int[] A) {
-    	if (A == null || A.length == 0) {
-    		return null;
-    	}
-    	Stack<TreeNode> stack = new Stack<TreeNode>();
-    	for (int i = 0; i < A.length; i++) {
-    		TreeNode node = new TreeNode(A[i]);
-    		while (!stack.isEmpty() && node.val >= stack.peek().val) {
-    			node.left = stack.pop();
-    		}
-    		if (!stack.isEmpty()) {
-    			stack.peek().right = node;
-    		}
-    		stack.push(node);
-    	}
+        if (A == null || A.length == 0) {
+            return null;
+        }
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        for (int i = 0; i < A.length; i++) {
+            TreeNode node = new TreeNode(A[i]);
+            while (!stack.isEmpty() && node.val >= stack.peek().val) {
+                node.left = stack.pop();
+            }
+            if (!stack.isEmpty()) {
+                stack.peek().right = node;
+            }
+            stack.push(node);
+        }
 
-    	TreeNode rst = stack.pop();
-    	while(!stack.isEmpty()) {
-    		rst = stack.pop();
-    	}
-    	return rst;
+        TreeNode rst = stack.pop();
+        while (!stack.isEmpty()) {
+            rst = stack.pop();
+        }
+        return rst;
     }
 }
 
@@ -91,12 +91,12 @@ public class Solution {
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
 

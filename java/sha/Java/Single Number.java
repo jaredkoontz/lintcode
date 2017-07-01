@@ -20,20 +20,20 @@ In order to compare from index 0 to the end, we need to extract index 0 first as
 */
 
 public class Solution {
-	/**
-	 *@param A : an integer array
-	 *return : a integer 
-	 */
-	public int singleNumber(int[] A) {
+    /**
+     * @param A : an integer array
+     *          return : a integer
+     */
+    public int singleNumber(int[] A) {
         if (A == null || A.length == 0) {
-           return 0;
+            return 0;
         }
         int rst = A[0];
         for (int i = 1; i < A.length; i++) {
             rst = rst ^ A[i];
         }
         return rst;
-	}
+    }
 }
 
 

@@ -53,23 +53,23 @@ public class Solution {
      * @return: Count the number of distinct subsequences
      */
     public int numDistinct(String S, String T) {
-    	int[][] DP = new int[T.length() + 1][S.length() + 1];
-    	DP[0][0] = 1;
-    	for(int i = 1; i < S.length(); i++) {
-    		DP[0][i] = 1;
-    	}
-    	for (int i = 1; i < T.length(); i++) {
-    		DP[i][0] = 0;
-    	}
-    	for (int i = 1; i <= T.length(); i++) {
-    		for (int j = 1; j <= S.length(); j++){
-    			DP[i][j] = DP[i][j - 1];
-    			if (T.charAt(i - 1) == S.charAt(j - 1)) {
-    				DP[i][j] += DP[i - 1][j - 1];
-    			}
-    		}
-    	}
-    	return DP[T.length()][S.length()];
+        int[][] DP = new int[T.length() + 1][S.length() + 1];
+        DP[0][0] = 1;
+        for (int i = 1; i < S.length(); i++) {
+            DP[0][i] = 1;
+        }
+        for (int i = 1; i < T.length(); i++) {
+            DP[i][0] = 0;
+        }
+        for (int i = 1; i <= T.length(); i++) {
+            for (int j = 1; j <= S.length(); j++) {
+                DP[i][j] = DP[i][j - 1];
+                if (T.charAt(i - 1) == S.charAt(j - 1)) {
+                    DP[i][j] += DP[i - 1][j - 1];
+                }
+            }
+        }
+        return DP[T.length()][S.length()];
     }
 }
 
@@ -81,19 +81,19 @@ However, exceed time limit
 */
 public class Solution {
     public int numDistinct(String S, String T) {
-    	if (S.length() == 0) {
-    		return T.length() == 0 ? 1 : 0;
-    	}
-    	if (T.length() == 0) {
-    		return 1;
-    	}
-    	int count = 0;
-    	for (int i = 0; i < S.length(); i++) {
-    		if (S.charAt(i) == T.charAt(0)) {
-    			count += numDistinct(S.substring(i + 1), T.substring(1));
-    		}
-    	}
-    	return count;
+        if (S.length() == 0) {
+            return T.length() == 0 ? 1 : 0;
+        }
+        if (T.length() == 0) {
+            return 1;
+        }
+        int count = 0;
+        for (int i = 0; i < S.length(); i++) {
+            if (S.charAt(i) == T.charAt(0)) {
+                count += numDistinct(S.substring(i + 1), T.substring(1));
+            }
+        }
+        return count;
     }
 }
 

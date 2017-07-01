@@ -7,21 +7,21 @@ class Solution {
     public int digitCounts(int k, int n) {
         // write your code here
         int count = 0;
-        
+
         for (int i = 0; i <= n; i++) {
             count += getCount(k, i);
         }
-        
+
         return count;
     }
-    
+
     public int getCount(int k, int n) {
         int count = 0;
-        
+
         if (n == 0) {
-            return k == 0? 1 : count;
+            return k == 0 ? 1 : count;
         }
-        
+
         while (n > 0) {
             int lastDigit = n % 10;
             if (lastDigit == k) {
@@ -29,7 +29,7 @@ class Solution {
             }
             n /= 10;
         }
-        
+
         return count;
     }
 };

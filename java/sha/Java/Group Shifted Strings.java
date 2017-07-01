@@ -1,10 +1,10 @@
 E
 
-相同shift规则的string, 能被推算到同一个零起始点，就是共同减去一个char,最后就相等。以此作为key，用HashMap。一目了然。
+        相同shift规则的string,能被推算到同一个零起始点，就是共同减去一个char,最后就相等。以此作为key，用HashMap。一目了然。
 
-记得根据题目意思，一开始要String[] sort一下。
+        记得根据题目意思，一开始要String[]sort一下。
 
-```
+        ```
 /*
 Given a string, we can "shift" each of its letter to its successive letter, for example: "abc" -> "bcd". We can keep "shifting" which forms the sequence:
 
@@ -37,15 +37,15 @@ public class Solution {
         }
         Arrays.sort(strings);
         HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
-        
+
         for (String s : strings) {
             char[] arr = s.toCharArray();
             char head = arr[0];
             for (int i = 0; i < arr.length; i++) {
                 if (arr[i] - head < 0) {
-                    arr[i] = (char)((arr[i] - head) + 26);
+                    arr[i] = (char) ((arr[i] - head) + 26);
                 } else {
-                    arr[i] = (char)(arr[i] - head);
+                    arr[i] = (char) (arr[i] - head);
                 }
             }
             String key = new String(arr);
@@ -54,7 +54,7 @@ public class Solution {
             }
             map.get(key).add(s);
         }
-        
+
         for (Map.Entry<String, ArrayList<String>> entry : map.entrySet()) {
             rst.add(entry.getValue());
         }

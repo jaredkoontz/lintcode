@@ -13,7 +13,7 @@ public class Solution {
         for (int i : num) {
             set.add(i);
         }
-        
+
         int maxLen = -1;
         for (int i : num) {
             int tempLen = 1;
@@ -28,7 +28,7 @@ public class Solution {
                 set.remove(smaller--);
             }
             set.remove(i);
-            maxLen = maxLen < tempLen? tempLen : maxLen;
+            maxLen = maxLen < tempLen ? tempLen : maxLen;
         }
         return maxLen;
     }

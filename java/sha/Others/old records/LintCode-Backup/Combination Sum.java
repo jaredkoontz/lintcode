@@ -1,6 +1,6 @@
-递归，backtracking. 非常normal。
-记得求sum时候也pass 一个sum进去，backtracking一下sum也，这样就不必每次都sum the list了。
-```
+递归，backtracking.非常normal。
+        记得求sum时候也pass 一个sum进去，backtracking一下sum也，这样就不必每次都sum the list了。
+        ```
 /*
 Given a set of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
 
@@ -35,7 +35,7 @@ In particular, I pass a 'sum' to compare with 'target' (want to have sum == targ
 public class Solution {
     /**
      * @param candidates: A list of integers
-     * @param target:An integer
+     * @param target:An   integer
      * @return: A list of lists of integers
      */
     public List<List<Integer>> combinationSum(int[] num, int target) {
@@ -48,8 +48,9 @@ public class Solution {
         helper(rst, list, num, target, 0, 0);
         return rst;
     }
+
     public void helper(List<List<Integer>> rst, List<Integer> list,
-                int[] num, int target, int sum, int start) {
+                       int[] num, int target, int sum, int start) {
         if (sum == target) {
             rst.add(new ArrayList(list));
             return;

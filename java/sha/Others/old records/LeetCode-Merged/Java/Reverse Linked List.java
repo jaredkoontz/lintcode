@@ -14,25 +14,26 @@ Cut off everything from [2 ~ ] and save it in cutoff;
 Append old reversed list to current head. Make itself as the new reversedList. Basically: append the 1st element to head of the reversedList, like a stack.
 Save head = cutOff: basically moves on to next element.
 */
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
+ * int val;
+ * ListNode next;
+ * ListNode(int x) { val = x; }
  * }
  */
 public class Solution {
     public ListNode reverseList(ListNode head) {
         if (head == null) {
-        	return head;
+            return head;
         }
-       	ListNode reversedList = null;
+        ListNode reversedList = null;
         while (head != null) {
-        	ListNode cutOff = head.next;
-        	head.next = reversedList;
-        	reversedList = head;
-        	head = cutOff;
+            ListNode cutOff = head.next;
+            head.next = reversedList;
+            reversedList = head;
+            head = cutOff;
         }
         return reversedList;
     }

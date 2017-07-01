@@ -1,24 +1,24 @@
 E
 
 
-方法1：Scan Line    
-Interval 拆点，PriorityQueue排点。     
-Merge时用count==0作判断点。    
+        方法1：Scan Line
+        Interval 拆点，PriorityQueue排点。
+        Merge时用count==0作判断点。
 
-PriorityQueue: O(logN). 扫n点，总共：O(nLogn)    
+        PriorityQueue:O(logN).扫n点，总共：O(nLogn)
 
 
-方法2：   
-O(n) 直接找到可以insert newInterval的位子. Insert。  这里已经给了sorted intervals by start point. 所以O(n)
+        方法2：
+        O(n)直接找到可以insert newInterval的位子.Insert。  这里已经给了sorted intervals by start point.所以O(n)
 
-然后loop to merge entire interval array
+        然后loop to merge entire interval array
 
-另外: 因为interval已经sort, 本想用Binary Search O(logn). 但是找到interval insert position， merge还是要用 O(n)。      
-比如刚好newInterval cover entire  list....
+        另外:因为interval已经sort,本想用Binary Search O(logn).但是找到interval insert position， merge还是要用 O(n)。
+        比如刚好newInterval cover entire list....
 
- 
 
-```
+
+        ```
 
 /*
 Given a non-overlapping interval list which is sorted by start point.
@@ -38,11 +38,11 @@ Basic Implementation
 /**
  * Definition of Interval:
  * public classs Interval {
- *     int start, end;
- *     Interval(int start, int end) {
- *         this.start = start;
- *         this.end = end;
- *     }
+ * int start, end;
+ * Interval(int start, int end) {
+ * this.start = start;
+ * this.end = end;
+ * }
  */
 
 
@@ -57,14 +57,6 @@ What's the difference from merge intervals?
 
 public class Solution {
 
-    class Point {
-        int x;
-        int flag;
-        public Point(int x, int flag) {
-            this.x = x;
-            this.flag = flag;
-        }
-    }
     public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
         List<Interval> rst = new ArrayList<Interval>();
         if (intervals == null && newInterval == null) {
@@ -76,13 +68,13 @@ public class Solution {
             return intervals;
         }
 
-        PriorityQueue<Point> queue = new PriorityQueue<Point>(1, new Comparator<Point>(){
-            public int compare(Point a, Point b){
+        PriorityQueue<Point> queue = new PriorityQueue<Point>(1, new Comparator<Point>() {
+            public int compare(Point a, Point b) {
                 return a.x - b.x;
             }
         });
 
-        for (Interval range: intervals) {
+        for (Interval range : intervals) {
             queue.add(new Point(range.start, 1));
             queue.add(new Point(range.end, -1));
         }
@@ -116,8 +108,17 @@ public class Solution {
         return rst;
 
     }
-}
 
+    class Point {
+        int x;
+        int flag;
+
+        public Point(int x, int flag) {
+            this.x = x;
+            this.flag = flag;
+        }
+    }
+}
 
 
 /*
@@ -149,7 +150,7 @@ class Solution {
             intervals.add(0, newInterval);
         }
         intervals.add(front + 1, newInterval);
-     
+
         //Merge
         Interval pre = intervals.get(0);
         Interval curr = null;
@@ -163,7 +164,7 @@ class Solution {
                 pre = curr;
             }
         }
-    
+
         return intervals;
     }
 }
@@ -190,10 +191,10 @@ class Solution {
         int end = intervals.size();
         int mid;
         while (start + 1 < end) {
-            mid = start + (end - start)/2;
+            mid = start + (end - start) / 2;
             if (newInterval.start <= intervals.get(mid)) {
-                if (mid == 0 || intervals.get(mid).start == newInterval.start 
-                    || intervals.get(mid-1).start < newInterval.start) {
+                if (mid == 0 || intervals.get(mid).start == newInterval.start
+                        || intervals.get(mid - 1).start < newInterval.start) {
                     inStart = mid;
                     break;
                 }
@@ -205,10 +206,10 @@ class Solution {
         start = 0;
         end = intervals.size();
         while (start + 1 < end) {
-            mid = start + (end - start)/2;
+            mid = start + (end - start) / 2;
             if (newInterval.end <= intervals.get(mid)) {
-                if (mid == 0 || intervals.get(mid).start == newInterval.end 
-                    || intervals.get(mid-1).start < newInterval.end) {
+                if (mid == 0 || intervals.get(mid).start == newInterval.end
+                        || intervals.get(mid - 1).start < newInterval.end) {
                     inEnd = mid;
                     break;
                 }
@@ -217,9 +218,9 @@ class Solution {
                 start = mid;
             }
         }
-        
-        int diff = 
-        
+
+        int diff =
+
 
         return result;
     }

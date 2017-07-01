@@ -1,10 +1,10 @@
 M
 
-按定义：   
-左孩子：（A.left, (A.left+A.rigth)/2）   
-右孩子：（(A.left+A.rigth)/2＋1， A.right）   
+        按定义：
+        左孩子：（A.left,(A.left+A.rigth)/2）
+        右孩子：（(A.left+A.rigth)/2＋1， A.right）
 
-```
+        ```
 /*
 The structure of Segment Tree is a binary tree which each node 
 has two attributes start and end denote an segment / interval.
@@ -52,31 +52,31 @@ LintCode Copyright Binary Tree Segment Tree
 
 public class Solution {
     /**
-     *@param start, end: Denote an segment / interval
-     *@return: The root of Segment Tree
+     * @param start, end: Denote an segment / interval
+     * @return: The root of Segment Tree
      */
     public SegmentTreeNode build(int start, int end) {
-    	if (start > end) {
-    		return null;
-    	} else if (start == end) {
-    		return new SegmentTreeNode(start, end);
-    	}
-    	SegmentTreeNode node = new SegmentTreeNode(start, end);
-    	node.left = build(start, (start + end)/2);
-    	node.right  = build((start + end)/2 + 1, end);
-    	return node;
+        if (start > end) {
+            return null;
+        } else if (start == end) {
+            return new SegmentTreeNode(start, end);
+        }
+        SegmentTreeNode node = new SegmentTreeNode(start, end);
+        node.left = build(start, (start + end) / 2);
+        node.right = build((start + end) / 2 + 1, end);
+        return node;
     }
 }
 
 /**
  * Definition of SegmentTreeNode:
  * public class SegmentTreeNode {
- *     public int start, end;
- *     public SegmentTreeNode left, right;
- *     public SegmentTreeNode(int start, int end) {
- *         this.start = start, this.end = end;
- *         this.left = this.right = null;
- *     }
+ * public int start, end;
+ * public SegmentTreeNode left, right;
+ * public SegmentTreeNode(int start, int end) {
+ * this.start = start, this.end = end;
+ * this.left = this.right = null;
+ * }
  * }
  */
  

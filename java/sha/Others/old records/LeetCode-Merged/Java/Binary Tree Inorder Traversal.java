@@ -44,10 +44,10 @@ Test
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ * int val;
+ * TreeNode left;
+ * TreeNode right;
+ * TreeNode(int x) { val = x; }
  * }
  */
 public class Solution {
@@ -55,27 +55,27 @@ public class Solution {
         List<Integer> rst = new ArrayList<Integer>();
         Stack<TreeNode> stack = new Stack<TreeNode>();
         if (root == null) {
-        	return rst;
+            return rst;
         }
         //Add left children
         dfsOnLeft(stack, root);
         //Process
-        while(!stack.isEmpty()) {
-        	TreeNode node = stack.pop();
-        	rst.add(node.val);
-        	if (node.right != null) {
-        		node = node.right;
-        		dfsOnLeft(stack, node);
-        	}
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            rst.add(node.val);
+            if (node.right != null) {
+                node = node.right;
+                dfsOnLeft(stack, node);
+            }
         }//end while
         return rst;
     }
 
     public void dfsOnLeft(Stack<TreeNode> stack, TreeNode node) {
-    	stack.push(node);
-        while(node.left != null) {
-        	node = node.left;
-        	stack.push(node);
+        stack.push(node);
+        while (node.left != null) {
+            node = node.left;
+            stack.push(node);
         }
     }
 }

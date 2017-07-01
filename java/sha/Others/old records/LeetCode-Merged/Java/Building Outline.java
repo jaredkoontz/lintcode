@@ -26,7 +26,6 @@ LintCode Copyright Heap
 */
 
 
-
 public class Solution {
     /**
      * @param buildings: A list of lists of integers

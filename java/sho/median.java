@@ -10,10 +10,10 @@ public class Solution {
             return 0;
         }
         // quick select mid-th element.
-        int medianIndex = (len % 2 == 0)? len / 2 - 1 : len / 2;
+        int medianIndex = (len % 2 == 0) ? len / 2 - 1 : len / 2;
         int start = 0;
         int end = len - 1;
-        
+
         //
         while (start <= end) {
             int mid = (start + end) / 2;
@@ -26,10 +26,10 @@ public class Solution {
                 start = relocate + 1;
             }
         }
-        
+
         return 0;
     }
-    
+
     public int partition(int[] nums, int start, int end, int pivot) {
         // return the right index of pivotal
         int pivotal = nums[pivot];
@@ -49,13 +49,13 @@ public class Solution {
                 // 4 3 1 9. 8 6
                 // 4 3 1 9. 8 6 5
                 // 4 3 1 5. 8 6 9
-            } 
+            }
         }
-        
+
         swap(nums, storedIndex, end);
         return storedIndex;
     }
-    
+
     public void swap(int[] nums, int a, int b) {
         int temp = nums[a];
         nums[a] = nums[b];

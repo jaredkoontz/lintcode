@@ -12,7 +12,7 @@ class Solution {
         Queue<Long> queue3 = new LinkedList<Long>();
         Queue<Long> queue5 = new LinkedList<Long>();
         Queue<Long> queue7 = new LinkedList<Long>();
-        queue3.add((long)1);
+        queue3.add((long) 1);
 
         for (int i = 0; i <= k; i++) {
             long v3 = queue3.size() > 0 ? queue3.peek() : Long.MAX_VALUE;

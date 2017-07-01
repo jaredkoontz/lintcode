@@ -1,13 +1,13 @@
 M
 
-In-place reverse.
+        In-place reverse.
 
-reverse用两回. 全局reverse。局部:遇到空格reverse。
+        reverse用两回.全局reverse。局部:遇到空格reverse。
 
-注意：结尾点即使没有' '也要给reverse一下最后一个词。
+        注意：结尾点即使没有' '也要给reverse一下最后一个词。
 
 
-```
+        ```
 /*
 Given an input string, reverse the string word by word. A word is defined as a sequence of non-space characters.
 
@@ -50,7 +50,7 @@ public class Solution {
             }
         }//end for
     }
-    
+
     public void reverse(char[] s, int start, int end) {
         while (start < end) {
             char temp = s[start];
@@ -106,7 +106,7 @@ public class Solution {
             s[j] = s[end - (j - start)];
             s[end - (j - start)] = temp;
         }
-        
+
     }
 }
 ```

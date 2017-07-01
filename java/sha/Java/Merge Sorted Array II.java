@@ -1,5 +1,5 @@
 长度已经固定。普通做法。
-```
+        ```
 /*
 33% Accepted
 Merge two given sorted integer array A and B into a new sorted integer array.
@@ -76,7 +76,7 @@ class Solution {
             if (i == A.size()) {
                 result.add(B.get(j));
                 j++;
-            } else if (j == B.size()){
+            } else if (j == B.size()) {
                 result.add(A.get(i));
                 i++;
             } else {
@@ -89,7 +89,7 @@ class Solution {
                 }
             }
         }//While
-        
+
         return result;
     }
 }

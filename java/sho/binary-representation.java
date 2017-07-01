@@ -1,7 +1,7 @@
 public class Solution {
     /**
-     *@param n: Given a decimal number that is passed in as a string
-     *@return: A string
+     * @param n: Given a decimal number that is passed in as a string
+     * @return: A string
      */
     public static String binaryRepresentation(String n) {
         // write your code here
@@ -23,7 +23,7 @@ public class Solution {
 
         String intPart = intBinary(split[0]);
 
-        return decimalPart.equals("")? intPart : intPart + "." + decimalPart;
+        return decimalPart.equals("") ? intPart : intPart + "." + decimalPart;
     }
 
     public static String decBinary(String num) {
@@ -65,7 +65,7 @@ public class Solution {
             }
             base = base << 1;
         }
-        
+
         if (sb.length() == 0) {
             sb.append(0);
         }

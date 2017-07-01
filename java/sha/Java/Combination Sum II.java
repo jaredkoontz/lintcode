@@ -1,9 +1,10 @@
 M
 
-还是DFS. 和Combination Sum I 类似.      
-确保Helper是用i+1，下一层的数字, 不允许重复。
+        还是DFS.和Combination Sum I 类似.
+        确保Helper是用i+1，下一层的数字,不允许重复。
 
-```
+        ```
+
 /*
 Given a collection of candidate numbers (C) and a target number (T), 
 find all unique combinations in C where the candidate numbers sums to T.
@@ -36,7 +37,7 @@ cannot reuse the current index in nums. Instead, in helper() function, use index
 */
 public class Solution {
     /**
-     * @param num: Given the candidate numbers
+     * @param num:    Given the candidate numbers
      * @param target: Given the target number
      * @return: All the combinations that sum to target
      */
@@ -50,8 +51,9 @@ public class Solution {
         helper(rst, list, num, target, 0, 0);
         return rst;
     }
+
     public void helper(List<List<Integer>> rst, List<Integer> list,
-                int[] num, int target, int sum, int start) {
+                       int[] num, int target, int sum, int start) {
         if (sum == target) {
             rst.add(new ArrayList(list));
             return;

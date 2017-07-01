@@ -11,14 +11,14 @@ public class Solution {
         Arrays.sort(numbers);
         ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
         ArrayList<Integer> tempList = new ArrayList<Integer>();
-        
+
         for (int i = 0; i < numbers.length; i++) {
-            if ( i != 0 && numbers[i] == numbers[i - 1]) {
+            if (i != 0 && numbers[i] == numbers[i - 1]) {
                 continue;
             }
             int left = i + 1;
             int right = numbers.length - 1;
-            
+
             while (left < right) {
                 int sum = numbers[i] + numbers[left] + numbers[right];
                 if (sum == 0) {
@@ -46,7 +46,7 @@ public class Solution {
                 }
             }
         }
-        
+
         return res;
     }
 }

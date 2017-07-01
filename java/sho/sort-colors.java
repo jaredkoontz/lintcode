@@ -1,6 +1,6 @@
 class Solution {
     /**
-     * @param nums: A list of integer which is 0, 1 or 2 
+     * @param nums: A list of integer which is 0, 1 or 2
      * @return: nothing
      */
     public void sortColors(int[] nums) {
@@ -9,11 +9,11 @@ class Solution {
         if (len == 0) {
             return;
         }
-        
+
         int zeroIndex = 0;
         int twoIndex = len - 1;
         int i = 0;
-        
+
         while (i != twoIndex) {
             if (nums[i] == 0) {
                 swap(nums, i, zeroIndex++);
@@ -22,16 +22,16 @@ class Solution {
             } else {
                 // do nothing
             }
-            
+
             i++;
         }
-        
+
         if (nums[i] == 0) {
             swap(nums, i, zeroIndex);
         }
-        
+
     }
-    
+
     public void swap(int[] nums, int a, int b) {
         int temp = nums[a];
         nums[a] = nums[b];

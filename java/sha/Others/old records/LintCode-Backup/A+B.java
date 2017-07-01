@@ -1,13 +1,13 @@
 E
 
-Bit Operation
- 
-   a & b: 每bit可能出得余数       
-   a ^ b: 每bit在此次操作可能留下的值，XOR 操作         
-   每次左移余数1位，然后存到b, 再去跟a做第一步。loop until b == 0    
+        Bit Operation
+
+        a&b:每bit可能出得余数
+        a^b:每bit在此次操作可能留下的值，XOR 操作
+        每次左移余数1位，然后存到b,再去跟a做第一步。loop until b==0
 
 
-```
+        ```
 /*
 Write a function that add two numbers A and B. You should not use + or any arithmetic operators.
 

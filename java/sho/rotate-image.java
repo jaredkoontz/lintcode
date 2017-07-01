@@ -7,12 +7,11 @@ public class Solution {
         // write your code here
         int row = matrix.length;
         if (row == 0) {
-        	return;
+            return;
         }
 
         int col = matrix[0].length;
 
-        
 
     }
 }

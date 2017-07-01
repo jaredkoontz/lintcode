@@ -7,11 +7,11 @@ import org.junit.Test;
  */
 public class HappyNumberTest {
 
-	@Test
-	public void happyPath() {
-		int happyNum = 19;
-		HappyNumber happyNumber = new HappyNumber();
-		System.out.println(happyNumber.isHappy(happyNum));
-	}
+    @Test
+    public void happyPath() {
+        int happyNum = 19;
+        HappyNumber happyNumber = new HappyNumber();
+        System.out.println(happyNumber.isHappy(happyNum));
+    }
 
 }

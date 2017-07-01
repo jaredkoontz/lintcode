@@ -1,7 +1,7 @@
 注意n/2的奇数偶数。
-n的正负。
-n == 0的情况。
-```
+        n的正负。
+        n==0的情况。
+        ```
 /*
 Pow(x, n)
 
@@ -23,7 +23,7 @@ Binary Search LinkedIn Divide and Conquer Mathematics Facebook
 */
 
 /*
-	Everytime: if divide the power n by 2, then it equlas to pow(x,n/2) * pow(x, n/2).
+    Everytime: if divide the power n by 2, then it equlas to pow(x,n/2) * pow(x, n/2).
 	Also consider n could be negative. Let myPow handle the negative n. basically return 1/myPow(x,n)
 	Cnsider the case of 0: x^0 = 1.
 	use a helper funtion: when n%2 == 0, regular; if n%2 ==1, do pow(x, (n-1)/2) * x.
@@ -37,22 +37,22 @@ public class Solution {
      * @return the result
      */
     public double myPow(double x, int n) {
-    	if(n >= 0) {
-    		return pow(x, n);
-    	} else {
-    		return 1/pow(x, n);
-    	}
+        if (n >= 0) {
+            return pow(x, n);
+        } else {
+            return 1 / pow(x, n);
+        }
     }
 
     public double pow(double x, int n) {
-    	if (n == 0) {
-    		return 1;
-    	}
-    	double num = pow(x, n/2);
-    	if (n % 2 == 0) {
-    		return num * num;
-    	}
-    	return num * num * x;
+        if (n == 0) {
+            return 1;
+        }
+        double num = pow(x, n / 2);
+        if (n % 2 == 0) {
+            return num * num;
+        }
+        return num * num * x;
     }
 }
 

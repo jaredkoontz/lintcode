@@ -1,7 +1,8 @@
 O(n)跑2遍for.
-O(1)是用了两个int来存：每次到i点时，i点满足条件或不满足条件所有的longestIncreasingContinuousSubsequence.
-特点：返跑一回，ans还是继续和left轮的ans作比较；求的所有情况的最大值嘛。
-```
+        O(1)是用了两个int来存：每次到i点时，i点满足条件或不满足条件所有的longestIncreasingContinuousSubsequence.
+        特点：返跑一回，ans还是继续和left轮的ans作比较；求的所有情况的最大值嘛。
+        ```
+
 /*
 Give you an integer array (index from 0 to n-1, where n is the size of this array)，find the longest increasing continuous subsequence in this array. (The definition of the longest increasing continuous subsequence here can be from right to left or from left to right)
 Example
@@ -19,7 +20,7 @@ Thoughts: not quite DP yet, but used 1 leftRun/rightRun to store status, sort of
 public class Solution {
     /**
      * @param A an array of Integer
-     * @return  an integer
+     * @return an integer
      */
     public int longestIncreasingContinuousSubsequence(int[] A) {
         if (A == null || A.length == 0) {
@@ -50,10 +51,11 @@ public class Solution {
 ```
 
 
-九章的DP，没有用O(1)space,但是应该是为这道题的followup做准备的模式。
-用dp和dfs.
-每次dfs左右时都要mark一下flag,防止重跑
-```
+        九章的DP，没有用O(1)space,但是应该是为这道题的followup做准备的模式。
+        用dp和dfs.
+        每次dfs左右时都要mark一下flag,防止重跑
+        ```
+
 /*
 Thoughts: JiuZhang's DP.
 dp[i]: longest increasing continous subsequence on i, regardless if the sequence is incresing from left or right.
@@ -65,7 +67,7 @@ Stackover flow at 96%.
 public class Solution {
     /**
      * @param A an array of Integer
-     * @return  an integer
+     * @return an integer
      */
     public int longestIncreasingContinuousSubsequence(int[] A) {
         if (A == null || A.length == 0) {
@@ -81,7 +83,7 @@ public class Solution {
         return ans;
     }
 
-    public int dfs(int[] A, int[] dp, int[] flag, int i){
+    public int dfs(int[] A, int[] dp, int[] flag, int i) {
         if (flag[i] == 1) {
             return dp[i];
         }
@@ -113,8 +115,9 @@ public class Solution {
 
 
 
-老码
-```
+        老码
+        ```
+
 /*
 Older approach. Longer code :（
 Thoughts:
@@ -129,7 +132,7 @@ After for loop, need to catch the very last comparison, to get result of track ;
 public class Solution {
     /**
      * @param A an array of Integer
-     * @return  an integer
+     * @return an integer
      */
     public int longestIncreasingContinuousSubsequence(int[] A) {
         if (A == null || A.length == 0) {

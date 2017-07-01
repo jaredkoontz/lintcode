@@ -1,8 +1,8 @@
 M
 
-?
+        ?
 
-```
+        ```
 /*
 Given an integer array, find a subarray with sum closest to zero. Return the indexes of the first number and last number.
 
@@ -28,19 +28,20 @@ class CustomComparator implements Comparator<int[]> {
 }
 
 public class Solution {
-    
+
     /**
      * @param nums: A list of integers
-     * @return: A list of integers includes the index of the first number 
-     *          and the index of the last number
+     * @return: A list of integers includes the index of the first number
+     * and the index of the last number
      */
-   public ArrayList<Integer> subarraySumClosest(int[] nums) {
+    public ArrayList<Integer> subarraySumClosest(int[] nums) {
         ArrayList<Integer> rst = new ArrayList<Integer>();
-        if(nums == null || nums.length == 0) {
+        if (nums == null || nums.length == 0) {
             return rst;
         }
         if (nums.length == 1) {
-            rst.add(0); rst.add(0);
+            rst.add(0);
+            rst.add(0);
             return rst;
         }
         int[][] culmulate = new int[nums.length][2];
@@ -63,7 +64,7 @@ public class Solution {
                 end = culmulate[i + 1][1];
             }
         }
-         if (start < end) {
+        if (start < end) {
             rst.add(start + 1);
             rst.add(end);
         } else {
@@ -73,9 +74,6 @@ public class Solution {
         return rst;
     }
 }
-
-
-
 
 
 //I also had to run a little java program locally to test/debug:

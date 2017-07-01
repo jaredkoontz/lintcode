@@ -25,33 +25,35 @@ LintCode Copyright Stack Queue
 public class Solution {
     private Stack<Integer> stack1;
     private Stack<Integer> stack2;
-    public void pourS2ToS1(){
-    	while (!stack2.empty()) {
-    		stack1.push(stack2.peek());
-    		stack2.pop();
-    	}
-    }
+
     public Solution() {
-    	stack1 = new Stack<Integer>();
-    	stack2 = new Stack<Integer>();	
+        stack1 = new Stack<Integer>();
+        stack2 = new Stack<Integer>();
     }
-    
+
+    public void pourS2ToS1() {
+        while (!stack2.empty()) {
+            stack1.push(stack2.peek());
+            stack2.pop();
+        }
+    }
+
     public void push(int element) {
-    	stack2.push(element);
+        stack2.push(element);
     }
 
     public int pop() {
-    	if (stack1.empty()) {
-    		pourS2ToS1();
-    	}
-    	return stack1.pop();
+        if (stack1.empty()) {
+            pourS2ToS1();
+        }
+        return stack1.pop();
     }
 
     public int top() {
-    	if (stack1.empty()) {
-    		pourS2ToS1();
-    	}
-    	return stack1.peek();
+        if (stack1.empty()) {
+            pourS2ToS1();
+        }
+        return stack1.peek();
     }
 }
 

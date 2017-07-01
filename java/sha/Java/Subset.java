@@ -1,18 +1,18 @@
 M
 
-最基本的递归题目。   
-坑：记得一开头sort一下 nums。 因为要升序。那么整体就是O(nlogn)
+        最基本的递归题目。
+        坑：记得一开头sort一下 nums。 因为要升序。那么整体就是O(nlogn)
 
-注意：用level/index来track到哪一步。最后一level就add into rst
+        注意：用level/index来track到哪一步。最后一level就add into rst
 
-方法1: subset的概念，取或者不取,backtracking. 当level/index到底，return 一个list.
+        方法1:subset的概念，取或者不取,backtracking.当level/index到底，return 一个list.
 
-方法2: 用for loop backtracking. 记得：每个dfs recursive call是一种独特可能，先加进rst。
+        方法2:用for loop backtracking.记得：每个dfs recursive call是一种独特可能，先加进rst。
 
 
-recap:时间久了忘记dfs的两种路子. for loop dfs/backtracking vs. regular dfs
+        recap:时间久了忘记dfs的两种路子.for loop dfs/backtracking vs.regular dfs
 
-```
+        ```
 /*
 Given a set of distinct integers, return all possible subsets.
 
@@ -53,11 +53,12 @@ class Solution {
         Arrays.sort(nums);
         ArrayList<Integer> list = new ArrayList<Integer>();
         helper(rst, list, nums, 0);
-        
+
         return rst;
     }
+
     public void helper(List<List<Integer>> rst, ArrayList<Integer> list,
-                int[] nums, int level) {
+                       int[] nums, int level) {
         if (level == nums.length) {
             rst.add(new ArrayList<Integer>(list));
             return;
@@ -66,7 +67,7 @@ class Solution {
         list.add(nums[level]);
         helper(rst, list, nums, level + 1);
         list.remove(list.size() - 1);
-        
+
         //not pick curr num
         helper(rst, list, nums, level + 1);
     }
@@ -85,13 +86,13 @@ class Solution {
         dfs(rst, list, nums, 0);
         return rst;
     }
-    
-    public void dfs(List<List<Integer>> rst, ArrayList<Integer> list, int[] nums, int index){
+
+    public void dfs(List<List<Integer>> rst, ArrayList<Integer> list, int[] nums, int index) {
         rst.add(new ArrayList<>(list));
-        
-        for( int i = index; i < nums.length; i++){
+
+        for (int i = index; i < nums.length; i++) {
             list.add(nums[i]);
-            dfs(rst, list, nums, i+1);
+            dfs(rst, list, nums, i + 1);
             list.remove(list.size() - 1);
         }
     }

@@ -1,18 +1,17 @@
 M
 
-方法1:    
-用数字+"#"+string来encode.    
-基于我们自己定的规律, 在decode的里面不需要过多地去check error input, assume所有input都是规范的.    
-decode就是找"#",然后用"#"前的数字截取后面的string.
+        方法1:
+        用数字+"#"+string来encode.
+        基于我们自己定的规律,在decode的里面不需要过多地去check error input,assume所有input都是规范的.
+        decode就是找"#",然后用"#"前的数字截取后面的string.
 
 
+        Old Solution:
+        Cast character into int.串联起来,seperate by"LINE".
+        handle empty list[],or just null:要把Null特别mark一下为‘NULL’,这样decode时才能check到。      adminadmin
 
-Old Solution:    
-Cast character into int. 串联起来, seperate by "LINE".   
-handle empty list [], or just null: 要把Null特别mark一下为‘NULL’, 这样decode时才能check到。      adminadmin
 
-
-```
+        ```
 /*
 Design an algorithm to encode a list of strings to a string. The encoded string is then sent over the network and is decoded back to the original list of strings.
 
@@ -77,7 +76,7 @@ public class Codec {
         while (start < s.length()) {
             int ind = s.indexOf("#", start);
             int leng = Integer.parseInt(s.substring(start, ind));
-                
+
             start = ind + 1 + leng;
             strs.add(s.substring(ind + 1, start));
 
@@ -95,7 +94,7 @@ Note: "" empty string is also a string case, so don't treat that as null. Call n
 Note2: As long as the list is not empty, though some string might be just "", make sure to encode it as 'LINE' just to remind in decoder: treat it as a ""
 */
 public class Codec {
-     // Encodes a list of strings to a single string.
+    // Encodes a list of strings to a single string.
     public static String encode(List<String> strs) {
         if (strs == null || strs.size() == 0) {
             return "NULL";
@@ -105,11 +104,11 @@ public class Codec {
             char[] arr = str.toCharArray();
             for (int i = 0; i < arr.length; i++) {
                 if (arr[i] >= 100) {
-                    sb.append("" + (int)arr[i]);
+                    sb.append("" + (int) arr[i]);
                 } else if (arr[i] >= 10) {
-                    sb.append("0" + (int)arr[i]);
+                    sb.append("0" + (int) arr[i]);
                 } else {
-                    sb.append("00" + (int)arr[i]);
+                    sb.append("00" + (int) arr[i]);
                 }
             }
             sb.append("LINE");
@@ -134,15 +133,15 @@ public class Codec {
             int i = 0;
             while (i + 3 <= str.length()) {
                 int letter = Integer.parseInt(str.substring(i, i + 3));
-                sb.append((char)letter);
-                i+=3;
+                sb.append((char) letter);
+                i += 3;
             }
             rst.add(sb.toString());
 
             s = s.substring(index + 4);
             index = s.indexOf("LINE");
         }
-        
+
         return rst;
     }
 }

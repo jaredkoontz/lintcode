@@ -1,10 +1,10 @@
 E
 
-找到potential subtree, 比较Children.
+        找到potential subtree,比较Children.
 
-一点注意：即使找到T1 == T2, 但很可能只是数字相同（这里不是binary search tree!!），而children不同。所以同时要继续recursively isSubtree(T1.left, T2) ...etc.
+        一点注意：即使找到T1==T2,但很可能只是数字相同（这里不是binary search tree!!），而children不同。所以同时要继续recursively isSubtree(T1.left,T2)...etc.
 
-```
+        ```
 /*
 You have two every large binary trees: T1, with millions of nodes, and T2, with hundreds of nodes. Create an algorithm to decide if T2 is a subtree of T1.
 
@@ -40,12 +40,12 @@ WHen T2 != null, T1==null returns false;
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
 public class Solution {
@@ -62,12 +62,13 @@ public class Solution {
             return compare(T1, T2) || isSubtree(T1.left, T2) || isSubtree(T1.right, T2);
         }
     }
+
     //Recursive compare
     public boolean compare(TreeNode node1, TreeNode node2) {
         if (node1 == null && node2 == null) {
             return true;
-        } 
-        if (node1 == null || node2 == null){
+        }
+        if (node1 == null || node2 == null) {
             return false;
         }
         if (node1.val != node2.val) {
@@ -88,14 +89,14 @@ public class Solution {
         if (T1 == null || T2 == null) {
             return T2 == null;
         }
-        
+
         if (T1.val == T2.val) {
             return compare(T1, T2) || isSubtree(T1.left, T2) || isSubtree(T1.right, T2);
         } else {
             return isSubtree(T1.left, T2) || isSubtree(T1.right, T2);
         }
     }
-    
+
     public boolean compare(TreeNode T1, TreeNode T2) {
         if (T1 == null && T2 == null) {
             return true;
@@ -105,7 +106,7 @@ public class Solution {
         if (T1.val != T2.val) {
             return false;
         }
-            
+
         return compare(T1.left, T2.left) && compare(T1.right, T2.right);
     }
 }

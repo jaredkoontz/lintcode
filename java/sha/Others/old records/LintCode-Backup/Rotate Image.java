@@ -1,8 +1,8 @@
 M
 
-找到个转角度的规律公式。用一个temp。in place.
+        找到个转角度的规律公式。用一个temp。in place.
 
-```
+        ```
 /*
 You are given an n x n 2D matrix representing an image.
 Rotate the image by 90 degrees (clockwise).
@@ -37,13 +37,13 @@ public class Solution {
             return;
         }
         int width = matrix.length;
-        for (int i = 0; i < width/2; i++) {
-            for (int j = 0; j < Math.ceil(width/2.0); j++) {
-               int temp = matrix[i][j];
-               matrix[i][j] = matrix[width - 1 - j][i];
-               matrix[width - 1 - j][i] = matrix[width - 1 - i][width - 1 - j];
-               matrix[width - 1 - i][width - 1 - j] = matrix[j][width - 1 - i];
-               matrix[j][width - 1 - i] = temp;
+        for (int i = 0; i < width / 2; i++) {
+            for (int j = 0; j < Math.ceil(width / 2.0); j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[width - 1 - j][i];
+                matrix[width - 1 - j][i] = matrix[width - 1 - i][width - 1 - j];
+                matrix[width - 1 - i][width - 1 - j] = matrix[j][width - 1 - i];
+                matrix[j][width - 1 - i] = temp;
             }
         }
     }

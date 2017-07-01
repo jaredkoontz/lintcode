@@ -1,20 +1,21 @@
 M
 
-DP
+        DP
 
-方法1:（attempt3 code）
-state,rst[i]: 从[0～i] inclusive的string是否可以在dict中break开来找到？      
-function: rst[i] = true if (rst[i - j] && set.contains(s.substring(i - j, i))); j in[0~i]     
-1. rst[i - j] 记录的是[0, i-j]这一段是否可以break后在dict找到。     
-2. 若true，再加上剩下所有[i-j, i]都能在dict找到，那么rst[i] = rst[0, i - j] && rst[i-j, i] == true
+        方法1:（attempt3 code）
+        state,rst[i]:从[0～i]inclusive的string是否可以在dict中break开来找到？
+        function:rst[i]=true if(rst[i-j]&&set.contains(s.substring(i-j,i)));j in[0~i]
+        1.rst[i-j]记录的是[0,i-j]这一段是否可以break后在dict找到。
+        2.若true，再加上剩下所有[i-j,i]都能在dict找到，那么rst[i]=rst[0,i-j]&&rst[i-j,i]==true
 
-优化：找dict里面最长string, 限制j的增大。
+        优化：找dict里面最长string,限制j的增大。
 
-(attempt4 code)    
-与Word BreakII用同样的DP。
-valid[i]: 记录从i到valid array末尾是否valid.
+        (attempt4 code)
+        与Word BreakII用同样的DP。
+        valid[i]:记录从i到valid array末尾是否valid.
 
-```
+        ```
+
 /*
 Given a string s and a dictionary of words dict, determine if s can be break into a space-separated 
 sequence of one or more dictionary words.
@@ -162,9 +163,10 @@ public class Solution {
         if (s == null || s.length() == 0 || wordDict == null || wordDict.size() == 0) {
             return false;
         }
-        
+
         return helper(s, wordDict, 0, 0);
     }
+
     public boolean helper(String s, Set<String> set, int start, int end) {
         if (end == s.length() - 1) {
             if (start == end) {
@@ -174,13 +176,13 @@ public class Solution {
         }
         //no break
         boolean noBreak = helper(s, set, start, end + 1);
-        
+
         //break:
         boolean hasBreak = false;
         if (set.contains(s.substring(start, end + 1))) {
             hasBreak = helper(s, set, end + 1, end + 1);
         }
-        
+
         return noBreak || hasBreak;
     }
 }

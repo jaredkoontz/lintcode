@@ -1,7 +1,8 @@
 自己的想法比较老爷车啊。其实一旦想透了就有救。下次试一试自己来画一画来approach。
-题目想法：在右上角开刷，大小不等那么就往唯一可以去的两个方向移动，绝不回头，总可以找到。
-对题目描述的情景和性质要认真考虑清楚再下手。。
-```
+        题目想法：在右上角开刷，大小不等那么就往唯一可以去的两个方向移动，绝不回头，总可以找到。
+        对题目描述的情景和性质要认真考虑清楚再下手。。
+        ```
+
 /*
 Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
 
@@ -43,18 +44,18 @@ Therefore, in next iteration, we only need to care about the same case again
 public class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
-          return false;
-        }    
+            return false;
+        }
         int i = 0;
         int j = matrix[0].length - 1;
         while (i < matrix.length && j >= 0) {
-          if (matrix[i][j] == target) {
-            return true;
-          } else if (target > matrix[i][j]) {
-            i++;
-          } else {
-            j--;
-          }
+            if (matrix[i][j] == target) {
+                return true;
+            } else if (target > matrix[i][j]) {
+                i++;
+            } else {
+                j--;
+            }
         }
         return false;
     }

@@ -1,8 +1,8 @@
 E
 
-Divide and Conquery一个最小值. 注意处理Leaf的null, 用Integer.MAX_VALUE代替，这样可以避免错误counting.
+        Divide and Conquery一个最小值.注意处理Leaf的null,用Integer.MAX_VALUE代替，这样可以避免错误counting.
 
-```
+        ```
 /*
 Given a binary tree, find its minimum depth.
 
@@ -35,12 +35,12 @@ We need a helper function to calculate the minimum.
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
 public class Solution {
@@ -55,7 +55,7 @@ public class Solution {
         }
         return getMin(root);
     }
-    
+
     public int getMin(TreeNode root) {
         if (root == null) {
             return Integer.MAX_VALUE;

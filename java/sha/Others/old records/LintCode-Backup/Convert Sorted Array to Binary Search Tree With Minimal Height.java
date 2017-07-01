@@ -29,38 +29,38 @@ Thoughts:
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
  * }
- */ 
+ * }
+ */
 public class Solution {
     /**
      * @param A: an integer array
      * @return: a tree node
      */
-    public TreeNode sortedArrayToBST(int[] A) {  
+    public TreeNode sortedArrayToBST(int[] A) {
         TreeNode root = null;
         if (A == null || A.length == 0) {
-        	return root;
+            return root;
         }
         root = helper(0, A.length - 1, A);
         return root;
-    }  
+    }
 
     public TreeNode helper(int start, int end, int[] A) {
-    	if (start > end) {
-    		return null;
-    	}
-    	//add middle node
-    	int mid = start + (end - start)/2;
-    	TreeNode node = new TreeNode(A[mid]);
-    	//Split and append child
-    	node.left = helper(start, mid - 1, A);
-    	node.right = helper(mid + 1, end, A);
-    	return node;
+        if (start > end) {
+            return null;
+        }
+        //add middle node
+        int mid = start + (end - start) / 2;
+        TreeNode node = new TreeNode(A[mid]);
+        //Split and append child
+        node.left = helper(start, mid - 1, A);
+        node.right = helper(mid + 1, end, A);
+        return node;
     }
 }

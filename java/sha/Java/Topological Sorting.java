@@ -1,21 +1,21 @@
 M
 
-比较特别的BFS.
+        比较特别的BFS.
 
-几个graph的condition：   
-1. 可能有多个root
-2. directed node, 可以direct backwards.
+        几个graph的condition：
+        1.可能有多个root
+        2.directed node,可以direct backwards.
 
-Steps:    
-Track all neighbors/childrens. 把所有的children都存在map<label, count>里面
-先把所有的root加一遍，可能多个root。并且全部加到queue里面。
+        Steps:
+        Track all neighbors/childrens.把所有的children都存在map<label, count>里面
+        先把所有的root加一遍，可能多个root。并且全部加到queue里面。
 
-然后以process queue, do BFS:   
-Only when map.get(label) == 0, add into queue && rst.    
-这用map track apperance, 确保在后面出现的node, 一定最后process.
+        然后以process queue,do BFS:
+        Only when map.get(label)==0,add into queue&&rst.
+        这用map track apperance,确保在后面出现的node,一定最后process.
 
 
-```
+        ```
 /*
 Given an directed graph, a topological order of the graph nodes is defined as follow:
 
@@ -56,16 +56,16 @@ Note: All all possible root node (whatever not added into the map) because there
 /**
  * Definition for Directed graph.
  * class DirectedGraphNode {
- *     int label;
- *     ArrayList<DirectedGraphNode> neighbors;
- *     DirectedGraphNode(int x) { label = x; neighbors = new ArrayList<DirectedGraphNode>(); }
+ * int label;
+ * ArrayList<DirectedGraphNode> neighbors;
+ * DirectedGraphNode(int x) { label = x; neighbors = new ArrayList<DirectedGraphNode>(); }
  * };
  */
 public class Solution {
     /**
      * @param graph: A list of Directed graph node
      * @return: Any topological order for the given graph.
-     */    
+     */
     public ArrayList<DirectedGraphNode> topSort(ArrayList<DirectedGraphNode> graph) {
         ArrayList<DirectedGraphNode> rst = new ArrayList<DirectedGraphNode>();
         if (graph == null || graph.size() == 0) {
@@ -93,7 +93,7 @@ public class Solution {
         }
         //BFS: go through all children
         while (!queue.isEmpty()) {
-            DirectedGraphNode node = queue.poll();  
+            DirectedGraphNode node = queue.poll();
             for (DirectedGraphNode n : node.neighbors) {
                 int label = n.label;
                 map.put(label, map.get(label) - 1);

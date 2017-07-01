@@ -9,7 +9,7 @@ public class Solution {
         int first = -1;
         int second = -1;
         boolean found = false;
-        
+
         for (int i = 0; i < numbers.length; i++) {
             for (int j = numbers.length - 1; j > i; j--) {
                 if (numbers[i] + numbers[j] == target) {
@@ -23,7 +23,7 @@ public class Solution {
                 break;
             }
         }
-        
+
         int[] res = {first, second};
         return res;
     }

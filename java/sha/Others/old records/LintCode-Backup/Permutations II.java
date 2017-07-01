@@ -1,6 +1,6 @@
 要unique,就是要确定visit过的那个index不被重新visit.
-一个办法就是给一个visited queue。 和queue在所有的地方一同populate. 然后visited里面存得时visited indexes
-```
+        一个办法就是给一个visited queue。 和queue在所有的地方一同populate.然后visited里面存得时visited indexes
+        ```
 /*
 Given a list of numbers with duplicate number in it. Find all unique permutations.
 
@@ -80,8 +80,6 @@ class Solution {
 }
 
 
-
-
 /*
 
 Thougths:
@@ -104,8 +102,8 @@ class Solution {
         return rst;
     }
 
-    public void dfs (ArrayList<Integer> nums, ArrayList<Integer> list,
-                        ArrayList<ArrayList<Integer>> rst, boolean[] mark) {
+    public void dfs(ArrayList<Integer> nums, ArrayList<Integer> list,
+                    ArrayList<ArrayList<Integer>> rst, boolean[] mark) {
         if (list.size() == nums.size()) {
             rst.add(new ArrayList<Integer>(list));
             return;
@@ -114,7 +112,7 @@ class Solution {
         for (int i = 0; i < nums.size(); i++) {
             if (mark[i] || (i != 0 && mark[i - 1] && nums.get(i) == nums.get(i - 1))) {
                 continue;
-            }           
+            }
             list.add(nums.get(i));
             mark[i] = true;
             dfs(nums, list, rst, mark);

@@ -1,18 +1,18 @@
 Merge sort:
-    1. find middle. 快慢指针
-    2. Merge:  假设given list A, B 已经是sorted, 然后按照大小，混合。
-    3. Sort: 切开两半，先sort前半, 如果先sort了mid.next~end, sort后，中间点mid.next == null，再sort前半段。
+        1.find middle.快慢指针
+        2.Merge:假设given list A,B 已经是sorted,然后按照大小，混合。
+        3.Sort:切开两半，先sort前半,如果先sort了mid.next~end,sort后，中间点mid.next==null，再sort前半段。
         然后mege.
         要recursively call itself.
 
-Quick sort:
-想做可以看讲义：http://www.jiuzhang.com/solutions/sort-list/
+        Quick sort:
+        想做可以看讲义：http://www.jiuzhang.com/solutions/sort-list/
 
-但是quick sort不建议用在list上面。
+        但是quick sort不建议用在list上面。
 
-排列list, merge sort可能更可行和合理。原因分析在下面， 以及： http://www.geeksforgeeks.org/why-quick-sort-preferred-for-arrays-and-merge-sort-for-linked-lists/
+        排列list,merge sort可能更可行和合理。原因分析在下面， 以及： http://www.geeksforgeeks.org/why-quick-sort-preferred-for-arrays-and-merge-sort-for-linked-lists/
 
-```
+        ```
 /*
 28% Accepted
 Sort a linked list in O(n log n) time using constant space complexity.
@@ -29,12 +29,12 @@ Linked List
 /**
  * Definition for ListNode.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int val) {
- *         this.val = val;
- *         this.next = null;
- *     }
+ * int val;
+ * ListNode next;
+ * ListNode(int val) {
+ * this.val = val;
+ * this.next = null;
+ * }
  * }
  */ 
 
@@ -65,7 +65,7 @@ public class Solution {
         }
         return slow;
     }
-    
+
     public ListNode merge(ListNode left, ListNode right) {
         ListNode dummy = new ListNode(0);
         ListNode head = dummy;
@@ -81,18 +81,18 @@ public class Solution {
         }
         if (left != null) {
             head.next = left;
-        } else if (right != null){
+        } else if (right != null) {
             head.next = right;
         }
         return dummy.next;
     }
-    
+
     /*
      * @param head: The head of linked list.
      * @return: You should return the head of the sorted linked list,
                     using constant space complexity.
      */
-    public ListNode sortList(ListNode head) {  
+    public ListNode sortList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
@@ -102,7 +102,7 @@ public class Solution {
         ListNode right = sortList(head);
         return merge(left, right);
     }
-    
+
 
 }
 
@@ -127,7 +127,7 @@ public class Solution {
      * @return: You should return the head of the sorted linked list,
                     using constant space complexity.
      */
-    public ListNode sortList(ListNode head) {  
+    public ListNode sortList(ListNode head) {
         // write your code here
     }
 }

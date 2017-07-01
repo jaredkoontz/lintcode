@@ -1,18 +1,18 @@
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
 public class Solution {
     /**
      * @param root: The root of the binary search tree.
-     * @param A and B: two nodes in a Binary.
+     * @param A     and B: two nodes in a Binary.
      * @return: Return the least common ancestor(LCA) of the two nodes.
      */
     // top-down recursion, balanced tree: O(n).
@@ -55,18 +55,18 @@ public class Solution {
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
 public class Solution {
     /**
      * @param root: The root of the binary search tree.
-     * @param A and B: two nodes in a Binary.
+     * @param A     and B: two nodes in a Binary.
      * @return: Return the least common ancestor(LCA) of the two nodes.
      */
     // bottom-up recursion: O(n)
@@ -74,7 +74,7 @@ public class Solution {
         // write your code here
         if (root == null) {
             return null;
-        }    
+        }
 
         if (root == A || root == B) {
             return root;
@@ -84,8 +84,8 @@ public class Solution {
         TreeNode right = lowestCommonAncestor(root.right, A, B);
         if (left != null && right != null) {
             return root;
-        } 
+        }
 
-        return left != null? left : right;
+        return left != null ? left : right;
     }
 }

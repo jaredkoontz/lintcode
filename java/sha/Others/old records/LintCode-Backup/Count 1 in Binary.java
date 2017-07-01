@@ -21,8 +21,6 @@ Thoughts:
 */
 
 
-
-
 public class Solution {
     /**
      * @param num: an integer

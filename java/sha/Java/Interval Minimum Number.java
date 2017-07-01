@@ -1,12 +1,12 @@
 M
 
-SegtmentTree, methods: Build, Query. 这题是在SegmentTreeNode里面存min.
+        SegtmentTree,methods:Build,Query.这题是在SegmentTreeNode里面存min.
 
-类似的有存:max, sum, min
+        类似的有存:max,sum,min
 
 
 
-```
+        ```
 /*
 Given an integer array (index from 0 to n-1, where n is the size of this array), and an query list. 
 Each query has two integers [start, end]. For each query, calculate the minimum number between 
@@ -26,7 +26,7 @@ LintCode Copyright Binary Tree Segment Tree
 */
 
 /*
-	Thoughts:
+    Thoughts:
 	Build a SegmentMinTree.
 	Do search using the interval
 	如果考到的几率不高。那么这一系列题目就是练习写代码的能力，和举一反三的心态。
@@ -35,71 +35,72 @@ LintCode Copyright Binary Tree Segment Tree
 /**
  * Definition of Interval:
  * public classs Interval {
- *     int start, end;
- *     Interval(int start, int end) {
- *         this.start = start;
- *         this.end = end;
- *     }
+ * int start, end;
+ * Interval(int start, int end) {
+ * this.start = start;
+ * this.end = end;
+ * }
  */
 public class Solution {
-	class SegmentMinTreeNode {
-		int start,end,min;
-		SegmentMinTreeNode left, right;
-		public SegmentMinTreeNode(int start, int end, int min) {
-			this.start = start;
-			this.end = end;
-			this.min = min;
-			this.left = null;
-			this.right = null;
-		}
-	}
+    public SegmentMinTreeNode build(int start, int end, int[] A) {
+        if (start == end) {
+            return new SegmentMinTreeNode(start, end, A[start]);
+        }
+        int min = (start + end) / 2;
+        SegmentMinTreeNode left = build(start, min, A);
+        SegmentMinTreeNode right = build(min + 1, end, A);
+        SegmentMinTreeNode node = new SegmentMinTreeNode(start, end, Math.min(left.min, right.min));
+        node.left = left;
+        node.right = right;
 
-	public SegmentMinTreeNode build(int start, int end, int[] A) {
-		if (start == end) {
-			return new SegmentMinTreeNode(start, end, A[start]);
-		}
-		int min = (start + end) / 2;
-		SegmentMinTreeNode left = build(start, min, A);
-		SegmentMinTreeNode right = build(min + 1, end, A);
-		SegmentMinTreeNode node = new SegmentMinTreeNode(start, end, Math.min(left.min, right.min));
-		node.left = left;
-		node.right = right;
-		
-		return node;
-	}
-	//Query method
-	public int search(SegmentMinTreeNode root, int start, int end){
-		if (root.start == start && root.end == end) {
-			return root.min;
-		}
+        return node;
+    }
 
-		int mid = (root.start + root.end) / 2;
-		if (end <= mid) {
-			return search(root.left, start, end);
-		}
-		if (start > mid) {
-			return search(root.right, start, end);
-		}
+    //Query method
+    public int search(SegmentMinTreeNode root, int start, int end) {
+        if (root.start == start && root.end == end) {
+            return root.min;
+        }
 
-		return Math.min(search(root.left, start, root.left.end), search(root.right, root.right.start, end));
-	}
+        int mid = (root.start + root.end) / 2;
+        if (end <= mid) {
+            return search(root.left, start, end);
+        }
+        if (start > mid) {
+            return search(root.right, start, end);
+        }
 
+        return Math.min(search(root.left, start, root.left.end), search(root.right, root.right.start, end));
+    }
 
     /**
-     *@param A, queries: Given an integer array and an query list
-     *@return: The result list
+     * @param A, queries: Given an integer array and an query list
+     * @return: The result list
      */
     public ArrayList<Integer> intervalMinNumber(int[] A, ArrayList<Interval> queries) {
-    	ArrayList<Integer> rst = new ArrayList<Integer>();
-    	if (A == null || A.length == 0 || queries == null || queries.size() == 0) {
-    		return rst;
-    	}
-    	SegmentMinTreeNode root = build(0, A.length - 1, A);
-    	for (Interval range : queries) {
-    		int min = search(root, range.start, range.end);
-    		rst.add(min);
-    	}
-    	return rst;
+        ArrayList<Integer> rst = new ArrayList<Integer>();
+        if (A == null || A.length == 0 || queries == null || queries.size() == 0) {
+            return rst;
+        }
+        SegmentMinTreeNode root = build(0, A.length - 1, A);
+        for (Interval range : queries) {
+            int min = search(root, range.start, range.end);
+            rst.add(min);
+        }
+        return rst;
+    }
+
+    class SegmentMinTreeNode {
+        int start, end, min;
+        SegmentMinTreeNode left, right;
+
+        public SegmentMinTreeNode(int start, int end, int min) {
+            this.start = start;
+            this.end = end;
+            this.min = min;
+            this.left = null;
+            this.right = null;
+        }
     }
 }
 

@@ -1,11 +1,11 @@
-递归的终点:list.zie() == 4
-递归在一个index上面（具体问题，具体分析的情况）
-validate string要注意leading '0'
+递归的终点:list.zie()==4
+        递归在一个index上面（具体问题，具体分析的情况）
+        validate string要注意leading'0'
 
-注意： 递归的时候可以用一个start/level/index来跑路
-但是尽量不要去改变Input source， 会变得非常confusing.
+        注意： 递归的时候可以用一个start/level/index来跑路
+        但是尽量不要去改变Input source， 会变得非常confusing.
 
-```
+        ```
 /*
 
 Given a string containing only digits, restore it by returning all possible valid IP address combinations.
@@ -20,7 +20,7 @@ Hide Tags Backtracking String
 */
 
 /*
-	Thoughts:
+    Thoughts:
 	NOT DONE. NEED CLEAR MIND
 	Break into 4 parts.
 	At each index, either close it as one IP spot, or not.
@@ -30,13 +30,13 @@ Hide Tags Backtracking String
 	for (0 ~ 2): can pick 1 digit, 2 digits, or 3 digits
 */
 public class Solution {
-   public  List<String> restoreIpAddresses(String s) {
+    public List<String> restoreIpAddresses(String s) {
         List<String> rst = new ArrayList<String>();
         if (s == null || s.length() == 0) {
             return rst;
         }
         if (s.length() < 4 || s.length() > 12) {
-        	return rst;
+            return rst;
         }
         ArrayList<String> list = new ArrayList<String>();
         helper(rst, list, 0, s);
@@ -44,12 +44,12 @@ public class Solution {
         return rst;
     }
 
-    public  void helper(List<String> rst, ArrayList<String>list,
-        int start, String s) {
+    public void helper(List<String> rst, ArrayList<String> list,
+                       int start, String s) {
         if (list.size() == 4) {
-        	if (start != s.length()) {
-        		return;
-        	}
+            if (start != s.length()) {
+                return;
+            }
             StringBuffer sb = new StringBuffer();
             for (String str : list) {
                 sb.append(str + ".");
@@ -59,21 +59,22 @@ public class Solution {
         }
         //run for loop 3 times: one IP spot has at most 3 digits
         for (int i = start; i < s.length() && i <= start + 3; i++) {
-        	String temp = s.substring(start, i + 1);
-        	if (isValid(temp)) {
-	            list.add(temp);
-	            helper(rst, list, i + 1, s);
-	            list.remove(list.size() - 1);
+            String temp = s.substring(start, i + 1);
+            if (isValid(temp)) {
+                list.add(temp);
+                helper(rst, list, i + 1, s);
+                list.remove(list.size() - 1);
             }
         }
     }
+
     //Valid the IP [0,255]; cannot start with 0 if it's not 0
     public boolean isValid(String str) {
-    	if (str.charAt(0) == '0') {
-    		return str.equals("0");
-    	}
-    	int num = Integer.parseInt(str);
-    	return num <= 255 && num >= 0;
+        if (str.charAt(0) == '0') {
+            return str.equals("0");
+        }
+        int num = Integer.parseInt(str);
+        return num <= 255 && num >= 0;
     }
 
 }

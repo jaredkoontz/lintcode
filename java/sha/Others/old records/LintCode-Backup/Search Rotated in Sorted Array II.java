@@ -1,9 +1,9 @@
 Allow duplicates之后：
-因为最终binary search的结果也是O(n)
-所以这道题要记得： 既然是O(n), 那来个简单的for loop 也就好了。
+        因为最终binary search的结果也是O(n)
+        所以这道题要记得： 既然是O(n),那来个简单的for loop 也就好了。
 
-当然，要跟面试官提起来原因。别一上来就只有for。。。
-```
+        当然，要跟面试官提起来原因。别一上来就只有for。。。
+        ```
 /*
 Follow up for "Search in Rotated Sorted Array":
 What if duplicates are allowed?
@@ -21,27 +21,27 @@ This seems results in O(n) when allowing duplicates. Other than that, it's quite
 */
 
 public class Solution {
-    /** 
+    /**
      * param A : an integer ratated sorted array and duplicates are allowed
      * param target :  an integer to be search
-     * return : a boolean 
+     * return : a boolean
      */
     public boolean search(int[] A, int target) {
-           // write your code here
+        // write your code here
         if (A.length == 0) {
             return false;
         }
-        
+
         int start = 0;
         int end = A.length - 1;
         int mid;
-        
+
         while (start + 1 < end) {
             mid = start + (end - start) / 2;
             if (A[mid] == target) {//Check central point
                 return true;
             }
-            if (A[start] < A[mid]){//1st section is continous
+            if (A[start] < A[mid]) {//1st section is continous
                 if (A[start] <= target && target <= A[mid]) {//target in 1st section?
                     end = mid;
                 } else {
@@ -55,8 +55,8 @@ public class Solution {
                 }
             }
         }//While
-        
-        return (A[start] == target)  ||  (A[end] == target);
+
+        return (A[start] == target) || (A[end] == target);
     }
 }
 

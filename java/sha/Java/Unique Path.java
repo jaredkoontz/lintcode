@@ -1,6 +1,6 @@
 M
 
-```
+        ```
 /*
 A robot is located at the top-left corner of a m x n grid (marked 'Start' in the diagram below).
 
@@ -33,7 +33,6 @@ Array Dynamic Programming
 */
 
 
-
 /*
 Thinking process:
 f[x][y]: want to find out all possible path
@@ -49,20 +48,21 @@ public class Solution {
      * @param n, m: positive integer (1 <= n ,m <= 100)
      * @return an integer
      */
-    private int m,n;
+    private int m, n;
+
     public int uniquePaths(int m, int n) {
         if (m <= 1 || n <= 1) {
             return 1;
         }
         this.m = m;
         this.n = n;
-        HashMap<ArrayList<Integer>, Integer> his = 
-            new HashMap<ArrayList<Integer>, Integer>();
+        HashMap<ArrayList<Integer>, Integer> his =
+                new HashMap<ArrayList<Integer>, Integer>();
         int right = helper(0, 1, his);
         int down = helper(1, 0, his);
         return right + down;
     }
-    
+
     public int helper(int x, int y, HashMap<ArrayList<Integer>, Integer> his) {
         ArrayList<Integer> pair = new ArrayList<Integer>();
         pair.add(x);
@@ -70,7 +70,7 @@ public class Solution {
         if (his.containsKey(pair)) {
             return his.get(pair);
         }
-        if (x >= this.m -1 || y >= this.n - 1) {
+        if (x >= this.m - 1 || y >= this.n - 1) {
             his.put(pair, 1);
             return his.get(pair);
         }

@@ -1,6 +1,6 @@
 还是递归： 取，或者不取。
-Iterative: 用个queue，每次poll()出来的list, 把在nums里面能加的挨个加一遍。
-```
+        Iterative:用个queue，每次poll()出来的list,把在nums里面能加的挨个加一遍。
+        ```
 /*
 Given a list of numbers, return all possible permutations.
 
@@ -110,11 +110,11 @@ class Solution {
         helper(rst, list, nums);
         return rst;
     }
-    
+
     public void helper(ArrayList<ArrayList<Integer>> rst, ArrayList<Integer> list, ArrayList<Integer> nums) {
         if (list.size() == nums.size()) {
             rst.add(new ArrayList<Integer>(list));
-            return ;
+            return;
         }
         for (int i = 0; i < nums.size(); i++) {
             if (!list.contains(nums.get(i))) {

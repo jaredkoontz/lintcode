@@ -8,53 +8,53 @@ public class Solution {
         // write your code here
         int len = height.length;
         if (len == 0) {
-        	return 0;
+            return 0;
         }
 
         int maxArea = 0;
 
         for (int i = 0; i < len; i++) {
-        	for (int j = i; j < len; j++) {
-        		int minHeight = Math.min(height[i], height[j]);
-        		// ensure all elements between i, j are at most minHeight
-        		if (!isUnderMin(height, i, j, minHeight)) {
-        			continue;
-        		}
-        		maxArea = Math.max(maxArea, minHeight * (j - i + 1));
-        	}
+            for (int j = i; j < len; j++) {
+                int minHeight = Math.min(height[i], height[j]);
+                // ensure all elements between i, j are at most minHeight
+                if (!isUnderMin(height, i, j, minHeight)) {
+                    continue;
+                }
+                maxArea = Math.max(maxArea, minHeight * (j - i + 1));
+            }
         }
         return maxArea;
     }
 
     public boolean isUnderMin(int[] h, int start, int end, int min) {
-    	for (int i = start; i <= end; i++) {
-    		if (h[i] < min || h[i] == 0) {
-    			return false;
-    		}
-    	}
-    	return true;
+        for (int i = start; i <= end; i++) {
+            if (h[i] < min || h[i] == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     // Correct O(n2) solution, 12/18 cases passed, TLE.
     public int largestRectangleArea3(int[] height) {
-    	int len = height.length;
+        int len = height.length;
         if (len == 0) {
-        	return 0;
+            return 0;
         }
 
         int maxArea = 0;
         // expand to two sides.
         for (int i = 0; i < len; i++) {
-        	int min = height[i];
-        	int right = i;
-        	while (right + 1 < len && height[right + 1] >= min) {
-        		right++;
-        	}
-        	int left = i;
-        	while (left - 1 >= 0 && height[left - 1] >= min) {
-        		left--;
-        	}
-        	maxArea = Math.max(maxArea, min * (right - left + 1));
+            int min = height[i];
+            int right = i;
+            while (right + 1 < len && height[right + 1] >= min) {
+                right++;
+            }
+            int left = i;
+            while (left - 1 >= 0 && height[left - 1] >= min) {
+                left--;
+            }
+            maxArea = Math.max(maxArea, min * (right - left + 1));
         }
 
         return maxArea;
@@ -77,13 +77,13 @@ public class Solution {
         int i = 0;
         int maxArea = 0;
         while (i <= len) {
-            int cur = i == len? 0 : height[i];
+            int cur = i == len ? 0 : height[i];
             if (stack.isEmpty() || height[stack.peek()] <= cur) {
                 stack.push(i++);
             } else {
                 int t = stack.pop();
                 maxArea = Math.max(maxArea, height[t] * (
-                    stack.isEmpty() ? i : i - stack.peek() - 1));
+                        stack.isEmpty() ? i : i - stack.peek() - 1));
             }
         }
         return maxArea;

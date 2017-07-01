@@ -1,12 +1,12 @@
 M
 
-Trie结构, prefix tree.
-节点里面有char, isEnd, HashMap<Character, TrieNode>
+        Trie结构,prefix tree.
+        节点里面有char,isEnd,HashMap<Character, TrieNode>
 记得怎么造trie：无增有移，没node就加，有node就移动。
-寻找word也一样逻辑：无错有移。
+        寻找word也一样逻辑：无错有移。
 
 
-```
+        ```
 /*
 Design a data structure that supports the following two operations: addWord(word) and search(word)
 
@@ -40,25 +40,16 @@ TrieNode contains that char, boolean, and HashMap of children
 */
 
 public class WordDictionary {
-    class TrieNode{
-        HashMap<Character, TrieNode> children;
-        boolean isEnd;
-        
-        public TrieNode() {
-            this.children = new HashMap<Character, TrieNode>();
-            this.isEnd = false;
-        }
-    }
-    
     TrieNode root;
-    public WordDictionary(){
+
+    public WordDictionary() {
         this.root = new TrieNode();
     }
-    
+
     // Adds a word into the data structure.
     public void addWord(String word) {
         TrieNode node = root;
-        for (int i =0; i < word.length(); i++) {
+        for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
             if (!node.children.containsKey(c)) {
                 node.children.put(c, new TrieNode());
@@ -83,7 +74,7 @@ public class WordDictionary {
         //border conditon:
         if (node.children.containsKey(c)) {
             return searchHelper(node.children.get(c), word, index + 1);
-        } else if (c == '.'){
+        } else if (c == '.') {
             for (Map.Entry<Character, TrieNode> entry : node.children.entrySet()) {
                 if (searchHelper(entry.getValue(), word, index + 1)) {
                     return true;
@@ -92,7 +83,17 @@ public class WordDictionary {
             return false;
         } else {
             return false;
-        } 
+        }
+    }
+
+    class TrieNode {
+        HashMap<Character, TrieNode> children;
+        boolean isEnd;
+
+        public TrieNode() {
+            this.children = new HashMap<Character, TrieNode>();
+            this.isEnd = false;
+        }
     }
 }
 

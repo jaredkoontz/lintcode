@@ -1,10 +1,10 @@
 E
 
-双Stack：一个正常stack，另一个minStack存当下level最小值. 注意维护minStack的变化
+        双Stack：一个正常stack，另一个minStack存当下level最小值.注意维护minStack的变化
 
-另外. 如果要maxStack，也是类似做法
+        另外.如果要maxStack，也是类似做法
 
-```
+        ```
 /*
 Implement a stack with min() function, which will return the smallest number in the stack.
 
@@ -34,6 +34,7 @@ Note: remember to check if minStack isEmpty(), empty stack does not have peek()
 public class MinStack {
     private Stack<Integer> stack;
     private Stack<Integer> minStack;
+
     public MinStack() {
         stack = new Stack<Integer>();
         minStack = new Stack<Integer>();

@@ -1,9 +1,9 @@
 E
 
-A够长，那么可以从A的尾部开始加新元素。     
-注意，从尾部，是大数字优先的。   
+        A够长，那么可以从A的尾部开始加新元素。
+        注意，从尾部，是大数字优先的。
 
-```
+        ```
 /*
 Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
 
@@ -26,12 +26,12 @@ public class Solution {
         int ind1 = m - 1;
         int ind2 = n - 1;
         for (int i = m + n - 1; i >= 0; i--) {
-            if ((ind1 >= 0 && ind2 >= 0 && nums1[ind1] >= nums2[ind2]) 
-                || (ind1 >= 0 && ind2 < 0)) {
+            if ((ind1 >= 0 && ind2 >= 0 && nums1[ind1] >= nums2[ind2])
+                    || (ind1 >= 0 && ind2 < 0)) {
                 nums1[i] = nums1[ind1];
                 ind1--;
-            } else if ((ind1 >= 0 && ind2 >= 0 && nums1[ind1] < nums2[ind2]) 
-                || (ind1 < 0 && ind2 >= 0)) {
+            } else if ((ind1 >= 0 && ind2 >= 0 && nums1[ind1] < nums2[ind2])
+                    || (ind1 < 0 && ind2 >= 0)) {
                 nums1[i] = nums2[ind2];
                 ind2--;
             }
@@ -56,7 +56,7 @@ class Solution {
                 A[--index] = B[--n];
             }
         }//While
-        
+
         while (n > 0) {
             A[--index] = B[--n];
         }

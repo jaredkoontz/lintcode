@@ -1,15 +1,15 @@
 M
 
-Trie结构, prefix tree的变形： '.'可以代替任何字符，那么就要iterate这个node所有的children.
+        Trie结构,prefix tree的变形： '.'可以代替任何字符，那么就要iterate这个node所有的children.
 
-节点里面有char, isEnd, HashMap<Character, TrieNode>   
-Build trie = Insert word:没node就加，有node就移动。   
-Search word:没有node就报错. 到结尾return true   
+        节点里面有char,isEnd,HashMap<Character, TrieNode>
+Build trie=Insert word:没node就加，有node就移动。
+        Search word:没有node就报错.到结尾return true
 
-这题因为'.'可以代替任何possible的字符，没一种都是一个新的path，所以recursive做比较好些。    
-(iterative就要queue了,麻烦点)
+        这题因为'.'可以代替任何possible的字符，没一种都是一个新的path，所以recursive做比较好些。
+        (iterative就要queue了,麻烦点)
 
-```
+        ```
 /*
 Design a data structure that supports the following two operations: addWord(word) and search(word)
 
@@ -43,25 +43,16 @@ TrieNode contains that char, boolean, and HashMap of children
 */
 
 public class WordDictionary {
-    class TrieNode{
-        HashMap<Character, TrieNode> children;
-        boolean isEnd;
-        
-        public TrieNode() {
-            this.children = new HashMap<Character, TrieNode>();
-            this.isEnd = false;
-        }
-    }
-    
     TrieNode root;
-    public WordDictionary(){
+
+    public WordDictionary() {
         this.root = new TrieNode();
     }
-    
+
     // Adds a word into the data structure.
     public void addWord(String word) {
         TrieNode node = root;
-        for (int i =0; i < word.length(); i++) {
+        for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
             if (!node.children.containsKey(c)) {
                 node.children.put(c, new TrieNode());
@@ -86,7 +77,7 @@ public class WordDictionary {
         //border conditon:
         if (node.children.containsKey(c)) {
             return searchHelper(node.children.get(c), word, index + 1);
-        } else if (c == '.'){
+        } else if (c == '.') {
             for (Map.Entry<Character, TrieNode> entry : node.children.entrySet()) {
                 if (searchHelper(entry.getValue(), word, index + 1)) {
                     return true;
@@ -95,7 +86,17 @@ public class WordDictionary {
             return false;
         } else {
             return false;
-        } 
+        }
+    }
+
+    class TrieNode {
+        HashMap<Character, TrieNode> children;
+        boolean isEnd;
+
+        public TrieNode() {
+            this.children = new HashMap<Character, TrieNode>();
+            this.isEnd = false;
+        }
     }
 }
 

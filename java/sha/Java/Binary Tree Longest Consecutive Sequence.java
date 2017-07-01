@@ -1,13 +1,13 @@
 M
 
-屌炸天的4行代码。Divide and Conquer
+        屌炸天的4行代码。Divide and Conquer
 
-主要想法：    
-Recursive用好。首先在这个level比一比，可否成。   
-不成的话，另立门户, count = 1。    
-然后左右开弓。再把结果拿过来比较一下就好了。
+        主要想法：
+        Recursive用好。首先在这个level比一比，可否成。
+        不成的话，另立门户,count=1。
+        然后左右开弓。再把结果拿过来比较一下就好了。
 
-```
+        ```
 /*
 Given a binary tree, find the length of the longest consecutive sequence path.
 
@@ -51,10 +51,10 @@ The concept is very much similar as my attempt1, though the code is more clear w
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ * int val;
+ * TreeNode left;
+ * TreeNode right;
+ * TreeNode(int x) { val = x; }
  * }
  */
 public class Solution {
@@ -63,16 +63,16 @@ public class Solution {
     }
 
     public int recursiveHelper(TreeNode curr, TreeNode parent, int depth) {
-    	if (curr == null) {
-    		return 0;
-    	} 
-    	int currDepth = 0;
-    	if (parent != null && parent.val + 1 == curr.val) {
-    		currDepth = depth + 1;
-    	} else {
-    		currDepth = 1;
-    	}
-    	return Math.max(currDepth, Math.max(recursiveHelper(curr.left, curr, currDepth), recursiveHelper(curr.right, curr, currDepth)));
+        if (curr == null) {
+            return 0;
+        }
+        int currDepth = 0;
+        if (parent != null && parent.val + 1 == curr.val) {
+            currDepth = depth + 1;
+        } else {
+            currDepth = 1;
+        }
+        return Math.max(currDepth, Math.max(recursiveHelper(curr.left, curr, currDepth), recursiveHelper(curr.right, curr, currDepth)));
     }
 }
 

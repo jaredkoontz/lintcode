@@ -1,6 +1,6 @@
 Palindrome都是要两边回溯相等。
-linkedlist不能reverse iterating， 那么就reverse the list, 从中间开花作比较。
-```
+        linkedlist不能reverse iterating， 那么就reverse the list,从中间开花作比较。
+        ```
 /*
 Implement a function to check if a linked list is a palindrome.
 
@@ -42,9 +42,9 @@ Linked List
 /**
  * Definition for singly-linked list.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
+ * int val;
+ * ListNode next;
+ * ListNode(int x) { val = x; }
  * }
  */
 public class Solution {
@@ -69,7 +69,7 @@ public class Solution {
         //It's possible that left&&right both finishes; or just right finishes. Both cases are returnning true.
         return right == null;
     }
-    
+
     public ListNode findMiddle(ListNode head) {
         ListNode slow = head;
         ListNode fast = head.next;
@@ -79,7 +79,7 @@ public class Solution {
         }
         return slow;
     }
-    
+
     public ListNode reverse(ListNode head) {
         ListNode dummy = new ListNode(0);
         ListNode reversedList = dummy;
@@ -93,7 +93,7 @@ public class Solution {
             head = temp;
         }
         return dummy.next;
-    } 
+    }
 }
 
 

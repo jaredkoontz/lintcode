@@ -1,20 +1,20 @@
 E
 
-普通的Binary Tree，node child 自顶向下蔓延。
+        普通的Binary Tree，node child 自顶向下蔓延。
 
-方法1：O(1) sapce O(h). Recursive. 循环的截点是：      
-当root == null或者 A B 任何一个在findLCA底部被找到了(root== A || root == B)，那么就return 这个root.     
+        方法1：O(1)sapce O(h).Recursive.循环的截点是：
+        当root==null或者 A B 任何一个在findLCA底部被找到了(root==A||root==B)，那么就return 这个root.
 
-三种情况：   
-1. A,B都找到，那么这个level的node就是其中一层的parent。其实，最先recursively return到的那个，就是最底的LCA parent.   
-2. A 或者 B 找到，那就还没有公共parent,return 非null得那个。   
-3. A B 都null, 那就找错了没有呗, return null
+        三种情况：
+        1.A,B都找到，那么这个level的node就是其中一层的parent。其实，最先recursively return到的那个，就是最底的LCA parent.
+        2.A 或者 B 找到，那就还没有公共parent,return 非null得那个。
+        3.A B 都null,那就找错了没有呗,return null
 
 
 //无法找到target element, 因为不是Binary Search Tree    
 //[Not Working]：O(n) space O(h) time。把两条线binary search出来。找第一个不同的parent. 代码长。 Iterative       
 
-```
+        ```
 
 /*
 
@@ -70,23 +70,23 @@ Binary Tree LintCode Copyright
 public class Solution {
     /**
      * @param root: The root of the binary search tree.
-     * @param A and B: two nodes in a Binary.
+     * @param A     and B: two nodes in a Binary.
      * @return: Return the least common ancestor(LCA) of the two nodes.
      */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode A, TreeNode B) {
-      if (root == null || root == A || root == B) {
-        return root;
-      }
-      TreeNode left = lowestCommonAncestor(root.left, A, B);
-      TreeNode right = lowestCommonAncestor(root.right, A, B);
+        if (root == null || root == A || root == B) {
+            return root;
+        }
+        TreeNode left = lowestCommonAncestor(root.left, A, B);
+        TreeNode right = lowestCommonAncestor(root.right, A, B);
 
-      if (left != null && right != null) {//Found both A leaf and B leaf 
-        return root;
-      } else if (left != null || right != null) {
-        return left != null ? left : right;
-      } else {
-        return null;
-      }
+        if (left != null && right != null) {//Found both A leaf and B leaf
+            return root;
+        } else if (left != null || right != null) {
+            return left != null ? left : right;
+        } else {
+            return null;
+        }
     }
 }
 
@@ -120,7 +120,7 @@ When it returns to the top, return solution : ancestor
 public class Solution {
     /**
      * @param root: The root of the binary search tree.
-     * @param A and B: two nodes in a Binary.
+     * @param A     and B: two nodes in a Binary.
      * @return: Return the least common ancestor(LCA) of the two nodes.
      */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode A, TreeNode B) {
@@ -129,7 +129,7 @@ public class Solution {
         }
         TreeNode left = lowestCommonAncestor(root.left, A, B);
         TreeNode right = lowestCommonAncestor(root.right, A, B);
-        
+
         if (left == null && right == null) {
             return null;
         } else if (left == null) {
@@ -146,12 +146,12 @@ public class Solution {
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
 ```

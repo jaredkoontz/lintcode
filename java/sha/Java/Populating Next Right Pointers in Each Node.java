@@ -1,17 +1,17 @@
 M
 
-方法1：   
-题目要求DFS。   
-其实basic implementation. 每次处理node.left.next = node.right; node.right.next = node.next.left;
+        方法1：
+        题目要求DFS。
+        其实basic implementation.每次处理node.left.next=node.right;node.right.next=node.next.left;
 
 
-方法2:   
-不和题意，用了queue space，与Input成正比。太大。
+        方法2:
+        不和题意，用了queue space，与Input成正比。太大。
 
-BFS over Tree。 用Queue 和 queue.size()，老规矩。   
-process每层queue时, 注意把next pointer加上去就好. 
+        BFS over Tree。 用Queue 和 queue.size()，老规矩。
+        process每层queue时,注意把next pointer加上去就好.
 
-```
+        ```
 /*
 Given a binary tree
 
@@ -50,14 +50,14 @@ Hide Similar Problems (H) Populating Next Right Pointers in Each Node II (M) Bin
 /**
  * Definition for binary tree with next pointer.
  * public class TreeLinkNode {
- *     int val;
- *     TreeLinkNode left, right, next;
- *     TreeLinkNode(int x) { val = x; }
+ * int val;
+ * TreeLinkNode left, right, next;
+ * TreeLinkNode(int x) { val = x; }
  * }
  */
 
 //DFS. Basic implementation according to problem.
- public class Solution {
+public class Solution {
     public void connect(TreeLinkNode root) {
         if (root == null || (root.left == null && root.right == null)) {
             return;
@@ -66,7 +66,7 @@ Hide Similar Problems (H) Populating Next Right Pointers in Each Node II (M) Bin
         dfs(root.left);
         dfs(root.right);
     }
-    
+
     public void dfs(TreeLinkNode node) {
         if (node == null || node.left == null || node.right == null) {
             return;
@@ -80,9 +80,7 @@ Hide Similar Problems (H) Populating Next Right Pointers in Each Node II (M) Bin
 }
 
 
-
-
- //BFS, However, 不和题意。 point each node to the next in queue. if none, add null
+//BFS, However, 不和题意。 point each node to the next in queue. if none, add null
 public class Solution {
     public void connect(TreeLinkNode root) {
         if (root == null || (root.left == null && root.right == null)) {
@@ -91,7 +89,7 @@ public class Solution {
         Queue<TreeLinkNode> queue = new LinkedList<TreeLinkNode>();
         queue.offer(root);
         int size = 0;
-        
+
         while (!queue.isEmpty()) {
             size = queue.size();
             for (int i = 0; i < size; i++) {

@@ -1,6 +1,6 @@
 这题没见过的时候，要分析分析。分析出来了些个DP解决。
-However, 分析过后简直屌炸天。一个 n%3就解决了。纯粹math.
-```
+        However,分析过后简直屌炸天。一个 n%3就解决了。纯粹math.
+        ```
 /*
 There are n coins in a line. Two players take turns to take one or two coins from right side until there are no more coins left. The player who take the last coin wins.
 
@@ -58,22 +58,22 @@ public class Solution {
         if (n <= 0) {
             return false;
         }
-    	if (n <= 2) {
-    		return true;
-    	}
-    	boolean[] dp = new boolean[n + 1];
-    	dp[1] = true;
-    	dp[2] = true;
-    	dp[3] = false;
-    	for (int i = 4; i <= n; i++) {
-    		dp[i] =  dp[i - 3];
-    	}
-    	return dp[n];
+        if (n <= 2) {
+            return true;
+        }
+        boolean[] dp = new boolean[n + 1];
+        dp[1] = true;
+        dp[2] = true;
+        dp[3] = false;
+        for (int i = 4; i <= n; i++) {
+            dp[i] = dp[i - 3];
+        }
+        return dp[n];
     }
 }
 
 /* 
-	O(1) time and O(1)space.
+    O(1) time and O(1)space.
 	Base on the analysis in 1st attempt:
 	As long as it's not product of 3
 	However, this is pretty ... math. Not quite useful to test coding ability.

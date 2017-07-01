@@ -1,11 +1,11 @@
 M
 
-Recursive： 取，或者不取。    
+        Recursive： 取，或者不取。
 
-Iterative: 用个queue，每次poll()出来的list, 把在nums里面能加的挨个加一遍。 However, code is a bit massive.
+        Iterative:用个queue，每次poll()出来的list,把在nums里面能加的挨个加一遍。 However,code is a bit massive.
 
 
-```
+        ```
 /*
 Given a list of numbers, return all possible permutations.
 
@@ -56,11 +56,11 @@ class Solution {
         helper(rst, list, nums);
         return rst;
     }
-    
+
     public void helper(ArrayList<ArrayList<Integer>> rst, ArrayList<Integer> list, ArrayList<Integer> nums) {
         if (list.size() == nums.size()) {
             rst.add(new ArrayList<Integer>(list));
-            return ;
+            return;
         }
         for (int i = 0; i < nums.size(); i++) {
             if (!list.contains(nums.get(i))) {
@@ -71,6 +71,7 @@ class Solution {
         }
     }
 }
+
 //Same solution as above, for Leetcode：
 public class Solution {
     public List<List<Integer>> permute(int[] nums) {
@@ -81,12 +82,12 @@ public class Solution {
         helper(rst, new ArrayList<Integer>(), nums);
         return rst;
     }
-    
+
     public void helper(List<List<Integer>> rst, ArrayList<Integer> list, int[] nums) {
         if (list.size() == nums.length) {
             rst.add(new ArrayList<Integer>(list));
         }
-        
+
         for (int i = 0; i < nums.length; i++) {
             if (!list.contains(nums[i])) {
                 list.add(nums[i]);

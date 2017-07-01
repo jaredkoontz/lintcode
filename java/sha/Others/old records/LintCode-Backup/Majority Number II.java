@@ -47,7 +47,7 @@ public class Solution {
         if (nums == null || nums.size() == 0) {
             return -1;
         }
-        int valA = 0; 
+        int valA = 0;
         int valB = 0;
         int countA = 0;
         int countB = 0;
@@ -70,8 +70,8 @@ public class Solution {
                 }
             }
         }//For
-        
-        countA = 0; 
+
+        countA = 0;
         countB = 0;
         for (int num : nums) {
             countA += num == valA ? 1 : 0;

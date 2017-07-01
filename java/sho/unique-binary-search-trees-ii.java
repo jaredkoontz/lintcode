@@ -1,12 +1,12 @@
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
 public class Solution {
@@ -18,14 +18,14 @@ public class Solution {
         // write your code here
         return helper(1, n);
     }
-    
+
     public List<TreeNode> helper(int start, int end) {
         List<TreeNode> res = new ArrayList<TreeNode>();
         if (start > end) {
             res.add(null);
             return res;
         }
-        
+
         for (int i = start; i <= end; i++) {
             List<TreeNode> lefts = helper(start, i - 1);
             List<TreeNode> rights = helper(i + 1, end);

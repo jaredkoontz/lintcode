@@ -21,9 +21,9 @@ Trick part: when it encounters negative number or dealing with index at edge ind
 
 class Solution {
     /**
-     *@param n, m: Two integer
-     *@param i, j: Two bit positions
-     *return: An integer
+     * @param n, m: Two integer
+     * @param i, j: Two bit positions
+     *           return: An integer
      */
     public int updateBits(int n, int m, int i, int j) {
         //Create mask: xxx00000xxx

@@ -9,22 +9,22 @@ public class Solution {
         if (len == 0) {
             return true;
         }
-        
+
         int maxCanReach = A[0];
         for (int i = 0; i < len; i++) {
             if (maxCanReach < i) {
                 return false;
             }
-            
+
             int jump = A[i] + i;
-            maxCanReach = maxCanReach > jump? maxCanReach : jump;
+            maxCanReach = maxCanReach > jump ? maxCanReach : jump;
             if (maxCanReach >= len - 1) {
                 return true;
             }
         }
-        
+
         return true;
-        
+
     }
 }
 

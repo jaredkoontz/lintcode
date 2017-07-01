@@ -1,14 +1,14 @@
 E
 
-Bit Manipulation
+        Bit Manipulation
 
-a^b 显示出bit format里面有不同binary code的数位.
+        a^b 显示出bit format里面有不同binary code的数位.
 
-每次 (a^b)>>i 移动i位之后，   再 & 1时其实是指留下这一位的数字.
+        每次(a^b)>>i 移动i位之后，   再&1时其实是指留下这一位的数字.
 
-count it up
+        count it up
 
-```
+        ```
 /*
 Determine the number of bits required to convert integer A to integer B 
 
@@ -30,8 +30,8 @@ Count the above calculated result: how many bit difference do a and b have.
 
 class Solution {
     /**
-     *@param a, b: Two integer
-     *return: An integer
+     * @param a, b: Two integer
+     *           return: An integer
      */
     public static int bitSwapRequired(int a, int b) {
         int count = 0;

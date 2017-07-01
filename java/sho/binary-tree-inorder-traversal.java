@@ -1,12 +1,12 @@
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
 public class Solution {
@@ -20,22 +20,22 @@ public class Solution {
         if (root == null) {
             return list;
         }
-        
+
         Stack<TreeNode> st = new Stack<TreeNode>();
         TreeNode runner = root;
-        
+
         while (!st.isEmpty() || runner != null) {
             while (runner != null) {
                 st.push(runner);
                 runner = runner.left;
-            } 
+            }
             runner = st.pop();
             list.add(runner.val);
             runner = runner.right;
         }
-        
+
         return list;
-        
+
     }
 }
 
@@ -43,12 +43,12 @@ public class Solution {
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
 public class Solution {
@@ -62,7 +62,7 @@ public class Solution {
         if (root == null) {
             return list;
         }
-        
+
         // use Morris traversal to visit the entire tree.
         // the idea is that for each node we check if its predecessor has
         // right pointer to current node, if not it means that we havent 
@@ -72,23 +72,23 @@ public class Solution {
         // it means that we have visited the predecessor and left subtree ,
         // we just revert the pointer to null, and visit current node.
         TreeNode runner = root;
-        
+
         while (runner != null) {
             // get predecessor, check its right pointer
             TreeNode pre = runner.left;
-            
+
             while (pre != null && pre.right != null && pre.right != runner) {
                 pre = pre.right;
             }
-            
+
             if (pre == null) {
                 // no predecessor, visit current node and move on to right 
                 // subtree
                 list.add(runner.val);
                 runner = runner.right;
                 continue;
-            } 
-            
+            }
+
             if (pre.right == null) {
                 // haven't visited left subtree.
                 pre.right = runner;
@@ -100,9 +100,9 @@ public class Solution {
                 runner = runner.right;
             }
         }
-        
-        
+
+
         return list;
-        
+
     }
 }

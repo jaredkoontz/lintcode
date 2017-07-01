@@ -38,52 +38,52 @@ Note: All all possible root node (whatever not added into the map) because there
 /**
  * Definition for Directed graph.
  * class DirectedGraphNode {
- *     int label;
- *     ArrayList<DirectedGraphNode> neighbors;
- *     DirectedGraphNode(int x) { label = x; neighbors = new ArrayList<DirectedGraphNode>(); }
+ * int label;
+ * ArrayList<DirectedGraphNode> neighbors;
+ * DirectedGraphNode(int x) { label = x; neighbors = new ArrayList<DirectedGraphNode>(); }
  * };
  */
 public class Solution {
     /**
      * @param graph: A list of Directed graph node
      * @return: Any topological order for the given graph.
-     */    
+     */
     public ArrayList<DirectedGraphNode> topSort(ArrayList<DirectedGraphNode> graph) {
         ArrayList<DirectedGraphNode> rst = new ArrayList<DirectedGraphNode>();
         if (graph == null || graph.size() == 0) {
-        	return graph;
+            return graph;
         }
-       	//Keep track of all neighbors in HashMap
+        //Keep track of all neighbors in HashMap
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
         for (DirectedGraphNode node : graph) {
-        	for (DirectedGraphNode neighbor : node.neighbors) {
-        		int keyN = neighbor.label;
-	        	if (map.containsKey(keyN)) {
-	        		map.put(keyN, map.get(keyN) + 1);
-	        	} else {
-	        		map.put(keyN, 1);
-	        	}
-        	}
+            for (DirectedGraphNode neighbor : node.neighbors) {
+                int keyN = neighbor.label;
+                if (map.containsKey(keyN)) {
+                    map.put(keyN, map.get(keyN) + 1);
+                } else {
+                    map.put(keyN, 1);
+                }
+            }
         }
         //BFS: Add root node. Note: 
         Queue<DirectedGraphNode> queue = new LinkedList<DirectedGraphNode>();
         for (DirectedGraphNode node : graph) {
-        	if (!map.containsKey(node.label)) {
-        		queue.offer(node);
-        		rst.add(node);
-        	}
+            if (!map.containsKey(node.label)) {
+                queue.offer(node);
+                rst.add(node);
+            }
         }
         //BFS: go through all children
         while (!queue.isEmpty()) {
-        	DirectedGraphNode node = queue.poll();	
-        	for (DirectedGraphNode n : node.neighbors) {
-        		int label = n.label;
-        		map.put(label, map.get(label) - 1);
-        		if (map.get(label) == 0) {
-        			rst.add(n);
-        			queue.offer(n);
-        		}
-        	}
+            DirectedGraphNode node = queue.poll();
+            for (DirectedGraphNode n : node.neighbors) {
+                int label = n.label;
+                map.put(label, map.get(label) - 1);
+                if (map.get(label) == 0) {
+                    rst.add(n);
+                    queue.offer(n);
+                }
+            }
         }
         return rst;
     }

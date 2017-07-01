@@ -35,7 +35,7 @@ public class Solution {
         if (A == null || B == null || A.length() == 0 || B.length() == 0) {
             return 0;
         }
-        int[][] check = new int[A.length()  + 1][B.length() + 1];
+        int[][] check = new int[A.length() + 1][B.length() + 1];
         for (int i = 1; i <= A.length(); i++) {
             for (int j = 1; j <= B.length(); j++) {
                 if (A.charAt(i - 1) == B.charAt(j - 1)) {

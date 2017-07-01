@@ -86,7 +86,7 @@ public class Solution {
         Arrays.sort(num);
         for (int i = 1; i < num.length; i++) {
             if (num[i - 1] == num[i]) {
-                   continue;
+                continue;
             } else if (num[i - 1] + 1 == num[i]) {
                 count++;
                 max = Math.max(count, max);

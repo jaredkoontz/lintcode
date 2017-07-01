@@ -25,7 +25,7 @@ public class Solution {
 
         return max[0];
     }
-    
+
     public void helper(int[] max, int[] curSum, int m, int[] A, int preIndex) {
         if (curSum[0] > m) {
             int temp = curSum[0] - A[preIndex];
@@ -60,7 +60,7 @@ public class Solution {
         int col = m + 1;
         boolean[][] pick = new boolean[row][col];
         pick[0][0] = true;
-        
+
         for (int i = 1; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 // if we can achieve volume j at index i, 
@@ -73,13 +73,13 @@ public class Solution {
                 }
             }
         }
-        
+
         for (int j = col - 1; j >= 0; j--) {
             if (pick[row - 1][j]) {
                 return j;
             }
         }
-        
+
         return 0;
     }
 

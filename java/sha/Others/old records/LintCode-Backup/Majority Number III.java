@@ -23,7 +23,7 @@ We first need to put k candidates into HashMap before we count-- from all of the
 public class Solution {
     /**
      * @param nums: A list of integers
-     * @param k: As described
+     * @param k:    As described
      * @return: The majority number
      */
     public int majorityNumber(ArrayList<Integer> nums, int k) {
@@ -50,7 +50,7 @@ public class Solution {
                 }
             }
         }//For
-        
+
         int result = 0;
         int max = 0;
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {

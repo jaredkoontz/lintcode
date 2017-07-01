@@ -1,12 +1,12 @@
 不能像partitioin array一样从两边遍历。
 
-那就最普通的，建造两个list
+        那就最普通的，建造两个list
 
-把满足条件（<x, >=x）的数字分别放到两个list里面
+        把满足条件（<x,>=x）的数字分别放到两个list里面
 
-记得用dummyNode track head.
-最终pre.next = post链接起来。
-```
+        记得用dummyNode track head.
+        最终pre.next=post链接起来。
+        ```
 /*
 33% Accepted
 Given a linked list and a value x, 
@@ -35,19 +35,19 @@ Thinking process:
 /**
  * Definition for ListNode.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int val) {
- *         this.val = val;
- *         this.next = null;
- *     }
+ * int val;
+ * ListNode next;
+ * ListNode(int val) {
+ * this.val = val;
+ * this.next = null;
  * }
- */ 
+ * }
+ */
 public class Solution {
     /**
      * @param head: The first node of linked list.
-     * @param x: an integer
-     * @return: a ListNode 
+     * @param x:    an integer
+     * @return: a ListNode
      */
     public ListNode partition(ListNode head, int x) {
         if (head == null) {
@@ -67,12 +67,12 @@ public class Solution {
                 post.next = head;
                 post = post.next;
             }
-             head = head.next;
+            head = head.next;
         }
-        
+
         post.next = null;
         pre.next = dummyPost.next;
-        
+
         return dummyPre.next;
     }
 }

@@ -9,26 +9,26 @@ public class Solution {
         if (nums == null) {
             return 0;
         }
-        
+
         int max = nums.get(0);
         int size = nums.size();
-        
+
         for (int i = 0; i < size; i++) {
             int tempSum = nums.get(i);
-            max = max < tempSum? tempSum : max;
+            max = max < tempSum ? tempSum : max;
             for (int j = i + 1; j < size; j++) {
                 if (tempSum > 0) {
-                    tempSum += nums.get(j);   
-                    max = max < tempSum? tempSum : max;
+                    tempSum += nums.get(j);
+                    max = max < tempSum ? tempSum : max;
                 } else {
                     break;
                 }
-                
+
             }
-            
-            
+
+
         }
-        
+
         return max;
     }
 }
@@ -45,7 +45,7 @@ public class Solution {
         if (nums == null) {
             return 0;
         }
-        
+
         int max = nums.get(0);
         int previousSum = max;
         int size = nums.size();
@@ -55,13 +55,13 @@ public class Solution {
         // might decrease the totalsum, so we need to 
         // update the global sum with possible
         // maximal sum.
-    
+
         for (int i = 1; i < size; i++) {
             int current = nums.get(i);
             previousSum = Math.max(current, current + previousSum);
-            max = max < previousSum? previousSum : max;
+            max = max < previousSum ? previousSum : max;
         }
-        
+
         return max;
     }
 }

@@ -1,6 +1,6 @@
 H
 
-```
+        ```
 
 /*
 Given two words (start and end), and a dictionary, 
@@ -47,13 +47,13 @@ BFS: queue, while loop
 DFS: recursion, with a structure to go deeper, remember to add/remove element when passing alone
 */
 public class Solution {
-    
+
     public List<List<String>> findLadders(String start, String end, Set<String> dict) {
         List<List<String>> rst = new ArrayList<List<String>>();
         Map<String, ArrayList<String>> pastMap = new HashMap<String, ArrayList<String>>();
         Map<String, Integer> distance = new HashMap<String, Integer>();
         Queue<String> queue = new LinkedList<String>();
-        
+
         //Initiate the variables
         dict.add(start);
         dict.add(end);
@@ -72,11 +72,12 @@ public class Solution {
 
         return rst;
     }
+
     //BFS to populate map and distance:
     //Distance: distance from each str in dict, to the starting point.
     //Map: all possible ways to mutate into each str in dict.
     public void BFS(String start, String end, Map<String, Integer> distance, Map<String, ArrayList<String>> pastMap, Set<String> dict, Queue<String> queue) {
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             String str = queue.poll();
             List<String> list = expand(str, dict);
 
@@ -89,6 +90,7 @@ public class Solution {
             }
         }
     }
+
     //DFS on the map, where map is the all possible ways to mutate into a particular str. Backtracking from end to start
     public void DFS(String start, String str, Map<String, Integer> distance, Map<String, ArrayList<String>> pastMap, ArrayList<String> path, List<List<String>> rst) {
         path.add(str);
@@ -105,13 +107,14 @@ public class Solution {
         }
         path.remove(path.size() - 1);
     }
+
     //Populate all possible mutations for particular str, skipping the case that mutates back to itself.
     public ArrayList<String> expand(String str, Set<String> dict) {
         ArrayList<String> list = new ArrayList<String>();
         for (int i = 0; i < str.length(); i++) {//Alternate each letter position
             for (int j = 0; j < 26; j++) {//Alter 26 letters
-                if (str.charAt(i) != (char)('a' + j)) {
-                    String newStr = str.substring(0, i) + (char)('a' + j) + str.substring(i + 1);
+                if (str.charAt(i) != (char) ('a' + j)) {
+                    String newStr = str.substring(0, i) + (char) ('a' + j) + str.substring(i + 1);
                     if (dict.contains(newStr)) {
                         list.add(newStr);
                     }
@@ -121,7 +124,6 @@ public class Solution {
         return list;
     }
 }
-
 
 
 //Attempt1: probably works, however:
@@ -149,7 +151,7 @@ public class Solution {
         head.add(start);
         q.offer(start);
         backtrackList.offer(head);
-        while(!q.isEmpty()) {//BFS
+        while (!q.isEmpty()) {//BFS
             int size = q.size();//Fix size
             level++;
             for (int k = 0; k < size; k++) {//LOOP through existing queue: for this specific level
@@ -175,12 +177,12 @@ public class Solution {
         }
         for (int i = 0; i < str.length(); i++) {//Alternate each letter position
             for (int j = 0; j < 26; j++) {//Alter 26 letters
-                if (str.charAt(i) == (char)('a' + j)) {
+                if (str.charAt(i) == (char) ('a' + j)) {
                     continue;
                 }
-                String newStr = str.substring(0, i) + (char)('a' + j) + str.substring(i + 1);
+                String newStr = str.substring(0, i) + (char) ('a' + j) + str.substring(i + 1);
 
-                ArrayList<String> temp = (ArrayList<String>)list.clone();
+                ArrayList<String> temp = (ArrayList<String>) list.clone();
                 temp.add(newStr);
                 if (dict.contains(newStr)) {
                     if (newStr.equals(end)) {//Found end
@@ -195,7 +197,6 @@ public class Solution {
         }//END FOR I
     }
 }
-
 
 
 //Solution from NineChapter, commented:

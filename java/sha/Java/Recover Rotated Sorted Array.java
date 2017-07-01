@@ -1,11 +1,11 @@
 rotate的意思，是有个点断开，把一边的array节选出来放在另外一边。
-Rotate三步：
-rotate前半
-rotate后半
-rotate全部
+        Rotate三步：
+        rotate前半
+        rotate后半
+        rotate全部
 
-注意先找到断点。
-```
+        注意先找到断点。
+        ```
 /*
 Given a rotated sorted array, recover it to sorted array in-place.
 
@@ -51,9 +51,10 @@ public class Solution {
         }
 
     }
+
     //reverse certain range
-    public void reverse(ArrayList<Integer> nums, int start, int end){
-        for (int i = start, j = end; i < j; i++,j--) {
+    public void reverse(ArrayList<Integer> nums, int start, int end) {
+        for (int i = start, j = end; i < j; i++, j--) {
             int temp = nums.get(i);
             nums.set(i, nums.get(j));
             nums.set(j, temp);

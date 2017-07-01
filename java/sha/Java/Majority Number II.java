@@ -1,12 +1,12 @@
 M
 
-分三份：a b c考虑。若a, countA++, 或b, countB++，或c，countA--,countB--.
+        分三份：a b c考虑。若a,countA++,或b,countB++，或c，countA--,countB--.
 
-最后出现的两个count>0的a和b,自然是potentially大于1/3的。其中有一个大于1/3.
+        最后出现的两个count>0的a和b,自然是potentially大于1/3的。其中有一个大于1/3.
 
-比较a和b哪个大，就return哪一个。
+        比较a和b哪个大，就return哪一个。
 
-```
+        ```
 /*
 Given an array of integers, the majority number is the number that occurs more than 1/3 of the size of the array.
 
@@ -45,7 +45,7 @@ public class Solution {
         if (nums == null || nums.size() == 0) {
             return -1;
         }
-        int valA = 0; 
+        int valA = 0;
         int valB = 0;
         int countA = 0;
         int countB = 0;
@@ -68,8 +68,8 @@ public class Solution {
                 }
             }
         }//For
-        
-        countA = 0; 
+
+        countA = 0;
         countB = 0;
         for (int num : nums) {
             countA += num == valA ? 1 : 0;

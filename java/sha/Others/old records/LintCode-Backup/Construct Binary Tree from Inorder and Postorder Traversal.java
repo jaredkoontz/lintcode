@@ -37,44 +37,44 @@ Trick part:
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
- 
- 
+
+
 public class Solution {
     /**
-     *@param inorder : A list of integers that inorder traversal of a tree
-     *@param postorder : A list of integers that postorder traversal of a tree
-     *@return : Root of a tree
+     * @param inorder   : A list of integers that inorder traversal of a tree
+     * @param postorder : A list of integers that postorder traversal of a tree
+     * @return : Root of a tree
      */
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         if (inorder.length != postorder.length) {
             return null;
         }
-        return buildTreeHelper(inorder, 0, inorder.length - 1, 
-                                postorder, 0, postorder.length - 1);
+        return buildTreeHelper(inorder, 0, inorder.length - 1,
+                postorder, 0, postorder.length - 1);
     }
-    
-    public TreeNode buildTreeHelper(int[] inorder, int inStart, int inEnd, 
-                            int[] postorder, int postStart, int postEnd){
+
+    public TreeNode buildTreeHelper(int[] inorder, int inStart, int inEnd,
+                                    int[] postorder, int postStart, int postEnd) {
         if (inStart > inEnd) {
             return null;
         }
         TreeNode root = new TreeNode(postorder[postEnd]);
         int mid = findMid(inorder, inStart, inEnd, postorder[postEnd]);
-        root.left = buildTreeHelper(inorder, inStart, mid - 1, 
-                    postorder, postStart, postStart + (mid - inStart) - 1);
+        root.left = buildTreeHelper(inorder, inStart, mid - 1,
+                postorder, postStart, postStart + (mid - inStart) - 1);
         root.right = buildTreeHelper(inorder, mid + 1, inEnd,
-                    postorder, postStart + (mid - inStart), postEnd - 1);
+                postorder, postStart + (mid - inStart), postEnd - 1);
         return root;
     }
-    
+
     public int findMid(int[] arr, int start, int end, int key) {
         for (int i = start; i <= end; i++) {
             if (arr[i] == key) {

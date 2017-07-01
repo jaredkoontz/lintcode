@@ -1,6 +1,6 @@
 几种不同的方法flip：
-坑： 1. 结尾不能有空格。 2. 注意，如果Input是 ‘ ’的话，split以后就啥也没有了。check split以后 length == 0
-```
+        坑： 1.结尾不能有空格。 2.注意，如果Input是 ‘ ’的话，split以后就啥也没有了。check split以后 length==0
+        ```
 /*
 23% Accepted
 Given an input string, reverse the string word by word.
@@ -21,9 +21,6 @@ Reduce them to a single space in the reversed string.
 Tags Expand 
 String
 */
-
-
-
 
 
 /*
@@ -54,8 +51,6 @@ public class Solution {
 }
 
 
-
-
 /*
 Thinking Process:
 1. Reverse it like reversing a int array
@@ -75,7 +70,7 @@ public class Solution {
             strs[i] = temp;
         }
         StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < strs.length; i++){
+        for (int i = 0; i < strs.length; i++) {
             if (strs[i].length() > 0) {
                 sb.append(strs[i]);
                 if (i < strs.length - 1) {
@@ -97,12 +92,12 @@ public class Solution {
 
     Only good practice here: the reverse with StringBuffer
 */
-    // I LOVE YOU 
+// I LOVE YOU
 public class Solution {
     public String reverseWords(String s) {
         //Reverse the contents of the string buffer
-        public void reverse(StringBuffer sb, int start, int end) {
-            for (int i = start, j = end; i < j; i++,j--) {
+        public void reverse (StringBuffer sb,int start, int end){
+            for (int i = start, j = end; i < j; i++, j--) {
                 char temp = sb.charAt(i);
                 sb.setCharAt(i, sb.charAt(j));
                 sb.setCharAt(j, temp);
@@ -138,7 +133,6 @@ public class Solution {
         return sb.toString().trim();
     }
 
-    
 
 }
 

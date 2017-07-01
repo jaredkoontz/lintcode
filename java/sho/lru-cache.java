@@ -1,25 +1,9 @@
 public class Solution {
-    class Node {
-        int key;
-        int val;
-        Node next;
-        Node pre;
-        Node(int key, int val) {
-            this.key = key;
-            this.val = val;
-        }
-    }
-    
     Node head;
     Node tail;
     Map<Integer, Node> map;
     int capacity;
     int size;
-    
-    // Notes to be taken from this problem:
-    // Classic doubly linkedlist data structure, might be used in ohter problems.
-    // Find top K words in given article: min-heap solution!!!! 
-    // TripAdvisor actual phone interview question.
 
     // @param capacity, an integer
     public Solution(int capacity) {
@@ -28,6 +12,11 @@ public class Solution {
         this.size = 0;
         map = new HashMap<Integer, Node>();
     }
+
+    // Notes to be taken from this problem:
+    // Classic doubly linkedlist data structure, might be used in ohter problems.
+    // Find top K words in given article: min-heap solution!!!! 
+    // TripAdvisor actual phone interview question.
 
     // @return an integer
     public int get(int key) {
@@ -127,6 +116,18 @@ public class Solution {
                 }
                 size++;
             }
+        }
+    }
+
+    class Node {
+        int key;
+        int val;
+        Node next;
+        Node pre;
+
+        Node(int key, int val) {
+            this.key = key;
+            this.val = val;
         }
     }
 }

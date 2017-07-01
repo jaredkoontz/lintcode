@@ -1,6 +1,6 @@
-想着用一用prefix sum. 把值一个个叠加。
-然后presum[j] - presum[i- 1] 就是 (i,j)之间的和。
-```
+想着用一用prefix sum.把值一个个叠加。
+        然后presum[j]-presum[i-1]就是(i,j)之间的和。
+        ```
 /*
 Maximum Subarray Show Result My Submissions
 
@@ -53,7 +53,7 @@ public class Solution {
             } else {
                 sums[i] = sums[i - 1] + nums.get(i);
             }
-             maxSum = Math.max(maxSum, sums[i]);
+            maxSum = Math.max(maxSum, sums[i]);
         }
         return maxSum;
     }
@@ -80,7 +80,7 @@ public class Solution {
         if (nums == null || nums.length == 0) {
             return 0;
         }
-        
+
         int n = nums.length;
         int[] preSum = new int[n];
         preSum[0] = nums[0];
@@ -95,7 +95,7 @@ public class Solution {
                     sum = preSum[j];
                 } else {
                     sum = preSum[j] - preSum[i - 1];
-                } 
+                }
                 max = Math.max(sum, max);
             }
         }//end for

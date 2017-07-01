@@ -1,8 +1,8 @@
 E
 
-简单处理array list.
+        简单处理array list.
 
-```
+        ```
 
 
 /*
@@ -38,10 +38,10 @@ public class Solution {
             rst.add(1);
             return rst;
         }
-        
+
         rst.add(1);
         ArrayList<Integer> list = new ArrayList<Integer>();
-        
+
         while (rowIndex > 0) {//2, 1, 0x
             list.add(1);
             for (int i = 0; i < rst.size() - 1; i++) {
@@ -52,7 +52,7 @@ public class Solution {
             list = new ArrayList<Integer>();
             rowIndex--;
         }
-        
+
         return rst;
     }
 }

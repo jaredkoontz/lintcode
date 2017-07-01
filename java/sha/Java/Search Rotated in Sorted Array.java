@@ -1,28 +1,28 @@
 H
 
-方法1：O(logn)
-    还是把它先当做正常的sorted list开始搜。    
-    但是在比较的时候，多比较一个A[start] < A[mid]?     
-    在1 和 2 里面分别讨论 target 的位置     
-        1. A[start] < A[mid] ?     
-            说明在前半段    
-            - start<target<mid     
-            - target > mid      
-        2. A[start] > A[mid]     
-            说明 start 还在前半段，而mid在后半段     
-            - mid < target < end     
-            - target < mid     
+        方法1：O(logn)
+        还是把它先当做正常的sorted list开始搜。
+        但是在比较的时候，多比较一个A[start]<A[mid]?
+        在1 和 2里面分别讨论 target 的位置
+        1.A[start]<A[mid]?
+        说明在前半段
+        -start<target<mid
+            -target>mid
+                    2.A[start]>A[mid]
+                    说明 start 还在前半段，而mid在后半段
+                    -mid<target<end
+            -target<mid
 
    
 
-方法2：O(logn)     
-    1. binay search break point     
-    2. binary search target      
-    注意等号，在判断target在前半段还是后半段：if (A[p1] <= target && target <= A[breakPoint])      
+方法2：O(logn)
+        1.binay search break point
+        2.binary search target
+        注意等号，在判断target在前半段还是后半段：if(A[p1]<=target&&target<=A[breakPoint])
 
 
 
-```
+        ```
 /*
 Suppose a sorted array is rotated at some pivot unknown to you beforehand.
 
@@ -42,7 +42,6 @@ Binary Search Array Sorted Array
 */
 
 
-
 /*
     Just 1 binary search: this is the better solution
     //Observation: 
@@ -51,23 +50,23 @@ Binary Search Array Sorted Array
     //3. Need to locate that continous section, then check if target is part of the continous section
 
 */
-public class Solution { 
+public class Solution {
     public int search(int[] A, int target) {
         // write your code here
         if (A.length == 0) {
             return -1;
         }
-        
+
         int start = 0;
         int end = A.length - 1;
         int mid;
-        
+
         while (start + 1 < end) {
             mid = start + (end - start) / 2;
             if (A[mid] == target) {//Check central point
                 return mid;
             }
-            if (A[start] < A[mid]){//1st section is continous
+            if (A[start] < A[mid]) {//1st section is continous
                 if (A[start] <= target && target <= A[mid]) {//target in 1st section?
                     end = mid;
                 } else {
@@ -81,7 +80,7 @@ public class Solution {
                 }
             }
         }//While
-        
+
         if (A[start] == target) {
             return start;
         } else if (A[end] == target) {
@@ -97,7 +96,7 @@ public class Solution {
     Find the break point, then decide which section to binary search
 */
 public class Solution {
-    
+
     public int search(int[] A, int target) {
         if (A == null || A.length == 0) {
             return -1;
@@ -106,11 +105,11 @@ public class Solution {
         int p2 = A.length - 1;
         int start = p1;
         int end = p2;
-        int mid = start + (end - start)/2;
+        int mid = start + (end - start) / 2;
         //find break point
         int breakPoint = 0;
         while (start + 1 < end) {
-            mid = start + (end - start)/2;
+            mid = start + (end - start) / 2;
             if (A[mid] == target) {
                 return mid;
             } else if (A[mid] >= A[p1]) {
@@ -135,7 +134,7 @@ public class Solution {
 
         //search for target
         while (start + 1 < end) {
-            mid = start + (end - start)/2;
+            mid = start + (end - start) / 2;
             if (A[mid] == target) {
                 return mid;
             } else if (A[mid] > target) {
@@ -143,13 +142,13 @@ public class Solution {
             } else {
                 start = mid;
             }
-        } 
+        }
 
         if (A[start] == target) {
             return start;
         } else if (A[end] == target) {
             return end;
-        } 
+        }
         return -1;
     }
 }

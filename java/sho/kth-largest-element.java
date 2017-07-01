@@ -1,4 +1,3 @@
-import java.util.Collections;
 class Solution {
     //param k : description of k
     //param numbers : array of numbers
@@ -8,11 +7,11 @@ class Solution {
         int kth = quickSelect(numbers, k - 1);
         return kth;
     }
-    
+
     public int quickSelect(ArrayList<Integer> nums, int n) {
         int start = 0;
         int end = nums.size() - 1;
-        
+
         while (start <= end) {
             int mid = (start + end) / 2;
             int relocate = partition(nums, start, end, mid);
@@ -24,10 +23,10 @@ class Solution {
                 end = relocate - 1;
             }
         }
-        
+
         return -1;
     }
-    
+
     public int partition(ArrayList<Integer> nums, int start, int end, int pivot) {
         int pivotal = nums.get(pivot);
         swap(nums, end, pivot);
@@ -40,7 +39,7 @@ class Solution {
         swap(nums, storedIndex, end);
         return storedIndex;
     }
-    
+
     public void swap(ArrayList<Integer> nums, int a, int b) {
         if (nums.get(a) != nums.get(b)) {
             int temp = nums.get(a);

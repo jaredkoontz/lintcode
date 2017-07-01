@@ -1,17 +1,17 @@
 有点绕，但是做过一次就明白一点。
-是topological sort的题目。一般都是给有dependency的东西排序。
+        是topological sort的题目。一般都是给有dependency的东西排序。
 
-最终都会到一个sink node， 再不会有向后的dependency, 在那个点截止。
-我就已这样子的点为map的key, 然后value是以这个node为prerequisite的 list of courses.
+        最终都会到一个sink node， 再不会有向后的dependency,在那个点截止。
+        我就已这样子的点为map的key,然后value是以这个node为prerequisite的 list of courses.
 
-画个图的话，prerequisite都是指向那个sink node， 然后我们在组成map的时候，都是从sink node 发散回来到dependent nodes.
+        画个图的话，prerequisite都是指向那个sink node， 然后我们在组成map的时候，都是从sink node 发散回来到dependent nodes.
 
-在DFS里面，我们是反向的， 然后，最先完全visited的那个node, 肯定是最左边的node了，它被mark的seq也是最高的。
+        在DFS里面，我们是反向的， 然后，最先完全visited的那个node,肯定是最左边的node了，它被mark的seq也是最高的。
 
-而我们的sink node，当它所有的支线都visit完了，seq肯定都已经减到最小了，也就是0，它就是第一个被visit的。
+        而我们的sink node，当它所有的支线都visit完了，seq肯定都已经减到最小了，也就是0，它就是第一个被visit的。
 
 
-```
+        ```
 /*
 There are a total of n courses you have to take, labeled from 0 to n - 1.
 
@@ -47,7 +47,7 @@ Hide Similar Problems (M) Course Schedule II (M) Graph Valid Tree (M) Minimum He
 */
 
 /*
-	Thoughts: Try some help. make shorter version. 
+    Thoughts: Try some help. make shorter version.
 	This version does not use a class, but does the exact same algorithm: mark visited and check cycle with dfs.
 	The idea is almost exaclty same (http://www.jyuan92.com/blog/leetcode-course-schedule/)
 	Instead of using a seq,visited to check mark seq, and visted, we can do a 'mark' backtracking.
@@ -60,64 +60,61 @@ Hide Similar Problems (M) Course Schedule II (M) Graph Valid Tree (M) Minimum He
 */
 
 public class Solution {
-	HashMap<Integer, List<Integer>> map;
-	int[] visited;
+    HashMap<Integer, List<Integer>> map;
+    int[] visited;
+
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         if (numCourses <= 0 || prerequisites == null || prerequisites.length == 0 ||
-        	prerequisites[0] == null || prerequisites[0].length == 0) {
-        	return true;
+                prerequisites[0] == null || prerequisites[0].length == 0) {
+            return true;
         }
         visited = new int[numCourses];
         map = new HashMap<Integer, List<Integer>>();
         //Put all start node into map.
         for (int i = 0; i < prerequisites.length; i++) {
-        	if (!map.containsKey(prerequisites[i][1])) {
-        		map.put(prerequisites[i][1], new ArrayList<Integer>());
-        	}
-        	map.get(prerequisites[i][1]).add(prerequisites[i][0]);
+            if (!map.containsKey(prerequisites[i][1])) {
+                map.put(prerequisites[i][1], new ArrayList<Integer>());
+            }
+            map.get(prerequisites[i][1]).add(prerequisites[i][0]);
         }
         //dfs on each start node in the pair
         for (int i = 0; i < prerequisites.length; i++) {
-        	if (!dfs(prerequisites[i][0])) {
-        		return false;
-        	}
+            if (!dfs(prerequisites[i][0])) {
+                return false;
+            }
         }
 
         return true;
     }
 
-    public boolean dfs (int node) {
-    	if (visited[node] == 1) {//has been through this path, true.
-    		return true;
-    	}
-    	if (visited[node] == -1) {//visiting a visited node from a deper level node, cycle
-    		return false;
-    	}
-    	//mark it -1 then after dfs mark it 1. Marking and backtracking skills
-    	visited[node] = -1;
+    public boolean dfs(int node) {
+        if (visited[node] == 1) {//has been through this path, true.
+            return true;
+        }
+        if (visited[node] == -1) {//visiting a visited node from a deper level node, cycle
+            return false;
+        }
+        //mark it -1 then after dfs mark it 1. Marking and backtracking skills
+        visited[node] = -1;
 
-    	//Visit each child and make sure there is no cycle.
-    	if (map.containsKey(node)) {
-    		for (int nextNode : map.get(node)) {
-    			if (!dfs(nextNode)) {
-    				return false;
-    			}
-    		}
-    	}
-    	
-    	visited[node] = 1;
-    	return true;
+        //Visit each child and make sure there is no cycle.
+        if (map.containsKey(node)) {
+            for (int nextNode : map.get(node)) {
+                if (!dfs(nextNode)) {
+                    return false;
+                }
+            }
+        }
+
+        visited[node] = 1;
+        return true;
     }
 
 }
 
 
-
-
-
-
 /*
-	Thoughts: TO LONG. Should try shorter version.
+    Thoughts: TO LONG. Should try shorter version.
 	ALSO, built the map based map<course, list of prerequisite>: this will cause trouble and hard to work if we want to return 
 		the sequence of course.
 
@@ -138,68 +135,71 @@ public class Solution {
 		then there must be a cycle backwards.
 */
 public class Solution {
-	public class Node {
-		int val;
-		int seq;
-		boolean visited;
-		ArrayList<Integer> children;
-		public Node(int val){
-			this.val = val;
-			this.visited = false;
-			this.children = new ArrayList<Integer>();
-			this.seq = -1;
-		}
-	}
-	public int n;
+    public int n;
+
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         if (numCourses <= 0 || prerequisites == null || prerequisites.length == 0 ||
-            prerequisites[0] == null || prerequisites[0].length == 0) {
-        	return true;
+                prerequisites[0] == null || prerequisites[0].length == 0) {
+            return true;
         }
         HashMap<Integer, Node> map = new HashMap<Integer, Node>();
         for (int i = 0; i < prerequisites.length; i++) {
-        	Node node;
-        	//Add curr nodes
-        	if (map.containsKey(prerequisites[i][0])) {
-        		node = map.get(prerequisites[i][0]);
-        	} else {
-        		node = new Node(prerequisites[i][0]);	
-        	}
-        	node.children.add(prerequisites[i][1]);
-        	map.put(node.val, node);
-        	//Add Child nodes
-        	if (!map.containsKey(prerequisites[i][1])) {
-        	    map.put(prerequisites[i][1], new Node(prerequisites[i][1]));
-        	}
+            Node node;
+            //Add curr nodes
+            if (map.containsKey(prerequisites[i][0])) {
+                node = map.get(prerequisites[i][0]);
+            } else {
+                node = new Node(prerequisites[i][0]);
+            }
+            node.children.add(prerequisites[i][1]);
+            map.put(node.val, node);
+            //Add Child nodes
+            if (!map.containsKey(prerequisites[i][1])) {
+                map.put(prerequisites[i][1], new Node(prerequisites[i][1]));
+            }
         }
         n = prerequisites.length;
         for (int i = 0; i < prerequisites.length; i++) {
-        	if (!DFS(prerequisites[i][0], map)) {
-        		return false;
-        	}
+            if (!DFS(prerequisites[i][0], map)) {
+                return false;
+            }
         }
 
         return true;
     }
 
     public boolean DFS(int val, HashMap<Integer, Node> map) {
-    	Node node = map.get(val);
-    	node.visited = true;
-    	map.put(val, node);
-    	
-    	for (int child : node.children) {
-    		if (map.get(child).visited && map.get(child).seq == -1) {//Check cycle
-    			return false;
-    		} else if (!map.get(child).visited) {
-    			if(!DFS(child, map)){
-					return false;
-				}
-    		}
-    	}
+        Node node = map.get(val);
+        node.visited = true;
+        map.put(val, node);
 
-    	node.seq = n--;
-    	map.put(val, node);
-    	return true;
+        for (int child : node.children) {
+            if (map.get(child).visited && map.get(child).seq == -1) {//Check cycle
+                return false;
+            } else if (!map.get(child).visited) {
+                if (!DFS(child, map)) {
+                    return false;
+                }
+            }
+        }
+
+        node.seq = n--;
+        map.put(val, node);
+        return true;
+    }
+
+    public class Node {
+        int val;
+        int seq;
+        boolean visited;
+        ArrayList<Integer> children;
+
+        public Node(int val) {
+            this.val = val;
+            this.visited = false;
+            this.children = new ArrayList<Integer>();
+            this.seq = -1;
+        }
     }
 }
 

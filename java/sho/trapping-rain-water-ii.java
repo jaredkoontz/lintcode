@@ -1,20 +1,4 @@
 public class Solution {
-    /**
-     * @param heights: a matrix of integers
-     * @return: an integer
-     */
-    class Point{
-       int height;
-       int level;
-       int x, y;
-       Point(int height, int level, int x, int y) {
-           this.height = height;
-           this.level = level;
-           this.x = x;
-           this.y = y;
-       }
-    }
-
     public int trapRainWater(int[][] heights) {
         // write your code here
         // modified dijkstra algorithm
@@ -65,7 +49,7 @@ public class Solution {
 
         int sum = 0;
         // parse the points again
-        for (int i = 1; i < row -1; i++) {
+        for (int i = 1; i < row - 1; i++) {
             for (int j = 1; j < col - 1; j++) {
                 Point p = points[i][j];
                 sum += (p.level - p.height);
@@ -93,6 +77,23 @@ public class Solution {
         }
 
         return res;
+    }
+
+    /**
+     * @param heights: a matrix of integers
+     * @return: an integer
+     */
+    class Point {
+        int height;
+        int level;
+        int x, y;
+
+        Point(int height, int level, int x, int y) {
+            this.height = height;
+            this.level = level;
+            this.x = x;
+            this.y = y;
+        }
     }
 };
 

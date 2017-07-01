@@ -4,15 +4,15 @@ public class Solution {
      * @return: the median of numbers
      */
     public int[] medianII(int[] nums) {
-            // write your code here
+        // write your code here
         PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>(10,
-                new Comparator<Integer>(){
+                new Comparator<Integer>() {
                     public int compare(Integer a, Integer b) {
                         return a - b;
                     }
                 });
         PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(10,
-                new Comparator<Integer>(){
+                new Comparator<Integer>() {
                     public int compare(Integer a, Integer b) {
                         return b - a;
                     }
@@ -62,7 +62,7 @@ public class Solution {
                 // otherwise do an average of left and right.
                 res[i] = maxHeap.peek();
             } else {
-                res[i] = minSize > maxSize? minHeap.peek() : maxHeap.peek();
+                res[i] = minSize > maxSize ? minHeap.peek() : maxHeap.peek();
             }
         }
 

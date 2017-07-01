@@ -1,8 +1,8 @@
 H
 
-Not Done yet。 Topological sort.
+        Not Done yet。 Topological sort.
 
-```
+        ```
 
 /*
 There is a new alien language which uses the latin alphabet. 
@@ -33,7 +33,7 @@ Hide Similar Problems (M) Course Schedule II
 */
 
 /*
-	NOT DONE
+    NOT DONE
 	Thoughts:
 	They have sink node. They form a valid tree, without sycle.
 	A char can visit another node, does not mean they have order.
@@ -49,7 +49,7 @@ Hide Similar Problems (M) Course Schedule II
 
 public class Solution {
     public String alienOrder(String[] words) {
-        
+
     }
 }
 

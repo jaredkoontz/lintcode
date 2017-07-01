@@ -1,15 +1,15 @@
 M
-tutorial:https://www.youtube.com/watch?v=P8zBxoVY1oI&feature=youtu.be
+        tutorial:https://www.youtube.com/watch?v=P8zBxoVY1oI&feature=youtu.be
 
-解法1：相对暴力简洁, HashMap<value, index>，找到一个value, 存一个; 若在HashMap里面 match 到结果, 就return HashMap里存的index. O(n) space && time.
+        解法1：相对暴力简洁,HashMap<value, index>，找到一个value,存一个;若在HashMap里面 match 到结果,就return HashMap里存的index.O(n)space&&time.
 
-解法2：Sort array, two pointer 前后++,--搜索。Sort 用时O(nlogn).     
-1. 第一步 two pointer 找 value.       
-2. 注意，要利用额外的空间保留original array， 用来时候找index. (此处不能用HashMap，因为以value 为key，但value可能重复)      
-O(n) space, O(nlogn) time.    
+        解法2：Sort array,two pointer 前后++,--搜索。Sort 用时O(nlogn).
+        1.第一步 two pointer 找 value.
+        2.注意，要利用额外的空间保留original array， 用来时候找index.(此处不能用HashMap，因为以value 为key，但value可能重复)
+        O(n)space,O(nlogn)time.
 
 
-```
+        ```
 
 /*
 Given an array of integers, find two numbers such that they add up to a specific target number.
@@ -43,7 +43,7 @@ Thoughts:
 */
 
 public class Solution {
-     //Using HashMap
+    //Using HashMap
     public int[] twoSum(int[] numbers, int target) {
         if (numbers == null || numbers.length == 0) {
             return null;
@@ -64,7 +64,6 @@ public class Solution {
 }
 
 
-
 //2. O(n) Space O(nlogn) time
 /*
     Feels like binary search when looking at O(nlogn)
@@ -81,9 +80,9 @@ public class Solution {
         for (int i = 0; i < numbers.length; i++) {
             original[i] = numbers[i];
         }
-        
+
         Arrays.sort(numbers);
-        int start = 0; 
+        int start = 0;
         int end = numbers.length - 1;
         int num1 = -1;
         int num2 = -1;
@@ -93,7 +92,7 @@ public class Solution {
                 num1 = numbers[start];
                 num2 = numbers[end];
                 break;
-            }else if (sum < target) {
+            } else if (sum < target) {
                 start++;
             } else {
                 end--;

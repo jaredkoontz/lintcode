@@ -27,7 +27,7 @@ Doing quick sort partition for K -1 times.
 class Solution {
     /**
      * @param colors: A list of integer
-     * @param k: An integer
+     * @param k:      An integer
      * @return: nothing
      */
     public void sortColors2(int[] colors, int k) {
@@ -39,21 +39,21 @@ class Solution {
             end = helper(colors, 0, end, k - i - 1);
         }
     }
-    
-    public void swap(int[] colors, int x, int y){
+
+    public void swap(int[] colors, int x, int y) {
         int temp = colors[x];
         colors[x] = colors[y];
         colors[y] = temp;
     }
-    
+
     public int helper(int[] colors, int start, int end, int pivot) {
         int low = start;
         int high = end;
         while (low <= high) {
-            while(low < high && colors[low] <= pivot) {
+            while (low < high && colors[low] <= pivot) {
                 low++;
             }
-            while(high > 0 && colors[high] > pivot) {
+            while (high > 0 && colors[high] > pivot) {
                 high--;
             }
             if (low <= high) {

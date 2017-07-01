@@ -1,14 +1,14 @@
 M
 
-与其他Majority Number一样。
+        与其他Majority Number一样。
 
-出现次数多余1/k，就要分成k份count occurance.用HashMap。 存在的+1；不存在map里的，分情况:    
-若map.size() == k,说明candidate都满了，要在map里把所有现存的都-1；
-若map.size() < k, 说明该加新candidate，那么map.put(xxx, 1);
+        出现次数多余1/k，就要分成k份count occurance.用HashMap。 存在的+1；不存在map里的，分情况:
+        若map.size()==k,说明candidate都满了，要在map里把所有现存的都-1；
+        若map.size()<k, 说明该加新candidate，那么map.put(xxx,1);
 
-最后在HashMap里找出所留下的occurance最大的那个数。
+        最后在HashMap里找出所留下的occurance最大的那个数。
 
-```
+        ```
 /*
 Given an array of integers and a number k, the majority number is the number 
 that occurs more than 1/k of the size of the array. Find it.
@@ -59,7 +59,7 @@ public class Solution {
                 }
             }
         }//For
-        
+
         int result = 0;
         int max = 0;
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {

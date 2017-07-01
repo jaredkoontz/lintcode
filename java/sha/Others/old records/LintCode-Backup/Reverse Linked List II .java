@@ -1,9 +1,9 @@
 遍历到M前，
-存一下那个点，
-从M开始， for loop， reverse [m~n]。 然后把三段链接在一起。
+        存一下那个点，
+        从M开始， for loop， reverse[m~n]。 然后把三段链接在一起。
 
 
-```
+        ```
 /*
 28% Accepted
 Reverse a linked list from position m to n.
@@ -34,17 +34,17 @@ Note, when doing reverse, always:
 /**
  * Definition for ListNode
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
+ * int val;
+ * ListNode next;
+ * ListNode(int x) {
+ * val = x;
+ * next = null;
+ * }
  * }
  */
 public class Solution {
     /**
-     * @param ListNode head is the head of the linked list 
+     * @param ListNode head is the head of the linked list
      * @oaram m and n
      * @return: The head of the reversed ListNode
      */
@@ -57,8 +57,8 @@ public class Solution {
         dummyNode.next = head;
         head = dummyNode;
         ListNode nodeFront = null;
-    
-        
+
+
         for (int countM = 1; countM < m; countM++) {
             if (head == null) {
                 return head;
@@ -78,7 +78,7 @@ public class Solution {
         //List front, middle and end section
         nodeFront.next = reversedList;
         mNode.next = postNode;
-        
+
         return dummyNode.next;
     }
 }

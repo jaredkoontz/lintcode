@@ -16,29 +16,27 @@ Array
 
 public class Solution {
     public int[] plusOne(int[] digits) {
-        if(digits.length==0) return digits;
-        
-        digits[digits.length-1] += 1;
+        if (digits.length == 0) return digits;
+
+        digits[digits.length - 1] += 1;
         //Check index digit.length-1 to 1
-        for(int i = digits.length-1; i>0; i--){
-            if(digits[i] == 10){
-                digits[i]=0;
-                digits[i-1]+=1;
-            }
-            else return digits;
+        for (int i = digits.length - 1; i > 0; i--) {
+            if (digits[i] == 10) {
+                digits[i] = 0;
+                digits[i - 1] += 1;
+            } else return digits;
         }
-        
+
         //Check index 0. If ==0, set it to 0 and carry over 1
-        if(digits[0]==10){
-            int[] output = new int[digits.length+1];
+        if (digits[0] == 10) {
+            int[] output = new int[digits.length + 1];
             output[0] = 1;
             output[1] = 0;
-            for(int i=2; i<output.length-1; i++){
-                output[i]=digits[i-1];
+            for (int i = 2; i < output.length - 1; i++) {
+                output[i] = digits[i - 1];
             }
             return output;
-        }
-        else return digits;
+        } else return digits;
     }
 }
 
@@ -73,22 +71,22 @@ public class Solution {
      * @return the result
      */
     public int[] plusOne(int[] digits) {
-    	if (digits == null || digits.length == 0) {
-    		return null;
-    	}
-    	
-    	String str = "";
-    	for (int i = 0; i < digits.length; i++) {
-    		str += digits[i];
-    	}
-    	long digit = Long.parseLong(str);
-    	digit += 1;
-    	str = digit + "";
-    	int[] rst = new int[str.length()];
-    	for (int i = 0; i < str.length(); i++) {
-    		rst[i] = Character.getNumericValue(str.charAt(i));
-    	}
-    	return rst;
+        if (digits == null || digits.length == 0) {
+            return null;
+        }
+
+        String str = "";
+        for (int i = 0; i < digits.length; i++) {
+            str += digits[i];
+        }
+        long digit = Long.parseLong(str);
+        digit += 1;
+        str = digit + "";
+        int[] rst = new int[str.length()];
+        for (int i = 0; i < str.length(); i++) {
+            rst[i] = Character.getNumericValue(str.charAt(i));
+        }
+        return rst;
     }
 }
 

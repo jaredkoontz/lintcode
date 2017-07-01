@@ -32,28 +32,28 @@ class Solution {
      * @return: The kth prime number as description.
      */
     public long kthPrimeNumber(int k) {
-    	if (k == 0) {
-    		return 0;
-    	}
-    	PriorityQueue<Long> queue = new PriorityQueue<Long>();
-    	queue.offer((long)3);
-    	queue.offer((long)5);
-    	queue.offer((long)7);
-    	long num = 0;
-		for (int i = 0; i < k; i++) {
-			num = queue.poll();
-			if (num % 3 == 0) {
-				queue.offer(num  * 3);
-			} else if (num % 5 == 0) {
-			    queue.offer(num  * 3);
-				queue.offer(num  * 5);
-			} else if (num % 7 == 0) {
-				queue.offer(num  * 3);
-				queue.offer(num  * 5);
-				queue.offer(num  * 7);
-			}
-		}
-		return num;
+        if (k == 0) {
+            return 0;
+        }
+        PriorityQueue<Long> queue = new PriorityQueue<Long>();
+        queue.offer((long) 3);
+        queue.offer((long) 5);
+        queue.offer((long) 7);
+        long num = 0;
+        for (int i = 0; i < k; i++) {
+            num = queue.poll();
+            if (num % 3 == 0) {
+                queue.offer(num * 3);
+            } else if (num % 5 == 0) {
+                queue.offer(num * 3);
+                queue.offer(num * 5);
+            } else if (num % 7 == 0) {
+                queue.offer(num * 3);
+                queue.offer(num * 5);
+                queue.offer(num * 7);
+            }
+        }
+        return num;
     }
 };
 

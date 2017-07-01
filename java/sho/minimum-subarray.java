@@ -8,17 +8,17 @@ public class Solution {
         if (nums == null) {
             return 0;
         }
-        
+
         int min = nums.get(0);
         int previousSum = min;
         int size = nums.size();
-    
+
         for (int i = 1; i < size; i++) {
             int current = nums.get(i);
             previousSum = Math.min(current, current + previousSum);
-            min = min > previousSum? previousSum : min;
+            min = min > previousSum ? previousSum : min;
         }
-        
+
         return min;
     }
 }

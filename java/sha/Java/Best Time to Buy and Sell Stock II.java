@@ -1,18 +1,18 @@
 M
 
-和Stock I 的区别：可以买卖多次，求总和的最大盈利。
+        和Stock I 的区别：可以买卖多次，求总和的最大盈利。
 
-找涨幅最大的区间，买卖：
-找到低谷，买进:peek = start + 1 时候，就是每次往前走一步;若没有上涨趋势，继续往低谷前进。
-涨到峰顶，卖出:一旦有上涨趋势，进一个while loop，涨到底, 再加个profit.
+        找涨幅最大的区间，买卖：
+        找到低谷，买进:peek=start+1时候，就是每次往前走一步;若没有上涨趋势，继续往低谷前进。
+        涨到峰顶，卖出:一旦有上涨趋势，进一个while loop，涨到底,再加个profit.
 
-中间的：
-   profit += prices[peek - 1] - prices[start]; 听特别的。
-   当没有上涨趋势时候，peek-1也就是start, 所以这里刚好profit += 0.
+        中间的：
+        profit+=prices[peek-1]-prices[start];听特别的。
+        当没有上涨趋势时候，peek-1也就是start,所以这里刚好profit+=0.
 
-O(n)
+        O(n)
 
-```
+        ```
 /*
 Say you have an array for which the ith element is the price of a given stock on day i.
 

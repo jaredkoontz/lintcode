@@ -1,24 +1,24 @@
 M
 
-方法一: 60%
+        方法一:60%
 
-和check anagram 想法一样：转化并sort char array，用来作为key。
+        和check anagram 想法一样：转化并sort char array，用来作为key。
 
-把所有anagram 存在一起。注意结尾Collections.sort().
+        把所有anagram 存在一起。注意结尾Collections.sort().
 
-O(NKlog(K)), N = string[] length, k = longest word length    
-
-
-优化：80% ~ 97%
-
-用固定长度的char[26] arr 存每个字母的frequency; 然后再 new string(arr).   
-因为每个位子上的frequency的变化，就能构建一个unique的string
+        O(NKlog(K)),N=string[]length,k=longest word length
 
 
-错误的示范: 尝试先sort input strs[]，但是NlogN 其实效率更低. 13%
+        优化：80%~97%
+
+        用固定长度的char[26]arr 存每个字母的frequency;然后再 new string(arr).
+        因为每个位子上的frequency的变化，就能构建一个unique的string
 
 
-```
+        错误的示范:尝试先sort input strs[]，但是NlogN 其实效率更低. 13%
+
+
+        ```
 
 /*
 Given an array of strings, group anagrams together.
@@ -39,7 +39,6 @@ Hide Tags Hash Table String
 Hide Similar Problems (E) Valid Anagram (E) Group Shifted Strings
 
 */
-
 
 
 /*
@@ -90,9 +89,9 @@ public class Solution {
         if (strs == null || strs.length == 0) {
             return rst;
         }
-        
+
         HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
-        
+
         for (int i = 0; i < strs.length; i++) {
             String str = calcUniqueKey(strs[i]);
             if (!map.containsKey(str)) {
@@ -100,15 +99,15 @@ public class Solution {
             }
             map.get(str).add(strs[i]);
         }
-        
-        for(String key: map.keySet()){//FASTER
+
+        for (String key : map.keySet()) {//FASTER
             Collections.sort(map.get(key));
             rst.add(map.get(key));
         }
 
         return rst;
     }
-    
+
     public String calcUniqueKey(String s) {
         char[] arr = new char[26];
         for (int i = 0; i < s.length(); i++) {
@@ -136,7 +135,7 @@ public class Solution {
             return rst;
         }
         HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
-        
+
         for (int i = 0; i < strs.length; i++) {
             char[] arr = strs[i].toCharArray();
             Arrays.sort(arr);
@@ -152,7 +151,7 @@ public class Solution {
             rst.add(entry.getValue());
         }
         */
-        for(String key: map.keySet()){//FASTER
+        for (String key : map.keySet()) {//FASTER
             Collections.sort(map.get(key));
             rst.add(map.get(key));
         }

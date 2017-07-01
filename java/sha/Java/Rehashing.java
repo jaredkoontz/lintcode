@@ -1,7 +1,7 @@
 M
 
 
-```
+        ```
 /*
 The size of the hash table is not determinate at the very beginning. 
 If the total size of keys is too large (e.g. size >= capacity / 10), 
@@ -51,19 +51,19 @@ Thoughts:
 /**
  * Definition for ListNode
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
+ * int val;
+ * ListNode next;
+ * ListNode(int x) {
+ * val = x;
+ * next = null;
+ * }
  * }
  */
- public class Solution {
+public class Solution {
     /**
      * @param hashTable: A list of The first node of linked list
      * @return: A list of The first node of linked list which have twice size
-     */    
+     */
     public ListNode[] rehashing(ListNode[] hashTable) {
         if (hashTable == null || hashTable.length == 0) {
             return hashTable;
@@ -86,7 +86,7 @@ Thoughts:
         if (capacity == hashTable.length) {
             return hashTable;
         }
-        
+
         ListNode[] rst = new ListNode[capacity];
         for (int i = 0; i < hashTable.length; i++) {
             ListNode node = hashTable[i];

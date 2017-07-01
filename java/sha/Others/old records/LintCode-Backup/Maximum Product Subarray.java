@@ -23,25 +23,25 @@ Trick: depending on nums[i] is positive or negative, calculate differently ...
 
 public class Solution {
     public int maxProduct(int[] nums) {
-    	if (nums == null || nums.length == 0) {
-    		return 0;
-    	}
-    	int[] max = new int[nums.length];
-    	int[] min = new int[nums.length];
-    	max[0] = nums[0];
-    	min[0] = nums[0];
-    	int rst = max[0];
-    	for (int i = 1; i < nums.length; i++) {
-    		if (nums[i] > 0) {
-    			max[i] = Math.max(nums[i], max[i - 1] * nums[i]);//the nums[i] could just be the best option
-    			min[i] = Math.min(nums[i], min[i - 1] * nums[i]);
-    		} else {
-    			max[i] = Math.max(nums[i], min[i - 1] * nums[i]);
-    			min[i] = Math.min(nums[i], max[i - 1] * nums[i]);
-    		}
-    		rst = Math.max(rst, max[i]);
-    	}
-    	return rst;
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int[] max = new int[nums.length];
+        int[] min = new int[nums.length];
+        max[0] = nums[0];
+        min[0] = nums[0];
+        int rst = max[0];
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] > 0) {
+                max[i] = Math.max(nums[i], max[i - 1] * nums[i]);//the nums[i] could just be the best option
+                min[i] = Math.min(nums[i], min[i - 1] * nums[i]);
+            } else {
+                max[i] = Math.max(nums[i], min[i - 1] * nums[i]);
+                min[i] = Math.min(nums[i], max[i - 1] * nums[i]);
+            }
+            rst = Math.max(rst, max[i]);
+        }
+        return rst;
     }
 }
 
@@ -76,29 +76,29 @@ public class Solution {
      * @return: an integer
      */
     public int maxProduct(int[] nums) {
-    	if (nums == null || nums.length == 0) {
-	    		return 0;
-	    	}
-	    	int[][] DP = new int[nums.length][nums.length];
-	    	DP[0][0] = nums[0];
-	    	int max = DP[0][0];
-	    	
-	    	for (int i = 0; i < nums.length; i++) {
-	    		for (int j = 1; j < nums.length; j++) {
-	    		    if (i == j) {
-	    		        DP[i][j] = nums[j];
-	    		    }
-	    			if (j > i) {
-	    				if (DP[i][j - 1] == 0) {
-	    					DP[i][j] = nums[j];
-	    				} else {
-	    					DP[i][j] = DP[i][j - 1] * nums[j];
-	    				}
-	    				max = Math.max(max, DP[i][j]);
-	    			}
-	    			max = Math.max(max, nums[j]);
-	    		}
-	    	}
-    	return max;
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int[][] DP = new int[nums.length][nums.length];
+        DP[0][0] = nums[0];
+        int max = DP[0][0];
+
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 1; j < nums.length; j++) {
+                if (i == j) {
+                    DP[i][j] = nums[j];
+                }
+                if (j > i) {
+                    if (DP[i][j - 1] == 0) {
+                        DP[i][j] = nums[j];
+                    } else {
+                        DP[i][j] = DP[i][j - 1] * nums[j];
+                    }
+                    max = Math.max(max, DP[i][j]);
+                }
+                max = Math.max(max, nums[j]);
+            }
+        }
+        return max;
     }
 }

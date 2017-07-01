@@ -28,12 +28,13 @@ public class Solution {
         helper(rst, solution, n, k, 1);// Start == 1 because we want 1 ~ n in this problem
         return rst;
     }
-    public void helper(List<List<Integer>> rst, 
-                List<Integer> solution, int n, int k, int start) {
+
+    public void helper(List<List<Integer>> rst,
+                       List<Integer> solution, int n, int k, int start) {
         if (solution.size() == k) {
             rst.add(new ArrayList(solution));
             return;
-        }        
+        }
         for (int i = start; i <= n; i++) {// <=n because we want 1 ~ n in this problem
             solution.add(i);
             helper(rst, solution, n, k, i + 1);

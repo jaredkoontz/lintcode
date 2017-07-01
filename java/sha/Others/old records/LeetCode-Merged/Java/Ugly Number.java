@@ -12,7 +12,7 @@ Hide Similar Problems (E) Happy Number (E) Count Primes (M) Ugly Number II
 
 */
 /*
-	Thoughts:
+    Thoughts:
 	Find all prime factors, check if other factors exist rather than 2,3,5.
 	3 while loops.
 	If num % 5 = 0 , keep it going.
@@ -25,19 +25,19 @@ Hide Similar Problems (E) Happy Number (E) Count Primes (M) Ugly Number II
 public class Solution {
     public boolean isUgly(int num) {
         if (num <= 0) {
-        	return false;
+            return false;
         } else if (num == 1) {
-        	return true;
+            return true;
         }
 
         while (num != 0 && num % 5 == 0) {
-        	num = num / 5;
+            num = num / 5;
         }
         while (num != 0 && num % 3 == 0) {
-        	num = num / 3;
+            num = num / 3;
         }
         while (num != 0 && num % 2 == 0) {
-        	num = num / 2;
+            num = num / 2;
         }
         return num == 1;
     }

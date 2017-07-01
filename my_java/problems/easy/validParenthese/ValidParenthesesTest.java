@@ -11,17 +11,17 @@ import static org.junit.Assert.assertTrue;
 
 public class ValidParenthesesTest {
 
-	@Test
-	public void happyPath() {
-		String paren = "()";
-		ValidParentheses validParentheses = new ValidParentheses();
-		assertTrue(validParentheses.isValidParentheses(paren));
-		paren = "()[]{}";
-		assertTrue(validParentheses.isValidParentheses(paren));
-		paren = "(]";
-		assertFalse(validParentheses.isValidParentheses(paren));
-		paren = "([)]";
-		assertFalse(validParentheses.isValidParentheses(paren));
-	}
+    @Test
+    public void happyPath() {
+        String paren = "()";
+        ValidParentheses validParentheses = new ValidParentheses();
+        assertTrue(validParentheses.isValidParentheses(paren));
+        paren = "()[]{}";
+        assertTrue(validParentheses.isValidParentheses(paren));
+        paren = "(]";
+        assertFalse(validParentheses.isValidParentheses(paren));
+        paren = "([)]";
+        assertFalse(validParentheses.isValidParentheses(paren));
+    }
 
 }

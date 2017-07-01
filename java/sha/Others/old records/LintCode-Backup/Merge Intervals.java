@@ -31,11 +31,11 @@ Comparator
 /**
  * Definition of Interval:
  * public class Interval {
- *     int start, end;
- *     Interval(int start, int end) {
- *         this.start = start;
- *         this.end = end;
- *     }
+ * int start, end;
+ * Interval(int start, int end) {
+ * this.start = start;
+ * this.end = end;
+ * }
  */
 
 class Solution {
@@ -45,29 +45,29 @@ class Solution {
      */
     public List<Interval> merge(List<Interval> intervals) {
         if (intervals == null || intervals.size() == 0) {
-        	return intervals;
+            return intervals;
         }
 
-      //  intervals.sort(new CustomComparator());
-        Collections.sort(intervals, new Comparator<Interval>(){
-            public int compare(Interval a, Interval b){
-        		return a.start - b.start;
-        	}
+        //  intervals.sort(new CustomComparator());
+        Collections.sort(intervals, new Comparator<Interval>() {
+            public int compare(Interval a, Interval b) {
+                return a.start - b.start;
+            }
         });
         //Merge
         Interval pre = intervals.get(0);
         Interval curr = null;
         for (int i = 1; i < intervals.size(); i++) {
-        	curr = intervals.get(i);
-        	if (pre.end >= curr.start) {
-        		pre.end = pre.end > curr.end ? pre.end : curr.end;
-        		intervals.remove(i);
-        		i--;
-        	} else {
-        	    pre = curr;
-        	}
+            curr = intervals.get(i);
+            if (pre.end >= curr.start) {
+                pre.end = pre.end > curr.end ? pre.end : curr.end;
+                intervals.remove(i);
+                i--;
+            } else {
+                pre = curr;
+            }
         }
-    
+
         return intervals;
     }
 }

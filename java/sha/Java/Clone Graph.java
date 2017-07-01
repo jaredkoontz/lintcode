@@ -1,11 +1,11 @@
 M
 
-Use HashMap to mark cloned nodes.    
+        Use HashMap to mark cloned nodes.
 
-先能复制多少Node复制多少。然后把neighbor 加上
+        先能复制多少Node复制多少。然后把neighbor 加上
 
 
-```
+        ```
 /*
 Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors.
 
@@ -57,8 +57,8 @@ public class Solution {
             return node;
         }
 
-        HashMap<UndirectedGraphNode, UndirectedGraphNode> map = 
-            new HashMap<UndirectedGraphNode, UndirectedGraphNode>();
+        HashMap<UndirectedGraphNode, UndirectedGraphNode> map =
+                new HashMap<UndirectedGraphNode, UndirectedGraphNode>();
         Queue<UndirectedGraphNode> queue = new LinkedList<UndirectedGraphNode>();
 
         queue.offer(node);
@@ -83,7 +83,7 @@ public class Solution {
 
         }//end while
 
-        return map.get(node);        
+        return map.get(node);
     }
 }
 
@@ -103,12 +103,13 @@ Thinking process:
     - use original neighbor as key to get the new neighbor instance from map
     - add this new neighbor instance to the neighbor list of 'newNode'
 */
+
 /**
  * Definition for undirected graph.
  * class UndirectedGraphNode {
- *     int label;
- *     List<UndirectedGraphNode> neighbors;
- *     UndirectedGraphNode(int x) { label = x; neighbors = new ArrayList<UndirectedGraphNode>(); }
+ * int label;
+ * List<UndirectedGraphNode> neighbors;
+ * UndirectedGraphNode(int x) { label = x; neighbors = new ArrayList<UndirectedGraphNode>(); }
  * };
  */
 public class Solution {
@@ -138,7 +139,7 @@ public class Solution {
                 newNode.neighbors.add(map.get(nodes.get(i).neighbors.get(j)));
             }
         }
-        return map.get(node);    
+        return map.get(node);
     }
 }
 

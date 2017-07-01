@@ -1,10 +1,10 @@
 例子写出来，发现可以sort以后按照定义搜索一遍。 nlogn.
-	当然，搜索一遍时候可以优化，用binary search. 但是没意义，因为array.sort已经用了nlogn
+        当然，搜索一遍时候可以优化，用binary search.但是没意义，因为array.sort已经用了nlogn
 
-o(n)也可以，用bucket. 比较巧妙。
+        o(n)也可以，用bucket.比较巧妙。
 
 
-```
+        ```
 /*
 Given an array of citations (each citation is a non-negative integer) of a researcher, 
 write a function to compute the researcher's h-index.
@@ -32,7 +32,7 @@ Hide Similar Problems (M) H-Index II
 */
 
 /*
-	Thoughts:O(nlogn)
+    Thoughts:O(nlogn)
 	N = 5, so max of h = 5. min of h = 0.
 		1. h = 5, loop through the array and count the # of citations that are >= h.
 		2 .h = 4 ... h=1, h=0.
@@ -53,14 +53,14 @@ Hide Similar Problems (M) H-Index II
 public class Solution {
     public int hIndex(int[] citations) {
         if (citations == null || citations.length == 0) {
-        	return 0;
+            return 0;
         }
         Arrays.sort(citations);
         for (int h = citations.length; h > 0; h--) {
-        	int x = citations.length - h;
-        	if (citations[x] >= h) {
-        		return h;
-        	}
+            int x = citations.length - h;
+            if (citations[x] >= h) {
+                return h;
+            }
         }
         return 0;
     }
@@ -68,7 +68,7 @@ public class Solution {
 
 
 /*
-	Thoughts: as the hint shows, use extra space and make it faster.
+    Thoughts: as the hint shows, use extra space and make it faster.
 	citations = [3, 0, 6, 1, 5],
 	(http://buttercola.blogspot.com/2015/09/leetcode-h-index.html?_sm_au_=iHVFjb76ZHj7ND5D)
 	1. For loop to count++ in correct buttkit regardless of the index.
@@ -83,29 +83,29 @@ public class Solution {
 public class Solution {
     public int hIndex(int[] citations) {
         if (citations == null || citations.length == 0) {
-        	return 0;
+            return 0;
         }
- 		int n = citations.length;
- 		int[] bucket = new int[n + 1];
- 		//fill bucket
- 		for (int i = 0; i < n; i++) {
- 			int bucketSlot = citations[i];
- 			if (citations[i] <= n) {
- 				bucket[bucketSlot]++;
- 			} else {//bucketSlot > n
- 				bucket[n]++;
- 			}
- 		}
+        int n = citations.length;
+        int[] bucket = new int[n + 1];
+        //fill bucket
+        for (int i = 0; i < n; i++) {
+            int bucketSlot = citations[i];
+            if (citations[i] <= n) {
+                bucket[bucketSlot]++;
+            } else {//bucketSlot > n
+                bucket[n]++;
+            }
+        }
 
- 		//Find best H
- 		int sum = 0;
- 		for (int h = n; h >= 0; h--) {
- 			if (sum + bucket[h] >= h) {
- 				return h;
- 			} 		
- 			sum += bucket[h];
- 		}
-      	return 0;
+        //Find best H
+        int sum = 0;
+        for (int h = n; h >= 0; h--) {
+            if (sum + bucket[h] >= h) {
+                return h;
+            }
+            sum += bucket[h];
+        }
+        return 0;
     }
 }
 ```

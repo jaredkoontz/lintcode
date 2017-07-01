@@ -1,10 +1,11 @@
 Partition Array根据pivot把array分成两半。
-从array两边开始缩进。while loop到遍历完。非常直白的implement。
-注意low/high,或者叫start/end不要越边界
-O(n)
+        从array两边开始缩进。while loop到遍历完。非常直白的implement。
+        注意low/high,或者叫start/end不要越边界
+        O(n)
 
-Quick sort的基础。
-```
+        Quick sort的基础。
+        ```
+
 /*
 Given an array nums of integers and an int k, partition the array (i.e move the elements in "nums") such that:
 
@@ -33,10 +34,10 @@ When the two pinter meets, that's crossing point about pivot k
 
 */
 public class Solution {
-    /** 
-     *@param nums: The integer array you should partition
-     *@param k: As description
-     *return: The index after partition
+    /**
+     * @param nums: The integer array you should partition
+     * @param k:    As description
+     *              return: The index after partition
      */
     public int partitionArray(int[] nums, int k) {
         if (nums == null || nums.length == 0) {
@@ -45,20 +46,20 @@ public class Solution {
         return helper(nums, 0, nums.length - 1, k);
     }
 
-    public void swap(int[] nums, int x, int y){
+    public void swap(int[] nums, int x, int y) {
         int temp = nums[x];
         nums[x] = nums[y];
         nums[y] = temp;
     }
-    
+
     public int helper(int[] nums, int start, int end, int pivot) {
         int low = start;
         int high = end;
         while (low <= high) {
-            while(low <= high && nums[low] < pivot) {
+            while (low <= high && nums[low] < pivot) {
                 low++;
             }
-            while(low <= high && nums[high] >= pivot) {
+            while (low <= high && nums[high] >= pivot) {
                 high--;
             }
             if (low <= high) {

@@ -1,13 +1,13 @@
 M
 
-和 Segment Tree Query I 以及其他Segment Tree问题没啥区别。这个就是return个count。
+        和 Segment Tree Query I 以及其他Segment Tree问题没啥区别。这个就是return个count。
 
-这个题目考了validate input source：input 的start,end可能超出root[start,end]。   
-那么第一步就要先clear一下。完全不在range就return 0. 有range重合就规整到root的range.
+        这个题目考了validate input source：input 的start,end可能超出root[start,end]。
+        那么第一步就要先clear一下。完全不在range就return 0.有range重合就规整到root的range.
 
 
 
-```
+        ```
 /*
 For an array, we can build a SegmentTree for it, each node stores an extra attribute count to 
 denote the number of elements in the the array which value is between interval start and end. 
@@ -41,7 +41,7 @@ LintCode Copyright Binary Tree Segment Tree
 */
 
 /*
-	Thoughts:
+    Thoughts:
 	Since SegmentTree is already constructed, just use it to calculate count.
 	If all on left/right, easy, just return that portion.
 	If mid is between start,end, deal with it carefully. 
@@ -50,51 +50,51 @@ LintCode Copyright Binary Tree Segment Tree
 /**
  * Definition of SegmentTreeNode:
  * public class SegmentTreeNode {
- *     public int start, end, count;
- *     public SegmentTreeNode left, right;
- *     public SegmentTreeNode(int start, int end, int count) {
- *         this.start = start;
- *         this.end = end;
- *         this.count = count;
- *         this.left = this.right = null;
- *     }
+ * public int start, end, count;
+ * public SegmentTreeNode left, right;
+ * public SegmentTreeNode(int start, int end, int count) {
+ * this.start = start;
+ * this.end = end;
+ * this.count = count;
+ * this.left = this.right = null;
+ * }
  * }
  */
 public class Solution {
     /**
-     *@param root, start, end: The root of segment tree and 
-     *                         an segment / interval
-     *@return: The count number in the interval [start, end]
+     * @param root, start, end: The root of segment tree and
+     *              an segment / interval
+     * @return: The count number in the interval [start, end]
      */
     public int query(SegmentTreeNode root, int start, int end) {
         if (root == null || start > end) {
             return 0;
         }
-    	if (root.start == start && root.end == end) {
-    		return root.count;
-    	}
-      
-    	//Check if out range. If so, set border to root[start,end]
-    	if ((start < root.start && end < root.start) ||
-    	    (start > root.end && end > root.end)) {
-    	    return 0;
-    	}
-      if (start < root.start) {
-    	    start = root.start;
-    	}
-      if (end > root.end) {
-    	    end = root.end;
-    	}
+        if (root.start == start && root.end == end) {
+            return root.count;
+        }
 
-    	int mid = (root.start + root.end)/2;
-    	if (end <= mid) {
-    		return query(root.left, start, end);
-    	}
-    	if (start > mid) {
-    	    return query(root.right, start, end);
-    	}
-      //mid in between [start, end]
-    	return query(root.left, start, root.left.end) + query(root.right, root.right.start, end);
+        //Check if out range. If so, set border to root[start,end]
+        if ((start < root.start && end < root.start) ||
+                (start > root.end && end > root.end)) {
+            return 0;
+        }
+        if (start < root.start) {
+            start = root.start;
+        }
+        if (end > root.end) {
+            end = root.end;
+        }
+
+        int mid = (root.start + root.end) / 2;
+        if (end <= mid) {
+            return query(root.left, start, end);
+        }
+        if (start > mid) {
+            return query(root.right, start, end);
+        }
+        //mid in between [start, end]
+        return query(root.left, start, root.left.end) + query(root.right, root.right.start, end);
     }
 }
 

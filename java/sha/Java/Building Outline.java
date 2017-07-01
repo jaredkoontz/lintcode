@@ -1,20 +1,20 @@
 H
 
-又叫做skyline
+        又叫做skyline
 
-看网上的解答做， 思路很漂亮。 （http://codechen.blogspot.com/2015/06/leetcode-skyline-problem.html?_sm_au_=isVmHvFmFs40TWRt）
+        看网上的解答做， 思路很漂亮。 （http://codechen.blogspot.com/2015/06/leetcode-skyline-problem.html?_sm_au_=isVmHvFmFs40TWRt）
 
-跟scan line的approach类似:      
-1. 把所有点分出来， 每个点有index x, 再加上一个height.         
-2. 在这个list上排序，根据index和height（注意用负数标记building start point,这样保证start在end 之前。）. 叫做 heightPoints            
-3. 在processs时候用max-heap (reversed priorityqueue)，在ieteraete heightPoints 来存最大的height . 遇到peek,就是一个合理的解    
-    处理1：因为start,end的height都存在了heightPoints里面，这里就是用来check end of bulding的，然后把height 从queue里面remove.
-    处理2：重复x 上面的许多height?  priorityqueue给了我们最高，这okay了；那么其他的重复点，用一个int prev来mark之前做过的，一旦重复，跳过。
+        跟scan line的approach类似:
+        1.把所有点分出来， 每个点有index x,再加上一个height.
+        2.在这个list上排序，根据index和height（注意用负数标记building start point,这样保证start在end 之前。）.叫做 heightPoints
+        3.在processs时候用max-heap(reversed priorityqueue)，在ieteraete heightPoints 来存最大的height.遇到peek,就是一个合理的解
+        处理1：因为start,end的height都存在了heightPoints里面，这里就是用来check end of bulding的，然后把height 从queue里面remove.
+        处理2：重复x 上面的许多height?priorityqueue给了我们最高，这okay了；那么其他的重复点，用一个int prev来mark之前做过的，一旦重复，跳过。
 
-想法非常natural。 大题目，脑子乱。    
-看了解答再去想，挺naturally doable的。
+        想法非常natural。 大题目，脑子乱。
+        看了解答再去想，挺naturally doable的。
 
-```
+        ```
 /*
 LintCode description:
 Given N buildings in a x-axis，each building is a rectangle and can be represented by a triple (start, end, height)，
@@ -87,13 +87,6 @@ Hide Tags Divide and Conquer Binary Indexed Tree Heap Segment Tree
                 Well, in HeightPoint object, start height is negative for sorting purpose. When adding into queue, use it's absolute value : )    
 */
 public class Solution {
-    public class HeightPoint{
-        int x, height;
-        public HeightPoint(int x, int height) {
-            this.x = x;
-            this.height = height;
-        }
-    }
     public List<int[]> getSkyline(int[][] buildings) {
         List<int[]> rst = new ArrayList<int[]>();
         if (buildings == null || buildings.length == 0 || buildings[0].length == 0) {
@@ -120,7 +113,7 @@ public class Solution {
         //reversed priorityqueue, becase for same pos x, we always want the highest point
         PriorityQueue<Integer> queue = new PriorityQueue<Integer>(1000, Collections.reverseOrder());
         queue.offer(0);
-        int prev = queue.peek();  
+        int prev = queue.peek();
 
         for (HeightPoint p : heightPoints) {
             if (p.height < 0) {
@@ -131,15 +124,23 @@ public class Solution {
 
             int currPeak = queue.peek();
             if (currPeak != prev) {
-                rst.add(new int[] {p.x, currPeak});
+                rst.add(new int[]{p.x, currPeak});
                 prev = currPeak;
             }
         }
 
         return rst;
     }
-}
 
+    public class HeightPoint {
+        int x, height;
+
+        public HeightPoint(int x, int height) {
+            this.x = x;
+            this.height = height;
+        }
+    }
+}
 
 
 /*
@@ -157,27 +158,6 @@ class HashHeap {
     HashMap<Integer, Node> hash;
     String mode;
     int size_t;
-   
-    /*
-      Used in HashMap,
-      id: id in the Heap tree
-      num: The frequency of the appearance of this id.
-    */
-    class Node {
-        public Integer id;  
-        public Integer num;
-
-        Node(Node now) {
-            id = now.id;
-            num = now.num;
-        }
-
-        Node(Integer first, Integer second) {
-
-            this.id = first;
-            this.num = second;
-        }
-    }
 
     public HashHeap(String mod) { // 传入min 表示最小堆，max 表示最大堆
         // TODO Auto-generated constructor stub
@@ -186,6 +166,7 @@ class HashHeap {
         hash = new HashMap<Integer, Node>();
         size_t = 0;
     }
+
     /*Regular peak, size, empty functions*/
     int peak() {
         return heap.get(0);
@@ -198,6 +179,7 @@ class HashHeap {
     Boolean empty() {
         return (heap.size() == 0);
     }
+
     // Basis of heap
     int parent(int id) {
         if (id == 0) {
@@ -205,15 +187,18 @@ class HashHeap {
         }
         return (id - 1) / 2;
     }
+
     // Basis of heap. Our heap is base indxe = 0
     int lson(int id) {
         return id * 2 + 1;
     }
+
     // Basis of heap. Our heap is base indxe = 0
     int rson(int id) {
         return id * 2 + 2;
     }
-    // Basis of heap. 
+
+    // Basis of heap.
     //If min heap, parent < left/right child
     //If max heap, parent > left/right child
     boolean comparesmall(int a, int b) {
@@ -230,6 +215,7 @@ class HashHeap {
         }
 
     }
+
     //swap value in heap based the 2 ids
     //based on value, create new node in hashmap.
     void swap(int idA, int idB) {
@@ -261,6 +247,7 @@ class HashHeap {
         }
         return now;
     }
+
     //Add
     //If exist, count++ in hashmap
     //If not exited, add to tail, then sfitup
@@ -277,6 +264,7 @@ class HashHeap {
 
         siftup(heap.size() - 1);
     }
+
     //Remove node
     //If not last one, count-- from the hashMap
     //If last one, move it to tail of the structure, and delete it.
@@ -300,6 +288,7 @@ class HashHeap {
             hash.put(now, new Node(id, num - 1));
         }
     }
+
     //If the target id and its parent do not comply the heap structure, siftup.
     void siftup(int id) {
         while (parent(id) > -1) {
@@ -312,6 +301,7 @@ class HashHeap {
             id = parentId;
         }
     }
+
     //If the target id and its children do not comply with the heap structure, siftdown
     void siftdown(int id) {
         while (lson(id) < heap.size()) {
@@ -329,6 +319,27 @@ class HashHeap {
                 swap(id, son);
             }
             id = son;
+        }
+    }
+
+    /*
+      Used in HashMap,
+      id: id in the Heap tree
+      num: The frequency of the appearance of this id.
+    */
+    class Node {
+        public Integer id;
+        public Integer num;
+
+        Node(Node now) {
+            id = now.id;
+            num = now.num;
+        }
+
+        Node(Integer first, Integer second) {
+
+            this.id = first;
+            this.num = second;
         }
     }
 }

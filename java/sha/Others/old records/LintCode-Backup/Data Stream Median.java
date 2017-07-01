@@ -20,7 +20,6 @@ LintCode Copyright Heap Priority Queue
 */
 
 
-
 public class Solution {
     /**
      * @param nums: A list of integers.
@@ -31,18 +30,18 @@ public class Solution {
         if (nums == null || nums.length == 0) {
             return rst;
         }
-        
+
         PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();
         PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(10, new Comparator<Integer>() {
             public int compare(Integer x, Integer y) {
                 return y - x;
             }
         });
-        
+
         rst[0] = nums[0];
         maxHeap.offer(rst[0]);
-        
-        for (int i = 1; i < rst.length; i++){
+
+        for (int i = 1; i < rst.length; i++) {
             int preMedian = maxHeap.peek();
             if (nums[i] > preMedian) {
                 minHeap.offer(nums[i]);

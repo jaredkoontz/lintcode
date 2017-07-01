@@ -1,6 +1,7 @@
 public class Solution {
     /**
      * Determine whether s3 is formed by interleaving of s1 and s2.
+     *
      * @param s1, s2, s3: As description.
      * @return: true or false.
      */
@@ -10,12 +11,12 @@ public class Solution {
         int bLen = s2.length();
         int cLen = s3.length();
         if (aLen == 0 || bLen == 0) {
-            return aLen == 0? s2.equals(s3) : s1.equals(s3);
+            return aLen == 0 ? s2.equals(s3) : s1.equals(s3);
         }
         if (cLen != (aLen + bLen)) {
             return false;
         }
-        
+
         boolean[][] dp = new boolean[aLen + 1][bLen + 1];
         dp[0][0] = true;
         // first row and col for empty string case.
@@ -37,7 +38,7 @@ public class Solution {
                 break;
             }
         }
-        
+
         for (int i = 1; i <= aLen; i++) {
             for (int j = 1; j <= bLen; j++) {
                 char a = s1.charAt(i - 1);
@@ -50,7 +51,7 @@ public class Solution {
                 }
             }
         }
-        
+
         return dp[aLen][bLen];
 
     }

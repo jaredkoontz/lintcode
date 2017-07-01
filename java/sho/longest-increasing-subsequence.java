@@ -9,20 +9,20 @@ public class Solution {
         if (len == 0) {
             return 0;
         }
-        
+
         int max = 0;
         int[] dp = new int[len];
-        
+
         for (int i = 0; i < len; i++) {
             dp[i] = 1;
-            for (int j  = 0; j < i; j++) {
+            for (int j = 0; j < i; j++) {
                 if (nums[j] <= nums[i]) {
-                    dp[i] = dp[i] < dp[j] + 1? dp[j] + 1 : dp[i];
+                    dp[i] = dp[i] < dp[j] + 1 ? dp[j] + 1 : dp[i];
                 }
             }
-            max = max < dp[i]? dp[i] : max;
+            max = max < dp[i] ? dp[i] : max;
         }
-        
+
         return max;
     }
 }

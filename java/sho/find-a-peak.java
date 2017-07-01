@@ -9,12 +9,12 @@ class Solution {
         if (len == 0) {
             return 0;
         }
-        
+
         int start = 0;
         int end = len - 1;
-        
+
         while (start + 1 < end) {
-            int mid = (start + end ) / 2;
+            int mid = (start + end) / 2;
             if (A[mid] > A[mid - 1] && A[mid] > A[mid + 1]) {
                 return mid;
             } else if (A[mid] < A[mid - 1]) {
@@ -27,16 +27,16 @@ class Solution {
                 start = mid;
             }
         }
-        
+
         if (A[start] > A[start - 1] && A[start] > A[start + 1]) {
             return start;
         } else if (A[end] > A[end - 1] && A[end] > A[end + 1]) {
             return end;
         }
-        
+
         return -1;
-        
-        
+
+
     }
 }
 

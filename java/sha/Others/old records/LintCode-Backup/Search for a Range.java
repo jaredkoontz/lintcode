@@ -1,5 +1,5 @@
 前后跑2个while loop。 找first/last occurance
-```
+        ```
 /*
 Given a sorted array of integers, find the starting and ending position of a given target value.
 
@@ -35,12 +35,12 @@ public class Solution {
         }
         int start = 0;
         int end = A.length - 1;
-        int mid = start + (end - start)/2;
+        int mid = start + (end - start) / 2;
 
         //1st occurance.
         int first = 0;
         while (start + 1 < end) {
-            mid = start + (end - start)/2;
+            mid = start + (end - start) / 2;
             if (A[mid] == target) {
                 if (mid - 1 >= 0 && A[mid - 1] == target) {
                     end = mid;
@@ -69,7 +69,7 @@ public class Solution {
         start = first;
         end = A.length - 1;
         while (start + 1 < end) {
-            mid = start + (end - start)/2;
+            mid = start + (end - start) / 2;
             if (A[mid] == target) {
                 if (mid + 1 < A.length && A[mid + 1] == target) {
                     start = mid;
@@ -92,26 +92,18 @@ public class Solution {
             last = first;
         }
         rst[1] = last;
-        
+
         return rst;
     }
 }
 
 
-
-
-
-
-
-
-
-
 //Older solution:
 public class Solution {
-    /** 
-     *@param A : an integer sorted array
-     *@param target :  an integer to be inserted
-     *return : a list of length 2, [index1, index2]
+    /**
+     * @param A      : an integer sorted array
+     * @param target :  an integer to be inserted
+     *               return : a list of length 2, [index1, index2]
      */
     public ArrayList<Integer> searchRange(ArrayList<Integer> A, int target) {
         // write your code here
@@ -121,11 +113,11 @@ public class Solution {
         ArrayList<Integer> bound = new ArrayList<Integer>();
         bound.add(-1);
         bound.add(-1);
-        
-        if ( A.size() == 0) {
+
+        if (A.size() == 0) {
             return bound;
         }
-        
+
         //Left:
         while (start + 1 < end) {
             mid = start + (end - start) / 2;
@@ -144,7 +136,7 @@ public class Solution {
         } else {
             return bound;
         }
-        
+
         //Right:
         start = 0;
         end = A.size() - 1;
@@ -165,7 +157,7 @@ public class Solution {
         } else {
             return bound;
         }
-        
+
         return bound;
     }
 }

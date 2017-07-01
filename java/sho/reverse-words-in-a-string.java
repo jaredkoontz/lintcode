@@ -9,21 +9,21 @@ public class Solution {
         if (len == 0) {
             return s;
         }
-        
+
         StringBuilder sb = new StringBuilder();
         // if we cannot use the built in split function
         // we just iterate through the stirng and 
         // find the valid substirngs.
         String[] ss = s.split(" ");
-        
+
         for (int i = ss.length - 1; i >= 0; i--) {
-            if (sb.length() == 0 ) {
+            if (sb.length() == 0) {
                 sb.append(ss[i]);
             } else {
                 sb.append(" " + ss[i]);
             }
         }
-        
+
         return sb.toString();
     }
 }

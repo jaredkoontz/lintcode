@@ -18,26 +18,26 @@ import java.util.List;
  */
 public class BinaryTreePaths {
 
-	/**
-	 * @param root the root of the binary tree
-	 * @return all root-to-leaf paths
-	 */
-	public List<String> binaryTreePaths(TreeNode root) {
-		List<String> paths = new LinkedList<>();
-		if (root == null) return paths;
-		if (root.left == null && root.right == null) {
-			paths.add(root.val + "");
-			return paths;
-		}
+    /**
+     * @param root the root of the binary tree
+     * @return all root-to-leaf paths
+     */
+    public List<String> binaryTreePaths(TreeNode root) {
+        List<String> paths = new LinkedList<>();
+        if (root == null) return paths;
+        if (root.left == null && root.right == null) {
+            paths.add(root.val + "");
+            return paths;
+        }
 
-		for (String path : binaryTreePaths(root.left))
-			paths.add(root.val + "->" + path);
-
-
-		for (String path : binaryTreePaths(root.right))
-			paths.add(root.val + "->" + path);
+        for (String path : binaryTreePaths(root.left))
+            paths.add(root.val + "->" + path);
 
 
-		return paths;
-	}
+        for (String path : binaryTreePaths(root.right))
+            paths.add(root.val + "->" + path);
+
+
+        return paths;
+    }
 }

@@ -28,7 +28,7 @@ Hide Similar Problems (M) Set Matrix Zeroes
 */
 
 /*
-	Thoughts:
+    Thoughts:
 	https://segmentfault.com/a/1190000003819277
 	http://my.oschina.net/Tsybius2014/blog/514447
 	build state machine.
@@ -37,6 +37,6 @@ Hide Similar Problems (M) Set Matrix Zeroes
 
 public class Solution {
     public void gameOfLife(int[][] board) {
-        
+
     }
 }

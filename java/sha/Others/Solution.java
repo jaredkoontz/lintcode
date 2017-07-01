@@ -1,33 +1,28 @@
-import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
- 
- //BFS. store as string, separated by ','
+
+//BFS. store as string, separated by ','
 class Solution {
-    class TreeNode {
-       public int val;
-        public TreeNode left, right;
-        public TreeNode(int val) {
-         this.val = val;
-         this.left = this.right = null;
-     }
+    public static void main(String[] args) {
+        System.out.println("test");
+        Solution test = new Solution();
+
+
+        String str = test.serialize(test.init());
+        System.out.println();
     }
 
     /**
-     * This method will be invoked first, you should design your own algorithm 
+     * This method will be invoked first, you should design your own algorithm
      * to serialize a binary tree which denote by a root node to a string which
      * can be easily deserialized by your own "deserialize" method later.
      */
@@ -54,18 +49,18 @@ class Solution {
                 } else {
                     queue.offer(node.right);
                 }
-                
+
             }
         }//end while
         System.out.println("here rst: " + rst);
         return rst;
     }
-    
+
     /**
      * This method will be invoked second, the argument data is what exactly
      * you serialized at method "serialize", that means the data is not given by
      * system, it's given by your own serialize method. So the format of data is
-     * designed by yourself, and deserialize it here as you serialize it in 
+     * designed by yourself, and deserialize it here as you serialize it in
      * "serialize" method.
      */
     public TreeNode deserialize(String data) {
@@ -75,7 +70,7 @@ class Solution {
         TreeNode root = new TreeNode(0);
         root.val = Integer.parseInt(data.substring(0, data.indexOf(",")));
         data = data.substring(data.indexOf(",") + 1);
-        
+
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         queue.offer(root);
         int size = 0;
@@ -86,9 +81,9 @@ class Solution {
                 String temp = data.substring(0, data.indexOf(","));
                 if (!temp.equals("#")) {
                     node.left = new TreeNode(Integer.parseInt(temp));
-                }                    
+                }
                 data = data.substring(data.indexOf(",") + 1);
-                
+
                 temp = data.substring(0, data.indexOf(","));
                 if (!temp.equals("#")) {
                     node.right = new TreeNode(Integer.parseInt(temp));
@@ -96,24 +91,25 @@ class Solution {
                 data = data.substring(data.indexOf(",") + 1);
             }
         }
-        
+
         return root;
     }
 
     public TreeNode init() {
         TreeNode head = new TreeNode(1);
-       head.left = new TreeNode(2);
-       head.right = new TreeNode(3);
-       return head;
+        head.left = new TreeNode(2);
+        head.right = new TreeNode(3);
+        return head;
     }
-    public static void main(String[] args) {
-       System.out.println("test");
-       Solution test = new Solution();
 
-       
+    class TreeNode {
+        public int val;
+        public TreeNode left, right;
 
-       String str = test.serialize(test.init());
-       System.out.println();
+        public TreeNode(int val) {
+            this.val = val;
+            this.left = this.right = null;
+        }
     }
 
 }

@@ -32,7 +32,7 @@ public class Solution {
             }
         }
 
-        return - 1;
+        return -1;
     }
 
     public int partition(ArrayList<Integer> nums, int start, int end, int pivot) {
@@ -61,7 +61,6 @@ public class Solution {
 }
 
 
-
 public class Solution {
     /**
      * @param nums: a list of integers
@@ -71,27 +70,25 @@ public class Solution {
         // write your code
         // hashmap solution. O(n) time, O(n) space.
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-        
+
         for (Integer i : nums) {
-            map.put(i, map.containsKey(i)? map.get(i) + 1 : 1);
+            map.put(i, map.containsKey(i) ? map.get(i) + 1 : 1);
         }
-        
+
         int maxValue = 0;
         int maxKey = 0;
-        
+
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             if (entry.getValue() >= maxValue) {
                 maxValue = entry.getValue();
                 maxKey = entry.getKey();
             }
         }
-        
+
         return maxKey;
     }
-    
+
 }
-
-
 
 
 public class Solution {
@@ -128,8 +125,8 @@ public class Solution {
         // check the count.
 
         return nums.get(majorIndex);
-        
+
     }
-    
+
 }
 

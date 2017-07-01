@@ -1,11 +1,11 @@
 MaxTree值得记。
-Stack从下到上，最大在下。维持和利用这个性质：
-把所有小于curr node的，全Pop出来，最后一个小于Curr的，放在curr.left.
-接下去stack里面的一定是大于curr,那就变成curr的left parent.
-结尾：stack底部一定是最大的那个，也就是max tree的头。
+        Stack从下到上，最大在下。维持和利用这个性质：
+        把所有小于curr node的，全Pop出来，最后一个小于Curr的，放在curr.left.
+        接下去stack里面的一定是大于curr,那就变成curr的left parent.
+        结尾：stack底部一定是最大的那个，也就是max tree的头。
 
-妙啊！！！
-```
+        妙啊！！！
+        ```
 /*
 Given an integer array with no duplicates. A max tree building on this array is defined as follow:
 
@@ -53,12 +53,12 @@ These behavior keeps larger value on upper level of the tree
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
 /*
@@ -79,26 +79,26 @@ public class Solution {
      * @return: The root of max tree.
      */
     public TreeNode maxTree(int[] A) {
-    	if (A == null || A.length == 0) {
-    		return null;
-    	}
-    	Stack<TreeNode> stack = new Stack<TreeNode>();
-    	for (int i = 0; i < A.length; i++) {
-    		TreeNode node = new TreeNode(A[i]);
-    		while (!stack.isEmpty() && node.val >= stack.peek().val) {
-    			node.left = stack.pop();
-    		}
-    		if (!stack.isEmpty()) {
-    			stack.peek().right = node;
-    		}
-    		stack.push(node);
-    	}
+        if (A == null || A.length == 0) {
+            return null;
+        }
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        for (int i = 0; i < A.length; i++) {
+            TreeNode node = new TreeNode(A[i]);
+            while (!stack.isEmpty() && node.val >= stack.peek().val) {
+                node.left = stack.pop();
+            }
+            if (!stack.isEmpty()) {
+                stack.peek().right = node;
+            }
+            stack.push(node);
+        }
 
-    	TreeNode rst = stack.pop();
-    	while(!stack.isEmpty()) {
-    		rst = stack.pop();
-    	}
-    	return rst;
+        TreeNode rst = stack.pop();
+        while (!stack.isEmpty()) {
+            rst = stack.pop();
+        }
+        return rst;
     }
 }
 

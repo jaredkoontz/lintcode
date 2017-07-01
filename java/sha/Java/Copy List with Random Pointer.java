@@ -1,12 +1,12 @@
 M
 
-Basic Implementation, 其中用了一下HashMap:  
+        Basic Implementation,其中用了一下HashMap:
 
-遍历head.next .... null.    
-每一步都check map里面有没有head。没有？加上。    
-每一步都check map里面有没有head.random。没有？加上。
+        遍历head.next....null.
+        每一步都check map里面有没有head。没有？加上。
+        每一步都check map里面有没有head.random。没有？加上。
 
-```
+        ```
 /*
 
 A linked list is given such that each node contains an additional random pointer 
@@ -19,14 +19,14 @@ Hide Tags Hash Table Linked List
 Hide Similar Problems (M) Clone Graph
 
 LeetCode: Hard
-*/  
+*/
 
 /**
  * Definition for singly-linked list with a random pointer.
  * class RandomListNode {
- *     int label;
- *     RandomListNode next, random;
- *     RandomListNode(int x) { this.label = x; }
+ * int label;
+ * RandomListNode next, random;
+ * RandomListNode(int x) { this.label = x; }
  * };
  */
 
@@ -49,11 +49,11 @@ public class Solution {
         //creat node, used to link all nodes
         RandomListNode node = new RandomListNode(0);
         RandomListNode dummy = node;
-        
+
         //HashMap to mark node
         HashMap<RandomListNode, RandomListNode> map = new HashMap<RandomListNode, RandomListNode>();
-        
-        while(head != null) {
+
+        while (head != null) {
             //process head. (we already know head!=null)
             if (!map.containsKey(head)) {
                 map.put(head, new RandomListNode(head.label));
@@ -61,7 +61,7 @@ public class Solution {
             node.next = map.get(head);
             //process head.random
             if (head.random != null) {
-                if(!map.containsKey(head.random)) {
+                if (!map.containsKey(head.random)) {
                     map.put(head.random, new RandomListNode(head.random.label));
                 }
                 node.next.random = map.get(head.random);
@@ -123,7 +123,7 @@ public class Solution {
 
 //Same soluton as above, but split populating map && deep copy, which is not as efficient as above
 //Save all possible nodes into HashMap<oldNodeAddress, newNodeAddress>
- //Deep copy the list, before adding any node, check map
+//Deep copy the list, before adding any node, check map
 public class Solution {
     public RandomListNode copyRandomList(RandomListNode head) {
         if (head == null) {
@@ -133,7 +133,7 @@ public class Solution {
         HashMap<RandomListNode, RandomListNode> map = new HashMap<RandomListNode, RandomListNode>();
         RandomListNode node = head;
         RandomListNode newNode;
-        while(node != null) {
+        while (node != null) {
             if (!map.containsKey(node)) {
                 newNode = new RandomListNode(node.label);
                 map.put(node, newNode);
@@ -153,10 +153,10 @@ public class Solution {
             if (node.random != null)
                 newNode.next.random = map.get(node.random);
             newNode = newNode.next;
-            
+
             node = node.next;
         }
-        
+
         return dummy.next;
     }
 }

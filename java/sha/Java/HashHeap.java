@@ -1,8 +1,9 @@
 H
 
-非题.是从九章找来的HashHeap implementation.
+        非题.是从九章找来的HashHeap implementation.
 
-```
+        ```
+
 /**
  * 本代码由九章算法编辑提供。没有版权欢迎转发。
  * - 九章算法致力于帮助更多中国人找到好的工作，教师团队均来自硅谷和国内的一线大公司在职工程师。
@@ -15,22 +16,6 @@ class HashHeap {
     String mode;
     int size_t;
     HashMap<Integer, Node> hash;
-
-    class Node {
-        public Integer id;
-        public Integer num;
-
-        Node(Node now) {
-            id = now.id;
-            num = now.num;
-        }
-
-        Node(Integer first, Integer second) {
-
-            this.id = first;
-            this.num = second;
-        }
-    }
 
     public HashHeap(String mod) { // 传入min 表示最小堆，max 表示最大堆
         // TODO Auto-generated constructor stub
@@ -173,6 +158,22 @@ class HashHeap {
                 swap(id, son);
             }
             id = son;
+        }
+    }
+
+    class Node {
+        public Integer id;
+        public Integer num;
+
+        Node(Node now) {
+            id = now.id;
+            num = now.num;
+        }
+
+        Node(Integer first, Integer second) {
+
+            this.id = first;
+            this.num = second;
         }
     }
 }

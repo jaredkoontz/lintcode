@@ -1,12 +1,12 @@
 E
 
-往Binary Search Tree里面加东西，一定会找到一个合适的leaf加上去。
+        往Binary Search Tree里面加东西，一定会找到一个合适的leaf加上去。
 
-那么：就是说someNode.left or someNode.right是null时，就是insert node的地方。
+        那么：就是说someNode.left or someNode.right是null时，就是insert node的地方。
 
-找到那个someNode就按照正常的Binary Search Tree规律。
+        找到那个someNode就按照正常的Binary Search Tree规律。
 
-```
+        ```
 
 /*
 Given a binary search tree and a new tree node, insert the node into the tree. 
@@ -34,7 +34,7 @@ public class Solution {
     public TreeNode insertNode(TreeNode root, TreeNode node) {
         if (node == null || root == null) {
             return node;
-        }        
+        }
         TreeNode dummy = root;
         while (root != null) {
             if (node.val < root.val) {
@@ -54,7 +54,6 @@ public class Solution {
         return dummy;
     }
 }
-
 
 
 /*
@@ -87,7 +86,7 @@ public class Solution {
                 runNode = runNode.right;
             }
         }//while
-        
+
         if (parentNode != null) {
             if (parentNode.val > node.val) {
                 parentNode.left = node;

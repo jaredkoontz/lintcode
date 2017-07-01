@@ -1,15 +1,15 @@
 M
 
-2 pointer, O(n). 找subarray, start 或 end pointer，每次一格这样移动.
+        2pointer,O(n).找subarray,start 或 end pointer，每次一格这样移动.
 
-好的策略: 先找一个solution, 定住end, 然后移动start; 记录每个solution if occurs； 然后再移动end，往下找。
+        好的策略:先找一个solution,定住end,然后移动start;记录每个solution if occurs； 然后再移动end，往下找。
 
-Note: 虽然一眼看上去是nested loop.但是分析后，发现其实就是按照end pointer移动的Loop。start每次移动一格。总体上，还是O(n)
+        Note:虽然一眼看上去是nested loop.但是分析后，发现其实就是按照end pointer移动的Loop。start每次移动一格。总体上，还是O(n)
 
 
-Note done the O(nlogn) yet
+        Note done the O(nlogn)yet
 
-```
+        ```
 /*
 Given an array of n positive integers and a positive integer s, find the minimal length of a subarray of which the sum ≥ s. 
 If there isn't one, return -1 instead.
@@ -74,24 +74,24 @@ Note: 当sum >= s 条件在while里面满足时，end是多一个index的。所�
 
 public class Solution {
     public int minimumSize(int[] nums, int s) {
-    	if (nums == null || nums.length == 0) {
-    		return -1;
-    	}
-    	int start = 0;
-    	int end = 0;
-    	int min = Integer.MAX_VALUE;
-    	int sum = 0;
-    	for (; start < nums.length; start++) {
-    		while(end < nums.length && sum < s) {
-    			sum += nums[end];
-    			end++;
-    		}
-    		if (sum >= s) {
-    			min = Math.min(min, (end-1) - start + 1);
-    		}
-    		sum -= nums[start];
-    	}
-    	return min == Integer.MAX_VALUE ? -1 : min;
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        int start = 0;
+        int end = 0;
+        int min = Integer.MAX_VALUE;
+        int sum = 0;
+        for (; start < nums.length; start++) {
+            while (end < nums.length && sum < s) {
+                sum += nums[end];
+                end++;
+            }
+            if (sum >= s) {
+                min = Math.min(min, (end - 1) - start + 1);
+            }
+            sum -= nums[start];
+        }
+        return min == Integer.MAX_VALUE ? -1 : min;
     }
 }
 

@@ -1,8 +1,8 @@
 E
 
-Recursive 比对左左,左右,右左，右右
+        Recursive 比对左左,左右,右左，右右
 
-```
+        ```
 /*
 Check two given binary trees are identical or not. Assuming any number of tweaks are allowed. 
 A tweak is defined as a swap of the children of one node in the tree.
@@ -38,15 +38,16 @@ Binary Tree
     corner case: if both null, true;
     if one null, false
 */
+
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
 public class Solution {
@@ -62,7 +63,7 @@ public class Solution {
             return false;
         }
         return (isTweakedIdentical(a.left, b.left) && isTweakedIdentical(a.right, b.right))
-            || (isTweakedIdentical(a.left, b.right) && isTweakedIdentical(a.right, b.left));
+                || (isTweakedIdentical(a.left, b.right) && isTweakedIdentical(a.right, b.left));
     }
 }
 

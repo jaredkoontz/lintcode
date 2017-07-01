@@ -1,12 +1,12 @@
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
 public class Solution {
@@ -25,22 +25,22 @@ public class Solution {
         // by comparing the two. The return value should be current node value
         // plus the bigger one from left or right child, which is the maximal
         // value this node can contribute.
-        
+
         // as a pointer to result.
         int[] res = {root.val};
         dfsHelper(root, res);
-        
+
         return res[0];
     }
-    
+
     public int dfsHelper(TreeNode node, int[] res) {
         if (node == null) {
             return 0;
-        }        
-        
+        }
+
         int left = dfsHelper(node.left, res);
         int right = dfsHelper(node.right, res);
-        
+
         int maxContribute = Math.max(node.val, Math.max(left + node.val, right + node.val));
         int crossSum = left + right + node.val;
         int localMax = Math.max(crossSum, maxContribute);

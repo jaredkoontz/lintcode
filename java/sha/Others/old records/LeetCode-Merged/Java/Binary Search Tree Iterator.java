@@ -1,10 +1,10 @@
 李特这的这个题目不错。写一遍example就能看出来inorder traversal。当然啦，不能直接全部traverse了，因为题目说有空间限制。
 
-那么就traversal on the fly， 先左手DFS， 然后每次加上一个右手node,都再来一遍左手DFS。
+        那么就traversal on the fly， 先左手DFS， 然后每次加上一个右手node,都再来一遍左手DFS。
 
-存到一个后进先出的数据结构里，stack呗，然后头顶就是最小的了。
+        存到一个后进先出的数据结构里，stack呗，然后头顶就是最小的了。
 
-```
+        ```
 /*
 Implement an iterator over a binary search tree (BST). Your iterator will be initialized with the root node of a BST.
 
@@ -34,45 +34,51 @@ How about Priority queue of all left-most elements.
 			check right's node's left-most(DFS), added all left nodes and left nodes' left-child
 Well.. the way I did it, does not need priority queue. Just use a stack will be fine.
 */
+
 /**
  * Definition for binary tree
  * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ * int val;
+ * TreeNode left;
+ * TreeNode right;
+ * TreeNode(int x) { val = x; }
  * }
  */
 
 public class BSTIterator {
-	private Stack<TreeNode> stack = new Stack<TreeNode>();
+    private Stack<TreeNode> stack = new Stack<TreeNode>();
+
     public BSTIterator(TreeNode root) {
         if (root == null) {
             return;
         }
         stack.push(root);
-        while(root.left != null) {
-        	root = root.left;
-        	stack.push(root);
+        while (root.left != null) {
+            root = root.left;
+            stack.push(root);
         }
     }
 
-    /** @return whether we have a next smallest number */
+    /**
+     * @return whether we have a next smallest number
+     */
     public boolean hasNext() {
         return !stack.isEmpty();
     }
 
-    /** @return the next smallest number */
+    /**
+     * @return the next smallest number
+     */
     public int next() {
         TreeNode node = stack.pop();
         int rst = node.val;
         if (node.right != null) {
-        	node = node.right;
-        	stack.push(node);
-        	while(node.left != null) {
-	        	node = node.left;
-	        	stack.push(node);
-	        }
+            node = node.right;
+            stack.push(node);
+            while (node.left != null) {
+                node = node.left;
+                stack.push(node);
+            }
         }
         return rst;
     }

@@ -1,4 +1,3 @@
-import java.io.*;
 /*
 Used to generate table of contents.
     - No args: generate GitHub table
@@ -8,7 +7,8 @@ Used to generate table of contents.
 */
 public class GenerateCodeTable {
     public final static String TUTORIAL_KEY_WORD = "tutorial:";
-    public static void main(String[] args) {    
+
+    public static void main(String[] args) {
         //Read Java Solution Folder
         File folder = new File("./Java");//"." = current path
         if (!folder.exists() || !folder.isDirectory()) {
@@ -23,8 +23,8 @@ public class GenerateCodeTable {
 
         String outputContent = "";
         File outFile;
-        
-        if (args.length == 0){
+
+        if (args.length == 0) {
             outputContent = generateREADME(listOfFiles);
             printTable("README.md", outputContent);
         } else if (args != null && args[0].contains("wordpress")) {//Wordpress
@@ -43,7 +43,7 @@ public class GenerateCodeTable {
         } else {
             return;
         }
-    }   
+    }
 
     /*
         Output the content into file
@@ -51,7 +51,7 @@ public class GenerateCodeTable {
     public static void printTable(String fileName, String outputContent) {
         System.out.println(outputContent);
         //Write to README.md
-        try {   
+        try {
             File outFile = new File(fileName);
             FileOutputStream fop = new FileOutputStream(outFile);
             byte[] contentInBytes = outputContent.getBytes();
@@ -70,31 +70,31 @@ public class GenerateCodeTable {
     public static String generateWordPressPage(File[] listOfFiles) {
         //Assemble output
         String outputContent = "Java Solutions to algorithm problems from LintCode, LeetCode...etc.\n" +
-        "<table>" +
-            "<thead>" + 
-            "<tr>" + 
-            "<th align='center'>#</th>" + 
-            "<th align='left'>Problem</th>" + 
-            "<th align='left'>      Level</th>" + 
-            "<th align='center'>  Language</th>" + 
-            "</tr>" +
-            "</thead>" +
-            "<tbody>";
+                "<table>" +
+                "<thead>" +
+                "<tr>" +
+                "<th align='center'>#</th>" +
+                "<th align='left'>Problem</th>" +
+                "<th align='left'>      Level</th>" +
+                "<th align='center'>  Language</th>" +
+                "</tr>" +
+                "</thead>" +
+                "<tbody>";
 
         int count = 0;
         for (File file : listOfFiles) {
             if (file.getName().contains(".java")) {
                 //outputContent += "|" + count + "|[" + file.getName() + "](https://github.com/shawnfan/LintCode/blob/master/Java/"+ file.getName() +")| |" + "Java|\n";
-                outputContent+= 
-                "<tr>" + 
-                    "<td align='center'>" + count + "</td>" +
-                    "<td align='left'><a href='https://github.com/shawnfan/LintCode/blob/master/Java/"+ file.getName() + "'>" + file.getName() + "</a></td>" +
-                    "<td align='left'></td>" +
-                    "<td align='center'>Java</td>" +
-                "</tr>";
-                count++;            
+                outputContent +=
+                        "<tr>" +
+                                "<td align='center'>" + count + "</td>" +
+                                "<td align='left'><a href='https://github.com/shawnfan/LintCode/blob/master/Java/" + file.getName() + "'>" + file.getName() + "</a></td>" +
+                                "<td align='left'></td>" +
+                                "<td align='center'>Java</td>" +
+                                "</tr>";
+                count++;
             }
-        }   
+        }
 
         outputContent += "</tbody></table>";
         return outputContent;
@@ -106,16 +106,16 @@ public class GenerateCodeTable {
     */
     public static String generateREADME(File[] listOfFiles) {
         //Assemble output
-        String outputContent = "# Java Algorithm Problems\n\n" + 
-            "### 前戏\n" +
-            "To host Java Solutions to algorithm problems from LintCode, LeetCode...etc.\n" + 
-            "I Will try to revise the solutions once new problem or new testing case occurs.\n" + 
-            "**Mid 2016** I realize that people may want to contribute to this repo, and make it better by contributing fixes, better solutions ... etc. Free free to send pull request. Once verified, I'm happy to merge in!\n" +
-            "CALM DOWN AND CODE ON! Fellows! \n\n" +  
-            "### News\n" + 
-            "2017年1月17日, 陪我征战多年的 2014 MackBookPro i7 3.xGHz 被一杯清水结束了生命，在这里深切缅怀悼念。这个Git Repo是小M陪我一字一句打出来的，有过蹉跎，也有过辉煌，陪我从Day1刷题一直刷到了Day1之中。直至今日，小M记录的代码还在给广大coder带来福利。为了延续小M无私奉献的精神,我将重新在这个repo活跃起来，重整已有的问题，也会尝试总结一些System Design方面的想法，将小M还没有能够达成的梦想实现。\n\n" + 
-            "| Squence | Problem       | Level  | Language  | Video Tutorial|\n" + 
-            "|:-------:|:--------------|:------:|:---------:|:-------------:|\n";
+        String outputContent = "# Java Algorithm Problems\n\n" +
+                "### 前戏\n" +
+                "To host Java Solutions to algorithm problems from LintCode, LeetCode...etc.\n" +
+                "I Will try to revise the solutions once new problem or new testing case occurs.\n" +
+                "**Mid 2016** I realize that people may want to contribute to this repo, and make it better by contributing fixes, better solutions ... etc. Free free to send pull request. Once verified, I'm happy to merge in!\n" +
+                "CALM DOWN AND CODE ON! Fellows! \n\n" +
+                "### News\n" +
+                "2017年1月17日, 陪我征战多年的 2014 MackBookPro i7 3.xGHz 被一杯清水结束了生命，在这里深切缅怀悼念。这个Git Repo是小M陪我一字一句打出来的，有过蹉跎，也有过辉煌，陪我从Day1刷题一直刷到了Day1之中。直至今日，小M记录的代码还在给广大coder带来福利。为了延续小M无私奉献的精神,我将重新在这个repo活跃起来，重整已有的问题，也会尝试总结一些System Design方面的想法，将小M还没有能够达成的梦想实现。\n\n" +
+                "| Squence | Problem       | Level  | Language  | Video Tutorial|\n" +
+                "|:-------:|:--------------|:------:|:---------:|:-------------:|\n";
         int count = 0;
         for (File file : listOfFiles) {
             String tutorialLink = "";
@@ -123,7 +123,7 @@ public class GenerateCodeTable {
             if (file.getName().contains(".java")) {
                 try {
                     final BufferedReader reader = new BufferedReader(new InputStreamReader(
-                                                  new FileInputStream("Java/" + file.getName()), "UTF-8"));
+                            new FileInputStream("Java/" + file.getName()), "UTF-8"));
                     final String levelLine = reader.readLine().trim();
                     if (levelLine.length() == 1) {
                         calculatedLevel = calculateLevel(levelLine.toUpperCase());
@@ -137,10 +137,10 @@ public class GenerateCodeTable {
                 }
                 String convertedFileName = file.getName().replace(" ", "%20");
                 outputContent += "|" + count + "|[" + file.getName() + "](https://github.com/shawnfan/LintCode/blob/master/Java/"
-                                + convertedFileName + ")|" + calculatedLevel + "|" + "Java|" + tutorialLink + "|\n";
-                count++;            
+                        + convertedFileName + ")|" + calculatedLevel + "|" + "Java|" + tutorialLink + "|\n";
+                count++;
             }
-        }   
+        }
         return outputContent;
     }
 
@@ -155,15 +155,15 @@ public class GenerateCodeTable {
     */
     public static String generateReviewPage(File[] listOfFiles) {
         //Assemble output
-        String outputContent = "# Review Page\n\n" + 
-            "This page summarize the solutions of all problems. For thoughts,ideas written in English, refer to deach individual solution. \n" + 
-            "New problems will be automatically updated once added.\n\n";
-            
+        String outputContent = "# Review Page\n\n" +
+                "This page summarize the solutions of all problems. For thoughts,ideas written in English, refer to deach individual solution. \n" +
+                "New problems will be automatically updated once added.\n\n";
+
         int count = 0;
         for (File file : listOfFiles) {
             if (file.getName().contains(".java")) {
                 String convertedFileName = file.getName().replace(" ", "%20");
-                outputContent += "**" + count + ". [" + file.getName() + "](https://github.com/shawnfan/LintCode/blob/master/Java/"+ convertedFileName +")**";
+                outputContent += "**" + count + ". [" + file.getName() + "](https://github.com/shawnfan/LintCode/blob/master/Java/" + convertedFileName + ")**";
                 try {
                     BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("Java/" + file.getName()), "UTF-8"));
                     String line = null;
@@ -187,23 +187,23 @@ public class GenerateCodeTable {
                     System.err.format("IOException: %s%n", e);
                 }//end of one file
                 outputContent += "\n---\n";
-                count++;            
+                count++;
             }
-        }   
+        }
         return outputContent;
     }
 
     private static String calculateLevel(final String level) {
-        switch(level) {
-            case "N" : 
+        switch (level) {
+            case "N":
                 return "Naive";
-            case "E" : 
+            case "E":
                 return "Easy";
-            case "M" : 
+            case "M":
                 return "Medium";
-            case "H" : 
+            case "H":
                 return "Hard";
-            case "S" : 
+            case "S":
                 return "Super";
         }
         return "";

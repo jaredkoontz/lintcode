@@ -1,13 +1,13 @@
-Double for loop 检查每种substring string (i~j). 若i,j相邻或者同点，那么肯定isPal；否则，i,j之间的（i+1, j-1）一定得isPal。
-看上去，在检查i,j的时候，中间按的（i+1, j-1）怎么可能先知道？ 其实不然..在j慢慢长大的时候，所有的0~j的substring都检查过。所以isPal[i+1][j-1]一定是已经知道结果的。
+Double for loop 检查每种substring string(i~j).若i,j相邻或者同点，那么肯定isPal；否则，i,j之间的（i+1,j-1）一定得isPal。
+        看上去，在检查i,j的时候，中间按的（i+1,j-1）怎么可能先知道？ 其实不然..在j慢慢长大的时候，所有的0~j的substring都检查过。所以isPal[i+1][j-1]一定是已经知道结果的。
 
-okay.那么假如以上任意一种情况成立，也就是说isPal[i][j] == true。那就要判断，切到第一层循环参数j的末尾点时，有多少种切法？
-想法很顺：我们naturally会想到，把i之前的cut加上i~j之间发生的不就好了。
-反正现在j不变，现在就看吧i定在哪里，cut[i - 1]是否更小/最小； 再在cut[i-1]基础上+1就完了。
-    当然，如果i==0, 而 i~j又是isPal,那没啥好谈的，不必切，0刀。
+        okay.那么假如以上任意一种情况成立，也就是说isPal[i][j]==true。那就要判断，切到第一层循环参数j的末尾点时，有多少种切法？
+        想法很顺：我们naturally会想到，把i之前的cut加上i~j之间发生的不就好了。
+        反正现在j不变，现在就看吧i定在哪里，cut[i-1]是否更小/最小； 再在cut[i-1]基础上+1就完了。
+        当然，如果i==0,而 i~j又是isPal,那没啥好谈的，不必切，0刀。
 
-最终，刷到cut[s.length() - 1] 也就是最后一点。 return的理所应当。
-```
+        最终，刷到cut[s.length()-1]也就是最后一点。 return的理所应当。
+        ```
 /*
 Given a string s, cut s into some substrings such that every substring is a palindrome.
 Return the minimum cuts needed for a palindrome partitioning of s.

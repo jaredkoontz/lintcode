@@ -1,8 +1,8 @@
 E
 
-Basic implementation. Count duplicates and print
+        Basic implementation.Count duplicates and print
 
-```
+        ```
 /*
 The count-and-say sequence is the sequence of integers beginning as follows:
 

@@ -1,6 +1,6 @@
 一般的binary search.
-在结尾判断该return 哪个position。
-```
+        在结尾判断该return 哪个position。
+        ```
 /*
 28% Accepted
 Given a sorted array and a target value, return the index if the target is found. 
@@ -26,17 +26,17 @@ Binary Search Array Sorted Array
 */
 
 public class Solution {
-    
+
     public int searchInsert(int[] A, int target) {
         if (A == null || A.length == 0) {//Insert at 0 position
             return 0;
         }
         int start = 0;
         int end = A.length - 1;
-        int mid = start + (end - start)/2;
+        int mid = start + (end - start) / 2;
 
         while (start + 1 < end) {
-            mid = start + (end - start)/2;
+            mid = start + (end - start) / 2;
             if (A[mid] == target) {
                 return mid;
             } else if (A[mid] > target) {
@@ -45,7 +45,7 @@ public class Solution {
                 start = mid;
             }
         }
-        
+
         if (A[start] >= target) {
             return start;
         } else if (A[start] < target && target <= A[end]) {
@@ -57,11 +57,9 @@ public class Solution {
 }
 
 
-
-
 //older version
 public class Solution {
-    /** 
+    /**
      * param A : an integer sorted array
      * param target :  an integer to be inserted
      * return : an integer
@@ -72,7 +70,7 @@ public class Solution {
         int end = A.size() - 1;
         int mid;
         if (A == null || A.size() == 0 || target <= A.get(0)) {
-            return 0; 
+            return 0;
         }
         //find the last number less than target
         while (start + 1 < end) {
@@ -83,7 +81,7 @@ public class Solution {
                 start = mid;
             } else {
                 end = mid;
-            } 
+            }
         }
         //Always 2 elements left to check, first:start, second: end
         if (A.get(end) == target) {
@@ -94,9 +92,9 @@ public class Solution {
         }
         if (A.get(start) == target) {
             return start;
-        } 
+        }
         return start + 1;
-        
+
     }
 }
 

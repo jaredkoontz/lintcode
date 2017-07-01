@@ -19,16 +19,16 @@ public class Solution {
         if (A == null || A.length == 0) {
             return -1;
         }
-	//present the XOR results in binary format
+        //present the XOR results in binary format
         int[] bits = new int[32];
         int rst = 0;
         for (int i = 0; i < 32; i++) {
-            for (int j = 0; j < A.length; j++){
-	//XOR the numbers in a 3-base fashion. Whenever bit[i] has a number 3, set it back to 0.
+            for (int j = 0; j < A.length; j++) {
+                //XOR the numbers in a 3-base fashion. Whenever bit[i] has a number 3, set it back to 0.
                 bits[i] += A[j] >> i & 1;
                 bits[i] %= 3;
             }
-	//OR it to the result. However, each time only the i - spot is updated with the bits[i].
+            //OR it to the result. However, each time only the i - spot is updated with the bits[i].
             rst |= bits[i] << i;
         }
         return rst;

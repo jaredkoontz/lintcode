@@ -1,10 +1,11 @@
 public class Solution {
     Stack<Integer> nums = null;
     Stack<Integer> mins = null;
+
     public Solution() {
         // do initialize if necessary
-         nums = new Stack<Integer>();
-         mins = new Stack<Integer>();
+        nums = new Stack<Integer>();
+        mins = new Stack<Integer>();
     }
 
     public void push(int number) {

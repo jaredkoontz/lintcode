@@ -1,14 +1,14 @@
 H
 
-把Input stream想成向上的山坡。山坡中间那点，自然就是median.
+        把Input stream想成向上的山坡。山坡中间那点，自然就是median.
 
-前半段，作为maxHeap,关注点是PriorityQueue的峰点，也就是实际上的median.   
+        前半段，作为maxHeap,关注点是PriorityQueue的峰点，也就是实际上的median.
 
-后半段，作为minHeap,正常的PriorityQueue。 开头是最小的。
+        后半段，作为minHeap,正常的PriorityQueue。 开头是最小的。
 
-Note:题目定义meadian = A[(n-1)/2],也就是说maxHeap需要和minHeap长度相等，或者多一个element,最后可以直接poll() and return.
+        Note:题目定义meadian=A[(n-1)/2],也就是说maxHeap需要和minHeap长度相等，或者多一个element,最后可以直接poll()and return.
 
-```
+        ```
 /*
 Numbers keep coming, return the median of numbers at every time a new number added.
 
@@ -32,7 +32,6 @@ LintCode Copyright Heap Priority Queue
 */
 
 
-
 public class Solution {
     /**
      * @param nums: A list of integers.
@@ -43,18 +42,18 @@ public class Solution {
         if (nums == null || nums.length == 0) {
             return rst;
         }
-        
+
         PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();
         PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(10, new Comparator<Integer>() {
             public int compare(Integer x, Integer y) {
                 return y - x;
             }
         });
-        
+
         rst[0] = nums[0];
         maxHeap.offer(rst[0]);
-        
-        for (int i = 1; i < rst.length; i++){
+
+        for (int i = 1; i < rst.length; i++) {
             int preMedian = maxHeap.peek();
             if (nums[i] > preMedian) {
                 minHeap.offer(nums[i]);

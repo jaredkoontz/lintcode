@@ -1,9 +1,9 @@
 最基本的递归题目。
-坑：记得一开头sort一下 nums。 因为要升序。
+        坑：记得一开头sort一下 nums。 因为要升序。
 
-点：
-用level来track到哪一步。最后一level就add into rst
-```
+        点：
+        用level来track到哪一步。最后一level就add into rst
+        ```
 /*
 Given a set of distinct integers, return all possible subsets.
 
@@ -46,11 +46,12 @@ class Solution {
         Arrays.sort(nums);
         ArrayList<Integer> list = new ArrayList<Integer>();
         helper(rst, list, nums, 0);
-        
+
         return rst;
     }
+
     public void helper(ArrayList<ArrayList<Integer>> rst, ArrayList<Integer> list,
-                int[] nums, int level) {
+                       int[] nums, int level) {
         if (level == nums.length) {
             rst.add(new ArrayList<Integer>(list));
             return;
@@ -59,15 +60,14 @@ class Solution {
         list.add(nums[level]);
         helper(rst, list, nums, level + 1);
         list.remove(list.size() - 1);
-        
+
         //not pick curr num
         helper(rst, list, nums, level + 1);
     }
 }
 
 
-
- public ArrayList<ArrayList<Integer>> subsets(ArrayList<Integer> source) {
+    public ArrayList<ArrayList<Integer>> subsets(ArrayList<Integer> source) {
         // write your code here
         ArrayList<ArrayList<Integer>> output = new ArrayList<ArrayList<Integer>>();
         ArrayList<Integer> newList = new ArrayList<Integer>();
@@ -75,16 +75,16 @@ class Solution {
         subsetHelper(0, source, newList, output);
         return output;
     }
-    
-    public void subsetHelper(int pos, 
-            ArrayList<Integer> source, ArrayList<Integer> newList, 
-            ArrayList<ArrayList<Integer>> output){
+
+    public void subsetHelper(int pos,
+                             ArrayList<Integer> source, ArrayList<Integer> newList,
+                             ArrayList<ArrayList<Integer>> output) {
         output.add(new ArrayList<Integer>(newList));
-        
-        for( int i = pos; i < source.size(); i++){
-            newList.add( source.get(i));
-            subsetHelper(i+1, source, newList, output);
-            newList.remove( newList.size() - 1 );
+
+        for (int i = pos; i < source.size(); i++) {
+            newList.add(source.get(i));
+            subsetHelper(i + 1, source, newList, output);
+            newList.remove(newList.size() - 1);
         }
     }
 

@@ -1,6 +1,6 @@
 A够长，那么可以从A的尾部开始加新元素。
-注意，从尾部，是大数字优先的。
-```
+        注意，从尾部，是大数字优先的。
+        ```
 /*
 Given two sorted integer arrays A and B, merge B into A as one sorted array.
 
@@ -24,7 +24,7 @@ Thinking process:
 */
 class Solution {
     /**
-     * @param A: sorted integer array A which has m elements, 
+     * @param A: sorted integer array A which has m elements,
      *           but size of A is m+n
      * @param B: sorted integer array B which has n elements
      * @return: void
@@ -39,7 +39,7 @@ class Solution {
                 A[--index] = B[--n];
             }
         }//While
-        
+
         while (n > 0) {
             A[--index] = B[--n];
         }

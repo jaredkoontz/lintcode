@@ -1,21 +1,21 @@
 E
 
-法一:      
-Recursive: Divide and Conquer, with helper method
+        法一:
+        Recursive:Divide and Conquer,with helper method
 
-法二:   
-Stack: 
-Add left nodes all the way   
-Print curr   
-Move to right, add right if possible.   
-  
-注意stack.pop()在加完left-most child 的后，一定要curr = curr.right.
+        法二:
+        Stack:
+        Add left nodes all the way
+        Print curr
+        Move to right,add right if possible.
 
-若不右移，很可能发生窘境：    
-curr下一轮还是去找自己的left-most child，不断重复curr and curr.left, 会infinite loop, 永远在左边上下上下。
+        注意stack.pop()在加完left-most child 的后，一定要curr=curr.right.
+
+        若不右移，很可能发生窘境：
+        curr下一轮还是去找自己的left-most child，不断重复curr and curr.left,会infinite loop,永远在左边上下上下。
 
 
-```
+        ```
 /*
 Given a binary tree, return the inorder traversal of its nodes' values.
 
@@ -54,7 +54,7 @@ public class Solution {
             return rst;
         }
         helper(rst, root);
-        
+
         return rst;
     }
 
@@ -104,12 +104,12 @@ public class Solution {
             rst.add(curr.val);
             //Move to right node, and push to stack if needed
             curr = curr.right;
-            if (curr!= null) {
+            if (curr != null) {
                 stack.push(curr);
             }
         }
         return rst;
-    }    
+    }
 }
 
 

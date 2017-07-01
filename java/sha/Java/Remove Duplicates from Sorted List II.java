@@ -1,6 +1,6 @@
 斩草除根。
-多个node，check node.next ?= node.next.next
-```
+        多个node，check node.next?=node.next.next
+        ```
 /*
 26% Accepted
 Given a sorted linked list, delete all nodes that have duplicate numbers, 
@@ -25,12 +25,12 @@ return dummyHead.next
 /**
  * Definition for ListNode
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
+ * int val;
+ * ListNode next;
+ * ListNode(int x) {
+ * val = x;
+ * next = null;
+ * }
  * }
  */
 public class Solution {
@@ -41,11 +41,11 @@ public class Solution {
     public static ListNode deleteDuplicates(ListNode head) {
         if (head == null) {
             return head;
-        }   
+        }
         ListNode dummyHead = new ListNode(0);
         dummyHead.next = head;
         ListNode node = dummyHead;
-    
+
         while (node.next != null && node.next.next != null) {
             if (node.next.val == node.next.next.val) {
                 int duplicatedVal = node.next.val;
@@ -56,7 +56,7 @@ public class Solution {
                 node = node.next;
             }
         }
-        
+
         return dummyHead.next;
     }
 }

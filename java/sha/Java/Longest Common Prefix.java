@@ -1,10 +1,10 @@
 M
 
-Nested loop, 每一次比较所有string 同位是否相等。
+        Nested loop,每一次比较所有string 同位是否相等。
 
-相等，append string. 不等，return.
+        相等，append string.不等，return.
 
-```
+        ```
 /*
 Given k strings, find the longest common prefix (LCP).
 

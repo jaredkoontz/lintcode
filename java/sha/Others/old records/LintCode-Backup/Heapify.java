@@ -1,8 +1,8 @@
 Heapify里面的siftdown的部分：
-	只能从for(i = n/2-1 ~ 0)， 而不能从for(i = 0 ~ n/2 -1)
-	这是不是因为siftdown每次只顺脚下的孩子，所以必须中间开花，向上跑的时候才能确保脚下是符合heap规则的
+        只能从for(i=n/2-1~0)， 而不能从for(i=0~n/2-1)
+        这是不是因为siftdown每次只顺脚下的孩子，所以必须中间开花，向上跑的时候才能确保脚下是符合heap规则的
 
-```
+        ```
 /*
 Given an integer array, heapify it into a min-heap array.
 
@@ -63,35 +63,35 @@ public class Solution {
      * @return: void
      */
     public void heapify(int[] A) {
-    	if (A == null || A.length == 0) {
-    		return;
-    	}
-    	int son = 0;
-    	int currId = 0;
-    	int leftId = 0;
-    	int rightId = 0;
-    	int n = A.length;
-    	for (int i = n/2 - 1; i >= 0; i--) {
-    		currId = i;
-    		while (currId * 2 + 1 < n) {
-    			leftId = currId * 2 + 1;
-    			rightId = currId * 2 + 2;
-    			if (rightId >= n || A[leftId] <= A[rightId]) {
-    				son = leftId;
-    			} else {
-    				son = rightId;
-    			}
-    			if (A[currId] <= A[son]) {
-    				break;
-    			} else {
-    				int temp = A[currId];
-    				A[currId] = A[son];
-    				A[son] = temp;
-    			}
-    			currId = son;
-    		}//end while
+        if (A == null || A.length == 0) {
+            return;
+        }
+        int son = 0;
+        int currId = 0;
+        int leftId = 0;
+        int rightId = 0;
+        int n = A.length;
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            currId = i;
+            while (currId * 2 + 1 < n) {
+                leftId = currId * 2 + 1;
+                rightId = currId * 2 + 2;
+                if (rightId >= n || A[leftId] <= A[rightId]) {
+                    son = leftId;
+                } else {
+                    son = rightId;
+                }
+                if (A[currId] <= A[son]) {
+                    break;
+                } else {
+                    int temp = A[currId];
+                    A[currId] = A[son];
+                    A[son] = temp;
+                }
+                currId = son;
+            }//end while
 
-    	}//end for
+        }//end for
     }
 }
 

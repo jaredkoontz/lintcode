@@ -1,9 +1,10 @@
 E
-tutorial:https://www.youtube.com/watch?v=2hNK0Yz53LQ&list=PLZn-UvluQZuNedn1hDzTmNLE8MQWXjKVb
+        tutorial:https://www.youtube.com/watch?v=2hNK0Yz53LQ&list=PLZn-UvluQZuNedn1hDzTmNLE8MQWXjKVb
 
-过滤alphanumeric，其他字母掠过
+        过滤alphanumeric，其他字母掠过
 
-```
+        ```
+
 /*
 Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
 
@@ -60,7 +61,7 @@ public class Solution {
         if (s == null || s.length() == 0) {
             return true;
         }
-        
+
         StringBuffer sb = new StringBuffer();
         s = s.toLowerCase();
         for (int i = 0; i < s.length(); i++) {
@@ -97,28 +98,28 @@ public class Solution {
      * @return Whether the string is a valid palindrome
      */
     public boolean isPalindrome(String s) {
-    	if (s == null || s.length() == 0) {
-    		return true;
-    	}
-    	int start = 0;
-    	int end = s.length() - 1;
-    	s = s.toLowerCase();
-    	while (start < end) {
-    		while (start < s.length() && 
-    			(s.charAt(start) < '0' || (s.charAt(start) > '9' && s.charAt(start) < 'a') || s.charAt(start) > 'z') ) {
-    			start++;
-    		}
-    		while (end >= 0 && 
-    			(s.charAt(end) < '0' || (s.charAt(end) > '9' && s.charAt(end) < 'a') || s.charAt(end) > 'z')) {
-    			end--;
-    		}
-    		if (start < end && s.charAt(start) != s.charAt(end)) {
-    			return false;
-    		}
-    		start++;
-    		end--;
-    	}
-    	return true;
+        if (s == null || s.length() == 0) {
+            return true;
+        }
+        int start = 0;
+        int end = s.length() - 1;
+        s = s.toLowerCase();
+        while (start < end) {
+            while (start < s.length() &&
+                    (s.charAt(start) < '0' || (s.charAt(start) > '9' && s.charAt(start) < 'a') || s.charAt(start) > 'z')) {
+                start++;
+            }
+            while (end >= 0 &&
+                    (s.charAt(end) < '0' || (s.charAt(end) > '9' && s.charAt(end) < 'a') || s.charAt(end) > 'z')) {
+                end--;
+            }
+            if (start < end && s.charAt(start) != s.charAt(end)) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
     }
 }
 

@@ -65,20 +65,20 @@ Correct: however excceeds time limit at 97% correct
 
 public class Solution {
     public boolean wordBreak(String s, Set<String> dict) {
-    	if (s == null || dict.contains(s)) {
-    		return true;
-    	}
-    	boolean[] rst = new boolean[s.length() + 1];
-    	rst[0] = true;
-    	for (int i = 0; i < s.length(); i++) {
-    		for (int j = 0; j <= i; j++) {
-    			if (rst[j] && dict.contains(s.substring(j, i + 1))) {
-    				rst[i + 1] = true;
-    				break;
-    			}
-    		}
-    	}
-    	return rst[s.length()];
+        if (s == null || dict.contains(s)) {
+            return true;
+        }
+        boolean[] rst = new boolean[s.length() + 1];
+        rst[0] = true;
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = 0; j <= i; j++) {
+                if (rst[j] && dict.contains(s.substring(j, i + 1))) {
+                    rst[i + 1] = true;
+                    break;
+                }
+            }
+        }
+        return rst[s.length()];
     }
 }
 

@@ -1,13 +1,13 @@
 M
 
-1. DFS using depth marker: 每个depth都存一下。然后如果有不符合条件的，存为-1.
-   一旦有-1， 就全部返回。
-   最后比较返回结果是不是-1. 是-1，那就false.
-   Traverse 整个tree, O(n)
+        1.DFS using depth marker:每个depth都存一下。然后如果有不符合条件的，存为-1.
+        一旦有-1， 就全部返回。
+        最后比较返回结果是不是-1.是-1，那就false.
+        Traverse 整个tree,O(n)
 
-2. Only calculate depth using maxDepth function. Same concept as in 1, but cost more traversal efforts.
+        2.Only calculate depth using maxDepth function.Same concept as in 1,but cost more traversal efforts.
 
-```
+        ```
 /*
 Given a binary tree, determine if it is height-balanced.
 
@@ -32,12 +32,12 @@ Binary Search Divide and Conquer Recursion
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
 
@@ -56,26 +56,26 @@ at the top return, check if -1.
     Recursive 1:
     Use helper to calculate depth, and also check if left/right depth differ by 1. If all good, return actual depth
 */
- 
- public class Solution {
+
+public class Solution {
     public boolean isBalanced(TreeNode root) {
         if (root == null) {
             return true;
         }
         return helper(root) > 0;
     }
-    
+
     public int helper(TreeNode node) {
         if (node == null) {
             return 0;
         }
         int leftDepth = helper(node.left);
         int rightDepth = helper(node.right);
-        
+
         if (leftDepth < 0 || rightDepth < 0 || Math.abs(leftDepth - rightDepth) > 1) {
             return Integer.MIN_VALUE;
         }
-        
+
         return Math.max(leftDepth, rightDepth) + 1;
     }
 }
@@ -86,19 +86,19 @@ at the top return, check if -1.
     Calculate a node's maxDepth. Compare a parent node's sub tree for maxDepth
 */
 public class Solution {
-   public boolean isBalanced(TreeNode root) {
+    public boolean isBalanced(TreeNode root) {
         if (root == null) {
             return true;
         }
         int leftDepth = maxDepth(root.left);
         int rightDepth = maxDepth(root.right);
-        
+
         if (Math.abs(leftDepth - rightDepth) > 1) {
             return false;
         }
         return isBalanced(root.left) && isBalanced(root.right);
     }
-    
+
     public int maxDepth(TreeNode node) {
         if (node == null) {
             return 0;

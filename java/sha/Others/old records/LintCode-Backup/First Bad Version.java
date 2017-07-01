@@ -1,6 +1,6 @@
 根据isBadVersion的性质，判断还如何end=mid or start=mid.
-isBadVersion 是有方向的嘛，一个点错了，后面全错。
-```
+        isBadVersion 是有方向的嘛，一个点错了，后面全错。
+        ```
 /*
 The code base version is an integer start from 1 to n. 
 One day, someone committed a bad version in the code case, 
@@ -35,13 +35,14 @@ Binary Search LintCode Copyright Facebook
     Recap: 12.07.2015.
     Feels like to find the 1st occurance of the match. going left all the way.
 */
+
 /**
  * public class SVNRepo {
- *     public static boolean isBadVersion(int k);
+ * public static boolean isBadVersion(int k);
  * }
- * you can use SVNRepo.isBadVersion(k) to judge whether 
+ * you can use SVNRepo.isBadVersion(k) to judge whether
  * the kth code version is bad or not.
-*/
+ */
 class Solution {
     /**
      * @param n: An integers.
@@ -55,7 +56,7 @@ class Solution {
         int end = n;
         int mid;
         while (start + 1 < end) {
-            mid = start + (end - start)/2;
+            mid = start + (end - start) / 2;
             if (SVNRepo.isBadVersion(mid)) {
                 if (mid - 1 >= 1 && SVNRepo.isBadVersion(mid - 1)) {
                     end = mid;
@@ -68,15 +69,10 @@ class Solution {
         }
         if (SVNRepo.isBadVersion(start)) {
             return start;
-        } 
+        }
         return end;
     }
 }
-
-
-
-
-
 
 
 class Solution {
@@ -88,7 +84,7 @@ class Solution {
         int start = 1;
         int end = n;
         int mid;
-        
+
         while (start + 1 < end) {
             mid = start + (end - start) / 2;
             if (VersionControl.isBadVersion(mid)) {
@@ -97,7 +93,7 @@ class Solution {
                 start = mid;
             }
         }//end while
-        
+
         if (VersionControl.isBadVersion(start)) {
             return start;
         } else if (VersionControl.isBadVersion(end)) {
@@ -105,7 +101,7 @@ class Solution {
         } else {
             return 0;
         }
-        
+
     }
 }
 

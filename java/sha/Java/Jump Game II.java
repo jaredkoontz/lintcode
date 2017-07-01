@@ -1,19 +1,19 @@
 H
 
-Greedy, 图解 http://www.cnblogs.com/lichen782/p/leetcode_Jump_Game_II.html
+        Greedy,图解 http://www.cnblogs.com/lichen782/p/leetcode_Jump_Game_II.html
 
-维护一个range, 是最远我们能走的. 
+        维护一个range,是最远我们能走的.
 
-index/i 是一步一步往前, 每次当 i <= range, 做一个while loop， 在其中找最远能到的地方 maxRange
+        index/i 是一步一步往前,每次当 i<=range,做一个while loop， 在其中找最远能到的地方 maxRange
 
-然后更新 range = maxRange
+        然后更新 range=maxRange
 
-其中step也是跟index是一样, 一步一步走.
+        其中step也是跟index是一样,一步一步走.
 
-最后check的condition是，我们最远你能走的range >= nums.length - 1, 说明以最少的Step就到达了重点。Good.
+        最后check的condition是，我们最远你能走的range>=nums.length-1,说明以最少的Step就到达了重点。Good.
 
 
-```
+        ```
 /*
 Given an array of non-negative integers, 
 you are initially positioned at the first index of the array.
@@ -51,7 +51,7 @@ public class Solution {
         int step = 0;
         int range = 0;
         int maxRange = 0;
-        
+
         while (index < nums.length) {
             if (range >= nums.length - 1) {
                 break;
@@ -112,4 +112,4 @@ public class Solution {
 http://www.ninechapter.com/solutions/jump-game-ii/
 
 
-```
+        ```

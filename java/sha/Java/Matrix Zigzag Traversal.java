@@ -1,9 +1,9 @@
 E
 
-分析4个step:right, left-bottom,down,right-up    
-implement时注意index.有点耐心
+        分析4个step:right,left-bottom,down,right-up
+        implement时注意index.有点耐心
 
-```
+        ```
 /*
 Matrix Zigzag Traversal
 
@@ -24,7 +24,7 @@ LintCode Copyright Matrix
 */
 
 /*
-	Always have the 4 states: right 1 step, left-bottom corner, right 1 step, up-right-corner. 
+    Always have the 4 states: right 1 step, left-bottom corner, right 1 step, up-right-corner.
 	If any of the 4 steps can't proceed because of hitting the wall, just go down 1 step. 
 
 */
@@ -33,11 +33,11 @@ public class Solution {
     /**
      * @param matrix: a matrix of integers
      * @return: an array of integers
-     */ 
+     */
     public int[] printZMatrix(int[][] matrix) {
         int[] rst = null;
         if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) {
-        	return rst;
+            return rst;
         }
         int n = matrix.length;
         int m = matrix[0].length;
@@ -50,26 +50,26 @@ public class Solution {
         rst[ind] = matrix[i][j];
         ind++;
         while (ind < rst.length) {
-        	//Right 1 step, or down
-    		if (j + 1 < m || i + 1 < n) {
-    			if (j + 1 < m) j++;
-    			else if (i + 1 < n) i++;
-    			rst[ind++] = matrix[i][j];
-    		}
-    		//Move left-bottom:
-    		while (j - 1 >= 0 && i + 1 < n) {
-				rst[ind++] = matrix[++i][--j];
-    		}
-        	//Move down, or right
-    		if (j + 1 < m || i + 1 < n) {
-    			if (i + 1 < n) i++;
-    			else if (j + 1 < m) j++;
-    			rst[ind++] = matrix[i][j];
-    		} 
-        	//Move right-up:
-    		while (j + 1 < m && i - 1 >= 0) {
-    			rst[ind++] = matrix[--i][++j];
-    		}
+            //Right 1 step, or down
+            if (j + 1 < m || i + 1 < n) {
+                if (j + 1 < m) j++;
+                else if (i + 1 < n) i++;
+                rst[ind++] = matrix[i][j];
+            }
+            //Move left-bottom:
+            while (j - 1 >= 0 && i + 1 < n) {
+                rst[ind++] = matrix[++i][--j];
+            }
+            //Move down, or right
+            if (j + 1 < m || i + 1 < n) {
+                if (i + 1 < n) i++;
+                else if (j + 1 < m) j++;
+                rst[ind++] = matrix[i][j];
+            }
+            //Move right-up:
+            while (j + 1 < m && i - 1 >= 0) {
+                rst[ind++] = matrix[--i][++j];
+            }
         }//end while
         return rst;
     }

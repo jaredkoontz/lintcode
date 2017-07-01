@@ -26,25 +26,20 @@ Well, based on JiuZhang, http://www.jiuzhang.com/solutions/building-outline/, im
 */
 
 
-
-
-
 /****
-  Attempt1, may not be correct.
-  Thoughts: 
-  PriorityQueue<Point>, sort by start.
-  1. Keep track of max height. 
-  2. Find max height.
-  3. Poll() queue. Whenever there is a jump(up or down) at current node, close a interval.
-  4. When closing interval, set prev = new node.h
-****/
+ Attempt1, may not be correct.
+ Thoughts:
+ PriorityQueue<Point>, sort by start.
+ 1. Keep track of max height.
+ 2. Find max height.
+ 3. Poll() queue. Whenever there is a jump(up or down) at current node, close a interval.
+ 4. When closing interval, set prev = new node.h
+ ****/
 
 
 /**
-
-What is HashHeap Exactly? Document below:
-
-**/
+ * What is HashHeap Exactly? Document below:
+ **/
 class HashHeap {
     //Heap is a arraylist, which stores the actaul Integer values. It stores the real data
     ArrayList<Integer> heap;
@@ -52,27 +47,6 @@ class HashHeap {
     HashMap<Integer, Node> hash;
     String mode;
     int size_t;
-   
-    /*
-      Used in HashMap,
-      id: id in the Heap tree
-      num: The frequency of the appearance of this id.
-    */
-    class Node {
-        public Integer id;  
-        public Integer num;
-
-        Node(Node now) {
-            id = now.id;
-            num = now.num;
-        }
-
-        Node(Integer first, Integer second) {
-
-            this.id = first;
-            this.num = second;
-        }
-    }
 
     public HashHeap(String mod) { // 传入min 表示最小堆，max 表示最大堆
         // TODO Auto-generated constructor stub
@@ -81,6 +55,7 @@ class HashHeap {
         hash = new HashMap<Integer, Node>();
         size_t = 0;
     }
+
     /*Regular peak, size, empty functions*/
     int peak() {
         return heap.get(0);
@@ -93,6 +68,7 @@ class HashHeap {
     Boolean empty() {
         return (heap.size() == 0);
     }
+
     // Basis of heap
     int parent(int id) {
         if (id == 0) {
@@ -100,15 +76,18 @@ class HashHeap {
         }
         return (id - 1) / 2;
     }
+
     // Basis of heap. Our heap is base indxe = 0
     int lson(int id) {
         return id * 2 + 1;
     }
+
     // Basis of heap. Our heap is base indxe = 0
     int rson(int id) {
         return id * 2 + 2;
     }
-    // Basis of heap. 
+
+    // Basis of heap.
     //If min heap, parent < left/right child
     //If max heap, parent > left/right child
     boolean comparesmall(int a, int b) {
@@ -125,6 +104,7 @@ class HashHeap {
         }
 
     }
+
     //swap value in heap based the 2 ids
     //based on value, create new node in hashmap.
     void swap(int idA, int idB) {
@@ -156,6 +136,7 @@ class HashHeap {
         }
         return now;
     }
+
     //Add
     //If exist, count++ in hashmap
     //If not exited, add to tail, then sfitup
@@ -172,6 +153,7 @@ class HashHeap {
 
         siftup(heap.size() - 1);
     }
+
     //Remove node
     //If not last one, count-- from the hashMap
     //If last one, move it to tail of the structure, and delete it.
@@ -195,6 +177,7 @@ class HashHeap {
             hash.put(now, new Node(id, num - 1));
         }
     }
+
     //If the target id and its parent do not comply the heap structure, siftup.
     void siftup(int id) {
         while (parent(id) > -1) {
@@ -207,6 +190,7 @@ class HashHeap {
             id = parentId;
         }
     }
+
     //If the target id and its children do not comply with the heap structure, siftdown
     void siftdown(int id) {
         while (lson(id) < heap.size()) {
@@ -224,6 +208,27 @@ class HashHeap {
                 swap(id, son);
             }
             id = son;
+        }
+    }
+
+    /*
+      Used in HashMap,
+      id: id in the Heap tree
+      num: The frequency of the appearance of this id.
+    */
+    class Node {
+        public Integer id;
+        public Integer num;
+
+        Node(Node now) {
+            id = now.id;
+            num = now.num;
+        }
+
+        Node(Integer first, Integer second) {
+
+            this.id = first;
+            this.num = second;
         }
     }
 }

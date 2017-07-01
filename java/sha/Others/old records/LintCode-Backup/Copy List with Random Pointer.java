@@ -9,14 +9,14 @@ Example
 Tags Expand 
 Hash Table Linked List
 
-*/	
+*/
 
 /**
  * Definition for singly-linked list with a random pointer.
  * class RandomListNode {
- *     int label;
- *     RandomListNode next, random;
- *     RandomListNode(int x) { this.label = x; }
+ * int label;
+ * RandomListNode next, random;
+ * RandomListNode(int x) { this.label = x; }
  * };
  */
 
@@ -41,11 +41,11 @@ public class Solution {
         RandomListNode dummy = new RandomListNode(0);
         RandomListNode node = dummy;
         RandomListNode newNode;
-        
+
         //HashMap to mark node
         HashMap<RandomListNode, RandomListNode> map = new HashMap<RandomListNode, RandomListNode>();
-        
-        while(head != null) {
+
+        while (head != null) {
             //process head. (we already know head!=null)
             if (!map.containsKey(head)) {
                 map.put(head, new RandomListNode(head.label));
@@ -54,7 +54,7 @@ public class Solution {
             node.next = newNode;
             //process head.random
             if (head.random != null) {
-                if(!map.containsKey(head.random)) {
+                if (!map.containsKey(head.random)) {
                     map.put(head.random, new RandomListNode(head.random.label));
                 }
                 newNode = map.get(head.random);

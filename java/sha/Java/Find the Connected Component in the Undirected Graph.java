@@ -1,16 +1,16 @@
 M
- 
-BFS遍历，把每个node的neighbor都加进来。    
 
-一定注意要把visit过的node Mark一下。因为curr node也会是别人的neighbor，会无限循环。      
+        BFS遍历，把每个node的neighbor都加进来。
 
-Component的定义：所有Component内的node必须被串联起来via path (反正这里是undirected, 只要链接上就好)     
+        一定注意要把visit过的node Mark一下。因为curr node也会是别人的neighbor，会无限循环。
 
-这道题：其实component在input里面都已经给好了，所有能一口气visit到的，全部加进queue里面，他们就是一个component里面的了。     
+        Component的定义：所有Component内的node必须被串联起来via path(反正这里是undirected,只要链接上就好)
 
-而我们这里不需要判断他们是不是Component。   
+        这道题：其实component在input里面都已经给好了，所有能一口气visit到的，全部加进queue里面，他们就是一个component里面的了。
 
-```
+        而我们这里不需要判断他们是不是Component。
+
+        ```
  /*
 Find the number connected component in the undirected graph. 
 Each node in the graph contains a label and a list of its neighbors. 
@@ -38,9 +38,9 @@ Breadth First Search
 /**
  * Definition for Undirected graph.
  * class UndirectedGraphNode {
- *     int label;
- *     ArrayList<UndirectedGraphNode> neighbors;
- *     UndirectedGraphNode(int x) { label = x; neighbors = new ArrayList<UndirectedGraphNode>(); }
+ * int label;
+ * ArrayList<UndirectedGraphNode> neighbors;
+ * UndirectedGraphNode(int x) { label = x; neighbors = new ArrayList<UndirectedGraphNode>(); }
  * };
  */
 
@@ -68,7 +68,7 @@ public class Solution {
             map.put(node.label, false);
         }
 
-        for (UndirectedGraphNode node : nodes) { 
+        for (UndirectedGraphNode node : nodes) {
             if (!map.get(node.label)) {
                 bfs(rst, node, map);
             }
@@ -83,14 +83,14 @@ public class Solution {
         map.put(node.label, true);
         UndirectedGraphNode temp;
         while (!queue.isEmpty()) {
-             temp = queue.poll();
-             list.add(temp.label);
-             for (UndirectedGraphNode neighbor : temp.neighbors) {
+            temp = queue.poll();
+            list.add(temp.label);
+            for (UndirectedGraphNode neighbor : temp.neighbors) {
                 if (!map.get(neighbor.label)) {
                     queue.offer(neighbor);
                     map.put(neighbor.label, true);
                 }
-             }
+            }
         }
         Collections.sort(list);
         rst.add(list);
@@ -148,7 +148,7 @@ public class Solution {
         Set<UndirectedGraphNode> checked = new HashSet();
         Queue<UndirectedGraphNode> queue = new LinkedList();
         ArrayList<Integer> component = new ArrayList<Integer>();
-        
+
         queue.offer(nodes.get(0));
 
         while (!nodes.isEmpty()) {
@@ -164,7 +164,7 @@ public class Solution {
                     component.add(curr.label);
                     nodes.remove(curr);
                     for (UndirectedGraphNode node : curr.neighbors) {
-                            queue.add(node);    
+                        queue.add(node);
                     }
                 }
             }

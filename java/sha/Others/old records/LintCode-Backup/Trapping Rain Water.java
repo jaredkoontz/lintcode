@@ -1,7 +1,7 @@
-2 Pointers， 
-双面夹击：找中间最大bar，两面往中心扫
+2Pointers，
+        双面夹击：找中间最大bar，两面往中心扫
 
-```
+        ```
 /*
 Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
 

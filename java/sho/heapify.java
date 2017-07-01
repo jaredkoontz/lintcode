@@ -9,7 +9,7 @@ public class Solution {
             minHeapify(A, i);
         }
     }
-    
+
     public void minHeapify(int[] A, int index) {
         if (hasParent(index)) {
             int p = getParent(index);
@@ -19,18 +19,18 @@ public class Solution {
             }
         }
     }
-    
+
     public boolean hasParent(int index) {
         if ((index - 1) / 2 >= 0) {
             return true;
-        } 
+        }
         return false;
     }
-    
+
     public int getParent(int index) {
         return (index - 1) / 2;
     }
-    
+
     public void swap(int[] A, int a, int b) {
         int temp = A[a];
         A[a] = A[b];

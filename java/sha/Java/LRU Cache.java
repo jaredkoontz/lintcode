@@ -1,25 +1,25 @@
 H
 
 
-timeout method, 天真的来了一个O(n) 的解法，结果果然timeout.     
-一个map<key,value>存数值。一个queue<key>来存排位。     
-每次有更新，就把最新的放在末尾；每次超过capaticity,就把大头干掉。很简单嘛，但是跑起来太久，失败了。     
+        timeout method,天真的来了一个O(n)的解法，结果果然timeout.
+        一个map<key, value>存数值。一个queue<key>来存排位。
+        每次有更新，就把最新的放在末尾；每次超过capaticity,就把大头干掉。很简单嘛，但是跑起来太久，失败了。
 
-于是就来了第二个做法。其实还是跟方法一是类似的。     
-用了一个特别的双向的LinkNode，有了head和tail，这样就大大加快了速度。     
-主要加快的就是那个‘更新排位’的过程，过去我是O(n),现在O(1)就好了。    
+        于是就来了第二个做法。其实还是跟方法一是类似的。
+        用了一个特别的双向的LinkNode，有了head和tail，这样就大大加快了速度。
+        主要加快的就是那个‘更新排位’的过程，过去我是O(n),现在O(1)就好了。
 
-巧妙点：     
-1. head和tail特别巧妙：除掉头和尾，和加上头和尾，就都特别快。    
-2. 用双向的pointer: pre和next, 当需要除掉任何一个node的时候，只要知道要除掉哪一个，     
-直接把node.pre和node.next耐心连起来就好了，node就自然而然的断开不要了。     
+        巧妙点：
+        1.head和tail特别巧妙：除掉头和尾，和加上头和尾，就都特别快。
+        2.用双向的pointer:pre和next,当需要除掉任何一个node的时候，只要知道要除掉哪一个，
+        直接把node.pre和node.next耐心连起来就好了，node就自然而然的断开不要了。
 
-一旦知道怎么解决了，就不是很特别，并不是难写的算法:    
-moveToHead()    
-insertHead()    
-remove()      
+        一旦知道怎么解决了，就不是很特别，并不是难写的算法:
+        moveToHead()
+        insertHead()
+        remove()
 
-```
+        ```
 /*
 Design and implement a data structure for Least Recently Used (LRU) cache. 
 It should support the following operations: get and set.
@@ -46,19 +46,10 @@ Be careful: when removing a node due to capacity issue, remember to remove both 
 //Store key in hashmap<key, node> to find node easily
 //Functions: insert in front, remove node, 
 public class LRUCache {
-    class DoubleLinkedListNode {
-        int key, val;
-        DoubleLinkedListNode next,prev;
-        public DoubleLinkedListNode(int key, int val){
-            this.key = key;
-            this.val = val;
-            next = null;
-            prev = null;
-        }
-    }
     public int capacity;
     public HashMap<Integer, DoubleLinkedListNode> map;
     public DoubleLinkedListNode head, tail;
+
     public LRUCache(int capacity) {
         this.capacity = capacity;
         this.map = new HashMap<Integer, DoubleLinkedListNode>();
@@ -69,7 +60,7 @@ public class LRUCache {
         tail.next = head;
         tail.prev = head;
     }
-    
+
     public int get(int key) {
         if (map.containsKey(key)) {
             DoubleLinkedListNode node = map.get(key);
@@ -79,7 +70,7 @@ public class LRUCache {
             return -1;
         }
     }
-    
+
     public void set(int key, int value) {
         if (map.containsKey(key)) {
             map.get(key).val = value;
@@ -100,7 +91,7 @@ public class LRUCache {
         remove(node);
         insertHead(node);
     }
-    
+
     //Helper functions
     public void insertHead(DoubleLinkedListNode node) {
         DoubleLinkedListNode next = head.next;
@@ -115,7 +106,19 @@ public class LRUCache {
         DoubleLinkedListNode end = node.next;
         front.next = end;
         end.prev = front;
-    }  
+    }
+
+    class DoubleLinkedListNode {
+        int key, val;
+        DoubleLinkedListNode next, prev;
+
+        public DoubleLinkedListNode(int key, int val) {
+            this.key = key;
+            this.val = val;
+            next = null;
+            prev = null;
+        }
+    }
 }
 /*
 First Attempt: time exceeds
@@ -135,43 +138,45 @@ public class LRUCache {
     private int cap;
     private HashMap<Integer, Integer> map;
     private LinkedList<Integer> queue;
+
     public LRUCache(int capacity) {
         this.cap = capacity;
         this.map = new HashMap<Integer, Integer>();
         this.queue = new LinkedList<Integer>();
     }
-    
+
     public int get(int key) {
-    	if (map.containsKey(key)) {
-    		moveUsedToTop(key);
-    		return map.get(key);
-    	} else {
-    		return -1;
-    	}
+        if (map.containsKey(key)) {
+            moveUsedToTop(key);
+            return map.get(key);
+        } else {
+            return -1;
+        }
     }
-    
+
     public void set(int key, int value) {
-    	if (map.containsKey(key)) {
-    		moveUsedToTop(key);
-    		map.put(key, value);
-    	} else {
-			if (queue.size() >= cap) {
-        		map.remove(queue.poll());
-        	}
-	        queue.offer(key);
-	        map.put(key, value);
-    	}
-        
+        if (map.containsKey(key)) {
+            moveUsedToTop(key);
+            map.put(key, value);
+        } else {
+            if (queue.size() >= cap) {
+                map.remove(queue.poll());
+            }
+            queue.offer(key);
+            map.put(key, value);
+        }
+
     }
+
     //O(n)
     public void moveUsedToTop(int key) {
-    	for (int i = 0; i < queue.size(); i++) {
-			if (queue.get(i) == key) {
-				queue.remove(i);
-				queue.offer(key);
-				break;
-			}
-		}
+        for (int i = 0; i < queue.size(); i++) {
+            if (queue.get(i) == key) {
+                queue.remove(i);
+                queue.offer(key);
+                break;
+            }
+        }
     }
 }
 
@@ -183,20 +188,21 @@ public class LRUCache {
     public ArrayList<Integer> list = new ArrayList<Integer>();
     public HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
     public int capacity;
+
     public LRUCache(int capacity) {
         this.capacity = capacity;
     }
-    
+
     public int get(int key) {
         if (map.containsKey(key)) {
             int ind = list.indexOf(key);
-            list.remove(ind);   
+            list.remove(ind);
             list.add(0, key);
             return map.get(key);
         }
         return -1;
     }
-    
+
     public void set(int key, int value) {
         if (map.containsKey(key)) {
             int ind = list.indexOf(key);
@@ -208,11 +214,11 @@ public class LRUCache {
             map.put(key, value);
             if (list.size() > capacity) {
                 int rm = list.get(list.size() - 1);
-                list.remove(list.size() - 1);   
+                list.remove(list.size() - 1);
                 map.remove(rm);
             }
-        } 
-       
+        }
+
     }
 }
 

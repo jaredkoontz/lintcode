@@ -17,7 +17,7 @@ public class Solution {
                 profit = Math.max(profit, prices[i] - min);
             }
 
-            min = prices[i] > min? min : prices[i];
+            min = prices[i] > min ? min : prices[i];
         }
 
         return profit;

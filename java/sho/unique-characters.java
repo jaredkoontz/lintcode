@@ -13,10 +13,10 @@ public class Solution {
     //             occur.add(str.charAt(i));
     //         }
     //     }
-        
+
     //     return true;
     // }
-    
+
     // O(1) space.
     public boolean isUnique(String str) {
         // write your code here
@@ -29,8 +29,8 @@ public class Solution {
                 }
             }
         }
-        
+
         return true;
-        
+
     }
 }

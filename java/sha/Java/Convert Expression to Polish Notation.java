@@ -1,12 +1,12 @@
 H
 
-还是Expression Tree (Min-Tree).
+        还是Expression Tree(Min-Tree).
 
-根据题意，Tree出来以后，来个Pre-order-traversal.
+        根据题意，Tree出来以后，来个Pre-order-traversal.
 
-Note: label需要是String.虽然 Operator是长度为1的char, 但是数字可为多位。
+        Note:label需要是String.虽然 Operator是长度为1的char,但是数字可为多位。
 
-```
+        ```
 /*
 Given an expression string array, return the Polish notation of this expression. (remove the parentheses)
 
@@ -31,19 +31,6 @@ Let's practice expression tree build again.
 */
 
 public class Solution {
-    class TreeNode {
-        String s;
-        int val;
-        TreeNode left;
-        TreeNode right;
-        public TreeNode(int val, String s) {
-            this.val = val;
-            this.s = s;
-            this.left = null;
-            this.right = null;
-        }
-    }
-
     public TreeNode build(String[] expression) {
         if (expression == null || expression.length == 0) {
             return null;
@@ -74,7 +61,7 @@ public class Solution {
         if (stack.isEmpty()) {
             return null;
         }
-        TreeNode rst = stack.pop(); 
+        TreeNode rst = stack.pop();
         while (!stack.isEmpty()) {
             rst = stack.pop();
         }
@@ -106,7 +93,7 @@ public class Solution {
         return rst;
     }
 
-    public void preTraversal(ArrayList<String> rst, TreeNode node){
+    public void preTraversal(ArrayList<String> rst, TreeNode node) {
         if (node == null) {
             return;
         }
@@ -117,6 +104,20 @@ public class Solution {
         rst.add(node.s);
         preTraversal(rst, node.left);
         preTraversal(rst, node.right);
+    }
+
+    class TreeNode {
+        String s;
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        public TreeNode(int val, String s) {
+            this.val = val;
+            this.s = s;
+            this.left = null;
+            this.right = null;
+        }
     }
 }
 

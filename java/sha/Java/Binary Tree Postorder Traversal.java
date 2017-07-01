@@ -1,13 +1,13 @@
 E
 
-最prefer 2 stack的做法：   
-   stack1和stack2合作。倒水。记这个做法。。。挺神奇的。
+        最prefer 2stack的做法：
+        stack1和stack2合作。倒水。记这个做法。。。挺神奇的。
 
-Divide and Conquer 的recursive方法也非常明了！
+        Divide and Conquer 的recursive方法也非常明了！
 
-注意，这些binary tree traversal的题目，常常有多个做法:recursive or iterative
+        注意，这些binary tree traversal的题目，常常有多个做法:recursive or iterative
 
-```
+        ```
 /*
 Binary Tree Postorder Traversal
 Given a binary tree, return the postorder traversal of its nodes' values.
@@ -58,7 +58,7 @@ public class Solution {
         ArrayList<Integer> left = postorderTraversal(root.left);
         rst.addAll(left);
         rst.addAll(right);
-        rst.add(root.val);  
+        rst.add(root.val);
         return rst;
     }
 }
@@ -119,7 +119,7 @@ public class Solution {
         return rst;
     }
 
-    public void helper(ArrayList<Integer>rst, TreeNode node) {
+    public void helper(ArrayList<Integer> rst, TreeNode node) {
         if (node == null) {
             return;
         }

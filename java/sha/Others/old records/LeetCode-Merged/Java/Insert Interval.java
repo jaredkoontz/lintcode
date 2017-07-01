@@ -1,10 +1,10 @@
 扫描线问题。
-Interval 拆点，PriorityQueue排点。
-Merge时用count==0作判断点。
+        Interval 拆点，PriorityQueue排点。
+        Merge时用count==0作判断点。
 
-PriorityQueue: O(logN). 扫n点，总共：O(nLogn)
+        PriorityQueue:O(logN).扫n点，总共：O(nLogn)
 
-```
+        ```
 /*
 Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary).
 
@@ -35,43 +35,35 @@ What's the difference from merge intervals?
 /**
  * Definition for an interval.
  * public class Interval {
- *     int start;
- *     int end;
- *     Interval() { start = 0; end = 0; }
- *     Interval(int s, int e) { start = s; end = e; }
+ * int start;
+ * int end;
+ * Interval() { start = 0; end = 0; }
+ * Interval(int s, int e) { start = s; end = e; }
  * }
  */
 
 public class Solution {
 
-	class Point {
-		int x;
-		int flag;
-		public Point(int x, int flag) {
-			this.x = x;
-			this.flag = flag;
-		}
-	}
     public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
         List<Interval> rst = new ArrayList<Interval>();
         if (intervals == null && newInterval == null) {
-        	return rst;
+            return rst;
         } else if (intervals == null) {
-        	rst.add(newInterval);
-        	return rst;
+            rst.add(newInterval);
+            return rst;
         } else if (newInterval == null) {
-        	return intervals;
+            return intervals;
         }
 
-        PriorityQueue<Point> queue = new PriorityQueue<Point>(1, new Comparator<Point>(){
-        	public int compare(Point a, Point b){
-        		return a.x - b.x;
-        	}
+        PriorityQueue<Point> queue = new PriorityQueue<Point>(1, new Comparator<Point>() {
+            public int compare(Point a, Point b) {
+                return a.x - b.x;
+            }
         });
 
-        for (Interval range: intervals) {
-        	queue.add(new Point(range.start, 1));
-        	queue.add(new Point(range.end, -1));
+        for (Interval range : intervals) {
+            queue.add(new Point(range.start, 1));
+            queue.add(new Point(range.end, -1));
         }
 
         queue.add(new Point(newInterval.start, 1));
@@ -81,27 +73,37 @@ public class Solution {
         int startNew = 0;
         int endNew = 0;
         while (!queue.isEmpty()) {
-        	Point p = queue.poll();
-        	if (count == 0) {
-        		startNew = p.x;
-        	}
-        	count += p.flag;
+            Point p = queue.poll();
+            if (count == 0) {
+                startNew = p.x;
+            }
+            count += p.flag;
 
-        	while (!queue.isEmpty() && p.x == queue.peek().x) {
-        		p = queue.poll();
-        		count += p.flag;
-        	}
+            while (!queue.isEmpty() && p.x == queue.peek().x) {
+                p = queue.poll();
+                count += p.flag;
+            }
 
-        	if (count == 0) {
-        		endNew = p.x;
-        		Interval addInterval = new Interval(startNew, endNew);
-        		rst.add(addInterval);
-        	}
+            if (count == 0) {
+                endNew = p.x;
+                Interval addInterval = new Interval(startNew, endNew);
+                rst.add(addInterval);
+            }
 
         }//end while
 
         return rst;
 
+    }
+
+    class Point {
+        int x;
+        int flag;
+
+        public Point(int x, int flag) {
+            this.x = x;
+            this.flag = flag;
+        }
     }
 }
 

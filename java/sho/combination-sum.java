@@ -1,7 +1,7 @@
 public class Solution {
     /**
      * @param candidates: A list of integers
-     * @param target:An integer
+     * @param target:An   integer
      * @return: A list of lists of integers
      */
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
@@ -10,7 +10,7 @@ public class Solution {
         int len = candidates.length;
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         if (len == 0) {
-        	return res;
+            return res;
         }
 
         Arrays.sort(candidates);
@@ -23,18 +23,18 @@ public class Solution {
     }
 
     public void dfsHelper(List<List<Integer>> res, List<Integer> tempList, int[] nums, int target, int index, int sum) {
-    	if (sum == target) {
-    		res.add(new ArrayList<Integer>(tempList));
-    		return;
-    	} else if (index == nums.length || sum > target) {
-    		return;
-    	}
+        if (sum == target) {
+            res.add(new ArrayList<Integer>(tempList));
+            return;
+        } else if (index == nums.length || sum > target) {
+            return;
+        }
 
-    	for (int i = index; i < nums.length; i++) {
-    		int n = nums[i];
-    		tempList.add(n);
-    		dfsHelper(res, tempList, nums, target, i, sum + n);
-    		tempList.remove(tempList.size() - 1);
-    	}
+        for (int i = index; i < nums.length; i++) {
+            int n = nums[i];
+            tempList.add(n);
+            dfsHelper(res, tempList, nums, target, i, sum + n);
+            tempList.remove(tempList.size() - 1);
+        }
     }
 }

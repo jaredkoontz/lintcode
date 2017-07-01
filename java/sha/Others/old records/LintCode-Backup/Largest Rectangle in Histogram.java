@@ -19,7 +19,7 @@ public class Solution {
     public int largestRectangleArea(int[] height) {
         if (height == null || height.length == 0) {
             return 0;
-        }    
+        }
         Stack<Integer> stack = new Stack<Integer>();
         int max = 0;
         for (int i = 0; i <= height.length; i++) {

@@ -10,25 +10,25 @@ import static org.junit.Assert.assertEquals;
  */
 public class PowTest {
 
-	@Test
-	public void happyPath() {
-		double x;
-		int n;
-		Pow pow = new Pow();
+    @Test
+    public void happyPath() {
+        double x;
+        int n;
+        Pow pow = new Pow();
 
-		x = 2.1;
-		n = 3;
+        x = 2.1;
+        n = 3;
 
-		assertEquals(pow.myPow(x, n), Math.pow(x, n), 0.001);
+        assertEquals(pow.myPow(x, n), Math.pow(x, n), 0.001);
 
-		x = 0;
-		n = 1;
-		assertEquals(pow.myPow(x, n), Math.pow(x, n), 0.001);
+        x = 0;
+        n = 1;
+        assertEquals(pow.myPow(x, n), Math.pow(x, n), 0.001);
 
-		x = 1;
-		n = 0;
-		assertEquals(pow.myPow(x, n), Math.pow(x, n), 0.001);
+        x = 1;
+        n = 0;
+        assertEquals(pow.myPow(x, n), Math.pow(x, n), 0.001);
 
-	}
+    }
 
 }

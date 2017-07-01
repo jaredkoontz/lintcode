@@ -1,10 +1,10 @@
 E
 
-Power of 3:  3 ^ x == n ?
+        Power of 3:3^x==n?
 
-做出发. 查%.
+        做出发.查%.
 
-```
+        ```
 /*
 
 Given an integer, write a function to determine if it is a power of three.

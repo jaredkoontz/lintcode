@@ -1,10 +1,10 @@
 M
 
-最右:即level traversal每一行的最末尾.   
+        最右:即level traversal每一行的最末尾.
 
-BFS，用queue.size()来出发saving result.
+        BFS，用queue.size()来出发saving result.
 
-```
+        ```
 /*
 Given a binary tree, imagine yourself standing on the right side of it, 
 return the values of the nodes you can see ordered from top to bottom.
@@ -26,10 +26,10 @@ Similar Problems: (M) Populating Next Right Pointers in Each Node
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ * int val;
+ * TreeNode left;
+ * TreeNode right;
+ * TreeNode(int x) { val = x; }
  * }
  */
 
@@ -62,7 +62,7 @@ public class Solution {
                 size = queue.size();
             }
         }
-        
+
         return rst;
     }
 }
@@ -85,37 +85,37 @@ WHen level != levelQ.poll(), that means we are moving to next level, and we shou
 
 public class Solution {
     public List<Integer> rightSideView(TreeNode root) {
-    	List<Integer> rst = new ArrayList<Integer>();
-    	if (root == null) {
-    		return rst;
-    	}   
-    	Queue<TreeNode> q = new LinkedList<TreeNode>();
-    	Queue<Integer> levelQ = new LinkedList<Integer>();
-    	q.offer(root);
-    	levelQ.offer(1);
-    	int level = 1;
-    	int parent = root.val;
-    	TreeNode node = null;
-    	
-    	while (!q.isEmpty()) {
-    		node = q.poll();
-    		int lv = levelQ.poll();
-    		if (level != lv) {
-    		    level++;
-    			rst.add(parent);
-    		}
-    		parent = node.val;
-    		if (node.left != null) {
-    			q.offer(node.left);
-    			levelQ.offer(lv + 1);
-    		} 
-    		if (node.right != null) {
-    			q.offer(node.right);
-    			levelQ.offer(lv + 1);
-    		}
-    	}//END while
-    	rst.add(parent);
-    	return rst;
+        List<Integer> rst = new ArrayList<Integer>();
+        if (root == null) {
+            return rst;
+        }
+        Queue<TreeNode> q = new LinkedList<TreeNode>();
+        Queue<Integer> levelQ = new LinkedList<Integer>();
+        q.offer(root);
+        levelQ.offer(1);
+        int level = 1;
+        int parent = root.val;
+        TreeNode node = null;
+
+        while (!q.isEmpty()) {
+            node = q.poll();
+            int lv = levelQ.poll();
+            if (level != lv) {
+                level++;
+                rst.add(parent);
+            }
+            parent = node.val;
+            if (node.left != null) {
+                q.offer(node.left);
+                levelQ.offer(lv + 1);
+            }
+            if (node.right != null) {
+                q.offer(node.right);
+                levelQ.offer(lv + 1);
+            }
+        }//END while
+        rst.add(parent);
+        return rst;
     }
 }
 

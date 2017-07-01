@@ -1,7 +1,7 @@
 class Solution {
     /**
      * @param colors: A list of integer
-     * @param k: An integer
+     * @param k:      An integer
      * @return: nothing
      */
     public void sortColors2(int[] colors, int k) {
@@ -15,7 +15,7 @@ class Solution {
         while (count != k) {
             // loop k times.
             int runner = kIndex;
-            
+
             while (runner < len) {
                 if (colors[runner] == count) {
                     swap(colors, runner, kIndex++);
@@ -26,7 +26,7 @@ class Solution {
 
         }
     }
-    
+
     public void swap(int[] nums, int a, int b) {
         int temp = nums[a];
         nums[a] = nums[b];

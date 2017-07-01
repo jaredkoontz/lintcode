@@ -1,8 +1,8 @@
 M
 
-查看每个parent-child关系。同时把root level上面传下来max,min界限定住。
+        查看每个parent-child关系。同时把root level上面传下来max,min界限定住。
 
-```
+        ```
 
 /*
 Given a binary tree, determine if it is a valid binary search tree (BST).
@@ -32,12 +32,12 @@ Divide and Conquer Recursion Binary Search Tree Binary Tree
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
 
@@ -46,26 +46,26 @@ Divide and Conquer Recursion Binary Search Tree Binary Tree
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ * int val;
+ * TreeNode left;
+ * TreeNode right;
+ * TreeNode(int x) { val = x; }
  * }
  */
 public class Solution {
     public boolean isValidBST(TreeNode root) {
         return helper(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
-    
+
     public boolean helper(TreeNode root, long min, long max) {
         if (root == null) {
             return true;
         }
-        if (root.val < max && root.val > min && 
-            helper(root.left, min, root.val) &&
-            helper(root.right, root.val, max)) {
-                return true;
-        } 
+        if (root.val < max && root.val > min &&
+                helper(root.left, min, root.val) &&
+                helper(root.right, root.val, max)) {
+            return true;
+        }
         return false;
     }
 }

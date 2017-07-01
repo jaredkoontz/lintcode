@@ -1,14 +1,14 @@
 E
 
-用HashSet存visited value.
+        用HashSet存visited value.
 
-方法1: 在nest for loop里面validate row,col,and block.     
-validate block要利用i 和 j 增长的规律。    
-说白了，i && j是按照0~n增长的index, 具体怎么用是可以flexible的。这个方法在同一个nest for loop解决所有运算。
+        方法1:在nest for loop里面validate row,col,and block.
+        validate block要利用i 和 j 增长的规律。
+        说白了，i&&j是按照0~n增长的index,具体怎么用是可以flexible的。这个方法在同一个nest for loop解决所有运算。
 
-方法2: 单独做block validation: validate block的时候虽然看到了4层for.其实也就是n^2.
+        方法2:单独做block validation:validate block的时候虽然看到了4层for.其实也就是n^2.
 
-```
+        ```
 /*
 Determine whether a Sudoku is valid.
 
@@ -40,9 +40,9 @@ class Solution {
         if (board == null || board.length == 0 || board[0].length == 0 || board.length != board[0].length) {
             return false;
         }
-        HashSet<Character> row,col,block;
+        HashSet<Character> row, col, block;
         int n = board.length;
-    
+
         for (int i = 0; i < n; i++) {
             row = new HashSet<Character>();
             col = new HashSet<Character>();
@@ -51,13 +51,13 @@ class Solution {
                 //Check row
                 if (!row.contains(board[i][j])) {
                     row.add(board[i][j]);
-                } else if (board[i][j] != '.'){
+                } else if (board[i][j] != '.') {
                     return false;
                 }
                 //Check col
                 if (!col.contains(board[j][i])) {
                     col.add(board[j][i]);
-                } else if (board[j][i] != '.'){
+                } else if (board[j][i] != '.') {
                     return false;
                 }
                 //check block
@@ -77,7 +77,7 @@ class Solution {
 
 
 /*
-	Thoughts:
+    Thoughts:
 	Each row/col/block can only 1 ~ 9, no duplicates
 	Use HashSet, reinitiate 3 times.
 	traverse row, col, block
@@ -86,50 +86,50 @@ class Solution {
 
 class Solution {
     public boolean isValidSudoku(char[][] board) {
-    	if (board == null || board.length == 0 || board[0].length == 0 || board.length != board[0].length) {
-    		return false;
-    	}
-    	HashSet<Character> row,col,block;
-    	int n = board.length;
-    
-    	for (int i = 0; i < n; i++) {
-    		row = new HashSet<Character>();
-    		col = new HashSet<Character>();
-    		for (int j = 0; j < n; j++) {
-    			//Check row
-    			if (!row.contains(board[i][j])) {
-    				row.add(board[i][j]);
-    			} else if (board[i][j] != '.'){
-    				return false;
-    			}
-    			//Check col
-    			if (!col.contains(board[j][i])) {
-    				col.add(board[j][i]);
-    			} else if (board[j][i] != '.'){
-    				return false;
-    			}
-    		}
-    	}
-    	
-    	for (int i = 0; i < n; i+=3) {
-    		for (int j = 0; j < n; j+=3) {
-    			block = new HashSet<Character>();
-	    		//Check block
-	    		for (int k = 0; k < 3; k++) { 
-	    			for (int h = 0; h < 3; h++) {
-	    				if (!block.contains(board[i+k][j+h])) {
-		    				block.add(board[i+k][j+h]);
-		    			} else if (board[i+k][j+h] != '.'){
-		    				return false;
-		    			}
-	    			}
-	    		}
-    		}
+        if (board == null || board.length == 0 || board[0].length == 0 || board.length != board[0].length) {
+            return false;
+        }
+        HashSet<Character> row, col, block;
+        int n = board.length;
 
-    	}
+        for (int i = 0; i < n; i++) {
+            row = new HashSet<Character>();
+            col = new HashSet<Character>();
+            for (int j = 0; j < n; j++) {
+                //Check row
+                if (!row.contains(board[i][j])) {
+                    row.add(board[i][j]);
+                } else if (board[i][j] != '.') {
+                    return false;
+                }
+                //Check col
+                if (!col.contains(board[j][i])) {
+                    col.add(board[j][i]);
+                } else if (board[j][i] != '.') {
+                    return false;
+                }
+            }
+        }
+
+        for (int i = 0; i < n; i += 3) {
+            for (int j = 0; j < n; j += 3) {
+                block = new HashSet<Character>();
+                //Check block
+                for (int k = 0; k < 3; k++) {
+                    for (int h = 0; h < 3; h++) {
+                        if (!block.contains(board[i + k][j + h])) {
+                            block.add(board[i + k][j + h]);
+                        } else if (board[i + k][j + h] != '.') {
+                            return false;
+                        }
+                    }
+                }
+            }
+
+        }
 
 
-    	return true;
+        return true;
     }
 };
 

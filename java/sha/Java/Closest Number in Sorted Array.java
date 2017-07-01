@@ -1,10 +1,10 @@
 E
 
-跟Closest Binary Search Tree Vlaue类似：
+        跟Closest Binary Search Tree Vlaue类似：
 
-Binary search. 考虑mid-1, mid+1.    
-一旦没有mid = target.index。 那么target最终就narrow down在(mid-1,mid) 或者(mid,mid+1)   
-```
+        Binary search.考虑mid-1,mid+1.
+        一旦没有mid=target.index。 那么target最终就narrow down在(mid-1,mid)或者(mid,mid+1)
+        ```
 /*
 Given a target number and an integer array A sorted in ascending order, find the index i in A such that A[i] is closest to the given target.
 
@@ -37,7 +37,7 @@ Binary Search
 
 public class Solution {
     /**
-     * @param A an integer array sorted in ascending order
+     * @param A      an integer array sorted in ascending order
      * @param target an integer
      * @return an integer
      */
@@ -53,7 +53,7 @@ public class Solution {
             if (A[mid] == target) {
                 return mid;
             } else if (mid - 1 >= 0 && A[mid - 1] <= target && target < A[mid]) {
-                return (target - A[mid - 1]) < (A[mid] - target) ? (mid - 1) : mid; 
+                return (target - A[mid - 1]) < (A[mid] - target) ? (mid - 1) : mid;
             } else if (mid + 1 < A.length && A[mid] < target && target <= A[mid + 1]) {
                 return (target - A[mid]) < (A[mid + 1] - target) ? mid : mid + 1;
             } else if (A[mid] < target) {

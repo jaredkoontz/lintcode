@@ -12,14 +12,14 @@ public class Solution {
         if (aLen == 0) {
             return bLen == 0;
         }
-        
+
         int[] count = new int[26];
-        
+
         for (int i = 0; i < aLen; i++) {
             char c = A.charAt(i);
             count[c - 'A'] += 1;
         }
-        
+
         for (int i = 0; i < bLen; i++) {
             char c = B.charAt(i);
             count[c - 'A'] -= 1;
@@ -27,7 +27,7 @@ public class Solution {
                 return false;
             }
         }
-        
+
         return true;
     }
 }

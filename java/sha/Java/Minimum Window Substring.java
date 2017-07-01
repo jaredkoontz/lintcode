@@ -1,16 +1,16 @@
 H
 
-LeetCode Hard    
-LintCode M, 测试有问题，即使做错也能过.
+        LeetCode Hard
+        LintCode M,测试有问题，即使做错也能过.
 
-基本思想: 用个map存target的<char, int frequency>。 然后在搜索s的时候，遇到Match， frequency--.    
-一旦map里面的frequency都被减为0, 就说明找到candidate.
+        基本思想:用个map存target的<char,int frequency>。 然后在搜索s的时候，遇到Match， frequency--.
+        一旦map里面的frequency都被减为0,就说明找到candidate.
 
-有好几个trick：考虑start，前指针怎么移动；考虑start在candidate首字母没有多余前，不能移动；考虑candidate出现的情况...
+        有好几个trick：考虑start，前指针怎么移动；考虑start在candidate首字母没有多余前，不能移动；考虑candidate出现的情况...
 
-复习时，回去看别人网站和自己的thoughts
+        复习时，回去看别人网站和自己的thoughts
 
-```
+        ```
 /*
 Given a string source and a string target, find the minimum window in source 
 which will contain all the characters in target.
@@ -71,7 +71,7 @@ public class Solution {
             }
             map.put(c, map.get(c) + 1);
         }
-        
+
         int count = 0;
         int start = 0;
         int end = 0;
@@ -87,7 +87,7 @@ public class Solution {
                     count++;
                 }
             }
-            
+
             while (start < lengS) {
                 char cs = s.charAt(start);
                 if (map.containsKey(cs)) {
@@ -101,17 +101,16 @@ public class Solution {
                 //skip non-t chars
                 start++;
             }
-            
+
             if (count == map.size() && (end - start + 1) < leng) {
                 rst = s.substring(start, end + 1);
                 leng = rst.length();
             }
         }//end for
-        
+
         return rst;
     }
 }
-
 
 
 /*
@@ -130,7 +129,7 @@ public class Solution {
         if (s == null || s.length() == 0 || t == null || t.length() == 0) {
             return "";
         }
-        
+
         HashMap<Character, Integer> hashT = new HashMap<Character, Integer>();
         HashMap<Character, Integer> hashS = new HashMap<Character, Integer>();
         //init hashT
@@ -141,7 +140,7 @@ public class Solution {
             }
             hashT.put(c, hashT.get(c) + 1);
         }
-        
+
         //Check against S
         int count = 0;
         for (int i = 0; i < s.length(); i++) {
@@ -153,11 +152,11 @@ public class Solution {
                 hashS.put(c, 0);
             }
             hashS.put(c, hashS.get(c) + 1);
-            
+
             if (hashS.get(c) <= hashT.get(c)) {
                 count++;
             }
-            
+
             //Found string
             if (count == t.length()) {
                 return findStr(i, s, hashT, hashS);
@@ -165,9 +164,9 @@ public class Solution {
         }
         return "";
     }
-    
-    public String findStr(int end, String s, 
-            HashMap<Character, Integer> hashT, HashMap<Character, Integer> hashS) {
+
+    public String findStr(int end, String s,
+                          HashMap<Character, Integer> hashT, HashMap<Character, Integer> hashS) {
         int start = 0;
         while (start < s.length()) {
             char c = s.charAt(start);
@@ -182,7 +181,7 @@ public class Solution {
             }
             break;
         }//end while
-        
+
         return s.substring(start, end + 1);
     }
 }
@@ -211,70 +210,70 @@ import java.util.*;
 
 public class Solution {
 
-    public String minWindow(String source, String target) {
-    	if (source == null || source.length() == 0) {
-    		return source;
-    	}
-    	if (target == null || target.length() == 0) {
-    		return "";
-    	}
-    	//Count Characters in target
-    	HashMap<Character, Integer> tCounter = new HashMap<Character, Integer>();
-    	for (int i = 0; i < target.length(); i++) {
-    		Character c = target.charAt(i);
-    		if (!tCounter.containsKey(c)) {
-    			tCounter.put(c, 1);
-    		} else {
-    			tCounter.put(c, tCounter.get(c) + 1);
-    		}
-    	}
-
-		HashMap<Character, Integer> minWindowCounter = new HashMap<Character, Integer>();
-		int count = 0;
-		String rst = "";
-		for (int i = 0; i < source.length(); i++) {
-			Character c = source.charAt(i);
-			if (!tCounter.containsKey(c)) {
-				continue;
-			}
-
-			if (minWindowCounter.containsKey(c)) {
-				minWindowCounter.put(c, minWindowCounter.get(c) + 1);
-			} else {
-				minWindowCounter.put(c, 1);
-			}
-					
-			if (minWindowCounter.get(c) <= tCounter.get(c)) {
-				count++;
-			}
-
-			//Once the target exists in soruce: count  = target.length(), find the result
-			if (count == target.length()) {
-				int leftBound = 0;
-				while (leftBound < source.length()) {
-					Character cs = source.charAt(leftBound);
-					if (!minWindowCounter.containsKey(cs)) {//Not part of window
-						leftBound++;
-						continue;
-					}
-					if (minWindowCounter.get(cs) > tCounter.get(cs)) {//Can find shorter window
-						minWindowCounter.put(cs, minWindowCounter.get(cs) - 1);
-						leftBound++;
-						continue;
-					}
-					break;
-				}
-				rst = source.substring(leftBound, i + 1);
-				return rst;
-			}
-		}
-		return rst;
+    public static void main(String[] args) {
+        Solution test = new Solution();
+        String rst = test.minWindow("abcd", "ac");
+        System.out.println("resutl is : " + rst);
     }
 
-    public static void main(String[] args) {
-    	Solution test = new Solution();
-    	String rst = test.minWindow("abcd", "ac");
-    	System.out.println("resutl is : " + rst);
+    public String minWindow(String source, String target) {
+        if (source == null || source.length() == 0) {
+            return source;
+        }
+        if (target == null || target.length() == 0) {
+            return "";
+        }
+        //Count Characters in target
+        HashMap<Character, Integer> tCounter = new HashMap<Character, Integer>();
+        for (int i = 0; i < target.length(); i++) {
+            Character c = target.charAt(i);
+            if (!tCounter.containsKey(c)) {
+                tCounter.put(c, 1);
+            } else {
+                tCounter.put(c, tCounter.get(c) + 1);
+            }
+        }
+
+        HashMap<Character, Integer> minWindowCounter = new HashMap<Character, Integer>();
+        int count = 0;
+        String rst = "";
+        for (int i = 0; i < source.length(); i++) {
+            Character c = source.charAt(i);
+            if (!tCounter.containsKey(c)) {
+                continue;
+            }
+
+            if (minWindowCounter.containsKey(c)) {
+                minWindowCounter.put(c, minWindowCounter.get(c) + 1);
+            } else {
+                minWindowCounter.put(c, 1);
+            }
+
+            if (minWindowCounter.get(c) <= tCounter.get(c)) {
+                count++;
+            }
+
+            //Once the target exists in soruce: count  = target.length(), find the result
+            if (count == target.length()) {
+                int leftBound = 0;
+                while (leftBound < source.length()) {
+                    Character cs = source.charAt(leftBound);
+                    if (!minWindowCounter.containsKey(cs)) {//Not part of window
+                        leftBound++;
+                        continue;
+                    }
+                    if (minWindowCounter.get(cs) > tCounter.get(cs)) {//Can find shorter window
+                        minWindowCounter.put(cs, minWindowCounter.get(cs) - 1);
+                        leftBound++;
+                        continue;
+                    }
+                    break;
+                }
+                rst = source.substring(leftBound, i + 1);
+                return rst;
+            }
+        }
+        return rst;
     }
 }
 

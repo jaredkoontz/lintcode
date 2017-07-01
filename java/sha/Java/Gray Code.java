@@ -1,14 +1,14 @@
 M
 
-题目蛋疼，目前只接受一种结果。
+        题目蛋疼，目前只接受一种结果。
 
-BackTracking + DFS:   
-   Recursive helper里每次flip一个 自己/左边/右边. Flip过后还要恢复原样.遍历所有.
+        BackTracking+DFS:
+        Recursive helper里每次flip一个 自己/左边/右边.Flip过后还要恢复原样.遍历所有.
 
-曾用法（未仔细验证）：   
-基本想法就是从一个点开始往一个方向走，每次flip一个bit, 碰壁的时候就回头走。
+        曾用法（未仔细验证）：
+        基本想法就是从一个点开始往一个方向走，每次flip一个bit,碰壁的时候就回头走。
 
-```
+        ```
 /*
 
 The gray code is a binary numeral system where two successive values differ in only one bit.
@@ -53,14 +53,14 @@ public class Solution {
             list[i] = '0';
         }
         helper(rst, list, n - 1);
-        
+
         return rst;
     }
-    
+
     public void helper(List<Integer> rst, char[] list, int index) {
-        
-        rst.add(Integer.parseInt(new String(list), 2));                
-        
+
+        rst.add(Integer.parseInt(new String(list), 2));
+
         //self
         list[index] = list[index] == '0' ? '1' : '0';
         int num = Integer.parseInt(new String(list), 2);
@@ -68,24 +68,24 @@ public class Solution {
             helper(rst, list, index);
         }
         list[index] = list[index] == '0' ? '1' : '0';
-        
+
         //left
-        if (index -1 >= 0) {
-             list[index - 1] = list[index - 1] == '0' ? '1' : '0';
-             num = Integer.parseInt(new String(list), 2);
-             if (!rst.contains(num)) {
-                 helper(rst, list, index - 1);
-             }
+        if (index - 1 >= 0) {
+            list[index - 1] = list[index - 1] == '0' ? '1' : '0';
+            num = Integer.parseInt(new String(list), 2);
+            if (!rst.contains(num)) {
+                helper(rst, list, index - 1);
+            }
             list[index - 1] = list[index - 1] == '0' ? '1' : '0';
         }
-        
+
         //right
         if (index + 1 < list.length) {
-             list[index + 1] = list[index + 1] == '0' ? '1' : '0';
-             num = Integer.parseInt(new String(list), 2);
-             if (!rst.contains(num)) {
-                 helper(rst, list, index + 1);
-             }
+            list[index + 1] = list[index + 1] == '0' ? '1' : '0';
+            num = Integer.parseInt(new String(list), 2);
+            if (!rst.contains(num)) {
+                helper(rst, list, index + 1);
+            }
             list[index + 1] = list[index + 1] == '0' ? '1' : '0';
         }
     }
@@ -139,11 +139,11 @@ public class Solution {
     public List<Integer> grayCode(int n) {
         List<Integer> rst = new ArrayList<Integer>();
         if (n < 0) {
-        	return rst;
+            return rst;
         }
         char[] bits = new char[n];
         for (int i = 0; i < bits.length; i++) {
-        	bits[i] = '0';
+            bits[i] = '0';
         }
         String str = new String(bits);
         if (n == 0) {
@@ -152,19 +152,19 @@ public class Solution {
         rst.add(Integer.parseInt(str, 2));
         int step = n - 1;
         boolean LR = true;//L: true; R: false
-        int steps = (int)Math.pow(2, n) - 1;
+        int steps = (int) Math.pow(2, n) - 1;
         for (int i = 0; i < steps; i++) {
-        	bits[step] = bits[step] == '0' ? '1' : '0';
-        	str = new String(bits);
-        	rst.add(Integer.parseInt(str, 2));
-        	if (LR) {
-        		step--;
-        	} else {
-        		step++;
-        	}
-        	if (step == (n - 1) || step == 0) {//Turn around
-        		LR = !LR;
-        	}
+            bits[step] = bits[step] == '0' ? '1' : '0';
+            str = new String(bits);
+            rst.add(Integer.parseInt(str, 2));
+            if (LR) {
+                step--;
+            } else {
+                step++;
+            }
+            if (step == (n - 1) || step == 0) {//Turn around
+                LR = !LR;
+            }
         }
 
         return rst;

@@ -1,16 +1,15 @@
 扫描线+Count无敌手。注意start end把interval给合起来。
-count==0的时候，就是每次start end双数抵消的时候，就应该是一个interval的开头/结尾。写个例子就知道了。
+        count==0的时候，就是每次start end双数抵消的时候，就应该是一个interval的开头/结尾。写个例子就知道了。
 
-空间：O(2n) -> O(n)
-时间,priorityqueue: O(nlogn)
+        空间：O(2n)->O(n)
+        时间,priorityqueue:O(nlogn)
 
-记得怎么写comparator
+        记得怎么写comparator
 
 
-
-或者O(n)
-Collections.sort() on interval.start之后，试着跑一遍，按照merge的需求，把需要merge的地方续好，然后减掉多余的interval就好。
-Basic implementation
+        或者O(n)
+        Collections.sort()on interval.start之后，试着跑一遍，按照merge的需求，把需要merge的地方续好，然后减掉多余的interval就好。
+        Basic implementation
 /*
     new Comparator<Object>(){
         public int compare(obj1, obj2) {
@@ -20,7 +19,7 @@ Basic implementation
     }
 */
 
-```
+        ```
 /*
 Given a collection of intervals, merge all overlapping intervals.
 
@@ -54,7 +53,7 @@ class Solution {
             return intervals;
         }
 
-        Collections.sort(intervals, new Comparator<Interval>(){
+        Collections.sort(intervals, new Comparator<Interval>() {
             public int compare(Interval a, Interval b) {
                 return a.start - b.start;
             }
@@ -63,7 +62,7 @@ class Solution {
         Interval curr;
 
         for (int i = 1; i < intervals.size(); i++) {
-            curr  = intervals.get(i);
+            curr = intervals.get(i);
             if (prev.end >= curr.start) {
                 if (prev.end <= curr.end) {
                     prev.end = curr.end;
@@ -71,7 +70,7 @@ class Solution {
                 intervals.remove(i);
                 i--;
             } else {
-                prev = curr;         
+                prev = curr;
             }
         }
 
@@ -92,57 +91,58 @@ HOWEVER, this uses O(n) space, while this problem requests O(1) space
 /**
  * Definition for an interval.
  * public class Interval {
- *     int start;
- *     int end;
- *     Interval() { start = 0; end = 0; }
- *     Interval(int s, int e) { start = s; end = e; }
+ * int start;
+ * int end;
+ * Interval() { start = 0; end = 0; }
+ * Interval(int s, int e) { start = s; end = e; }
  * }
  */
 public class Solution {
-	class Point {
-		int pos;
-		int flag;
-		public Point(int pos, int flag) {
-			this.pos = pos;
-			this.flag = flag;
-		}
-	}
-
     public List<Interval> merge(List<Interval> intervals) {
-    	List<Interval> rst = new ArrayList<Interval>();
+        List<Interval> rst = new ArrayList<Interval>();
         if (intervals == null || intervals.size() == 0) {
-        	return rst;
+            return rst;
         }
         PriorityQueue<Point> queue = new PriorityQueue<Point>(
-        	new Comparator<Point>(){
-        		public int compare(Point a, Point b){
-        			return (a.pos - b.pos);
-        		}
-        	}
+                new Comparator<Point>() {
+                    public int compare(Point a, Point b) {
+                        return (a.pos - b.pos);
+                    }
+                }
         );
         for (Interval range : intervals) {
-        	queue.add(new Point(range.start, 1));
-        	queue.add(new Point(range.end, -1));
+            queue.add(new Point(range.start, 1));
+            queue.add(new Point(range.end, -1));
         }
         int count = 0;
         int start = 0;
         int end = 0;
         while (!queue.isEmpty()) {
-        	Point p = queue.poll();
-        	if (count == 0) {
-        		start = p.pos;
-        	}
-        	count += p.flag;
-        	while(!queue.isEmpty() && p.pos == queue.peek().pos) {
-        		p = queue.poll();
-        		count += p.flag;
-        	}
-        	if (count == 0) {
-        		end = p.pos;
-        		rst.add(new Interval(start, end));
-        	}
+            Point p = queue.poll();
+            if (count == 0) {
+                start = p.pos;
+            }
+            count += p.flag;
+            while (!queue.isEmpty() && p.pos == queue.peek().pos) {
+                p = queue.poll();
+                count += p.flag;
+            }
+            if (count == 0) {
+                end = p.pos;
+                rst.add(new Interval(start, end));
+            }
         }
         return rst;
+    }
+
+    class Point {
+        int pos;
+        int flag;
+
+        public Point(int pos, int flag) {
+            this.pos = pos;
+            this.flag = flag;
+        }
     }
 }
 

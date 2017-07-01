@@ -1,18 +1,18 @@
 H
 
-非perfect tree, 也就是有random的null children. DFS＋BFS
+        非perfect tree,也就是有random的null children.DFS＋BFS
 
 
-Populating Next Right Pointers in Each Node I 里面依赖parent.next.left来作链接，但现在这个parent.next.left很可能也是Null.
+        Populating Next Right Pointers in Each Node I 里面依赖parent.next.left来作链接，但现在这个parent.next.left很可能也是Null.
 
-1. 于是需要移动parent去找children level的next node。    
-2. 并且每次在一个level, 要用BFS的思想把所有parent 过一遍，也就是把parent 正下方的children全部用.next链接起来    
-    原因: 到下一层children变成parent, 他们需要彼此之间的connection, grand children才可以相互连接。
+        1.于是需要移动parent去找children level的next node。
+        2.并且每次在一个level,要用BFS的思想把所有parent 过一遍，也就是把parent 正下方的children全部用.next链接起来
+        原因:到下一层children变成parent,他们需要彼此之间的connection,grand children才可以相互连接。
 
 
-Note: runtime O(n * 2^log(n) ) = O(n^2), not good.
+        Note:runtime O(n*2^log(n))=O(n^2),not good.
 
-```
+        ```
 /*
 Follow up for problem "Populating Next Right Pointers in Each Node".
 
@@ -43,9 +43,9 @@ Hide Similar Problems (M) Populating Next Right Pointers in Each Node
 /**
  * Definition for binary tree with next pointer.
  * public class TreeLinkNode {
- *     int val;
- *     TreeLinkNode left, right, next;
- *     TreeLinkNode(int x) { val = x; }
+ * int val;
+ * TreeLinkNode left, right, next;
+ * TreeLinkNode(int x) { val = x; }
  * }
  */
  
@@ -53,13 +53,14 @@ Hide Similar Problems (M) Populating Next Right Pointers in Each Node
  DFS to traverse the tree.
  Also BFS using next pointer. clear node's children level per visit
  */
- public class Solution {
+public class Solution {
     public void connect(TreeLinkNode root) {
         if (root == null || (root.left == null && root.right == null)) {
             return;
         }
         dfs(root);
     }
+
     //Clear connection problems on each level: because the lower children level will relay on parent's level connection.
     public void dfs(TreeLinkNode node) {
         if (node == null) {
@@ -83,7 +84,7 @@ Hide Similar Problems (M) Populating Next Right Pointers in Each Node
         dfs(node.left);
         dfs(node.right);
     }
-    
+
     //Always take parentNode, and try to return the very first available node at child level
     public TreeLinkNode addRight(TreeLinkNode node) {
         while (node != null) {

@@ -1,6 +1,6 @@
 递归。
-看thought.取或者不取(,  )
-```
+        看thought.取或者不取(,)
+        ```
 /*
 Generate Parentheses
 
@@ -18,7 +18,7 @@ String Backtracking Recursion Zenefits Google
 */
 
 /*
-	Thoughts: 
+    Thoughts:
 	//http://fisherlei.blogspot.com/2012/12/leetcode-generate-parentheses.html
 	Either put ( or )
 	can only put ( when # of ( < n
@@ -34,40 +34,41 @@ public class Solution {
      * @return All combinations of well-formed parentheses
      */
     ArrayList<String> rst = new ArrayList<String>();
+
     public ArrayList<String> generateParenthesis(int n) {
-    	if (n <= 0) {
-    		return rst;
-    	} 
-    	ArrayList<String> list = new ArrayList<String>();
-    	helper(list, 0, 0, n);
-    	return rst;
+        if (n <= 0) {
+            return rst;
+        }
+        ArrayList<String> list = new ArrayList<String>();
+        helper(list, 0, 0, n);
+        return rst;
     }
 
     public void helper(ArrayList<String> list, int left, int right, int n) {
-    	if (left == n && right == n) {
-    		StringBuffer sb = new StringBuffer();
-    		for (String s : list) {
-    			sb.append(s);
-    		}
-    		rst.add(sb.toString());
-    		return;
-    	}
-    	if (left < n) {
-    		list.add("(");
-    		helper(list, left + 1, right, n);
-    		list.remove(list.size() - 1);
-    	}
-    	if (right < left) {
-    		list.add(")");
-    		helper(list, left, right + 1, n);
-    		list.remove(list.size() - 1);
-    	}
+        if (left == n && right == n) {
+            StringBuffer sb = new StringBuffer();
+            for (String s : list) {
+                sb.append(s);
+            }
+            rst.add(sb.toString());
+            return;
+        }
+        if (left < n) {
+            list.add("(");
+            helper(list, left + 1, right, n);
+            list.remove(list.size() - 1);
+        }
+        if (right < left) {
+            list.add(")");
+            helper(list, left, right + 1, n);
+            list.remove(list.size() - 1);
+        }
     }
 }
 
 
 /*
-	//
+    //
 	1st attempt, timeout. 
 	Thoughts:
 	n = 0, null
@@ -90,42 +91,44 @@ public class Solution {
      * @return All combinations of well-formed parentheses
      */
     public ArrayList<String> rst = new ArrayList<String>();
+
     public ArrayList<String> generateParenthesis(int n) {
-    	if (n <= 0) {
-    		return rst;
-    	} else if (n == 1){
-    		rst.add("()");
-    		return rst;
-    	}
-    	helper("", "", n);
-    	Collections.sort(rst);
-    	return rst;
+        if (n <= 0) {
+            return rst;
+        } else if (n == 1) {
+            rst.add("()");
+            return rst;
+        }
+        helper("", "", n);
+        Collections.sort(rst);
+        return rst;
     }
-	//3
+
+    //3
     public void helper(String front, String end, int n) {
-    	if (n == 1) {
-    		String rt = front + "()" + end;
-    		if (!rst.contains(rt)){
-    			rst.add(rt);
-    		}
-    		return;
-    	}
-    	n--;
-    	
+        if (n == 1) {
+            String rt = front + "()" + end;
+            if (!rst.contains(rt)) {
+                rst.add(rt);
+            }
+            return;
+        }
+        n--;
+
         helper(front + "(", ")" + end, n);
-    	helper(front + "()", end, n);
-    	helper(front, "()" + end, n);
+        helper(front + "()", end, n);
+        helper(front, "()" + end, n);
         helper(front + end + "(", ")", n);
         helper(front + end, "()", n);
         helper(front + end + "()", "", n);
         helper("(", ")" + front + end, n);
         helper("()", front + end, n);
-        helper("","()" + front + end, n);
-        helper("(",front+end+")",n);
-        helper("(" + front+end,")",n);
-        helper("(" + front, end + ")",n);
-        helper("("+front+end+")", "", n);
-        helper("", "("+front+end+")", n);
+        helper("", "()" + front + end, n);
+        helper("(", front + end + ")", n);
+        helper("(" + front + end, ")", n);
+        helper("(" + front, end + ")", n);
+        helper("(" + front + end + ")", "", n);
+        helper("", "(" + front + end + ")", n);
 
     }
 

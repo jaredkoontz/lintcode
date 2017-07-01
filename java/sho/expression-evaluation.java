@@ -46,7 +46,7 @@ public class Solution {
                 operators.push(exp[i]);
             } else {
                 int val = 0;
-                if (exp[i].equals("(")){
+                if (exp[i].equals("(")) {
                     int[] tmp = {i + 1};
                     val = helper(exp, tmp, vals);
                     i = tmp[0];
@@ -67,11 +67,11 @@ public class Solution {
                     }
                     vals.push(val);
                 }
-            }  
+            }
         }
 
         // sum all remaining values
-        while(!operators.isEmpty()) {
+        while (!operators.isEmpty()) {
             int right = vals.pop();
             int left = vals.pop();
             operators.pop();
@@ -81,7 +81,7 @@ public class Solution {
 
         index[0] = i;
 
-        return vals.isEmpty()? 0 : vals.pop();
+        return vals.isEmpty() ? 0 : vals.pop();
     }
 
     public boolean isOp(String s) {

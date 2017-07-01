@@ -1,11 +1,11 @@
 M
 
 
-方法1:PriorityQueue + 一个Class来解决。Ｏ(nlogn)
+        方法1:PriorityQueue+一个Class来解决。Ｏ(nlogn)
 
-方法2:这里有尝试了一下用一个sorted Array + HashMap： 也还行，但是handle edge的时候,HashMap 要小心，因为相同时间start和end的map key 就会重复了。
+        方法2:这里有尝试了一下用一个sorted Array+HashMap： 也还行，但是handle edge的时候,HashMap 要小心，因为相同时间start和end的map key 就会重复了。
 
-```
+        ```
 /*
 Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei), 
 find the minimum number of conference rooms required.
@@ -19,29 +19,20 @@ Similar Problems: (H) Merge Intervals, (E) Meeting Rooms
 */
 
 
-
-
 // Similar to Meeting Room I, using Point class and Priorityqueue
 // Creating a customized class, but makes the problem a bit easier to think.
 public class Solution {
-    class Point {
-        int pos, flag;
-        public Point(int pos, int flag) {
-            this.pos = pos;
-            this.flag = flag;
-        }
-    }
     public int minMeetingRooms(Interval[] intervals) {
         if (intervals == null || intervals.length == 0) {
             return 0;
         }
-        
+
         PriorityQueue<Point> queue = new PriorityQueue<Point>(2, new Comparator<Point>() {
             public int compare(Point p1, Point p2) {
                 return p1.pos - p2.pos;
             }
         });
-        
+
         for (int i = 0; i < intervals.length; i++) {
             queue.offer(new Point(intervals[i].start, 1));
             queue.offer(new Point(intervals[i].end, -1));
@@ -57,8 +48,17 @@ public class Solution {
             }
             rst = Math.max(count, rst);
         }
-        
+
         return rst;
+    }
+
+    class Point {
+        int pos, flag;
+
+        public Point(int pos, int flag) {
+            this.pos = pos;
+            this.flag = flag;
+        }
     }
 }
 
@@ -79,10 +79,10 @@ duplicated time spot to prevent incorrectly re-use of certain time spot.
 /**
  * Definition for an interval.
  * public class Interval {
- *     int start;
- *     int end;
- *     Interval() { start = 0; end = 0; }
- *     Interval(int s, int e) { start = s; end = e; }
+ * int start;
+ * int end;
+ * Interval() { start = 0; end = 0; }
+ * Interval(int s, int e) { start = s; end = e; }
  * }
  */
 public class Solution {

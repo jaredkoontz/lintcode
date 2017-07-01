@@ -23,7 +23,7 @@ Hide Similar Problems (M) Course Schedule
 */
 
 /*
-	Thoughts:
+    Thoughts:
 		The edge here has no directin.
 		The goal is to check if the graphc is connected && if there is cycle.
 	Do union-find.
@@ -38,44 +38,45 @@ Hide Similar Problems (M) Course Schedule
 
 public class Solution {
     int[] parents;
+
     public boolean validTree(int n, int[][] edges) {
         //edges can be [], when n == 1, it'll be true.
-    	if (edges.length != n - 1) {
-    		return false;
-    	}
-    	parents = new int[n];
-    	//Init
-    	for (int i = 0; i < parents.length; i++) {
-    		parents[i] = i;
-    	}
-    	//Use union-find to detect if pair has common parents, and merge then to 1 set
-    	for (int i = 0; i < edges.length; i++){
-    		if (find(edges[i][0]) == find(edges[i][1])) {
-    			return false;
-    		}
-    		union(edges[i][0], edges[i][1]);
-    	}
+        if (edges.length != n - 1) {
+            return false;
+        }
+        parents = new int[n];
+        //Init
+        for (int i = 0; i < parents.length; i++) {
+            parents[i] = i;
+        }
+        //Use union-find to detect if pair has common parents, and merge then to 1 set
+        for (int i = 0; i < edges.length; i++) {
+            if (find(edges[i][0]) == find(edges[i][1])) {
+                return false;
+            }
+            union(edges[i][0], edges[i][1]);
+        }
 
-    	return true;
+        return true;
     }
 
     /*
-		Not only find parent, also update the spot parents[node] with parent node, recursively.
+        Not only find parent, also update the spot parents[node] with parent node, recursively.
     */
     public int find(int node) {
-    	if (parents[node] == node) {
-    		return node;
-    	}
-    	parents[node] = find(parents[node]);
-    	return parents[node];
+        if (parents[node] == node) {
+            return node;
+        }
+        parents[node] = find(parents[node]);
+        return parents[node];
     }
 
     public void union(int x, int y) {
-    	int findX = parents[x];
-    	int findY = parents[y];
-    	if (findX != findY) {
-    		parents[findX] = findY;
-    	}
+        int findX = parents[x];
+        int findY = parents[y];
+        if (findX != findY) {
+            parents[findX] = findY;
+        }
     }
 }
 

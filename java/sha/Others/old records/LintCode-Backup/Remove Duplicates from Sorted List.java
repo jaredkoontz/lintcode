@@ -1,5 +1,5 @@
 一旦node.next 和node是重复，跳
-```
+        ```
 /*
 40% 通过
 Given a sorted linked list, delete all duplicates such that each element appear only once.
@@ -22,12 +22,12 @@ If so, head.next = head.next.next
 /**
  * Definition for ListNode
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
+ * int val;
+ * ListNode next;
+ * ListNode(int x) {
+ * val = x;
+ * next = null;
+ * }
  * }
  */
 public class Solution {
@@ -35,7 +35,7 @@ public class Solution {
      * @param ListNode head is the head of the linked list
      * @return: ListNode head of linked list
      */
-    public static ListNode deleteDuplicates(ListNode head) { 
+    public static ListNode deleteDuplicates(ListNode head) {
         if (head == null) {
             return head;
         }
@@ -48,7 +48,7 @@ public class Solution {
             }
         }
         return head;
-    }  
+    }
 }
 
 

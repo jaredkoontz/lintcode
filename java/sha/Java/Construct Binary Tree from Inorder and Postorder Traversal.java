@@ -1,15 +1,15 @@
 M
 
-写个Inorder和Postorder的例子。利用他们分left/right subtree的规律解题。
+        写个Inorder和Postorder的例子。利用他们分left/right subtree的规律解题。
 
-Postorder array 的末尾， 就是当下层的root.   
-在Inorder array 里面找到这个root,就刚好把左右两边分割成left/right tree。
+        Postorder array 的末尾， 就是当下层的root.
+        在Inorder array 里面找到这个root,就刚好把左右两边分割成left/right tree。
 
-这题比较tricky地用了一个helper做recursive。 特别要注意处理index的变化, precisely考虑开头结尾
+        这题比较tricky地用了一个helper做recursive。 特别要注意处理index的变化,precisely考虑开头结尾
 
-可惜有个不可避免的O(n) find element in array.
+        可惜有个不可避免的O(n)find element in array.
 
-```
+        ```
 /*
 Given inorder and postorder traversal of a tree, construct the binary tree.
 
@@ -49,40 +49,40 @@ Trick part:
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
- 
- 
+
+
 public class Solution {
 
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         if (inorder.length != postorder.length) {
             return null;
         }
-        return buildTreeHelper(inorder, 0, inorder.length - 1, 
-                                postorder, 0, postorder.length - 1);
+        return buildTreeHelper(inorder, 0, inorder.length - 1,
+                postorder, 0, postorder.length - 1);
     }
-    
-    public TreeNode buildTreeHelper(int[] inorder, int inStart, int inEnd, 
-                            int[] postorder, int postStart, int postEnd){
+
+    public TreeNode buildTreeHelper(int[] inorder, int inStart, int inEnd,
+                                    int[] postorder, int postStart, int postEnd) {
         if (inStart > inEnd) {
             return null;
         }
         TreeNode root = new TreeNode(postorder[postEnd]);
         int mid = findMid(inorder, inStart, inEnd, postorder[postEnd]);
-        root.left = buildTreeHelper(inorder, inStart, mid - 1, 
-                    postorder, postStart, postStart + (mid - inStart) - 1);
+        root.left = buildTreeHelper(inorder, inStart, mid - 1,
+                postorder, postStart, postStart + (mid - inStart) - 1);
         root.right = buildTreeHelper(inorder, mid + 1, inEnd,
-                    postorder, postStart + (mid - inStart), postEnd - 1);
+                postorder, postStart + (mid - inStart), postEnd - 1);
         return root;
     }
-    
+
     public int findMid(int[] arr, int start, int end, int key) {
         for (int i = start; i <= end; i++) {
             if (arr[i] == key) {

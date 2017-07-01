@@ -1,12 +1,12 @@
 M
 
-3Sum 的一种简单形式, 并且都没有找index, value, 而只是找个sum罢了.
+        3Sum 的一种简单形式,并且都没有找index,value,而只是找个sum罢了.
 
-double for loop。 2Sum只能用土办法 left/right 2 pointers。 O(n^2)
+        double for loop。 2Sum只能用土办法 left/right 2pointers。 O(n^2)
 
-注意：check closest时候用long, 以免int不够用
+        注意：check closest时候用long,以免int不够用
 
-```
+        ```
 /*
 Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. 
 Note
@@ -46,8 +46,8 @@ public class Solution {
                 } else {
                     right--;
                 }
-                closest = Math.abs(sum - target) < Math.abs(closest - target) 
-                            ? (long) sum : closest;
+                closest = Math.abs(sum - target) < Math.abs(closest - target)
+                        ? (long) sum : closest;
             }//while
         }//for
         return (int) closest;

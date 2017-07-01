@@ -1,10 +1,10 @@
 M
 
-Combination DFS。 画个图想想. 每次从1~n里面pick一个数字i
+        Combination DFS。 画个图想想.每次从1~n里面pick一个数字i
 
-因为下一层不能重新回去 [0~i]选，所以下一层recursive要从i+1开始选。
+        因为下一层不能重新回去[0~i]选，所以下一层recursive要从i+1开始选。
 
-```
+        ```
 /*
 Given two integers n and k, return all possible combinations of k numbers out of 1 ... n.
 
@@ -30,12 +30,13 @@ public class Solution {
         helper(rst, solution, n, k, 1);// Start == 1 because we want 1 ~ n in this problem
         return rst;
     }
-    public void helper(List<List<Integer>> rst, 
-                List<Integer> solution, int n, int k, int start) {
+
+    public void helper(List<List<Integer>> rst,
+                       List<Integer> solution, int n, int k, int start) {
         if (solution.size() == k) {
             rst.add(new ArrayList(solution));
             return;
-        }        
+        }
         for (int i = start; i <= n; i++) {// <=n because we want 1 ~ n in this problem
             solution.add(i);
             helper(rst, solution, n, k, i + 1);

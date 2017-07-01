@@ -1,9 +1,9 @@
 E
 
-建立新list。每次把newList append 在current node的后面。   
-用head来循环所有node。
+        建立新list。每次把newList append 在current node的后面。
+        用head来循环所有node。
 
-```
+        ```
 /*
 Reverse a linked list.
 

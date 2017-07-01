@@ -1,8 +1,8 @@
 在segment tree里面找index.
-找到就update it with value.
-每次下一层以后，很可能（要么左手，要么右手）max就变了。所以每次都left.max and right.max compare一下。
-最后轮回到头顶，头顶一下包括头顶，就全部都是max了。
-```
+        找到就update it with value.
+        每次下一层以后，很可能（要么左手，要么右手）max就变了。所以每次都left.max and right.max compare一下。
+        最后轮回到头顶，头顶一下包括头顶，就全部都是max了。
+        ```
 /*
 For a Maximum Segment Tree, which each node has an extra value max to store the maximum value in this node's interval.
 
@@ -52,36 +52,36 @@ LintCode Copyright Binary Tree Segment Tree
 /**
  * Definition of SegmentTreeNode:
  * public class SegmentTreeNode {
- *     public int start, end, max;
- *     public SegmentTreeNode left, right;
- *     public SegmentTreeNode(int start, int end, int max) {
- *         this.start = start;
- *         this.end = end;
- *         this.max = max
- *         this.left = this.right = null;
- *     }
+ * public int start, end, max;
+ * public SegmentTreeNode left, right;
+ * public SegmentTreeNode(int start, int end, int max) {
+ * this.start = start;
+ * this.end = end;
+ * this.max = max
+ * this.left = this.right = null;
+ * }
  * }
  */
 public class Solution {
     /**
-     *@param root, index, value: The root of segment tree and 
-     *@ change the node's value with [index, index] to the new given value
-     *@return: void
+     * @param root, index, value: The root of segment tree and
+     * @ change the node's value with [index, index] to the new given value
+     * @return: void
      */
     public void modify(SegmentTreeNode root, int index, int value) {
-      if (root.start == root.end && root.start == index) {
-        root.max = value;
-        return;
-      }
+        if (root.start == root.end && root.start == index) {
+            root.max = value;
+            return;
+        }
 
-      //Divide and seawrch
-      int mid = (root.start + root.end)/2;
-      if (index <= mid) {
-        modify(root.left, index, value);
-      } else {
-        modify(root.right, index, value);
-      }
-      root.max = Math.max(root.left.max, root.right.max);
+        //Divide and seawrch
+        int mid = (root.start + root.end) / 2;
+        if (index <= mid) {
+            modify(root.left, index, value);
+        } else {
+            modify(root.right, index, value);
+        }
+        root.max = Math.max(root.left.max, root.right.max);
     }
 }
 

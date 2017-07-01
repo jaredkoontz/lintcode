@@ -1,17 +1,17 @@
 E
 
-方法1：O(n) space O(h) time。把两条线binary search出来。找第一个不同的parent. 代码长。 Iterative
+        方法1：O(n)space O(h)time。把两条线binary search出来。找第一个不同的parent.代码长。 Iterative
 
-方法2：O(1) sapce O(h). Recursive. 循环的截点是：   
-当root == null或者 A B 任何一个在findLCA底部被找到了(root== A || root == B)，那么就return 这个root.   
+        方法2：O(1)sapce O(h).Recursive.循环的截点是：
+        当root==null或者 A B 任何一个在findLCA底部被找到了(root==A||root==B)，那么就return 这个root.
 
-三种情况：   
-1. A,B都找到，那么这个level的node就是其中一层的parent。其实，最先recursively return到的那个，就是最底的LCA parent.   
-2. A 或者 B 找到，那就还没有公共parent,return 非null得那个。   
-3. A B 都null, 那就找错了没有呗, return null
+        三种情况：
+        1.A,B都找到，那么这个level的node就是其中一层的parent。其实，最先recursively return到的那个，就是最底的LCA parent.
+        2.A 或者 B 找到，那就还没有公共parent,return 非null得那个。
+        3.A B 都null,那就找错了没有呗,return null
 
 
-```
+        ```
 
 /*
 33% Accepted
@@ -67,23 +67,23 @@ Binary Tree LintCode Copyright
 public class Solution {
     /**
      * @param root: The root of the binary search tree.
-     * @param A and B: two nodes in a Binary.
+     * @param A     and B: two nodes in a Binary.
      * @return: Return the least common ancestor(LCA) of the two nodes.
      */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode A, TreeNode B) {
-      if (root == null || root == A || root == B) {
-        return root;
-      }
-      TreeNode left = lowestCommonAncestor(root.left, A, B);
-      TreeNode right = lowestCommonAncestor(root.right, A, B);
+        if (root == null || root == A || root == B) {
+            return root;
+        }
+        TreeNode left = lowestCommonAncestor(root.left, A, B);
+        TreeNode right = lowestCommonAncestor(root.right, A, B);
 
-      if (left != null && right != null) {//Found both A leaf and B leaf 
-        return root;
-      } else if (left != null || right != null) {
-        return left != null ? left : right;
-      } else {
-        return null;
-      }
+        if (left != null && right != null) {//Found both A leaf and B leaf
+            return root;
+        } else if (left != null || right != null) {
+            return left != null ? left : right;
+        } else {
+            return null;
+        }
     }
 }
 
@@ -113,21 +113,22 @@ At the bottom, if it’s node1 or node2, send back.
 When it returns to the top, return solution : ancestor
 
 */
+
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
 public class Solution {
     /**
      * @param root: The root of the binary search tree.
-     * @param A and B: two nodes in a Binary.
+     * @param A     and B: two nodes in a Binary.
      * @return: Return the least common ancestor(LCA) of the two nodes.
      */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode A, TreeNode B) {
@@ -136,7 +137,7 @@ public class Solution {
         }
         TreeNode left = lowestCommonAncestor(root.left, A, B);
         TreeNode right = lowestCommonAncestor(root.right, A, B);
-        
+
         if (left == null && right == null) {
             return null;
         } else if (left == null) {
@@ -152,8 +153,8 @@ public class Solution {
 
 //Extra storage, not a good method:
 
- //Find two lists of nodes
- //First non-common's previous one from two lists, or the end of one list, is the LCA
+//Find two lists of nodes
+//First non-common's previous one from two lists, or the end of one list, is the LCA
 public class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null || p == null || q == null) {
@@ -181,7 +182,7 @@ public class Solution {
             }
             list2.add(node);
         }
-        
+
         int size = list1.size() < list2.size() ? list1.size() : list2.size();
         node = root;
         for (int i = 0; i < size; i++) {
@@ -190,8 +191,8 @@ public class Solution {
             }
             node = list1.get(i);
         }
-        
-        return node;   
+
+        return node;
     }
 }
 

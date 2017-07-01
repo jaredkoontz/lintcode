@@ -9,12 +9,12 @@ import static org.junit.Assert.assertEquals;
  */
 public class AddBinaryTest {
 
-	@Test
-	public void happyPath() {
-		String a = "11";
-		String b = "1";
-		AddBinary addBinary = new AddBinary();
-		assertEquals(addBinary.addBinary(a, b), "100");
-	}
+    @Test
+    public void happyPath() {
+        String a = "11";
+        String b = "1";
+        AddBinary addBinary = new AddBinary();
+        assertEquals(addBinary.addBinary(a, b), "100");
+    }
 
 }

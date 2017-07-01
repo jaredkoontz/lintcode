@@ -1,8 +1,8 @@
 E
 
-basic implementation
+        basic implementation
 
-```
+        ```
 /*
 Cosine similarity is a measure of similarity between two vectors of an inner product space
  that measures the cosine of the angle between them. 
@@ -29,7 +29,7 @@ Return 2.0000
 */
 
 /*
-	Thoughts
+    Thoughts
 	Based on the given equation. Write up calculation
 	Check border.
 */
@@ -41,22 +41,22 @@ class Solution {
      * @return: Cosine similarity.
      */
     public double cosineSimilarity(int[] A, int[] B) {
-    	if (A == null || B == null || A.length == 0 || B.length == 0 || A.length != B.length) {
-    		return 2;
-    	}
+        if (A == null || B == null || A.length == 0 || B.length == 0 || A.length != B.length) {
+            return 2;
+        }
 
-    	double sumProduct = 0;
-    	double sumASq = 0;
-    	double sumBSq = 0;
-    	for (int i = 0; i < A.length; i++) {
-    		sumProduct += A[i]*B[i];
-    		sumASq += A[i] * A[i];
-    		sumBSq += B[i] * B[i];
-    	}
-    	if (sumASq == 0 && sumBSq == 0) {
-    		return 2.0;
-    	}
-    	return sumProduct / (Math.sqrt(sumASq) * Math.sqrt(sumBSq));
+        double sumProduct = 0;
+        double sumASq = 0;
+        double sumBSq = 0;
+        for (int i = 0; i < A.length; i++) {
+            sumProduct += A[i] * B[i];
+            sumASq += A[i] * A[i];
+            sumBSq += B[i] * B[i];
+        }
+        if (sumASq == 0 && sumBSq == 0) {
+            return 2.0;
+        }
+        return sumProduct / (Math.sqrt(sumASq) * Math.sqrt(sumBSq));
     }
 }
 

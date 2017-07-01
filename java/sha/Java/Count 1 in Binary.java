@@ -1,10 +1,10 @@
 E
 
-1. 可以把integer -> string -> char array.
+        1.可以把integer->string->char array.
 
-2. 或者就 count += num << i & 1
+        2.或者就 count+=num<<i&1
 
-```
+        ```
 /*
 Count how many 1 in binary representation of a 32-bit integer.
 
@@ -26,8 +26,6 @@ Thoughts:
 2. convert char[] into integer using Character.getNumericValue()
 
 */
-
-
 
 
 public class Solution {

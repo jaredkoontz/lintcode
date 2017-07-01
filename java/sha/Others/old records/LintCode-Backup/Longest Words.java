@@ -49,23 +49,23 @@ class Solution {
      * @return: an arraylist of strings
      */
     ArrayList<String> longestWords(String[] dictionary) {
-    	if (dictionary == null || dictionary.length == 0) {
-    		return null;
-    	}
-    	HashMap<Integer, ArrayList<String>> map = new HashMap<Integer, ArrayList<String>>();
-    	int longestLength = 0;
+        if (dictionary == null || dictionary.length == 0) {
+            return null;
+        }
+        HashMap<Integer, ArrayList<String>> map = new HashMap<Integer, ArrayList<String>>();
+        int longestLength = 0;
 
-    	for (int i = 0; i < dictionary.length; i++) {
-    		int strLength = dictionary[i].length();
-    		if (map.containsKey(strLength)) {
-    			map.get(strLength).add(dictionary[i]);
-    		} else {
-    			ArrayList<String> list = new ArrayList<String>();
-    			list.add(dictionary[i]);
-    			map.put(strLength, list);
-    		}
-    		longestLength = strLength > longestLength ? strLength : longestLength;
-    	}
-    	return map.get(longestLength);
+        for (int i = 0; i < dictionary.length; i++) {
+            int strLength = dictionary[i].length();
+            if (map.containsKey(strLength)) {
+                map.get(strLength).add(dictionary[i]);
+            } else {
+                ArrayList<String> list = new ArrayList<String>();
+                list.add(dictionary[i]);
+                map.put(strLength, list);
+            }
+            longestLength = strLength > longestLength ? strLength : longestLength;
+        }
+        return map.get(longestLength);
     }
 };

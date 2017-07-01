@@ -1,12 +1,12 @@
 M
 
-理解意思是关键：   
-   每天都就交易价格，n天只让买卖一次，那就找个最低价买进，找个最高价卖出。
-   记录每天最小值Min是多少。O(n)
-   每天都算和当下的Min买卖，profit最大多少。
+        理解意思是关键：
+        每天都就交易价格，n天只让买卖一次，那就找个最低价买进，找个最高价卖出。
+        记录每天最小值Min是多少。O(n)
+        每天都算和当下的Min买卖，profit最大多少。
 
 
-```
+        ```
 /*
 Say you have an array for which the ith element is the price of a given stock on day i.
 

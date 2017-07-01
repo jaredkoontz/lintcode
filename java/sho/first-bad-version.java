@@ -1,10 +1,10 @@
 /**
  * public class VersionControl {
- *     public static boolean isBadVersion(int k);
+ * public static boolean isBadVersion(int k);
  * }
- * you can use VersionControl.isBadVersion(k) to judge wether 
+ * you can use VersionControl.isBadVersion(k) to judge wether
  * the kth code version is bad or not.
-*/
+ */
 class Solution {
     /**
      * @param n: An integers.
@@ -14,7 +14,7 @@ class Solution {
         // write your code here
         int start = 1;
         int end = n;
-        
+
         while (start + 1 < end) {
             int mid = (start + end) / 2;
             if (VersionControl.isBadVersion(mid)) {
@@ -22,15 +22,15 @@ class Solution {
             } else {
                 start = mid;
             }
-        }        
-        
+        }
+
         if (VersionControl.isBadVersion(start)) {
             return start;
         }
         if (VersionControl.isBadVersion(end)) {
             return end;
         }
-        
+
         return -1;
     }
 }

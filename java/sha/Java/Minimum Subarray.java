@@ -29,15 +29,15 @@ public class Solution {
      * @return: A integer indicate the sum of minimum subarray
      */
     public int minSubArray(ArrayList<Integer> nums) {
-		if (nums == null || nums.size() == 0) {
-			return 0;
-		}	
-		int curMin = nums.get(0);
-		int minRst = nums.get(0);
-		for (int i = 1; i < nums.size(); i++) {
-			curMin = Math.min(nums.get(i), curMin + nums.get(i));
-			minRst = Math.min(curMin, minRst);
-		}
-		return minRst;
+        if (nums == null || nums.size() == 0) {
+            return 0;
+        }
+        int curMin = nums.get(0);
+        int minRst = nums.get(0);
+        for (int i = 1; i < nums.size(); i++) {
+            curMin = Math.min(nums.get(i), curMin + nums.get(i));
+            minRst = Math.min(curMin, minRst);
+        }
+        return minRst;
     }
 }

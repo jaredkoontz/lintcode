@@ -1,8 +1,8 @@
-O(1) sapce: 用快慢指针。一个跑.next, 一个跑.next.next。 总有一次，fast会因为cycle而追上slow。
-那个时候其实slow.val = fast.val.
+O(1)sapce:用快慢指针。一个跑.next,一个跑.next.next。 总有一次，fast会因为cycle而追上slow。
+        那个时候其实slow.val=fast.val.
 
-O(n):用HashMap，一直add elements.  如果有重复，那么很显然是有Cycle le 
-```
+        O(n):用HashMap，一直add elements.如果有重复，那么很显然是有Cycle le
+        ```
 /*
 50% Accepted
 Given a linked list, determine if it has a cycle in it.
@@ -23,12 +23,12 @@ Linked List Two Pointers
 /**
  * Definition for ListNode.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int val) {
- *         this.val = val;
- *         this.next = null;
- *     }
+ * int val;
+ * ListNode next;
+ * ListNode(int val) {
+ * this.val = val;
+ * this.next = null;
+ * }
  * }
  */ 
 
@@ -41,9 +41,9 @@ Linked List Two Pointers
     IMPORTANT: do not compare the value, because they didn't say value has to be unique.
     Even with same value, the ListNode object can be different at different index.
 */
-    
+
 public class Solution {
-    public boolean hasCycle(ListNode head) {  
+    public boolean hasCycle(ListNode head) {
         if (head == null || head.next == null) {
             return false;
         }

@@ -1,17 +1,17 @@
 M
 
-用Priorityqueue来排列所有list的leading node.
+        用Priorityqueue来排列所有list的leading node.
 
-记得k lists 需要是已经sort好的。   
+        记得k lists 需要是已经sort好的。
 
-时间：n*O(logk)   
-PriorityQueue: logk   
+        时间：n*O(logk)
+        PriorityQueue:logk
 
-这个题目可以有好几个衍生：   
-   比如，如果k很大，一个机器上放不下所有的k list怎么办？ 
-   比如，如果Merge起来的很长，一个机器上放不下怎么办？
+        这个题目可以有好几个衍生：
+        比如，如果k很大，一个机器上放不下所有的k list怎么办？
+        比如，如果Merge起来的很长，一个机器上放不下怎么办？
 
-```
+        ```
 
 /*
 
@@ -39,9 +39,9 @@ Divide and Conquer Linked List Priority Queue Heap Uber Google Twitter LinkedIn 
 /**
  * Definition for singly-linked list.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
+ * int val;
+ * ListNode next;
+ * ListNode(int x) { val = x; }
  * }
  */
 
@@ -54,37 +54,37 @@ Divide and Conquer Linked List Priority Queue Heap Uber Google Twitter LinkedIn 
     time: m * Log(k)
 */
 public class Solution {
-    public ListNode mergeKLists(List<ListNode> lists) {  
+    public ListNode mergeKLists(List<ListNode> lists) {
         if (lists == null || lists.size() == 0) {
             return null;
         }
-        PriorityQueue<ListNode> queue = 
-        new PriorityQueue<ListNode>(lists.size(), new Comparator<ListNode>(){
-            public int compare(ListNode a, ListNode b){
-                return a.val - b.val;
-            }
-        });
-        
+        PriorityQueue<ListNode> queue =
+                new PriorityQueue<ListNode>(lists.size(), new Comparator<ListNode>() {
+                    public int compare(ListNode a, ListNode b) {
+                        return a.val - b.val;
+                    }
+                });
+
         //populate queue with k lists' header
         for (int i = 0; i < lists.size(); i++) {
             if (lists.get(i) != null) {
                 queue.offer(lists.get(i));
             }
         }
-        
+
         ListNode dummy = new ListNode(0);
         ListNode node = dummy;
         while (!queue.isEmpty()) {
             ListNode curr = queue.poll();
             node.next = curr;
-            
+
             if (curr.next != null) {
                 queue.offer(curr.next);
             }
-             
-            node = node.next;   
+
+            node = node.next;
         }
-        
+
         return dummy.next;
     }
 }

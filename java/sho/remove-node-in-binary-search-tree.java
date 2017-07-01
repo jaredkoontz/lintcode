@@ -1,17 +1,17 @@
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
 public class Solution {
     /**
-     * @param root: The root of the binary search tree.
+     * @param root:  The root of the binary search tree.
      * @param value: Remove the node with given value.
      * @return: The root of the binary search tree after removal.
      */
@@ -29,10 +29,10 @@ public class Solution {
         // solution line number - 5: actual line number.
         // TreeNode a = null;
         // TreeNode b = a.left;
-        
+
         TreeNode runner = root;
         TreeNode parent = null;
-        
+
         while (runner != null && runner.val != value) {
             parent = runner;
             if (runner.val < value) {
@@ -41,12 +41,12 @@ public class Solution {
                 runner = runner.left;
             }
         }
-        
+
         if (runner == null) {
             // cannot find the target
             return root;
         }
-        
+
         // runner now is the target node.
         // parent node is runner's parent.
         if (runner.left == null && runner.right == null) {
@@ -62,22 +62,22 @@ public class Solution {
         } else if (runner.left == null || runner.right == null) {
             if (parent == null) {
                 // removing root that has one subtree
-                root = runner.left == null? runner.right : runner.left;
+                root = runner.left == null ? runner.right : runner.left;
             } else if (parent.left == runner) {
-                parent.left = runner.left == null? runner.right : runner.left;
+                parent.left = runner.left == null ? runner.right : runner.left;
             } else {
-                parent.right = runner.left == null? runner.right : runner.left;
+                parent.right = runner.left == null ? runner.right : runner.left;
             }
         } else {
             // has two children.
             TreeNode pre = runner.left;
             TreeNode preParent = null;
-            
+
             while (pre.right != null) {
                 preParent = pre;
                 pre = pre.right;
             }
-            
+
             // if preParent is null, parent is runner.
             runner.val = pre.val;
             // Key observation here: predecessor can either has no children
@@ -115,11 +115,11 @@ public class Solution {
             //         preParent.right = pre.left;
             //     }
             // }
-            
+
         }
-        
+
         return root;
     }
-    
-   
+
+
 }

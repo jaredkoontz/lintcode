@@ -1,14 +1,14 @@
 /**
  * Definition for ListNode.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int val) {
- *         this.val = val;
- *         this.next = null;
- *     }
+ * int val;
+ * ListNode next;
+ * ListNode(int val) {
+ * this.val = val;
+ * this.next = null;
  * }
- */ 
+ * }
+ */
 public class Solution {
     /**
      * @param ListNode l1 is the head of the linked list
@@ -19,7 +19,7 @@ public class Solution {
         // write your code here
         ListNode dummy = new ListNode(1);
         ListNode runner = dummy;
-        
+
         while (l1 != null || l2 != null) {
             if (l1 == null) {
                 runner.next = l2;
@@ -36,10 +36,10 @@ public class Solution {
                     l2 = l2.next;
                 }
             }
-            
+
             runner = runner.next;
         }
-        
+
         return dummy.next;
     }
 }

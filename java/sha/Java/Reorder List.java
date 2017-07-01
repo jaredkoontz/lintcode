@@ -26,14 +26,14 @@ Note: re-order in place, does not necessarily mean you can create any variable. 
 /**
  * Definition for ListNode.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int val) {
- *         this.val = val;
- *         this.next = null;
- *     }
+ * int val;
+ * ListNode next;
+ * ListNode(int val) {
+ * this.val = val;
+ * this.next = null;
  * }
- */ 
+ * }
+ */
 public class Solution {
     private ListNode reverse(ListNode head) {
         ListNode reversedList = null;
@@ -76,8 +76,8 @@ public class Solution {
         }
         return slow;
     }
-    
-    
+
+
     public void reorderList(ListNode head) {
         if (head == null || head.next == null) {
             return;

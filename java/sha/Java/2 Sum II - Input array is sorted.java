@@ -1,9 +1,9 @@
 M
 
-排序好的array. Binary Search移动start和end，核查sum。
+        排序好的array.Binary Search移动start和end，核查sum。
 
 
-```
+        ```
 /*
 Given an array of integers that is already sorted in ascending order, 
 find two numbers such that they add up to a specific target number.
@@ -38,8 +38,8 @@ public class Solution {
         }
         int start = 0;
         int end = nums.length - 1;
-        while(start < end) {
-            long sum = (long)(nums[start] + nums[end]);
+        while (start < end) {
+            long sum = (long) (nums[start] + nums[end]);
             if (target == sum) {
                 rst[0] = start + 1;
                 rst[1] = end + 1;

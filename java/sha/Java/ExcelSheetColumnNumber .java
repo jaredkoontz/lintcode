@@ -1,10 +1,10 @@
 E
 
-'A' - 'A' = 0. 所以 char - 'A' + 1 = 题目里的对应数位。      
-26位运算和10位一样嘛，num += 每位的digit * Math.pow(26, 数位号)。
+        'A'-'A'=0.所以 char-'A'+1=题目里的对应数位。
+        26位运算和10位一样嘛，num+=每位的digit*Math.pow(26,数位号)。
 
 
-```
+        ```
 /*
 Given a column title as appear in an Excel sheet, return its corresponding column number.
 
@@ -21,6 +21,7 @@ For example:
 
 
 public class Solution {//ABC -> 'A', 'B', 'C'
+
     public int titleToNumber(String s) {//S = AA
         int rst = 0;
         char[] arr = s.toCharArray();

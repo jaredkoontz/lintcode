@@ -12,10 +12,10 @@ public class Solution {
         }
         // why use aLen + 1 here: avoid edge case negative indexes.
         int[][] dp = new int[aLen + 1][bLen + 1];
-        
+
         for (int i = 1; i <= aLen; i++) {
             for (int j = 1; j <= bLen; j++) {
-                if (A.charAt(i - 1) == B.charAt(j -1)) {
+                if (A.charAt(i - 1) == B.charAt(j - 1)) {
                     dp[i][j] = 1 + dp[i - 1][j - 1];
                 }
             }
@@ -24,10 +24,10 @@ public class Solution {
         int max = 0;
         for (int i = 1; i <= aLen; i++) {
             for (int j = 1; j <= bLen; j++) {
-                max = max < dp[i][j]? dp[i][j] : max;
+                max = max < dp[i][j] ? dp[i][j] : max;
             }
         }
-        
+
         return max;
     }
 }

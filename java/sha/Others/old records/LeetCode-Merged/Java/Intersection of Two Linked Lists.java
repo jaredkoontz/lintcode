@@ -33,40 +33,40 @@ Start comparing from same distance from end.
 /**
  * Definition for singly-linked list.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
+ * int val;
+ * ListNode next;
+ * ListNode(int x) {
+ * val = x;
+ * next = null;
+ * }
  * }
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         if (headA == null && headB == null) {
-        	return headA;
+            return headA;
         }
         //Get size:
         ListNode node = headA;
         int sizeA = 0;
-        while(node != null) {
+        while (node != null) {
             sizeA++;
             node = node.next;
         }
         node = headB;
         int sizeB = 0;
-        while(node != null) {
+        while (node != null) {
             sizeB++;
             node = node.next;
         }
-        
+
         ListNode nodeA = headA;
         ListNode nodeB = headB;
         int lenDiff = (sizeA >= sizeB ? 1 : -1) * (sizeA - sizeB);
         node = sizeA >= sizeB ? headA : headB;
         while (lenDiff > 0) {
-        	node = node.next;
-        	lenDiff--;
+            node = node.next;
+            lenDiff--;
         }
         if (sizeA >= sizeB) {
             nodeA = node;
@@ -74,12 +74,12 @@ public class Solution {
             nodeB = node;
         }
         while (nodeA != null) {
-        	if (nodeA.val == nodeB.val) {
-        		return nodeA;
-        	} else {
-        		nodeA = nodeA.next;
-        		nodeB = nodeB.next;
-        	}
+            if (nodeA.val == nodeB.val) {
+                return nodeA;
+            } else {
+                nodeA = nodeA.next;
+                nodeB = nodeB.next;
+            }
         }//END while
         return null;
     }

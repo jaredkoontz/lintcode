@@ -8,7 +8,7 @@ class Solution {
         if (b == 0) {
             return a;
         }
-        
+
         int sum = a ^ b; // add without carry
         int carry = (a & b) << 1; // carry without sum;
         return aplusb(sum, carry);

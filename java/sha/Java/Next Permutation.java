@@ -1,19 +1,19 @@
 M
 
-需斟酌。
+        需斟酌。
 
-Permutation的规律:     
-1. 从小的数字开始变化因为都是从小的数字开始recursive遍历。    
-2. 正因为1的规律，所以找大的断点数字要从末尾开始： 确保swap过后的permutation依然是 前缀固定时 当下最小的。    
+        Permutation的规律:
+        1.从小的数字开始变化因为都是从小的数字开始recursive遍历。
+        2.正因为1的规律，所以找大的断点数字要从末尾开始： 确保swap过后的permutation依然是 前缀固定时 当下最小的。
 
-steps:    
-1. 找到最后一个上升点，k      
-2. 从后往前，找到第一个比k大的点, bigIndex      
-3. swap k &&　bigIndex     
-4. 最后反转 (k+1，end)      
+        steps:
+        1.找到最后一个上升点，k
+        2.从后往前，找到第一个比k大的点,bigIndex
+        3.swap k&&　bigIndex
+        4.最后反转(k+1，end)
 
 
-```
+        ```
 /*
 Given a list of integers, which denote a permutation.
 
@@ -55,14 +55,14 @@ To find the next smallest permutation.
 public class Solution {
     //Revers the given part of a int[]
     public int[] reverse(int start, int end, int[] nums) {
-        for (int i = start, j = end; i < j; i++,j--) {
+        for (int i = start, j = end; i < j; i++, j--) {
             int temp = nums[i];
             nums[i] = nums[j];
             nums[j] = temp;
         }
         return nums;
     }
-    
+
     public int[] nextPermutation(int[] nums) {
         if (nums == null || nums.length == 0) {
             return nums;
@@ -93,7 +93,6 @@ public class Solution {
 
         return reverse(k + 1, nums.length - 1, nums);
     }
-
 
 
 }

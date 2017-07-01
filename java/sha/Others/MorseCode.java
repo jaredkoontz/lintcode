@@ -1,27 +1,26 @@
 想法:
-1. 只关注正数，找一个分割点，开始查看能不能有valid的解。
-2. 过程中，把正数可能有的所有正数的解都找出来，可能存为一个ArrayList<String> letters in morse format:
-String 是 "...    ---      ..." 每个字母之间有空格分开。
-这里可能生成所有possibilities。 其中有很多possibility在结合了负数后，可能就会不成立。
+        1.只关注正数，找一个分割点，开始查看能不能有valid的解。
+        2.过程中，把正数可能有的所有正数的解都找出来，可能存为一个ArrayList<String> letters in morse format:
+        String 是"...    ---      ..."每个字母之间有空格分开。
+        这里可能生成所有possibilities。 其中有很多possibility在结合了负数后，可能就会不成立。
 
-3. loop through arraylist: letters
-根据每个字母，以及每个字母后面的停顿，来尝试跟所有的负数，分段比较。
-比如第一个字母：[. -x . -y . -z]        z 肯定比x 和y都大； 而SOS后面的空出来的负数时间，应该比这个词里面的所有负数绝对值都大。
+        3.loop through arraylist:letters
+        根据每个字母，以及每个字母后面的停顿，来尝试跟所有的负数，分段比较。
+        比如第一个字母：[.-x.-y.-z]z 肯定比x 和y都大； 而SOS后面的空出来的负数时间，应该比这个词里面的所有负数绝对值都大。
 
-这样就把ArrayList Letters 里面的很多可能性都灭掉。出一个或者多个结果~
-
-
-
-当然：这里负数只做了最终判断的作用，而一开始正数出的结果可能会非常耗时。 
-而且假设了分段判断的规律，而不假设全局的规律。（好像更切合实际）。
+        这样就把ArrayList Letters 里面的很多可能性都灭掉。出一个或者多个结果~
 
 
-```
-//Trie
-  
-  
-import java.io.*;
-import java.util.*;
+        当然：这里负数只做了最终判断的作用，而一开始正数出的结果可能会非常耗时。
+        而且假设了分段判断的规律，而不假设全局的规律。（好像更切合实际）。
+
+
+        ```
+        //Trie
+
+
+        import java.io.*;
+        import java.util.*;
 
 /*
  * To execute Java, please define "static void main" on a class
@@ -107,16 +106,16 @@ If match, return all posibilities.
 
 */
 class Solution {
-  public static void main(String[] args) {
-    ArrayList<String> strings = new ArrayList<String>();
-    strings.add("Hello, World!");
-    strings.add("Welcome to CoderPad.");
-    strings.add("This pad is running Java 8.");
+    public static void main(String[] args) {
+        ArrayList<String> strings = new ArrayList<String>();
+        strings.add("Hello, World!");
+        strings.add("Welcome to CoderPad.");
+        strings.add("This pad is running Java 8.");
 
-    for (String string : strings) {
-      System.out.println(string);
+        for (String string : strings) {
+            System.out.println(string);
+        }
     }
-  }
 }
 
 ```

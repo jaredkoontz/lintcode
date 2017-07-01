@@ -7,7 +7,7 @@
 */
 
 /*
-	1. MapReduce related problem
+    1. MapReduce related problem
 		http://stackoverflow.com/questions/17928158/find-top-10-most-frequent-visited-url-data-is-stored-accross-network#
 	To mimic the process of MapReduce.
 
@@ -28,7 +28,7 @@
 
 
 /*
-	2. Top K words in a document:
+    2. Top K words in a document:
 	This is an actaul problem on LintCode
 	http://www.zrzahid.com/top-k-or-k-most-frequent-words-in-a-document/
 	http://www.geeksforgeeks.org/find-the-k-most-frequent-words-from-a-file/

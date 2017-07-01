@@ -1,6 +1,6 @@
 LintCode做过。
-用一个farest can go 来做个一个点的DP，记录可以跑到得最远的地方。
-```
+        用一个farest can go 来做个一个点的DP，记录可以跑到得最远的地方。
+        ```
 /*
 Given an array of non-negative integers, you are initially positioned at the first index of the array.
 

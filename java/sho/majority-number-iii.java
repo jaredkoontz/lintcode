@@ -1,20 +1,20 @@
 public class Solution {
     /**
      * @param nums: A list of integers
-     * @param k: As described
+     * @param k:    As described
      * @return: The majority number
      */
     public int majorityNumber(ArrayList<Integer> nums, int k) {
         // write your code
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-        
+
         for (Integer i : nums) {
             if (!map.containsKey(i)) {
                 map.put(i, 1);
             } else {
                 map.put(i, map.get(i) + 1);
             }
-            
+
             if (map.size() == k) {
                 removeKey(map);
             }
@@ -35,8 +35,8 @@ public class Solution {
         }
         return maxKey;
     }
-    
-    
+
+
     private void removeKey(Map<Integer, Integer> map) {
         Set<Integer> keySet = map.keySet();
         List<Integer> removeList = new ArrayList<>();

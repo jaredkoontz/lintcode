@@ -1,11 +1,11 @@
 E
 
-Preorder 写写， stack   
-1. Divide and conquer   
-2. Stack(NON-recursive) push curr, push right, push left.   
-3. recursive with helper method   
+        Preorder 写写， stack
+        1.Divide and conquer
+        2.Stack(NON-recursive)push curr,push right,push left.
+        3.recursive with helper method
 
-```
+        ```
 /*
 Given a binary tree, return the preorder traversal of its nodes' values.
 
@@ -43,7 +43,7 @@ Tree Binary Tree
 
 //Itereative
 public class Solution {
-   
+
     public ArrayList<Integer> preorderTraversal(TreeNode root) {
         ArrayList<Integer> rst = new ArrayList<Integer>();
         if (root == null) {
@@ -69,12 +69,12 @@ public class Solution {
         ArrayList<Integer> rst = new ArrayList<Integer>();
         if (root == null) {
             return rst;
-        }   
+        }
         helper(rst, root);
         return rst;
     }
 
-    public void helper(ArrayList<Integer>rst, TreeNode node){
+    public void helper(ArrayList<Integer> rst, TreeNode node) {
         if (node != null) {
             rst.add(node.val);
             helper(rst, node.left);
@@ -97,15 +97,16 @@ put left on stack
 4. In next run, the ‘left’ will be on top of stack, and will be taken first. So the order becomes: parent -> left -> right
 
 */
+
 /**
  * Definition of TreeNode:
  * public class TreeNode {
- *     public int val;
- *     public TreeNode left, right;
- *     public TreeNode(int val) {
- *         this.val = val;
- *         this.left = this.right = null;
- *     }
+ * public int val;
+ * public TreeNode left, right;
+ * public TreeNode(int val) {
+ * this.val = val;
+ * this.left = this.right = null;
+ * }
  * }
  */
 public class Solution {
@@ -114,30 +115,29 @@ public class Solution {
      * @return: Preorder in ArrayList which contains node values.
      */
     public ArrayList<Integer> preorderTraversal(TreeNode root) {
-         Stack<TreeNode> stack = new Stack<TreeNode>();
-         ArrayList<Integer> result = new ArrayList<Integer>();
-         //Check top
-         if (root == null) {
-             return result;
-         }
-         //save root
-         stack.push(root);
-         //add to result, and load on stack. Right-side at the bottom
-         while (!stack.empty()) {
-             TreeNode node = stack.pop();
-             result.add(node.val);
-             if (node.right != null) {
-                 stack.push(node.right);
-             }
-             if (node.left != null) {
-                 stack.push(node.left);
-             }
-         }//while
-         
-         return result;
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        //Check top
+        if (root == null) {
+            return result;
+        }
+        //save root
+        stack.push(root);
+        //add to result, and load on stack. Right-side at the bottom
+        while (!stack.empty()) {
+            TreeNode node = stack.pop();
+            result.add(node.val);
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+        }//while
+
+        return result;
     }
 }
-
 
 
 //Divide and Conquer - recursive
@@ -150,21 +150,21 @@ add left nodes
 add right nodes.
 */
 
-  //Divide and conquer
+    //Divide and conquer
     public ArrayList<Integer> preorderTraversal(TreeNode root) {
         // write your code here
         ArrayList<Integer> result = new ArrayList<Integer>();
-       
+
         if (root == null) {
             return result;
         }
         ArrayList<Integer> left = preorderTraversal(root.left);
         ArrayList<Integer> right = preorderTraversal(root.right);
-        
+
         result.add(root.val);
         result.addAll(left);
         result.addAll(right);
-        
+
         return result;
     }
 
